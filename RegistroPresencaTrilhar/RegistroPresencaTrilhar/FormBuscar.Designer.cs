@@ -33,9 +33,12 @@ namespace RegistroPresencaTrilhar
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TxtCampoPesquisa = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.valuesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codigoCadastroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeCriancaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataNascimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,9 +65,6 @@ namespace RegistroPresencaTrilhar
             this.chamadaLilas2AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chamadaVerde78AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valuesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TxtCampoPesquisa = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -76,9 +76,9 @@ namespace RegistroPresencaTrilhar
             // 
             this.panel1.Controls.Add(this.button2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 415);
+            this.panel1.Location = new System.Drawing.Point(0, 471);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(848, 78);
+            this.panel1.Size = new System.Drawing.Size(870, 78);
             this.panel1.TabIndex = 0;
             // 
             // button2
@@ -98,9 +98,31 @@ namespace RegistroPresencaTrilhar
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(848, 100);
+            this.groupBox2.Size = new System.Drawing.Size(870, 100);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
+            // 
+            // TxtCampoPesquisa
+            // 
+            this.TxtCampoPesquisa.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtCampoPesquisa.CausesValidation = false;
+            this.TxtCampoPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCampoPesquisa.ForeColor = System.Drawing.Color.Red;
+            this.TxtCampoPesquisa.Location = new System.Drawing.Point(12, 51);
+            this.TxtCampoPesquisa.Name = "TxtCampoPesquisa";
+            this.TxtCampoPesquisa.Size = new System.Drawing.Size(685, 35);
+            this.TxtCampoPesquisa.TabIndex = 24;
+            this.TxtCampoPesquisa.TextChanged += new System.EventHandler(this.TxtCampoPesquisa_TextChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label15.Location = new System.Drawing.Point(12, 17);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(235, 29);
+            this.label15.TabIndex = 25;
+            this.label15.Text = "Campo de pesquisa:";
             // 
             // button1
             // 
@@ -118,7 +140,7 @@ namespace RegistroPresencaTrilhar
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(848, 315);
+            this.groupBox1.Size = new System.Drawing.Size(870, 371);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -159,17 +181,23 @@ namespace RegistroPresencaTrilhar
             this.dataGridView1.DataSource = this.valuesDTOBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 22);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(842, 290);
+            this.dataGridView1.Size = new System.Drawing.Size(864, 346);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // valuesDTOBindingSource
+            // 
+            this.valuesDTOBindingSource.DataSource = typeof(RegistroPresencaTrilhar.ValuesDTO);
             // 
             // codigoCadastroDataGridViewTextBoxColumn
             // 
             this.codigoCadastroDataGridViewTextBoxColumn.DataPropertyName = "CodigoCadastro";
-            this.codigoCadastroDataGridViewTextBoxColumn.HeaderText = "CodigoCadastro";
+            this.codigoCadastroDataGridViewTextBoxColumn.HeaderText = "Código";
             this.codigoCadastroDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.codigoCadastroDataGridViewTextBoxColumn.Name = "codigoCadastroDataGridViewTextBoxColumn";
             this.codigoCadastroDataGridViewTextBoxColumn.ReadOnly = true;
@@ -177,53 +205,58 @@ namespace RegistroPresencaTrilhar
             // 
             // nomeCriancaDataGridViewTextBoxColumn
             // 
+            this.nomeCriancaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.nomeCriancaDataGridViewTextBoxColumn.DataPropertyName = "NomeCrianca";
-            this.nomeCriancaDataGridViewTextBoxColumn.HeaderText = "NomeCrianca";
+            this.nomeCriancaDataGridViewTextBoxColumn.HeaderText = "Nome";
             this.nomeCriancaDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.nomeCriancaDataGridViewTextBoxColumn.Name = "nomeCriancaDataGridViewTextBoxColumn";
             this.nomeCriancaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nomeCriancaDataGridViewTextBoxColumn.Width = 150;
+            this.nomeCriancaDataGridViewTextBoxColumn.Width = 87;
             // 
             // dataNascimentoDataGridViewTextBoxColumn
             // 
+            this.dataNascimentoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataNascimentoDataGridViewTextBoxColumn.DataPropertyName = "DataNascimento";
-            this.dataNascimentoDataGridViewTextBoxColumn.HeaderText = "DataNascimento";
+            this.dataNascimentoDataGridViewTextBoxColumn.HeaderText = "Data nascimento";
             this.dataNascimentoDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.dataNascimentoDataGridViewTextBoxColumn.Name = "dataNascimentoDataGridViewTextBoxColumn";
             this.dataNascimentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dataNascimentoDataGridViewTextBoxColumn.Width = 150;
+            this.dataNascimentoDataGridViewTextBoxColumn.Width = 152;
             // 
             // maeDataGridViewTextBoxColumn
             // 
+            this.maeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.maeDataGridViewTextBoxColumn.DataPropertyName = "Mae";
-            this.maeDataGridViewTextBoxColumn.HeaderText = "Mae";
+            this.maeDataGridViewTextBoxColumn.HeaderText = "Mãe";
             this.maeDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.maeDataGridViewTextBoxColumn.Name = "maeDataGridViewTextBoxColumn";
             this.maeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.maeDataGridViewTextBoxColumn.Width = 150;
+            this.maeDataGridViewTextBoxColumn.Width = 76;
             // 
             // paiDataGridViewTextBoxColumn
             // 
+            this.paiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.paiDataGridViewTextBoxColumn.DataPropertyName = "Pai";
             this.paiDataGridViewTextBoxColumn.HeaderText = "Pai";
             this.paiDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.paiDataGridViewTextBoxColumn.Name = "paiDataGridViewTextBoxColumn";
             this.paiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.paiDataGridViewTextBoxColumn.Width = 150;
+            this.paiDataGridViewTextBoxColumn.Width = 67;
             // 
             // outroResponsavelDataGridViewTextBoxColumn
             // 
+            this.outroResponsavelDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.outroResponsavelDataGridViewTextBoxColumn.DataPropertyName = "OutroResponsavel";
-            this.outroResponsavelDataGridViewTextBoxColumn.HeaderText = "OutroResponsavel";
+            this.outroResponsavelDataGridViewTextBoxColumn.HeaderText = "Outro responsável";
             this.outroResponsavelDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.outroResponsavelDataGridViewTextBoxColumn.Name = "outroResponsavelDataGridViewTextBoxColumn";
             this.outroResponsavelDataGridViewTextBoxColumn.ReadOnly = true;
-            this.outroResponsavelDataGridViewTextBoxColumn.Width = 150;
+            this.outroResponsavelDataGridViewTextBoxColumn.Width = 160;
             // 
             // selecioneATurmaDataGridViewTextBoxColumn
             // 
             this.selecioneATurmaDataGridViewTextBoxColumn.DataPropertyName = "SelecioneATurma";
-            this.selecioneATurmaDataGridViewTextBoxColumn.HeaderText = "SelecioneATurma";
+            this.selecioneATurmaDataGridViewTextBoxColumn.HeaderText = "Turma";
             this.selecioneATurmaDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.selecioneATurmaDataGridViewTextBoxColumn.Name = "selecioneATurmaDataGridViewTextBoxColumn";
             this.selecioneATurmaDataGridViewTextBoxColumn.ReadOnly = true;
@@ -241,7 +274,7 @@ namespace RegistroPresencaTrilhar
             // enderecoEmailDataGridViewTextBoxColumn
             // 
             this.enderecoEmailDataGridViewTextBoxColumn.DataPropertyName = "EnderecoEmail";
-            this.enderecoEmailDataGridViewTextBoxColumn.HeaderText = "EnderecoEmail";
+            this.enderecoEmailDataGridViewTextBoxColumn.HeaderText = "Endereco de email";
             this.enderecoEmailDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.enderecoEmailDataGridViewTextBoxColumn.Name = "enderecoEmailDataGridViewTextBoxColumn";
             this.enderecoEmailDataGridViewTextBoxColumn.ReadOnly = true;
@@ -259,7 +292,7 @@ namespace RegistroPresencaTrilhar
             // seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn
             // 
             this.seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn.DataPropertyName = "SeAlergiaSimPreenchaAqui";
-            this.seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn.HeaderText = "SeAlergiaSimPreenchaAqui";
+            this.seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn.HeaderText = "Desc. alergia";
             this.seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn.Name = "seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn";
             this.seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn.ReadOnly = true;
@@ -268,7 +301,7 @@ namespace RegistroPresencaTrilhar
             // restrincaoAlimentarDataGridViewTextBoxColumn
             // 
             this.restrincaoAlimentarDataGridViewTextBoxColumn.DataPropertyName = "RestrincaoAlimentar";
-            this.restrincaoAlimentarDataGridViewTextBoxColumn.HeaderText = "RestrincaoAlimentar";
+            this.restrincaoAlimentarDataGridViewTextBoxColumn.HeaderText = "Restrinção alimentar";
             this.restrincaoAlimentarDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.restrincaoAlimentarDataGridViewTextBoxColumn.Name = "restrincaoAlimentarDataGridViewTextBoxColumn";
             this.restrincaoAlimentarDataGridViewTextBoxColumn.ReadOnly = true;
@@ -277,7 +310,7 @@ namespace RegistroPresencaTrilhar
             // seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn
             // 
             this.seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn.DataPropertyName = "SeRestrincaoAlimentarSimDescreva";
-            this.seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn.HeaderText = "SeRestrincaoAlimentarSimDescreva";
+            this.seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn.HeaderText = "Desc. restrinção alim.";
             this.seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn.Name = "seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn";
             this.seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn.ReadOnly = true;
@@ -286,7 +319,7 @@ namespace RegistroPresencaTrilhar
             // algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn
             // 
             this.algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn.DataPropertyName = "AlgumaDeficienciaOuSituacaoAtipica";
-            this.algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn.HeaderText = "AlgumaDeficienciaOuSituacaoAtipica";
+            this.algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn.HeaderText = "Deficiência ou situação atípica";
             this.algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn.Name = "algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn";
             this.algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn.ReadOnly = true;
@@ -295,7 +328,7 @@ namespace RegistroPresencaTrilhar
             // seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn
             // 
             this.seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn.DataPropertyName = "SeAlgumaDeficienciaDescrevaOsDetalhes";
-            this.seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn.HeaderText = "SeAlgumaDeficienciaDescrevaOsDetalhes";
+            this.seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn.HeaderText = "Desc. deficiência ou sit.";
             this.seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn.Name = "seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn";
             this.seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn.ReadOnly = true;
@@ -313,7 +346,7 @@ namespace RegistroPresencaTrilhar
             // dataBatismoDataGridViewTextBoxColumn
             // 
             this.dataBatismoDataGridViewTextBoxColumn.DataPropertyName = "DataBatismo";
-            this.dataBatismoDataGridViewTextBoxColumn.HeaderText = "DataBatismo";
+            this.dataBatismoDataGridViewTextBoxColumn.HeaderText = "Data batismo";
             this.dataBatismoDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.dataBatismoDataGridViewTextBoxColumn.Name = "dataBatismoDataGridViewTextBoxColumn";
             this.dataBatismoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -322,7 +355,7 @@ namespace RegistroPresencaTrilhar
             // igrejaBatizouDataGridViewTextBoxColumn
             // 
             this.igrejaBatizouDataGridViewTextBoxColumn.DataPropertyName = "IgrejaBatizou";
-            this.igrejaBatizouDataGridViewTextBoxColumn.HeaderText = "IgrejaBatizou";
+            this.igrejaBatizouDataGridViewTextBoxColumn.HeaderText = "Igreja batismo";
             this.igrejaBatizouDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.igrejaBatizouDataGridViewTextBoxColumn.Name = "igrejaBatizouDataGridViewTextBoxColumn";
             this.igrejaBatizouDataGridViewTextBoxColumn.ReadOnly = true;
@@ -400,45 +433,20 @@ namespace RegistroPresencaTrilhar
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn.ReadOnly = true;
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn.Width = 150;
             // 
-            // valuesDTOBindingSource
-            // 
-            this.valuesDTOBindingSource.DataSource = typeof(RegistroPresencaTrilhar.ValuesDTO);
-            // 
-            // TxtCampoPesquisa
-            // 
-            this.TxtCampoPesquisa.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtCampoPesquisa.CausesValidation = false;
-            this.TxtCampoPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCampoPesquisa.ForeColor = System.Drawing.Color.Red;
-            this.TxtCampoPesquisa.Location = new System.Drawing.Point(12, 51);
-            this.TxtCampoPesquisa.Name = "TxtCampoPesquisa";
-            this.TxtCampoPesquisa.Size = new System.Drawing.Size(685, 35);
-            this.TxtCampoPesquisa.TabIndex = 24;
-            this.TxtCampoPesquisa.TextChanged += new System.EventHandler(this.TxtCampoPesquisa_TextChanged);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label15.Location = new System.Drawing.Point(12, 17);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(235, 29);
-            this.label15.TabIndex = 25;
-            this.label15.Text = "Campo de pesquisa:";
-            // 
             // FormBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 493);
+            this.ClientSize = new System.Drawing.Size(870, 549);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(870, 549);
             this.Name = "FormBuscar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormBuscar";
             this.Load += new System.EventHandler(this.FormBuscar_Load);
             this.panel1.ResumeLayout(false);
@@ -459,6 +467,9 @@ namespace RegistroPresencaTrilhar
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource valuesDTOBindingSource;
+        private System.Windows.Forms.TextBox TxtCampoPesquisa;
+        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoCadastroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeCriancaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataNascimentoDataGridViewTextBoxColumn;
@@ -485,8 +496,5 @@ namespace RegistroPresencaTrilhar
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadaLilas2AnosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadaVerde78AnosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadaVermelho56AnosDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource valuesDTOBindingSource;
-        private System.Windows.Forms.TextBox TxtCampoPesquisa;
-        private System.Windows.Forms.Label label15;
     }
 }
