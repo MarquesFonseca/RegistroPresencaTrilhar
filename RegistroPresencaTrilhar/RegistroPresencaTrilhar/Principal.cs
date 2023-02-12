@@ -257,6 +257,9 @@ namespace RegistroPresencaTrilhar
                                 {
                                     var valuesDTO = record.values.Adapt<ValuesDTO>();
                                     valuesDTOList.Add(valuesDTO);
+                                    
+                                    toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
+                                    toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
                                 }
                             }
                         }
@@ -330,18 +333,17 @@ namespace RegistroPresencaTrilhar
 
         private void linkLabelBuscarPeloNome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //var itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == TxtCodigoCadastro.Text).FirstOrDefault();
-
-            ValuesDTO itemAtual = new ValuesDTO();
             FormBuscar frm = new FormBuscar(valuesDTOList);
             frm.ShowDialog();
             
+            ValuesDTO itemAtual = new ValuesDTO();
             itemAtual = (ValuesDTO)frm.ItemSelecionado;
-            itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == "1554").FirstOrDefault();
+            itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == itemAtual.CodigoCadastro).FirstOrDefault();
 
             CarregaCampos(itemAtual);
 
-            CarregaCampos(itemAtual);
+            TxtCodigoCadastro.Focus();
+            TxtCodigoCadastro.SelectAll();
         }
     }
 }

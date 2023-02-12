@@ -91,7 +91,7 @@ namespace RegistroPresencaTrilhar
             this.linkLabelBuscarPeloNome.Location = new System.Drawing.Point(12, 9);
             this.linkLabelBuscarPeloNome.Name = "linkLabelBuscarPeloNome";
             this.linkLabelBuscarPeloNome.Size = new System.Drawing.Size(208, 29);
-            this.linkLabelBuscarPeloNome.TabIndex = 18;
+            this.linkLabelBuscarPeloNome.TabIndex = 0;
             this.linkLabelBuscarPeloNome.TabStop = true;
             this.linkLabelBuscarPeloNome.Text = "Buscar pelo nome";
             this.linkLabelBuscarPeloNome.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBuscarPeloNome_LinkClicked);
@@ -103,7 +103,7 @@ namespace RegistroPresencaTrilhar
             this.linkLabelBuscarPeloPai.Location = new System.Drawing.Point(448, 9);
             this.linkLabelBuscarPeloPai.Name = "linkLabelBuscarPeloPai";
             this.linkLabelBuscarPeloPai.Size = new System.Drawing.Size(180, 29);
-            this.linkLabelBuscarPeloPai.TabIndex = 19;
+            this.linkLabelBuscarPeloPai.TabIndex = 2;
             this.linkLabelBuscarPeloPai.TabStop = true;
             this.linkLabelBuscarPeloPai.Text = "Buscar pelo pai";
             // 
@@ -114,7 +114,7 @@ namespace RegistroPresencaTrilhar
             this.linkLabelBuscarPelaMae.Location = new System.Drawing.Point(236, 9);
             this.linkLabelBuscarPelaMae.Name = "linkLabelBuscarPelaMae";
             this.linkLabelBuscarPelaMae.Size = new System.Drawing.Size(193, 29);
-            this.linkLabelBuscarPelaMae.TabIndex = 20;
+            this.linkLabelBuscarPelaMae.TabIndex = 1;
             this.linkLabelBuscarPelaMae.TabStop = true;
             this.linkLabelBuscarPelaMae.Text = "Buscar pela mãe";
             // 
@@ -126,7 +126,7 @@ namespace RegistroPresencaTrilhar
             this.linkLabel1.Location = new System.Drawing.Point(844, 9);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(177, 29);
-            this.linkLabel1.TabIndex = 21;
+            this.linkLabel1.TabIndex = 3;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Atualizar dados";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
@@ -139,7 +139,7 @@ namespace RegistroPresencaTrilhar
             this.BtnRegistrarPresenca.Location = new System.Drawing.Point(686, 108);
             this.BtnRegistrarPresenca.Name = "BtnRegistrarPresenca";
             this.BtnRegistrarPresenca.Size = new System.Drawing.Size(336, 66);
-            this.BtnRegistrarPresenca.TabIndex = 26;
+            this.BtnRegistrarPresenca.TabIndex = 8;
             this.BtnRegistrarPresenca.Text = "Registrar presença";
             this.BtnRegistrarPresenca.UseVisualStyleBackColor = true;
             // 
@@ -152,7 +152,7 @@ namespace RegistroPresencaTrilhar
             this.TxtNomeCrianca.Name = "TxtNomeCrianca";
             this.TxtNomeCrianca.ReadOnly = true;
             this.TxtNomeCrianca.Size = new System.Drawing.Size(445, 57);
-            this.TxtNomeCrianca.TabIndex = 25;
+            this.TxtNomeCrianca.TabIndex = 7;
             // 
             // LblNomeCrianca
             // 
@@ -161,7 +161,7 @@ namespace RegistroPresencaTrilhar
             this.LblNomeCrianca.Location = new System.Drawing.Point(225, 72);
             this.LblNomeCrianca.Name = "LblNomeCrianca";
             this.LblNomeCrianca.Size = new System.Drawing.Size(270, 37);
-            this.LblNomeCrianca.TabIndex = 24;
+            this.LblNomeCrianca.TabIndex = 6;
             this.LblNomeCrianca.Text = "Nome da criança:";
             // 
             // TxtCodigoCadastro
@@ -173,7 +173,7 @@ namespace RegistroPresencaTrilhar
             this.TxtCodigoCadastro.Location = new System.Drawing.Point(16, 112);
             this.TxtCodigoCadastro.Name = "TxtCodigoCadastro";
             this.TxtCodigoCadastro.Size = new System.Drawing.Size(192, 57);
-            this.TxtCodigoCadastro.TabIndex = 22;
+            this.TxtCodigoCadastro.TabIndex = 5;
             this.TxtCodigoCadastro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCadastro_KeyDown);
             // 
             // label15
@@ -183,7 +183,7 @@ namespace RegistroPresencaTrilhar
             this.label15.Location = new System.Drawing.Point(15, 72);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(198, 37);
-            this.label15.TabIndex = 23;
+            this.label15.TabIndex = 4;
             this.label15.Text = "Código cad.:";
             // 
             // TxtIdadeCrianca
@@ -195,7 +195,7 @@ namespace RegistroPresencaTrilhar
             this.TxtIdadeCrianca.Name = "TxtIdadeCrianca";
             this.TxtIdadeCrianca.ReadOnly = true;
             this.TxtIdadeCrianca.Size = new System.Drawing.Size(625, 57);
-            this.TxtIdadeCrianca.TabIndex = 32;
+            this.TxtIdadeCrianca.TabIndex = 14;
             // 
             // TxtDataNascimento
             // 
@@ -205,7 +205,7 @@ namespace RegistroPresencaTrilhar
             this.TxtDataNascimento.Name = "TxtDataNascimento";
             this.TxtDataNascimento.ReadOnly = true;
             this.TxtDataNascimento.Size = new System.Drawing.Size(311, 57);
-            this.TxtDataNascimento.TabIndex = 31;
+            this.TxtDataNascimento.TabIndex = 12;
             // 
             // label4
             // 
@@ -215,7 +215,7 @@ namespace RegistroPresencaTrilhar
             this.label4.Location = new System.Drawing.Point(74, 182);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(311, 37);
-            this.label4.TabIndex = 30;
+            this.label4.TabIndex = 11;
             this.label4.Text = "Data de nascimento:";
             // 
             // label1
@@ -226,7 +226,7 @@ namespace RegistroPresencaTrilhar
             this.label1.Location = new System.Drawing.Point(392, 182);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(263, 37);
-            this.label1.TabIndex = 29;
+            this.label1.TabIndex = 13;
             this.label1.Text = "Idade da criança:";
             // 
             // TxtTurmaAtual
@@ -238,7 +238,7 @@ namespace RegistroPresencaTrilhar
             this.TxtTurmaAtual.Name = "TxtTurmaAtual";
             this.TxtTurmaAtual.ReadOnly = true;
             this.TxtTurmaAtual.Size = new System.Drawing.Size(55, 57);
-            this.TxtTurmaAtual.TabIndex = 28;
+            this.TxtTurmaAtual.TabIndex = 10;
             // 
             // label3
             // 
@@ -247,7 +247,7 @@ namespace RegistroPresencaTrilhar
             this.label3.Location = new System.Drawing.Point(15, 182);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(199, 37);
-            this.label3.TabIndex = 27;
+            this.label3.TabIndex = 9;
             this.label3.Text = "Turma atual:";
             // 
             // TxtOutroResponsavel
@@ -259,7 +259,7 @@ namespace RegistroPresencaTrilhar
             this.TxtOutroResponsavel.Name = "TxtOutroResponsavel";
             this.TxtOutroResponsavel.ReadOnly = true;
             this.TxtOutroResponsavel.Size = new System.Drawing.Size(332, 53);
-            this.TxtOutroResponsavel.TabIndex = 22;
+            this.TxtOutroResponsavel.TabIndex = 5;
             // 
             // TxtPai
             // 
@@ -270,7 +270,7 @@ namespace RegistroPresencaTrilhar
             this.TxtPai.Name = "TxtPai";
             this.TxtPai.ReadOnly = true;
             this.TxtPai.Size = new System.Drawing.Size(330, 53);
-            this.TxtPai.TabIndex = 20;
+            this.TxtPai.TabIndex = 3;
             // 
             // TxtMae
             // 
@@ -281,7 +281,7 @@ namespace RegistroPresencaTrilhar
             this.TxtMae.Name = "TxtMae";
             this.TxtMae.ReadOnly = true;
             this.TxtMae.Size = new System.Drawing.Size(330, 53);
-            this.TxtMae.TabIndex = 18;
+            this.TxtMae.TabIndex = 1;
             // 
             // TxtDescricaoDeficienteAtipicos
             // 
@@ -295,7 +295,7 @@ namespace RegistroPresencaTrilhar
             this.TxtDescricaoDeficienteAtipicos.Name = "TxtDescricaoDeficienteAtipicos";
             this.TxtDescricaoDeficienteAtipicos.ReadOnly = true;
             this.TxtDescricaoDeficienteAtipicos.Size = new System.Drawing.Size(332, 146);
-            this.TxtDescricaoDeficienteAtipicos.TabIndex = 15;
+            this.TxtDescricaoDeficienteAtipicos.TabIndex = 21;
             // 
             // label10
             // 
@@ -304,7 +304,7 @@ namespace RegistroPresencaTrilhar
             this.label10.Location = new System.Drawing.Point(339, 216);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(301, 37);
-            this.label10.TabIndex = 10;
+            this.label10.TabIndex = 12;
             this.label10.Text = "Restrição alimentar:";
             // 
             // label13
@@ -316,7 +316,7 @@ namespace RegistroPresencaTrilhar
             this.label13.Location = new System.Drawing.Point(339, 325);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(330, 37);
-            this.label13.TabIndex = 7;
+            this.label13.TabIndex = 18;
             this.label13.Text = "Descrição alimentar:";
             // 
             // label6
@@ -326,7 +326,7 @@ namespace RegistroPresencaTrilhar
             this.label6.Location = new System.Drawing.Point(675, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(287, 37);
-            this.label6.TabIndex = 21;
+            this.label6.TabIndex = 4;
             this.label6.Text = "Outro responsável:";
             // 
             // label5
@@ -336,7 +336,7 @@ namespace RegistroPresencaTrilhar
             this.label5.Location = new System.Drawing.Point(339, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(209, 37);
-            this.label5.TabIndex = 19;
+            this.label5.TabIndex = 2;
             this.label5.Text = "Nome do pai:";
             // 
             // label2
@@ -346,7 +346,7 @@ namespace RegistroPresencaTrilhar
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(228, 37);
-            this.label2.TabIndex = 17;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Nome da mãe:";
             // 
             // TxtDescicaoAlergia
@@ -361,7 +361,7 @@ namespace RegistroPresencaTrilhar
             this.TxtDescicaoAlergia.Name = "TxtDescicaoAlergia";
             this.TxtDescicaoAlergia.ReadOnly = true;
             this.TxtDescicaoAlergia.Size = new System.Drawing.Size(330, 146);
-            this.TxtDescicaoAlergia.TabIndex = 13;
+            this.TxtDescicaoAlergia.TabIndex = 17;
             // 
             // TxtDescricaoRestricaoAlimentar
             // 
@@ -375,7 +375,7 @@ namespace RegistroPresencaTrilhar
             this.TxtDescricaoRestricaoAlimentar.Name = "TxtDescricaoRestricaoAlimentar";
             this.TxtDescricaoRestricaoAlimentar.ReadOnly = true;
             this.TxtDescricaoRestricaoAlimentar.Size = new System.Drawing.Size(330, 146);
-            this.TxtDescricaoRestricaoAlimentar.TabIndex = 14;
+            this.TxtDescricaoRestricaoAlimentar.TabIndex = 19;
             // 
             // label9
             // 
@@ -384,7 +384,7 @@ namespace RegistroPresencaTrilhar
             this.label9.Location = new System.Drawing.Point(3, 325);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(318, 37);
-            this.label9.TabIndex = 3;
+            this.label9.TabIndex = 16;
             this.label9.Text = "Descrição da alergia:";
             // 
             // label14
@@ -396,7 +396,7 @@ namespace RegistroPresencaTrilhar
             this.label14.Location = new System.Drawing.Point(675, 325);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(332, 37);
-            this.label14.TabIndex = 11;
+            this.label14.TabIndex = 20;
             this.label14.Text = "Descrições atípicas:";
             // 
             // TxtAlergia
@@ -410,7 +410,7 @@ namespace RegistroPresencaTrilhar
             this.TxtAlergia.Name = "TxtAlergia";
             this.TxtAlergia.ReadOnly = true;
             this.TxtAlergia.Size = new System.Drawing.Size(330, 53);
-            this.TxtAlergia.TabIndex = 2;
+            this.TxtAlergia.TabIndex = 11;
             // 
             // TxtRestrincaoAlimentar
             // 
@@ -422,7 +422,7 @@ namespace RegistroPresencaTrilhar
             this.TxtRestrincaoAlimentar.Name = "TxtRestrincaoAlimentar";
             this.TxtRestrincaoAlimentar.ReadOnly = true;
             this.TxtRestrincaoAlimentar.Size = new System.Drawing.Size(330, 53);
-            this.TxtRestrincaoAlimentar.TabIndex = 15;
+            this.TxtRestrincaoAlimentar.TabIndex = 13;
             // 
             // TxtDeficienteAtipicos
             // 
@@ -433,7 +433,7 @@ namespace RegistroPresencaTrilhar
             this.TxtDeficienteAtipicos.Name = "TxtDeficienteAtipicos";
             this.TxtDeficienteAtipicos.ReadOnly = true;
             this.TxtDeficienteAtipicos.Size = new System.Drawing.Size(332, 53);
-            this.TxtDeficienteAtipicos.TabIndex = 10;
+            this.TxtDeficienteAtipicos.TabIndex = 15;
             // 
             // label11
             // 
@@ -442,7 +442,7 @@ namespace RegistroPresencaTrilhar
             this.label11.Location = new System.Drawing.Point(675, 216);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(297, 37);
-            this.label11.TabIndex = 11;
+            this.label11.TabIndex = 14;
             this.label11.Text = "Deficiente / Atípicos";
             // 
             // label12
@@ -452,7 +452,7 @@ namespace RegistroPresencaTrilhar
             this.label12.Location = new System.Drawing.Point(3, 216);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(126, 37);
-            this.label12.TabIndex = 9;
+            this.label12.TabIndex = 10;
             this.label12.Text = "Alergia:";
             // 
             // TxtTelefone
@@ -464,7 +464,7 @@ namespace RegistroPresencaTrilhar
             this.TxtTelefone.Name = "TxtTelefone";
             this.TxtTelefone.ReadOnly = true;
             this.TxtTelefone.Size = new System.Drawing.Size(330, 53);
-            this.TxtTelefone.TabIndex = 22;
+            this.TxtTelefone.TabIndex = 7;
             // 
             // TxtEmail
             // 
@@ -475,7 +475,7 @@ namespace RegistroPresencaTrilhar
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.ReadOnly = true;
             this.TxtEmail.Size = new System.Drawing.Size(330, 53);
-            this.TxtEmail.TabIndex = 24;
+            this.TxtEmail.TabIndex = 9;
             // 
             // label7
             // 
@@ -484,7 +484,7 @@ namespace RegistroPresencaTrilhar
             this.label7.Location = new System.Drawing.Point(3, 106);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(329, 37);
-            this.label7.TabIndex = 21;
+            this.label7.TabIndex = 6;
             this.label7.Text = "Telefone responsável:";
             // 
             // tableLayoutPanel1
@@ -542,7 +542,7 @@ namespace RegistroPresencaTrilhar
             this.label8.Location = new System.Drawing.Point(339, 106);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(330, 37);
-            this.label8.TabIndex = 23;
+            this.label8.TabIndex = 8;
             this.label8.Text = "Endereço de email:";
             // 
             // statusStrip1
@@ -557,7 +557,7 @@ namespace RegistroPresencaTrilhar
             this.statusStrip1.Location = new System.Drawing.Point(800, 0);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(377, 72);
-            this.statusStrip1.TabIndex = 34;
+            this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabelDiaSemana
@@ -612,7 +612,7 @@ namespace RegistroPresencaTrilhar
             this.statusStrip2.Location = new System.Drawing.Point(0, 0);
             this.statusStrip2.Name = "statusStrip2";
             this.statusStrip2.Size = new System.Drawing.Size(800, 72);
-            this.statusStrip2.TabIndex = 35;
+            this.statusStrip2.TabIndex = 0;
             this.statusStrip2.Text = "statusStrip2";
             // 
             // toolStripStatusLabelUltimaAtualizacao

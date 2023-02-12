@@ -32,6 +32,7 @@ namespace RegistroPresencaTrilhar
             valuesDTOBindingSource.DataSource = this.valuesDTOList;
 
             TxtCampoPesquisa.Focus();
+            TxtCampoPesquisa.SelectAll();
         }
 
         private void TxtCampoPesquisa_TextChanged(object sender, EventArgs e)
@@ -61,7 +62,18 @@ namespace RegistroPresencaTrilhar
             return result;
         }
 
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var codigoSelecionado = dataGridView1.SelectedRows[0].Cells[0].FormattedValue;
 
+                var itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == codigoSelecionado.ToString()).FirstOrDefault();
 
+                ItemSelecionado = (ValuesDTO)itemAtual;
+
+                this.Close();
+            }
+        }
     }
 }

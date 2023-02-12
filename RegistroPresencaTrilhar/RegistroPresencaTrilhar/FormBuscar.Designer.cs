@@ -30,6 +30,7 @@ namespace RegistroPresencaTrilhar
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -38,7 +39,7 @@ namespace RegistroPresencaTrilhar
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.valuesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             this.codigoCadastroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeCriancaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataNascimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +66,7 @@ namespace RegistroPresencaTrilhar
             this.chamadaLilas2AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chamadaVerde78AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valuesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,20 +76,22 @@ namespace RegistroPresencaTrilhar
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 471);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(870, 78);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 2;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(661, 12);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button2.Location = new System.Drawing.Point(703, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 54);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Campos";
+            this.button2.Size = new System.Drawing.Size(155, 54);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -99,7 +103,7 @@ namespace RegistroPresencaTrilhar
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(870, 100);
-            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
             // TxtCampoPesquisa
@@ -111,7 +115,7 @@ namespace RegistroPresencaTrilhar
             this.TxtCampoPesquisa.Location = new System.Drawing.Point(12, 51);
             this.TxtCampoPesquisa.Name = "TxtCampoPesquisa";
             this.TxtCampoPesquisa.Size = new System.Drawing.Size(685, 35);
-            this.TxtCampoPesquisa.TabIndex = 24;
+            this.TxtCampoPesquisa.TabIndex = 1;
             this.TxtCampoPesquisa.TextChanged += new System.EventHandler(this.TxtCampoPesquisa_TextChanged);
             // 
             // label15
@@ -121,16 +125,16 @@ namespace RegistroPresencaTrilhar
             this.label15.Location = new System.Drawing.Point(12, 17);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(235, 29);
-            this.label15.TabIndex = 25;
+            this.label15.TabIndex = 0;
             this.label15.Text = "Campo de pesquisa:";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(703, 51);
+            this.button1.Location = new System.Drawing.Point(703, 47);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 35);
-            this.button1.TabIndex = 0;
+            this.button1.Size = new System.Drawing.Size(155, 42);
+            this.button1.TabIndex = 2;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -141,14 +145,17 @@ namespace RegistroPresencaTrilhar
             this.groupBox1.Location = new System.Drawing.Point(0, 100);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(870, 371);
-            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Resultado da pesquisa";
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -187,12 +194,20 @@ namespace RegistroPresencaTrilhar
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(864, 346);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
-            // valuesDTOBindingSource
+            // button3
             // 
-            this.valuesDTOBindingSource.DataSource = typeof(RegistroPresencaTrilhar.ValuesDTO);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button3.Location = new System.Drawing.Point(17, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(140, 54);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "Confirmar";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // codigoCadastroDataGridViewTextBoxColumn
             // 
@@ -433,6 +448,10 @@ namespace RegistroPresencaTrilhar
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn.ReadOnly = true;
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn.Width = 150;
             // 
+            // valuesDTOBindingSource
+            // 
+            this.valuesDTOBindingSource.DataSource = typeof(RegistroPresencaTrilhar.ValuesDTO);
+            // 
             // FormBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -496,5 +515,6 @@ namespace RegistroPresencaTrilhar
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadaLilas2AnosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadaVerde78AnosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadaVermelho56AnosDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button3;
     }
 }
