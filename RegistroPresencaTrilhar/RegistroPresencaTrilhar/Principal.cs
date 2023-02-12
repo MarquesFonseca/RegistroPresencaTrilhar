@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -97,7 +98,7 @@ namespace RegistroPresencaTrilhar
                 {
                     this.TxtTurmaAtual.BackColor = Color.FromArgb(200, 162, 200);
                     this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.ControlText;
-                }                
+                }
                 if (TxtTurmaAtual.Text.ToUpper().Contains("LILÁS (2 ANOS)".ToUpper()))
                 {
                     this.TxtTurmaAtual.BackColor = Color.FromArgb(153, 50, 204);
@@ -233,9 +234,14 @@ namespace RegistroPresencaTrilhar
             //string URI = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/entity/cupCkNWP1eqyoXWPtcMmoM.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE&amp;fetch_all=true&amp;page=11";
             string URI = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/entity/cupCkNWP1eqyoXWPtcMmoM.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE&fetch_all=true&page=";
 
-            int i = 0;
+            int i = 10;
             while (true)
             {
+                if (!CheckForInternetConnection())
+                {
+                    MessageBox.Show("Sem conexão com internet no momento!");
+                    break;
+                }
                 string novoI = (i + 1).ToString();
                 string novoURI = URI + novoI;
                 using (var client = new HttpClient())
@@ -257,7 +263,7 @@ namespace RegistroPresencaTrilhar
                                 {
                                     var valuesDTO = record.values.Adapt<ValuesDTO>();
                                     valuesDTOList.Add(valuesDTO);
-                                    
+
                                     toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
                                     toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
                                 }
@@ -271,19 +277,53 @@ namespace RegistroPresencaTrilhar
                 }
                 i++;
             }
-            ValuesDTO lastRecord = valuesDTOList.OrderBy(r => r.CodigoCadastro).Last();
-            CarregaCampos(lastRecord);
-            HabilitaDesabilitaCampos(true);
 
-            toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
-            toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
+            if (valuesDTOList == null || valuesDTOList.Count == 0)
+            {
+                HabilitaDesabilitaCampos(true);
 
-            TxtCodigoCadastro.Focus();
-            TxtCodigoCadastro.SelectAll();
+                toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
+                toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", 0);
+
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+            }
+            else
+            {
+                ValuesDTO lastRecord = valuesDTOList.OrderBy(r => r.CodigoCadastro).Last();
+                CarregaCampos(lastRecord);
+                HabilitaDesabilitaCampos(true);
+                toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
+                toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
+
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+            }
+        }
+
+        private bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    using (client.OpenRead("http://clients3.google.com/generate_204"))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public void HabilitaDesabilitaCampos(bool valor)
         {
+            linkLabelBuscarPeloNome.Enabled = valor;
+            linkLabelBuscarPelaMae.Enabled = valor;
+            linkLabelBuscarPeloPai.Enabled = valor;
             linkLabel1.Enabled = valor;
             TxtCodigoCadastro.Enabled = valor;
             TxtNomeCrianca.Enabled = valor;
@@ -333,11 +373,74 @@ namespace RegistroPresencaTrilhar
 
         private void linkLabelBuscarPeloNome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormBuscar frm = new FormBuscar(valuesDTOList);
+            FormBuscar frm = new FormBuscar(valuesDTOList, FormBuscar.TipoBusca.BuscarPeloNome);            
             frm.ShowDialog();
-            
+            if (frm.Cancelado)
+            {
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+                return;
+            }
             ValuesDTO itemAtual = new ValuesDTO();
             itemAtual = (ValuesDTO)frm.ItemSelecionado;
+            if (itemAtual == null)
+            {
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+                return;
+            }
+            itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == itemAtual.CodigoCadastro).FirstOrDefault();
+
+            CarregaCampos(itemAtual);
+
+            TxtCodigoCadastro.Focus();
+            TxtCodigoCadastro.SelectAll();
+        }
+
+        private void linkLabelBuscarPelaMae_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormBuscar frm = new FormBuscar(valuesDTOList, FormBuscar.TipoBusca.BuscarPelaMae);
+            frm.ShowDialog();
+            if (frm.Cancelado)
+            {
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+                return;
+            }
+            ValuesDTO itemAtual = new ValuesDTO();
+            itemAtual = (ValuesDTO)frm.ItemSelecionado;
+            if (itemAtual == null)
+            {
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+                return;
+            }
+            itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == itemAtual.CodigoCadastro).FirstOrDefault();
+
+            CarregaCampos(itemAtual);
+
+            TxtCodigoCadastro.Focus();
+            TxtCodigoCadastro.SelectAll();
+        }
+
+        private void linkLabelBuscarPeloPai_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormBuscar frm = new FormBuscar(valuesDTOList, FormBuscar.TipoBusca.BuscarPeloPai);
+            frm.ShowDialog();
+            if (frm.Cancelado)
+            {
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+                return;
+            }
+            ValuesDTO itemAtual = new ValuesDTO();
+            itemAtual = (ValuesDTO)frm.ItemSelecionado;
+            if (itemAtual == null)
+            {
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+                return;
+            }
             itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == itemAtual.CodigoCadastro).FirstOrDefault();
 
             CarregaCampos(itemAtual);

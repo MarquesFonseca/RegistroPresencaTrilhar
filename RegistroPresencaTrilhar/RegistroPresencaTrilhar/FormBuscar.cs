@@ -16,13 +16,36 @@ namespace RegistroPresencaTrilhar
     {
         private List<ValuesDTO> valuesDTOList;
         public ValuesDTO ItemSelecionado;
+        private TipoBusca tipoBusca;
+        public bool Cancelado = false;
+        public bool Selecionado = false;
 
-        public FormBuscar(List<ValuesDTO> valuesDTOList)
+        public enum TipoBusca
+        {
+            BuscarPeloNome,
+            BuscarPelaMae,
+            BuscarPeloPai
+        }
+
+        public FormBuscar(List<ValuesDTO> valuesDTOList, TipoBusca tipoBusca)
         {
             this.valuesDTOList = valuesDTOList;
             this.ItemSelecionado = new ValuesDTO();
+            this.tipoBusca = tipoBusca;
 
             InitializeComponent();
+            if (this.tipoBusca == TipoBusca.BuscarPeloNome)
+            {
+                this.Text = "Buscando criança pelo nome";
+            }
+            if (this.tipoBusca == TipoBusca.BuscarPelaMae)
+            {
+                this.Text = "Buscando criança pela mãe";
+            }
+            if (this.tipoBusca == TipoBusca.BuscarPeloPai)
+            {
+                this.Text = "Buscando criança pelo pai";
+            }
         }
 
         private void FormBuscar_Load(object sender, EventArgs e)
@@ -37,9 +60,21 @@ namespace RegistroPresencaTrilhar
 
         private void TxtCampoPesquisa_TextChanged(object sender, EventArgs e)
         {
-            valuesDTOBindingSource.DataSource = this.valuesDTOList.Where(num => RemoveSpecialCharactersAndAccents(num.NomeCrianca.ToUpper()).Contains(RemoveSpecialCharactersAndAccents(TxtCampoPesquisa.Text.ToUpper())));
-            //valuesDTOBindingSource.Filter = string.Format("NomeCrianca = '{0}%'", TxtCampoPesquisa.Text);
-            valuesDTOBindingSource.ResetBindings(false);
+            if (this.tipoBusca == TipoBusca.BuscarPeloNome)
+            {
+                valuesDTOBindingSource.DataSource = this.valuesDTOList.Where(num => RemoveSpecialCharactersAndAccents(num.NomeCrianca.ToUpper()).Contains(RemoveSpecialCharactersAndAccents(TxtCampoPesquisa.Text.ToUpper())));
+                valuesDTOBindingSource.ResetBindings(false);
+            }
+            if (this.tipoBusca == TipoBusca.BuscarPelaMae)
+            {
+                valuesDTOBindingSource.DataSource = this.valuesDTOList.Where(num => RemoveSpecialCharactersAndAccents(num.Mae.ToUpper()).Contains(RemoveSpecialCharactersAndAccents(TxtCampoPesquisa.Text.ToUpper())));
+                valuesDTOBindingSource.ResetBindings(false);
+            }
+            if (this.tipoBusca == TipoBusca.BuscarPeloPai)
+            {
+                valuesDTOBindingSource.DataSource = this.valuesDTOList.Where(num => RemoveSpecialCharactersAndAccents(num.Pai.ToUpper()).Contains(RemoveSpecialCharactersAndAccents(TxtCampoPesquisa.Text.ToUpper())));
+                valuesDTOBindingSource.ResetBindings(false);
+            }
         }
 
         public static string RemoveSpecialCharactersAndAccents(string text)
@@ -71,8 +106,42 @@ namespace RegistroPresencaTrilhar
                 var itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == codigoSelecionado.ToString()).FirstOrDefault();
 
                 ItemSelecionado = (ValuesDTO)itemAtual;
+                Selecionado = true;
 
                 this.Close();
+            }
+        }
+
+        private void TxtCampoPesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
+        }
+
+        private void FormBuscar_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Selecionado) return;
+            Cancelado = true;
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnConfirmar_Click(object sender, EventArgs e)
+        {
+            dataGridView1_DoubleClick(null, null);
+        }
+
+        private void FormBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyData == Keys.Down)
+            {
+                valuesDTOBindingSource.MoveNext();
+            }
+            if (e.KeyData == Keys.Up)
+            {
+                valuesDTOBindingSource.MoveLast();
             }
         }
     }

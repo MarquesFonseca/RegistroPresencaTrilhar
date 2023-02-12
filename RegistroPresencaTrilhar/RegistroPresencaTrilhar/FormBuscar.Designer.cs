@@ -30,23 +30,26 @@ namespace RegistroPresencaTrilhar
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnConfirmar = new System.Windows.Forms.Button();
+            this.BtnCancelar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TxtCampoPesquisa = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
             this.codigoCadastroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeCriancaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.selecioneATurmaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataNascimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.outroResponsavelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.selecioneATurmaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enderecoEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alergiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,29 +79,41 @@ namespace RegistroPresencaTrilhar
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.BtnConfirmar);
+            this.panel1.Controls.Add(this.BtnCancelar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 471);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(870, 78);
             this.panel1.TabIndex = 2;
             // 
-            // button2
+            // BtnConfirmar
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button2.Location = new System.Drawing.Point(703, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 54);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.BtnConfirmar.Location = new System.Drawing.Point(17, 12);
+            this.BtnConfirmar.Name = "BtnConfirmar";
+            this.BtnConfirmar.Size = new System.Drawing.Size(277, 54);
+            this.BtnConfirmar.TabIndex = 0;
+            this.BtnConfirmar.Text = "Retornar selecionado";
+            this.BtnConfirmar.UseVisualStyleBackColor = true;
+            this.BtnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
+            // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.BtnCancelar.Location = new System.Drawing.Point(703, 12);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(155, 54);
+            this.BtnCancelar.TabIndex = 1;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.TxtCampoPesquisa);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
@@ -108,15 +123,18 @@ namespace RegistroPresencaTrilhar
             // 
             // TxtCampoPesquisa
             // 
+            this.TxtCampoPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtCampoPesquisa.BackColor = System.Drawing.SystemColors.Window;
             this.TxtCampoPesquisa.CausesValidation = false;
             this.TxtCampoPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCampoPesquisa.ForeColor = System.Drawing.Color.Red;
             this.TxtCampoPesquisa.Location = new System.Drawing.Point(12, 51);
             this.TxtCampoPesquisa.Name = "TxtCampoPesquisa";
-            this.TxtCampoPesquisa.Size = new System.Drawing.Size(685, 35);
+            this.TxtCampoPesquisa.Size = new System.Drawing.Size(846, 35);
             this.TxtCampoPesquisa.TabIndex = 1;
             this.TxtCampoPesquisa.TextChanged += new System.EventHandler(this.TxtCampoPesquisa_TextChanged);
+            this.TxtCampoPesquisa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCampoPesquisa_KeyPress);
             // 
             // label15
             // 
@@ -127,16 +145,6 @@ namespace RegistroPresencaTrilhar
             this.label15.Size = new System.Drawing.Size(235, 29);
             this.label15.TabIndex = 0;
             this.label15.Text = "Campo de pesquisa:";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(703, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 42);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -153,19 +161,30 @@ namespace RegistroPresencaTrilhar
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigoCadastroDataGridViewTextBoxColumn,
             this.nomeCriancaDataGridViewTextBoxColumn,
+            this.selecioneATurmaDataGridViewTextBoxColumn,
             this.dataNascimentoDataGridViewTextBoxColumn,
             this.maeDataGridViewTextBoxColumn,
             this.paiDataGridViewTextBoxColumn,
             this.outroResponsavelDataGridViewTextBoxColumn,
-            this.selecioneATurmaDataGridViewTextBoxColumn,
             this.telefoneDataGridViewTextBoxColumn,
             this.enderecoEmailDataGridViewTextBoxColumn,
             this.alergiaDataGridViewTextBoxColumn,
@@ -186,28 +205,36 @@ namespace RegistroPresencaTrilhar
             this.chamadaVerde78AnosDataGridViewTextBoxColumn,
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.valuesDTOBindingSource;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(864, 346);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button3.Location = new System.Drawing.Point(17, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 54);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Confirmar";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // codigoCadastroDataGridViewTextBoxColumn
             // 
@@ -216,7 +243,7 @@ namespace RegistroPresencaTrilhar
             this.codigoCadastroDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.codigoCadastroDataGridViewTextBoxColumn.Name = "codigoCadastroDataGridViewTextBoxColumn";
             this.codigoCadastroDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codigoCadastroDataGridViewTextBoxColumn.Width = 150;
+            this.codigoCadastroDataGridViewTextBoxColumn.Width = 117;
             // 
             // nomeCriancaDataGridViewTextBoxColumn
             // 
@@ -226,7 +253,16 @@ namespace RegistroPresencaTrilhar
             this.nomeCriancaDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.nomeCriancaDataGridViewTextBoxColumn.Name = "nomeCriancaDataGridViewTextBoxColumn";
             this.nomeCriancaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nomeCriancaDataGridViewTextBoxColumn.Width = 87;
+            this.nomeCriancaDataGridViewTextBoxColumn.Width = 104;
+            // 
+            // selecioneATurmaDataGridViewTextBoxColumn
+            // 
+            this.selecioneATurmaDataGridViewTextBoxColumn.DataPropertyName = "SelecioneATurma";
+            this.selecioneATurmaDataGridViewTextBoxColumn.HeaderText = "Turma";
+            this.selecioneATurmaDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.selecioneATurmaDataGridViewTextBoxColumn.Name = "selecioneATurmaDataGridViewTextBoxColumn";
+            this.selecioneATurmaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.selecioneATurmaDataGridViewTextBoxColumn.Width = 110;
             // 
             // dataNascimentoDataGridViewTextBoxColumn
             // 
@@ -236,7 +272,7 @@ namespace RegistroPresencaTrilhar
             this.dataNascimentoDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.dataNascimentoDataGridViewTextBoxColumn.Name = "dataNascimentoDataGridViewTextBoxColumn";
             this.dataNascimentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dataNascimentoDataGridViewTextBoxColumn.Width = 152;
+            this.dataNascimentoDataGridViewTextBoxColumn.Width = 191;
             // 
             // maeDataGridViewTextBoxColumn
             // 
@@ -246,7 +282,7 @@ namespace RegistroPresencaTrilhar
             this.maeDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.maeDataGridViewTextBoxColumn.Name = "maeDataGridViewTextBoxColumn";
             this.maeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.maeDataGridViewTextBoxColumn.Width = 76;
+            this.maeDataGridViewTextBoxColumn.Width = 90;
             // 
             // paiDataGridViewTextBoxColumn
             // 
@@ -256,7 +292,7 @@ namespace RegistroPresencaTrilhar
             this.paiDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.paiDataGridViewTextBoxColumn.Name = "paiDataGridViewTextBoxColumn";
             this.paiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.paiDataGridViewTextBoxColumn.Width = 67;
+            this.paiDataGridViewTextBoxColumn.Width = 79;
             // 
             // outroResponsavelDataGridViewTextBoxColumn
             // 
@@ -266,16 +302,7 @@ namespace RegistroPresencaTrilhar
             this.outroResponsavelDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.outroResponsavelDataGridViewTextBoxColumn.Name = "outroResponsavelDataGridViewTextBoxColumn";
             this.outroResponsavelDataGridViewTextBoxColumn.ReadOnly = true;
-            this.outroResponsavelDataGridViewTextBoxColumn.Width = 160;
-            // 
-            // selecioneATurmaDataGridViewTextBoxColumn
-            // 
-            this.selecioneATurmaDataGridViewTextBoxColumn.DataPropertyName = "SelecioneATurma";
-            this.selecioneATurmaDataGridViewTextBoxColumn.HeaderText = "Turma";
-            this.selecioneATurmaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.selecioneATurmaDataGridViewTextBoxColumn.Name = "selecioneATurmaDataGridViewTextBoxColumn";
-            this.selecioneATurmaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.selecioneATurmaDataGridViewTextBoxColumn.Width = 150;
+            this.outroResponsavelDataGridViewTextBoxColumn.Width = 206;
             // 
             // telefoneDataGridViewTextBoxColumn
             // 
@@ -284,7 +311,7 @@ namespace RegistroPresencaTrilhar
             this.telefoneDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
             this.telefoneDataGridViewTextBoxColumn.ReadOnly = true;
-            this.telefoneDataGridViewTextBoxColumn.Width = 150;
+            this.telefoneDataGridViewTextBoxColumn.Width = 133;
             // 
             // enderecoEmailDataGridViewTextBoxColumn
             // 
@@ -293,7 +320,7 @@ namespace RegistroPresencaTrilhar
             this.enderecoEmailDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.enderecoEmailDataGridViewTextBoxColumn.Name = "enderecoEmailDataGridViewTextBoxColumn";
             this.enderecoEmailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.enderecoEmailDataGridViewTextBoxColumn.Width = 150;
+            this.enderecoEmailDataGridViewTextBoxColumn.Width = 161;
             // 
             // alergiaDataGridViewTextBoxColumn
             // 
@@ -302,7 +329,7 @@ namespace RegistroPresencaTrilhar
             this.alergiaDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.alergiaDataGridViewTextBoxColumn.Name = "alergiaDataGridViewTextBoxColumn";
             this.alergiaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.alergiaDataGridViewTextBoxColumn.Width = 150;
+            this.alergiaDataGridViewTextBoxColumn.Width = 116;
             // 
             // seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn
             // 
@@ -311,7 +338,7 @@ namespace RegistroPresencaTrilhar
             this.seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn.Name = "seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn";
             this.seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn.Width = 150;
+            this.seAlergiaSimPreenchaAquiDataGridViewTextBoxColumn.Width = 160;
             // 
             // restrincaoAlimentarDataGridViewTextBoxColumn
             // 
@@ -320,7 +347,7 @@ namespace RegistroPresencaTrilhar
             this.restrincaoAlimentarDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.restrincaoAlimentarDataGridViewTextBoxColumn.Name = "restrincaoAlimentarDataGridViewTextBoxColumn";
             this.restrincaoAlimentarDataGridViewTextBoxColumn.ReadOnly = true;
-            this.restrincaoAlimentarDataGridViewTextBoxColumn.Width = 150;
+            this.restrincaoAlimentarDataGridViewTextBoxColumn.Width = 223;
             // 
             // seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn
             // 
@@ -329,7 +356,7 @@ namespace RegistroPresencaTrilhar
             this.seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn.Name = "seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn";
             this.seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn.Width = 150;
+            this.seRestrincaoAlimentarSimDescrevaDataGridViewTextBoxColumn.Width = 233;
             // 
             // algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn
             // 
@@ -338,7 +365,7 @@ namespace RegistroPresencaTrilhar
             this.algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn.Name = "algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn";
             this.algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn.Width = 150;
+            this.algumaDeficienciaOuSituacaoAtipicaDataGridViewTextBoxColumn.Width = 252;
             // 
             // seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn
             // 
@@ -347,7 +374,7 @@ namespace RegistroPresencaTrilhar
             this.seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn.Name = "seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn";
             this.seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn.Width = 150;
+            this.seAlgumaDeficienciaDescrevaOsDetalhesDataGridViewTextBoxColumn.Width = 226;
             // 
             // batizadoDataGridViewTextBoxColumn
             // 
@@ -356,7 +383,7 @@ namespace RegistroPresencaTrilhar
             this.batizadoDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.batizadoDataGridViewTextBoxColumn.Name = "batizadoDataGridViewTextBoxColumn";
             this.batizadoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.batizadoDataGridViewTextBoxColumn.Width = 150;
+            this.batizadoDataGridViewTextBoxColumn.Width = 132;
             // 
             // dataBatismoDataGridViewTextBoxColumn
             // 
@@ -365,7 +392,7 @@ namespace RegistroPresencaTrilhar
             this.dataBatismoDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.dataBatismoDataGridViewTextBoxColumn.Name = "dataBatismoDataGridViewTextBoxColumn";
             this.dataBatismoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dataBatismoDataGridViewTextBoxColumn.Width = 150;
+            this.dataBatismoDataGridViewTextBoxColumn.Width = 160;
             // 
             // igrejaBatizouDataGridViewTextBoxColumn
             // 
@@ -374,7 +401,7 @@ namespace RegistroPresencaTrilhar
             this.igrejaBatizouDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.igrejaBatizouDataGridViewTextBoxColumn.Name = "igrejaBatizouDataGridViewTextBoxColumn";
             this.igrejaBatizouDataGridViewTextBoxColumn.ReadOnly = true;
-            this.igrejaBatizouDataGridViewTextBoxColumn.Width = 150;
+            this.igrejaBatizouDataGridViewTextBoxColumn.Width = 168;
             // 
             // chamadaAzul910AnosDataGridViewTextBoxColumn
             // 
@@ -383,7 +410,7 @@ namespace RegistroPresencaTrilhar
             this.chamadaAzul910AnosDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.chamadaAzul910AnosDataGridViewTextBoxColumn.Name = "chamadaAzul910AnosDataGridViewTextBoxColumn";
             this.chamadaAzul910AnosDataGridViewTextBoxColumn.ReadOnly = true;
-            this.chamadaAzul910AnosDataGridViewTextBoxColumn.Width = 150;
+            this.chamadaAzul910AnosDataGridViewTextBoxColumn.Width = 294;
             // 
             // chamadaAzulRoyal1112AnosDataGridViewTextBoxColumn
             // 
@@ -392,7 +419,7 @@ namespace RegistroPresencaTrilhar
             this.chamadaAzulRoyal1112AnosDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.chamadaAzulRoyal1112AnosDataGridViewTextBoxColumn.Name = "chamadaAzulRoyal1112AnosDataGridViewTextBoxColumn";
             this.chamadaAzulRoyal1112AnosDataGridViewTextBoxColumn.ReadOnly = true;
-            this.chamadaAzulRoyal1112AnosDataGridViewTextBoxColumn.Width = 150;
+            this.chamadaAzulRoyal1112AnosDataGridViewTextBoxColumn.Width = 360;
             // 
             // chamadaBranco011Me29DDataGridViewTextBoxColumn
             // 
@@ -401,7 +428,7 @@ namespace RegistroPresencaTrilhar
             this.chamadaBranco011Me29DDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.chamadaBranco011Me29DDataGridViewTextBoxColumn.Name = "chamadaBranco011Me29DDataGridViewTextBoxColumn";
             this.chamadaBranco011Me29DDataGridViewTextBoxColumn.ReadOnly = true;
-            this.chamadaBranco011Me29DDataGridViewTextBoxColumn.Width = 150;
+            this.chamadaBranco011Me29DDataGridViewTextBoxColumn.Width = 338;
             // 
             // chamadaLaranja34AnosDataGridViewTextBoxColumn
             // 
@@ -410,7 +437,7 @@ namespace RegistroPresencaTrilhar
             this.chamadaLaranja34AnosDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.chamadaLaranja34AnosDataGridViewTextBoxColumn.Name = "chamadaLaranja34AnosDataGridViewTextBoxColumn";
             this.chamadaLaranja34AnosDataGridViewTextBoxColumn.ReadOnly = true;
-            this.chamadaLaranja34AnosDataGridViewTextBoxColumn.Width = 150;
+            this.chamadaLaranja34AnosDataGridViewTextBoxColumn.Width = 311;
             // 
             // chamadaLilas1AnoDataGridViewTextBoxColumn
             // 
@@ -419,7 +446,7 @@ namespace RegistroPresencaTrilhar
             this.chamadaLilas1AnoDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.chamadaLilas1AnoDataGridViewTextBoxColumn.Name = "chamadaLilas1AnoDataGridViewTextBoxColumn";
             this.chamadaLilas1AnoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.chamadaLilas1AnoDataGridViewTextBoxColumn.Width = 150;
+            this.chamadaLilas1AnoDataGridViewTextBoxColumn.Width = 249;
             // 
             // chamadaLilas2AnosDataGridViewTextBoxColumn
             // 
@@ -428,7 +455,7 @@ namespace RegistroPresencaTrilhar
             this.chamadaLilas2AnosDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.chamadaLilas2AnosDataGridViewTextBoxColumn.Name = "chamadaLilas2AnosDataGridViewTextBoxColumn";
             this.chamadaLilas2AnosDataGridViewTextBoxColumn.ReadOnly = true;
-            this.chamadaLilas2AnosDataGridViewTextBoxColumn.Width = 150;
+            this.chamadaLilas2AnosDataGridViewTextBoxColumn.Width = 272;
             // 
             // chamadaVerde78AnosDataGridViewTextBoxColumn
             // 
@@ -437,7 +464,7 @@ namespace RegistroPresencaTrilhar
             this.chamadaVerde78AnosDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.chamadaVerde78AnosDataGridViewTextBoxColumn.Name = "chamadaVerde78AnosDataGridViewTextBoxColumn";
             this.chamadaVerde78AnosDataGridViewTextBoxColumn.ReadOnly = true;
-            this.chamadaVerde78AnosDataGridViewTextBoxColumn.Width = 150;
+            this.chamadaVerde78AnosDataGridViewTextBoxColumn.Width = 297;
             // 
             // chamadaVermelho56AnosDataGridViewTextBoxColumn
             // 
@@ -446,7 +473,7 @@ namespace RegistroPresencaTrilhar
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn.Name = "chamadaVermelho56AnosDataGridViewTextBoxColumn";
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn.ReadOnly = true;
-            this.chamadaVermelho56AnosDataGridViewTextBoxColumn.Width = 150;
+            this.chamadaVermelho56AnosDataGridViewTextBoxColumn.Width = 331;
             // 
             // valuesDTOBindingSource
             // 
@@ -460,14 +487,17 @@ namespace RegistroPresencaTrilhar
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(870, 549);
             this.Name = "FormBuscar";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "FormBuscar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormBuscar_FormClosing);
             this.Load += new System.EventHandler(this.FormBuscar_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormBuscar_KeyDown);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -482,20 +512,20 @@ namespace RegistroPresencaTrilhar
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource valuesDTOBindingSource;
         private System.Windows.Forms.TextBox TxtCampoPesquisa;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button BtnConfirmar;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoCadastroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeCriancaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn selecioneATurmaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataNascimentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn paiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn outroResponsavelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn selecioneATurmaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn enderecoEmailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn alergiaDataGridViewTextBoxColumn;
@@ -515,6 +545,5 @@ namespace RegistroPresencaTrilhar
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadaLilas2AnosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadaVerde78AnosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadaVermelho56AnosDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button3;
     }
 }

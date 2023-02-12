@@ -106,6 +106,7 @@ namespace RegistroPresencaTrilhar
             this.linkLabelBuscarPeloPai.TabIndex = 2;
             this.linkLabelBuscarPeloPai.TabStop = true;
             this.linkLabelBuscarPeloPai.Text = "Buscar pelo pai";
+            this.linkLabelBuscarPeloPai.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBuscarPeloPai_LinkClicked);
             // 
             // linkLabelBuscarPelaMae
             // 
@@ -117,6 +118,7 @@ namespace RegistroPresencaTrilhar
             this.linkLabelBuscarPelaMae.TabIndex = 1;
             this.linkLabelBuscarPelaMae.TabStop = true;
             this.linkLabelBuscarPelaMae.Text = "Buscar pela mãe";
+            this.linkLabelBuscarPelaMae.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBuscarPelaMae_LinkClicked);
             // 
             // linkLabel1
             // 
