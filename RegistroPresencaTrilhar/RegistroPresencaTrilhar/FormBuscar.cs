@@ -29,7 +29,7 @@ namespace RegistroPresencaTrilhar
 
         public FormBuscar(List<ValuesDTO> valuesDTOList, TipoBusca tipoBusca)
         {
-            this.valuesDTOList = valuesDTOList;
+            this.valuesDTOList = RemoveCamposVazio(valuesDTOList);
             this.ItemSelecionado = new ValuesDTO();
             this.tipoBusca = tipoBusca;
 
@@ -48,6 +48,18 @@ namespace RegistroPresencaTrilhar
             }
         }
 
+        private List<ValuesDTO> RemoveCamposVazio(List<ValuesDTO> valuesDTOList)
+        {
+            foreach (var obj in valuesDTOList)
+            {
+                obj.NomeCrianca = obj.NomeCrianca ?? string.Empty;
+                obj.Mae = obj.Mae ?? string.Empty;
+                obj.Pai = obj.Pai ?? string.Empty;
+            }
+
+            return valuesDTOList;
+        }
+
         private void FormBuscar_Load(object sender, EventArgs e)
         {
             //dataGridView1.DataSource = null;
@@ -60,41 +72,54 @@ namespace RegistroPresencaTrilhar
 
         private void TxtCampoPesquisa_TextChanged(object sender, EventArgs e)
         {
+            //if (TxtCampoPesquisa.Text.Length <= 3) return;
+            string TextoDigitado = RemoveSpecialCharactersAndAccents(TxtCampoPesquisa.Text.ToUpper());
             if (this.tipoBusca == TipoBusca.BuscarPeloNome)
             {
-                valuesDTOBindingSource.DataSource = this.valuesDTOList.Where(num => RemoveSpecialCharactersAndAccents(num.NomeCrianca.ToUpper()).Contains(RemoveSpecialCharactersAndAccents(TxtCampoPesquisa.Text.ToUpper())));
+                valuesDTOBindingSource.DataSource = this.valuesDTOList.Where(num => !string.IsNullOrEmpty(num.NomeCrianca) && RemoveSpecialCharactersAndAccents(num.NomeCrianca.ToUpper()).Contains(TextoDigitado));
                 valuesDTOBindingSource.ResetBindings(false);
             }
             if (this.tipoBusca == TipoBusca.BuscarPelaMae)
             {
-                valuesDTOBindingSource.DataSource = this.valuesDTOList.Where(num => RemoveSpecialCharactersAndAccents(num.Mae.ToUpper()).Contains(RemoveSpecialCharactersAndAccents(TxtCampoPesquisa.Text.ToUpper())));
+                valuesDTOBindingSource.DataSource = this.valuesDTOList.Where(num => !string.IsNullOrEmpty(num.Mae) && RemoveSpecialCharactersAndAccents(num.Mae.ToUpper()).Contains(TextoDigitado));
                 valuesDTOBindingSource.ResetBindings(false);
             }
             if (this.tipoBusca == TipoBusca.BuscarPeloPai)
             {
-                valuesDTOBindingSource.DataSource = this.valuesDTOList.Where(num => RemoveSpecialCharactersAndAccents(num.Pai.ToUpper()).Contains(RemoveSpecialCharactersAndAccents(TxtCampoPesquisa.Text.ToUpper())));
+                valuesDTOBindingSource.DataSource = this.valuesDTOList.Where(num => !string.IsNullOrEmpty(num.Pai) && RemoveSpecialCharactersAndAccents(num.Pai.ToUpper()).Contains(TextoDigitado));
                 valuesDTOBindingSource.ResetBindings(false);
             }
+
+            int quantidadeRegistros = valuesDTOBindingSource.Count == 1 && valuesDTOBindingSource.Position == 0 ? 0 : valuesDTOBindingSource.Count;
+            groupBox1.Text = string.Format("Resultado da pesquisa: {0} encontrado(s)!", quantidadeRegistros);
         }
 
         public static string RemoveSpecialCharactersAndAccents(string text)
         {
-            string normalizedString = text.Normalize(NormalizationForm.FormD);
-            StringBuilder stringBuilder = new StringBuilder();
-
-            foreach (char c in normalizedString)
+            try
             {
-                UnicodeCategory unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
-                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                string normalizedString = text.Normalize(NormalizationForm.FormD);
+                StringBuilder stringBuilder = new StringBuilder();
+
+                foreach (char c in normalizedString)
                 {
-                    stringBuilder.Append(c);
+                    UnicodeCategory unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                    if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                    {
+                        stringBuilder.Append(c);
+                    }
                 }
+
+                string result = stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+                result = Regex.Replace(result, @"[^\w\s]", string.Empty, RegexOptions.None);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
 
-            string result = stringBuilder.ToString().Normalize(NormalizationForm.FormC);
-            result = Regex.Replace(result, @"[^\w\s]", string.Empty, RegexOptions.None);
-
-            return result;
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
@@ -102,6 +127,7 @@ namespace RegistroPresencaTrilhar
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 var codigoSelecionado = dataGridView1.SelectedRows[0].Cells[0].FormattedValue;
+                if (string.IsNullOrEmpty(codigoSelecionado.ToString())) return;
 
                 var itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == codigoSelecionado.ToString()).FirstOrDefault();
 
@@ -135,13 +161,38 @@ namespace RegistroPresencaTrilhar
 
         private void FormBuscar_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyData == Keys.Down)
+            if (e.KeyData == Keys.Down)
             {
-                valuesDTOBindingSource.MoveNext();
+                valuesDTOBindingSource.Position = valuesDTOBindingSource.Position + 1;
             }
             if (e.KeyData == Keys.Up)
             {
-                valuesDTOBindingSource.MoveLast();
+                valuesDTOBindingSource.Position = valuesDTOBindingSource.Position - 1;
+            }
+            if (e.KeyData == Keys.Escape)
+            {
+                TxtCampoPesquisa.Text = "";
+            }
+        }
+
+        private void TxtCampoPesquisa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                dataGridView1_DoubleClick(null, null);
+            }
+            if (e.KeyData == Keys.Down)
+            {
+                e.SuppressKeyPress = true;
+            }
+            if (e.KeyData == Keys.Up)
+            {
+                e.SuppressKeyPress = true;
+            }
+            if (e.KeyData == Keys.Escape)
+            {
+                e.SuppressKeyPress = true;
             }
         }
     }

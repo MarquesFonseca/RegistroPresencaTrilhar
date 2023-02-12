@@ -221,7 +221,7 @@ namespace RegistroPresencaTrilhar
             TxtDescricaoDeficienteAtipicos.Text = itemAtual != null && itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes != null ? itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes : "";
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabelAtualizarDados_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             AtualizaDados();
         }
@@ -234,7 +234,7 @@ namespace RegistroPresencaTrilhar
             //string URI = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/entity/cupCkNWP1eqyoXWPtcMmoM.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE&amp;fetch_all=true&amp;page=11";
             string URI = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/entity/cupCkNWP1eqyoXWPtcMmoM.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE&fetch_all=true&page=";
 
-            int i = 10;
+            int i = 0;
             while (true)
             {
                 if (!CheckForInternetConnection())
@@ -324,7 +324,7 @@ namespace RegistroPresencaTrilhar
             linkLabelBuscarPeloNome.Enabled = valor;
             linkLabelBuscarPelaMae.Enabled = valor;
             linkLabelBuscarPeloPai.Enabled = valor;
-            linkLabel1.Enabled = valor;
+            linkLabelAtualizarDados.Enabled = valor;
             TxtCodigoCadastro.Enabled = valor;
             TxtNomeCrianca.Enabled = valor;
             TxtTurmaAtual.Enabled = valor;
@@ -373,7 +373,7 @@ namespace RegistroPresencaTrilhar
 
         private void linkLabelBuscarPeloNome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormBuscar frm = new FormBuscar(valuesDTOList, FormBuscar.TipoBusca.BuscarPeloNome);            
+            FormBuscar frm = new FormBuscar(valuesDTOList, FormBuscar.TipoBusca.BuscarPeloNome);
             frm.ShowDialog();
             if (frm.Cancelado)
             {
@@ -447,6 +447,44 @@ namespace RegistroPresencaTrilhar
 
             TxtCodigoCadastro.Focus();
             TxtCodigoCadastro.SelectAll();
+        }
+
+        private void Principal_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F1)
+            {
+                if (linkLabelBuscarPeloNome.Enabled)
+                    linkLabelBuscarPeloNome_LinkClicked(null, null);
+            }
+            if (e.KeyData == Keys.F2)
+            {
+                if (linkLabelBuscarPelaMae.Enabled)
+                    linkLabelBuscarPelaMae_LinkClicked(null, null);
+            }
+            if (e.KeyData == Keys.F3)
+            {
+                if (linkLabelBuscarPeloPai.Enabled)
+                    linkLabelBuscarPeloPai_LinkClicked(null, null);
+            }
+            if (e.KeyData == Keys.F5)
+            {
+                if (linkLabelAtualizarDados.Enabled)
+                    linkLabelAtualizarDados_LinkClicked(null, null);
+            }
+            if (e.KeyData == Keys.Escape)
+            {
+                e.SuppressKeyPress = true;
+                this.Close();
+            }
+        }
+
+        private void Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Deseja realmente fechar a aplicação?", "Fechar Aplicação", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

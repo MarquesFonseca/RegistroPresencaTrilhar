@@ -33,7 +33,7 @@ namespace RegistroPresencaTrilhar
             this.linkLabelBuscarPeloNome = new System.Windows.Forms.LinkLabel();
             this.linkLabelBuscarPeloPai = new System.Windows.Forms.LinkLabel();
             this.linkLabelBuscarPelaMae = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelAtualizarDados = new System.Windows.Forms.LinkLabel();
             this.BtnRegistrarPresenca = new System.Windows.Forms.Button();
             this.TxtNomeCrianca = new System.Windows.Forms.TextBox();
             this.LblNomeCrianca = new System.Windows.Forms.Label();
@@ -90,48 +90,48 @@ namespace RegistroPresencaTrilhar
             this.linkLabelBuscarPeloNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelBuscarPeloNome.Location = new System.Drawing.Point(12, 9);
             this.linkLabelBuscarPeloNome.Name = "linkLabelBuscarPeloNome";
-            this.linkLabelBuscarPeloNome.Size = new System.Drawing.Size(208, 29);
+            this.linkLabelBuscarPeloNome.Size = new System.Drawing.Size(270, 29);
             this.linkLabelBuscarPeloNome.TabIndex = 0;
             this.linkLabelBuscarPeloNome.TabStop = true;
-            this.linkLabelBuscarPeloNome.Text = "Buscar pelo nome";
+            this.linkLabelBuscarPeloNome.Text = "[F1] - Buscar pelo nome";
             this.linkLabelBuscarPeloNome.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBuscarPeloNome_LinkClicked);
             // 
             // linkLabelBuscarPeloPai
             // 
             this.linkLabelBuscarPeloPai.AutoSize = true;
             this.linkLabelBuscarPeloPai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelBuscarPeloPai.Location = new System.Drawing.Point(448, 9);
+            this.linkLabelBuscarPeloPai.Location = new System.Drawing.Point(569, 9);
             this.linkLabelBuscarPeloPai.Name = "linkLabelBuscarPeloPai";
-            this.linkLabelBuscarPeloPai.Size = new System.Drawing.Size(180, 29);
+            this.linkLabelBuscarPeloPai.Size = new System.Drawing.Size(242, 29);
             this.linkLabelBuscarPeloPai.TabIndex = 2;
             this.linkLabelBuscarPeloPai.TabStop = true;
-            this.linkLabelBuscarPeloPai.Text = "Buscar pelo pai";
+            this.linkLabelBuscarPeloPai.Text = "[F3] - Buscar pelo pai";
             this.linkLabelBuscarPeloPai.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBuscarPeloPai_LinkClicked);
             // 
             // linkLabelBuscarPelaMae
             // 
             this.linkLabelBuscarPelaMae.AutoSize = true;
             this.linkLabelBuscarPelaMae.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelBuscarPelaMae.Location = new System.Drawing.Point(236, 9);
+            this.linkLabelBuscarPelaMae.Location = new System.Drawing.Point(297, 9);
             this.linkLabelBuscarPelaMae.Name = "linkLabelBuscarPelaMae";
-            this.linkLabelBuscarPelaMae.Size = new System.Drawing.Size(193, 29);
+            this.linkLabelBuscarPelaMae.Size = new System.Drawing.Size(255, 29);
             this.linkLabelBuscarPelaMae.TabIndex = 1;
             this.linkLabelBuscarPelaMae.TabStop = true;
-            this.linkLabelBuscarPelaMae.Text = "Buscar pela mãe";
+            this.linkLabelBuscarPelaMae.Text = "[F2] - Buscar pela mãe";
             this.linkLabelBuscarPelaMae.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBuscarPelaMae_LinkClicked);
             // 
-            // linkLabel1
+            // linkLabelAtualizarDados
             // 
-            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(844, 9);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(177, 29);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Atualizar dados";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabelAtualizarDados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelAtualizarDados.AutoSize = true;
+            this.linkLabelAtualizarDados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelAtualizarDados.Location = new System.Drawing.Point(795, 9);
+            this.linkLabelAtualizarDados.Name = "linkLabelAtualizarDados";
+            this.linkLabelAtualizarDados.Size = new System.Drawing.Size(239, 29);
+            this.linkLabelAtualizarDados.TabIndex = 3;
+            this.linkLabelAtualizarDados.TabStop = true;
+            this.linkLabelAtualizarDados.Text = "[F5] - Atualizar dados";
+            this.linkLabelAtualizarDados.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAtualizarDados_LinkClicked);
             // 
             // BtnRegistrarPresenca
             // 
@@ -659,13 +659,16 @@ namespace RegistroPresencaTrilhar
             this.Controls.Add(this.linkLabelBuscarPeloNome);
             this.Controls.Add(this.linkLabelBuscarPeloPai);
             this.Controls.Add(this.linkLabelBuscarPelaMae);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linkLabelAtualizarDados);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(1052, 56);
             this.Name = "Principal";
-            this.Text = "Principal";
+            this.Text = "Cadastro Trilhar - Registro de presença";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Principal_FormClosing);
             this.Load += new System.EventHandler(this.Principal_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Principal_KeyDown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -684,7 +687,7 @@ namespace RegistroPresencaTrilhar
         private System.Windows.Forms.LinkLabel linkLabelBuscarPeloNome;
         private System.Windows.Forms.LinkLabel linkLabelBuscarPeloPai;
         private System.Windows.Forms.LinkLabel linkLabelBuscarPelaMae;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabelAtualizarDados;
         private System.Windows.Forms.Button BtnRegistrarPresenca;
         private System.Windows.Forms.TextBox TxtNomeCrianca;
         private System.Windows.Forms.Label LblNomeCrianca;
