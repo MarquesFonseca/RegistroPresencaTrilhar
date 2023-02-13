@@ -89,7 +89,16 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Imagens\306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed.jpeg" size="106655">
+  <file name="Imagens\IcoTrilhar.ico" size="144734">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>hbEVN4DOn5FMXFJS/odQvZZxXKMxIBJqYfnhEbInHWk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Imagens\Trilhar.jpeg" size="106655">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -98,16 +107,7 @@
       <dsig:DigestValue>7Dl6uZeiu1oZNSl0zhODlRK7FMkuF/je2x+x8anYigk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Imagens\306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed-removebg-preview.ico" size="64080">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>XP3QuZW5jPjkyIwGKlLMJlOh5UtTvE44TkL0mnHD90o=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Imagens\306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed-removebg-preview.png" size="152782">
+  <file name="Imagens\Trilhar.png" size="152782">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -116,22 +116,13 @@
       <dsig:DigestValue>NhtE3vakWavAdzkqoqRepSRNOOSZwrsB6KCwmhi6jUs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Imagens\306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed-removebg-preview1.png" size="158839">
+  <file name="Imagens\TrilharCortado.png" size="158839">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>12uWUzcafCk6ErBOMeSol/MaTIDAQ5Ns3UZ2yu2G0z4=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Imagens\IcoTrilhar.ico" size="144734">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>hbEVN4DOn5FMXFJS/odQvZZxXKMxIBJqYfnhEbInHWk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="RegistroPresencaTrilhar.exe.config" size="189">

@@ -89,7 +89,16 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Imagens\306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed.jpeg" size="106655">
+  <file name="Imagens\IcoTrilhar.ico" size="144734">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>hbEVN4DOn5FMXFJS/odQvZZxXKMxIBJqYfnhEbInHWk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Imagens\Trilhar.jpeg" size="106655">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -98,16 +107,7 @@
       <dsig:DigestValue>7Dl6uZeiu1oZNSl0zhODlRK7FMkuF/je2x+x8anYigk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Imagens\306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed-removebg-preview.ico" size="64080">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>XP3QuZW5jPjkyIwGKlLMJlOh5UtTvE44TkL0mnHD90o=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Imagens\306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed-removebg-preview.png" size="152782">
+  <file name="Imagens\Trilhar.png" size="152782">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -116,22 +116,13 @@
       <dsig:DigestValue>NhtE3vakWavAdzkqoqRepSRNOOSZwrsB6KCwmhi6jUs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Imagens\306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed-removebg-preview1.png" size="158839">
+  <file name="Imagens\TrilharCortado.png" size="158839">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>12uWUzcafCk6ErBOMeSol/MaTIDAQ5Ns3UZ2yu2G0z4=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Imagens\IcoTrilhar.ico" size="144734">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>hbEVN4DOn5FMXFJS/odQvZZxXKMxIBJqYfnhEbInHWk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="RegistroPresencaTrilhar.exe.config" size="189">
@@ -143,4 +134,4 @@
       <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
     </hash>
   </file>
-<publisherIdentity name="CN=MARQUESLENOVO-P\MarquesLenovo-PC" issuerKeyHash="c662017709018870bca77af7fa7fb7179074381d" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>doSAQyR+EwxpBT259ClqVnJrPL2SaRJI+FjKdjK81rA=</DigestValue></Reference></SignedInfo><SignatureValue>amELvZpBPqurq/Prs5TxssU1HPfV7ADAEhwHzRm/QxCBlPV74Z9D5tcQ/POjN5XVc2a7IsGAqCwUvJp6cxmM1VJAK7IPPIDd6sW1kRpvXreoxi9Rw+mkwhOLBuw45V3zJsY/8sd8Pg185iGfKfw3xGt7YdKGv3uxCgT6SWNZQPs=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>zogl7Rl4dZn0kc+sR1/0kYVQ9fIBRDQi3lKQeoL96e2hsjFYWKHYhhLx23AwAYCZianfhK+r6qWYlsl6it+u1+NMkc5UG4BSDNNrcLtFM+OKUMhfOXzrM/aE48WiPe3sIQ44OZw0t/qa6Fn84O8kj7oXEMliIuO5qtdQbdiiSGE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="b0d6bc3276ca58f848126992bd3c6b72566a29f4b93d05690c137e2443808476" Description="" Url=""><as:assemblyIdentity name="RegistroPresencaTrilhar.exe" version="1.0.0.1" publicKeyToken="834adc44bf165bca" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MARQUESLENOVO-P\MarquesLenovo-PC</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>vU176BW/wObyAC5pAjuiU+WtDrf8JngnJwNLC1GV2uo=</DigestValue></Reference></SignedInfo><SignatureValue>B1Ixzr1R5mZqyOWSSzJJLTyN5BN58oHwJGTSQn/2UznDHrqe3W1RSiQZh2YIRIoSVhegCSpaWAYvDn8eSORbqfk5k5Zyjoc0y7h8B3NTnK9NXdgiCiPrEuKFRzLpIJtxF6y7EWRi6jw8lUvz5zuuFjH03X3XIm+uYykIh2sE7Bg=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>zogl7Rl4dZn0kc+sR1/0kYVQ9fIBRDQi3lKQeoL96e2hsjFYWKHYhhLx23AwAYCZianfhK+r6qWYlsl6it+u1+NMkc5UG4BSDNNrcLtFM+OKUMhfOXzrM/aE48WiPe3sIQ44OZw0t/qa6Fn84O8kj7oXEMliIuO5qtdQbdiiSGE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIICGTCCAYKgAwIBAgIQaRF2Gc8GVLxAD69iYYYaizANBgkqhkiG9w0BAQsFADBLMUkwRwYDVQQDHkAATQBBAFIAUQBVAEUAUwBMAEUATgBPAFYATwAtAFAAXABNAGEAcgBxAHUAZQBzAEwAZQBuAG8AdgBvAC0AUABDMB4XDTIzMDIxMjA0NTUxN1oXDTI0MDIxMjEwNTUxN1owSzFJMEcGA1UEAx5AAE0AQQBSAFEAVQBFAFMATABFAE4ATwBWAE8ALQBQAFwATQBhAHIAcQB1AGUAcwBMAGUAbgBvAHYAbwAtAFAAQzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAzogl7Rl4dZn0kc+sR1/0kYVQ9fIBRDQi3lKQeoL96e2hsjFYWKHYhhLx23AwAYCZianfhK+r6qWYlsl6it+u1+NMkc5UG4BSDNNrcLtFM+OKUMhfOXzrM/aE48WiPe3sIQ44OZw0t/qa6Fn84O8kj7oXEMliIuO5qtdQbdiiSGECAwEAATANBgkqhkiG9w0BAQsFAAOBgQBOkXAsQVU6veGYT9n6wAE2Mmo5l4GVdE97dLdBJB3yyvpdCD8wDZ+JeBfEQThWZdt1JBtpIqBLrrLrN4gcFp0nPMbSDE5peZQgTrjv20xi6EOV8qtcnbOFFrpo7k1DeqBTyXsVw5kEDQJvmf6viuADsRXo8kMSNgih08+4heVXng==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+<publisherIdentity name="CN=MARQUESLENOVO-P\MarquesLenovo-PC" issuerKeyHash="c662017709018870bca77af7fa7fb7179074381d" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>QUBchrJATWvUbCALmwLqpIeRSRwRBmEwlrl57KpSo6w=</DigestValue></Reference></SignedInfo><SignatureValue>YujDJKYUAmMAWwrBvPlIrks/lfX/+hbj9/3BtYxK0TH7q4GsO/3JuunjJSmcOi3vFiobuGMjrB4y3ndaHZlyEHXyV1nCWVvTcXdRuksjNypDzT8q89cFUh8NToHRJx/uMzPTps9oXEdYYGx6qG0AHuKY7ker5nXRJnpSUbZMnXg=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>zogl7Rl4dZn0kc+sR1/0kYVQ9fIBRDQi3lKQeoL96e2hsjFYWKHYhhLx23AwAYCZianfhK+r6qWYlsl6it+u1+NMkc5UG4BSDNNrcLtFM+OKUMhfOXzrM/aE48WiPe3sIQ44OZw0t/qa6Fn84O8kj7oXEMliIuO5qtdQbdiiSGE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="aca352aaec79b996306106111c499187a4ea029b0b206cd46b4d40b2865c4041" Description="" Url=""><as:assemblyIdentity name="RegistroPresencaTrilhar.exe" version="1.0.0.1" publicKeyToken="834adc44bf165bca" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MARQUESLENOVO-P\MarquesLenovo-PC</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Ta5kE67WOBz/4eLnjNN0QfD3QWrMf5Tbpo+IAJmbJRQ=</DigestValue></Reference></SignedInfo><SignatureValue>pEJfUFSSn2SP4IY3PmNM89k/r5fdiDka2Qzx5kIUvwWIfubudmJzY0VZFXRxGrtspXAPs3hImVPstBTSthO5i3NsJwNcLacba5DEfVMOtBgH1iU0BGgNYsMhr2ZzpTTwNqSYBNvDx/D3CnezN0qxw0X38rOaXINM2KSy9WEfuYM=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>zogl7Rl4dZn0kc+sR1/0kYVQ9fIBRDQi3lKQeoL96e2hsjFYWKHYhhLx23AwAYCZianfhK+r6qWYlsl6it+u1+NMkc5UG4BSDNNrcLtFM+OKUMhfOXzrM/aE48WiPe3sIQ44OZw0t/qa6Fn84O8kj7oXEMliIuO5qtdQbdiiSGE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIICGTCCAYKgAwIBAgIQaRF2Gc8GVLxAD69iYYYaizANBgkqhkiG9w0BAQsFADBLMUkwRwYDVQQDHkAATQBBAFIAUQBVAEUAUwBMAEUATgBPAFYATwAtAFAAXABNAGEAcgBxAHUAZQBzAEwAZQBuAG8AdgBvAC0AUABDMB4XDTIzMDIxMjA0NTUxN1oXDTI0MDIxMjEwNTUxN1owSzFJMEcGA1UEAx5AAE0AQQBSAFEAVQBFAFMATABFAE4ATwBWAE8ALQBQAFwATQBhAHIAcQB1AGUAcwBMAGUAbgBvAHYAbwAtAFAAQzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAzogl7Rl4dZn0kc+sR1/0kYVQ9fIBRDQi3lKQeoL96e2hsjFYWKHYhhLx23AwAYCZianfhK+r6qWYlsl6it+u1+NMkc5UG4BSDNNrcLtFM+OKUMhfOXzrM/aE48WiPe3sIQ44OZw0t/qa6Fn84O8kj7oXEMliIuO5qtdQbdiiSGECAwEAATANBgkqhkiG9w0BAQsFAAOBgQBOkXAsQVU6veGYT9n6wAE2Mmo5l4GVdE97dLdBJB3yyvpdCD8wDZ+JeBfEQThWZdt1JBtpIqBLrrLrN4gcFp0nPMbSDE5peZQgTrjv20xi6EOV8qtcnbOFFrpo7k1DeqBTyXsVw5kEDQJvmf6viuADsRXo8kMSNgih08+4heVXng==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
