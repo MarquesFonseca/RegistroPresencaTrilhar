@@ -23,7 +23,6 @@ C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPrese
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\bin\Debug\Mapster.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\bin\Debug\Newtonsoft.Json.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\bin\Debug\Newtonsoft.Json.xml
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.csproj.AssemblyReference.cache
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.Form1.resources
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.Form2.resources
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.FormBuscar.resources

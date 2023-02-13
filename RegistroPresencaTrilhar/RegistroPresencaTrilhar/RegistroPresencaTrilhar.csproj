@@ -160,5 +160,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Imagens\306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed-removebg-preview.ico" />
+    <Content Include="Imagens\306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed-removebg-preview.png" />
+    <Content Include="Imagens\306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed-removebg-preview1.png" />
+    <Content Include="Imagens\306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed.jpeg" />
+    <Content Include="Imagens\IcoTrilhar.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

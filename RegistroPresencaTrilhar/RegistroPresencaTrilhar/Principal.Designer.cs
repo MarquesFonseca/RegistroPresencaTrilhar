@@ -30,6 +30,7 @@ namespace RegistroPresencaTrilhar
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.linkLabelBuscarPeloNome = new System.Windows.Forms.LinkLabel();
             this.linkLabelBuscarPeloPai = new System.Windows.Forms.LinkLabel();
             this.linkLabelBuscarPelaMae = new System.Windows.Forms.LinkLabel();
@@ -660,7 +661,7 @@ namespace RegistroPresencaTrilhar
             this.Controls.Add(this.linkLabelBuscarPeloPai);
             this.Controls.Add(this.linkLabelBuscarPelaMae);
             this.Controls.Add(this.linkLabelAtualizarDados);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(1052, 56);
             this.Name = "Principal";
