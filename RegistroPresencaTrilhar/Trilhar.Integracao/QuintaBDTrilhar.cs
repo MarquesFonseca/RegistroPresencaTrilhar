@@ -129,8 +129,7 @@ namespace Trilhar.Integracao
                             }
                             else
                             {
-                                 RetornoRecordList.Add(myDeserializedCadastroTrilhar.records);
-                                
+                                 RetornoRecordList.AddRange(myDeserializedCadastroTrilhar.records);                                
                             }
                         }
                         else
