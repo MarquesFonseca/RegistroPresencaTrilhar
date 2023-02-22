@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RegistroPresencaTrilhar
+namespace Trilhar.Forms
 {
     public partial class FormBuscar : Form
     {

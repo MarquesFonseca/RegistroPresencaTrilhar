@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RegistroPresencaTrilhar
+namespace Trilhar.Forms
 {
     public class Record
     {

@@ -1,0 +1,108 @@
+https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/entities/cupCkNWP1eqyoXWPtcMmoM/properties.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE
+
+
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "dcPfSQWPrdP4o2ccRdLNKz":"CodigoCadastro"}}
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "cluCkFshndGzatxtRcKSoa":"NomeCrianca"}}' 								'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "axdSotECjbuzdcLGtdHfTI":"DataNacimento"}}' 							'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "dcJSoRWPndIOkjqSkTbCk5":"Mae"}}' 										'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "bAfHJcV8njWOGiWQztd8ks":"pai"}}' 										'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "dcRCkpW59gl4k4cCojWPO1":"OutroResponsavel"}}' 						'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "cRWPtcLSjijORdRCo5WRnR":"SelecioneATurma"}}' 							'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "crWO5aWQTcMOk0W4hcRHOo":"Telefone"}}' 								'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "dcJmoAW5vdHBKBsCkGvh4k":"EndereçoEmai"}}' 							'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "bWWQqIfuLpW43dMtRcG8oN":"Alergia"}}' 									'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "ddIN7cMCneAA9hW7OeAa0i":"SeSimAlergia"}}' 							'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "bsWOS1bwPegikrWQ3cGSob":"RestrincaoAlimentaar"}}' 					'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "ddMCowu8nnkykKW65JESoi":"SeSiRestrincaoAlimentaar"}}' 				'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "bNF2CMbHPldQ9zWQRdJx1w":"AlgumaDeficienciaSituacaoAtipica"}}' 		'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "c1dmoHWPHcpioPW43cN8oA":"SeSimAlgumaDeficienciaSituacaoAtipica"}}' 	'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "cdo8kfWODhW4GCW6LwjmoG":"Batizado"}}' 								'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "cAq1TbESnlW6z7tJlcKCk9":"DataBatismo"}}' 								'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X POST -d '{"values": {"entity_id" : "cupCkNWP1eqyoXWPtcMmoM", "dcT8kfWQfcGOkifJXub0ir":"IgrejaBatizou"}}' 							'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+
+{
+    "values": {
+        "entity_id": "cupCkNWP1eqyoXWPtcMmoM"
+        "cluCkFshndGzatxtRcKSoa": "NomeCrianca",
+        "axdSotECjbuzdcLGtdHfTI": "DataNacimento",
+        "dcJSoRWPndIOkjqSkTbCk5": "Mae",
+        "bAfHJcV8njWOGiWQztd8ks": "pai",
+        "dcRCkpW59gl4k4cCojWPO1": "OutroResponsavel",
+        "cRWPtcLSjijORdRCo5WRnR": "SelecioneATurma",
+        "crWO5aWQTcMOk0W4hcRHOo": "Telefone",
+        "dcJmoAW5vdHBKBsCkGvh4k": "Endere\u00e7oEmai",
+        "bWWQqIfuLpW43dMtRcG8oN": "Alergia",                                  "default": "  slctSIMslctNÃO"
+        "ddIN7cMCneAA9hW7OeAa0i": "SeSimAlergia",
+        "bsWOS1bwPegikrWQ3cGSob": "RestrincaoAlimentaar",
+        "ddMCowu8nnkykKW65JESoi": "SeSiRestrincaoAlimentaar",
+        "bNF2CMbHPldQ9zWQRdJx1w": "AlgumaDeficienciaSituacaoAtipica",
+        "c1dmoHWPHcpioPW43cN8oA": "SeSimAlgumaDeficienciaSituacaoAtipica",
+        "cdo8kfWODhW4GCW6LwjmoG": "Batizado",
+        "cAq1TbESnlW6z7tJlcKCk9": "DataBatismo",
+        "dcT8kfWQfcGOkifJXub0ir": "IgrejaBatizou",
+    }
+}
+
+
+Turma
+"default": "ddOmoWWQvoWQJdOvnnC8kd"
+
+{
+  "id": "cyW4r8W7DhW6ZcS8kjW6fy",
+  "name": "BRANCO/ROSA (0 A 11 M)",
+  Valor....: "BRANCO/ROSA (0 A 11 M)"
+},
+
+
+{
+  "id": "bDWQ1zleTdyRNdJwtdVmkx",
+  "name": "LILÁS 1 ANO",
+  Valor....: "LILÁS (1 ANO)"
+},
+
+
+{
+  "id": "dcGZGaW7PcG4obW7jJWOXy",
+  "name": "LILÁS 2 ANOS",
+  Valor....: "LILÁS (2 ANOS)"
+},
+
+
+{
+  "id": "bIl2VcHSjlc4ohW7pcV1CY",
+  "name": "LARANJA 3-4 ANOS",
+  Valor....: "LARANJA"
+},
+
+
+{
+  "id": "dcTx07W7jdSioSj1JdL8kD",
+  "name": "VERMELHO 5-6 ANOS"
+  Valor....: "VERMELHO"
+}
+
+
+{
+  "id": "cVF8kHn0TcT7KoWQicW41V",
+  "name": "VERDE 7-8 ANOS",
+  Valor....: "VERDE"
+},
+
+
+{
+  "id": "c-xfGFlCnhzyk1W6pdKmow",
+  "name": "Escolha CHAMADA AZUL 9-10 ANOS",
+  Valor....: "AZUL (9-10 ANOS)"
+},
+
+
+{
+  "id": "c9WQVdTCjjW6NcSaqPW7HL",
+  "name": "AZUL ROYAL 11-12 ANOS",
+  Valor....: "AZUL ROYAL (11-12 ANOS)"
+},
+
+
+
+curl -H 'Content-Type: application/json' -X PUT -d '{"val": ""}' 'https://quintadb.com/cell_values/ddGsr9DxjcIyoxamoBv8ku/update_cell_value/cRWPtcLSjijORdRCo5WRnR.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X DELETE -d '{}' 'https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/ddGsr9DxjcIyoxamoBv8ku.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'

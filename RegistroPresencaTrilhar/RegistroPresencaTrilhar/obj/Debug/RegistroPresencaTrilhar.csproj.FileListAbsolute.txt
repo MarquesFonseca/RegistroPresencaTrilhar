@@ -29,7 +29,6 @@ C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPrese
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.Principal.resources
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.Properties.Resources.resources
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.csproj.GenerateResource.cache
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.csproj.CoreCompileInputs.cache
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.csproj.CopyComplete
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.exe
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.pdb
@@ -37,4 +36,4 @@ C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPrese
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\bin\Debug\RegistroPresencaTrilhar.application
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.exe.manifest
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.application
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.csproj.AssemblyReference.cache
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\RegistroPresencaTrilhar\obj\Debug\RegistroPresencaTrilhar.csprojAssemblyReference.cache

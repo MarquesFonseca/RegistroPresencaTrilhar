@@ -12,10 +12,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trilhar.Integracao;
 
-namespace RegistroPresencaTrilhar
+namespace Trilhar.Forms
 {
-    public partial class Principal : Form
+    public partial class Principal : Form, ICloneable
     {
         List<ValuesDTO> valuesDTOList = new List<ValuesDTO>();
 
@@ -23,35 +24,10 @@ namespace RegistroPresencaTrilhar
         {
             InitializeComponent();
         }
+
         private void Principal_Load(object sender, EventArgs e)
         {
-            TypeAdapterConfig<Values, ValuesDTO>.NewConfig()
-            .Map(dest => dest.CodigoCadastro, src => src.dcPfSQWPrdP4o2ccRdLNKz)
-            .Map(dest => dest.NomeCrianca, src => src.cluCkFshndGzatxtRcKSoa)
-            .Map(dest => dest.DataNascimento, src => src.axdSotECjbuzdcLGtdHfTI)
-            .Map(dest => dest.Mae, src => src.dcJSoRWPndIOkjqSkTbCk5)
-            .Map(dest => dest.Pai, src => src.bAfHJcV8njWOGiWQztd8ks)
-            .Map(dest => dest.OutroResponsavel, src => src.dcRCkpW59gl4k4cCojWPO1)
-            .Map(dest => dest.SelecioneATurma, src => src.cRWPtcLSjijORdRCo5WRnR)
-            .Map(dest => dest.Telefone, src => src.crWO5aWQTcMOk0W4hcRHOo)
-            .Map(dest => dest.EnderecoEmail, src => src.dcJmoAW5vdHBKBsCkGvh4k)
-            .Map(dest => dest.Alergia, src => src.bWWQqIfuLpW43dMtRcG8oN)
-            .Map(dest => dest.SeAlergiaSimPreenchaAqui, src => src.ddIN7cMCneAA9hW7OeAa0i)
-            .Map(dest => dest.RestrincaoAlimentar, src => src.bsWOS1bwPegikrWQ3cGSob)
-            .Map(dest => dest.SeRestrincaoAlimentarSimDescreva, src => src.ddMCowu8nnkykKW65JESoi)
-            .Map(dest => dest.AlgumaDeficienciaOuSituacaoAtipica, src => src.bNF2CMbHPldQ9zWQRdJx1w)
-            .Map(dest => dest.SeAlgumaDeficienciaDescrevaOsDetalhes, src => src.c1dmoHWPHcpioPW43cN8oA)
-            .Map(dest => dest.Batizado, src => src.cdo8kfWODhW4GCW6LwjmoG)
-            .Map(dest => dest.DataBatismo, src => src.cAq1TbESnlW6z7tJlcKCk9)
-            .Map(dest => dest.IgrejaBatizou, src => src.dcT8kfWQfcGOkifJXub0ir)
-            .Map(dest => dest.ChamadaAzul_9_10Anos, src => src.cxfGFlCnhzyk1W6pdKmow)
-            .Map(dest => dest.ChamadaAzulRoyal_11_12Anos, src => src.c9WQVdTCjjW6NcSaqPW7HL)
-            .Map(dest => dest.ChamadaBranco_0_11Me29D, src => src.cyW4r8W7DhW6ZcS8kjW6fy)
-            .Map(dest => dest.ChamadaLaranja_3_4Anos, src => src.bIl2VcHSjlc4ohW7pcV1CY)
-            .Map(dest => dest.ChamadaLilas_1Ano, src => src.bDWQ1zleTdyRNdJwtdVmkx)
-            .Map(dest => dest.ChamadaLilas_2_Anos, src => src.dcGZGaW7PcG4obW7jJWOXy)
-            .Map(dest => dest.ChamadaVerde_7_8Anos, src => src.cVF8kHn0TcT7KoWQicW41V)
-            .Map(dest => dest.ChamadaVermelho_5_6Anos, src => src.dcTx07W7jdSioSj1JdL8kD);
+            ValuesToMapeamento();
 
             AtualizaDados();
 
@@ -65,6 +41,38 @@ namespace RegistroPresencaTrilhar
             TxtCodigoCadastro.Enabled = false;
             TxtCodigoCadastro.Focus();
         }
+
+        public void ValuesToMapeamento()
+        {
+            TypeAdapterConfig<Values, ValuesDTO>.NewConfig()
+                        .Map(dest => dest.CodigoCadastro, src => src.dcPfSQWPrdP4o2ccRdLNKz)
+                        .Map(dest => dest.NomeCrianca, src => src.cluCkFshndGzatxtRcKSoa)
+                        .Map(dest => dest.DataNascimento, src => src.axdSotECjbuzdcLGtdHfTI)
+                        .Map(dest => dest.Mae, src => src.dcJSoRWPndIOkjqSkTbCk5)
+                        .Map(dest => dest.Pai, src => src.bAfHJcV8njWOGiWQztd8ks)
+                        .Map(dest => dest.OutroResponsavel, src => src.dcRCkpW59gl4k4cCojWPO1)
+                        .Map(dest => dest.SelecioneATurma, src => src.cRWPtcLSjijORdRCo5WRnR)
+                        .Map(dest => dest.Telefone, src => src.crWO5aWQTcMOk0W4hcRHOo)
+                        .Map(dest => dest.EnderecoEmail, src => src.dcJmoAW5vdHBKBsCkGvh4k)
+                        .Map(dest => dest.Alergia, src => src.bWWQqIfuLpW43dMtRcG8oN)
+                        .Map(dest => dest.SeAlergiaSimPreenchaAqui, src => src.ddIN7cMCneAA9hW7OeAa0i)
+                        .Map(dest => dest.RestrincaoAlimentar, src => src.bsWOS1bwPegikrWQ3cGSob)
+                        .Map(dest => dest.SeRestrincaoAlimentarSimDescreva, src => src.ddMCowu8nnkykKW65JESoi)
+                        .Map(dest => dest.AlgumaDeficienciaOuSituacaoAtipica, src => src.bNF2CMbHPldQ9zWQRdJx1w)
+                        .Map(dest => dest.SeAlgumaDeficienciaDescrevaOsDetalhes, src => src.c1dmoHWPHcpioPW43cN8oA)
+                        .Map(dest => dest.Batizado, src => src.cdo8kfWODhW4GCW6LwjmoG)
+                        .Map(dest => dest.DataBatismo, src => src.cAq1TbESnlW6z7tJlcKCk9)
+                        .Map(dest => dest.IgrejaBatizou, src => src.dcT8kfWQfcGOkifJXub0ir)
+                        .Map(dest => dest.ChamadaAzul_9_10Anos, src => src.cxfGFlCnhzyk1W6pdKmow)
+                        .Map(dest => dest.ChamadaAzulRoyal_11_12Anos, src => src.c9WQVdTCjjW6NcSaqPW7HL)
+                        .Map(dest => dest.ChamadaBranco_0_11Me29D, src => src.cyW4r8W7DhW6ZcS8kjW6fy)
+                        .Map(dest => dest.ChamadaLaranja_3_4Anos, src => src.bIl2VcHSjlc4ohW7pcV1CY)
+                        .Map(dest => dest.ChamadaLilas_1Ano, src => src.bDWQ1zleTdyRNdJwtdVmkx)
+                        .Map(dest => dest.ChamadaLilas_2_Anos, src => src.dcGZGaW7PcG4obW7jJWOXy)
+                        .Map(dest => dest.ChamadaVerde_7_8Anos, src => src.cVF8kHn0TcT7KoWQicW41V)
+                        .Map(dest => dest.ChamadaVermelho_5_6Anos, src => src.dcTx07W7jdSioSj1JdL8kD);
+        }
+
 
         private void TxtCodigoCadastro_KeyDown(object sender, KeyEventArgs e)
         {
@@ -231,6 +239,76 @@ namespace RegistroPresencaTrilhar
             valuesDTOList = new List<ValuesDTO>();
             HabilitaDesabilitaCampos(false);
 
+            QuintaBDTrilhar quintaBDTrilhar = new Integracao.QuintaBDTrilhar();
+            List<Trilhar.Entidades.ValuesDTO> values = await quintaBDTrilhar.GetListAsync();
+            foreach (var item in values)
+            {
+                ValuesDTO valuesDTO = new ValuesDTO()
+                {
+                    CodigoCadastro = item.CodigoCadastro,
+                    NomeCrianca = item.NomeCrianca,
+                    DataNascimento = item.DataNascimento,
+                    Mae = item.Mae,
+                    Pai = item.Pai,
+                    OutroResponsavel = item.OutroResponsavel,
+                    SelecioneATurma = item.SelecioneATurma,
+                    Telefone = item.Telefone,
+                    EnderecoEmail = item.EnderecoEmail,
+                    Alergia = item.Alergia,
+                    SeAlergiaSimPreenchaAqui = item.SeAlergiaSimPreenchaAqui,
+                    RestrincaoAlimentar = item.RestrincaoAlimentar,
+                    SeRestrincaoAlimentarSimDescreva = item.SeRestrincaoAlimentarSimDescreva,
+                    AlgumaDeficienciaOuSituacaoAtipica = item.AlgumaDeficienciaOuSituacaoAtipica,
+                    SeAlgumaDeficienciaDescrevaOsDetalhes = item.SeAlgumaDeficienciaDescrevaOsDetalhes,
+                    Batizado = item.Batizado,
+                    DataBatismo = item.DataBatismo,
+                    IgrejaBatizou = item.IgrejaBatizou,
+                    ChamadaAzul_9_10Anos = item.ChamadaAzul_9_10Anos,
+                    ChamadaAzulRoyal_11_12Anos = item.ChamadaAzulRoyal_11_12Anos,
+                    ChamadaBranco_0_11Me29D = item.ChamadaBranco_0_11Me29D,
+                    ChamadaLaranja_3_4Anos = item.ChamadaLaranja_3_4Anos,
+                    ChamadaLilas_1Ano = item.ChamadaLilas_1Ano,
+                    ChamadaLilas_2_Anos = item.ChamadaLilas_2_Anos,
+                    ChamadaVerde_7_8Anos = item.ChamadaVerde_7_8Anos,
+                    ChamadaVermelho_5_6Anos = item.ChamadaVermelho_5_6Anos
+                };
+
+                valuesDTOList.Add(valuesDTO);
+            }
+
+            if (valuesDTOList == null || valuesDTOList.Count == 0)
+            {
+                HabilitaDesabilitaCampos(true);
+
+                toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
+                toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", 0);
+
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+            }
+            else
+            {
+                ValuesDTO lastRecord = valuesDTOList.OrderBy(r => r.CodigoCadastro).Last();
+                CarregaCampos(lastRecord);
+                HabilitaDesabilitaCampos(true);
+                toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
+                toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
+
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+            }
+            return;
+
+
+
+
+
+
+
+
+            valuesDTOList = new List<ValuesDTO>();
+            HabilitaDesabilitaCampos(false);
+
             //string URI = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/entity/cupCkNWP1eqyoXWPtcMmoM.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE&amp;fetch_all=true&amp;page=11";
             string URI = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/entity/cupCkNWP1eqyoXWPtcMmoM.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE&fetch_all=true&page=";
 
@@ -262,6 +340,7 @@ namespace RegistroPresencaTrilhar
                                 foreach (Record record in myDeserializedClass.records)
                                 {
                                     var valuesDTO = record.values.Adapt<ValuesDTO>();
+
                                     valuesDTOList.Add(valuesDTO);
 
                                     toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
@@ -485,6 +564,11 @@ namespace RegistroPresencaTrilhar
             {
                 e.Cancel = true;
             }
+        }
+
+        public object Clone()
+        {
+            throw new NotImplementedException();
         }
     }
 }

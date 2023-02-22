@@ -1,5 +1,5 @@
 ﻿
-namespace RegistroPresencaTrilhar
+namespace Trilhar.Forms
 {
     partial class FormBuscar
     {
@@ -479,7 +479,7 @@ namespace RegistroPresencaTrilhar
             // 
             // valuesDTOBindingSource
             // 
-            this.valuesDTOBindingSource.DataSource = typeof(RegistroPresencaTrilhar.ValuesDTO);
+            this.valuesDTOBindingSource.DataSource = typeof(Trilhar.Forms.ValuesDTO);
             // 
             // FormBuscar
             // 

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RegistroPresencaTrilhar
+namespace Trilhar.Forms
 {
     public partial class Form2 : Form
     {

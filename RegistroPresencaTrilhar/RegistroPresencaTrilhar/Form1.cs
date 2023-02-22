@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using Mapster;
 
-namespace RegistroPresencaTrilhar
+namespace Trilhar.Forms
 {
     public partial class Form1 : Form
     {

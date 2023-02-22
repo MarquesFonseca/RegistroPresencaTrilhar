@@ -1,5 +1,5 @@
 ﻿
-namespace RegistroPresencaTrilhar
+namespace Trilhar.Forms
 {
     partial class Principal
     {
