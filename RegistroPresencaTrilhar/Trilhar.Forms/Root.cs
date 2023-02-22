@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace Trilhar.Forms
 {
     public class Record
-    {
-        
+    {        
         public string id { get; set; }
         public string app_id { get; set; }
         public string entity_id { get; set; }
