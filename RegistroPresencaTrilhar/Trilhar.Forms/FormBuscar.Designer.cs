@@ -44,6 +44,7 @@ namespace Trilhar.Forms
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.valuesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codigoCadastroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeCriancaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selecioneATurmaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,7 +71,6 @@ namespace Trilhar.Forms
             this.chamadaLilas2AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chamadaVerde78AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valuesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -238,6 +238,10 @@ namespace Trilhar.Forms
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
+            // valuesDTOBindingSource
+            // 
+            this.valuesDTOBindingSource.DataSource = typeof(Trilhar.Entidades.ValuesDTO);
+            // 
             // codigoCadastroDataGridViewTextBoxColumn
             // 
             this.codigoCadastroDataGridViewTextBoxColumn.DataPropertyName = "CodigoCadastro";
@@ -270,6 +274,7 @@ namespace Trilhar.Forms
             // 
             this.dataNascimentoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataNascimentoDataGridViewTextBoxColumn.DataPropertyName = "DataNascimento";
+            this.dataNascimentoDataGridViewTextBoxColumn.FillWeight = 190F;
             this.dataNascimentoDataGridViewTextBoxColumn.HeaderText = "Data nascimento";
             this.dataNascimentoDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.dataNascimentoDataGridViewTextBoxColumn.Name = "dataNascimentoDataGridViewTextBoxColumn";
@@ -476,10 +481,6 @@ namespace Trilhar.Forms
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn.Name = "chamadaVermelho56AnosDataGridViewTextBoxColumn";
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn.ReadOnly = true;
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn.Width = 331;
-            // 
-            // valuesDTOBindingSource
-            // 
-            this.valuesDTOBindingSource.DataSource = typeof(Trilhar.Forms.ValuesDTO);
             // 
             // FormBuscar
             // 

@@ -11,6 +11,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using Mapster;
+using Trilhar.Entidades;
 
 namespace Trilhar.Forms
 {
@@ -34,7 +35,7 @@ namespace Trilhar.Forms
                     {
                         var ProdutoJsonString = await response.Content.ReadAsStringAsync();
                         //dgvDados.DataSource = JsonConvert.DeserializeObject<Produto[]>(ProdutoJsonString).ToList();
-                        Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(ProdutoJsonString);
+                        CadastroTrilhar myDeserializedClass = JsonConvert.DeserializeObject<CadastroTrilhar>(ProdutoJsonString);
                         //List<Root> people = JsonConvert.DeserializeObject<List<Root>>(ProdutoJsonString).ToList();
                         //dataGridView1.DataSource = null;
                         //dataGridView1.DataSource = myDeserializedClass.records;
@@ -100,7 +101,7 @@ namespace Trilhar.Forms
                     {
                         var ProdutoJsonString = await response.Content.ReadAsStringAsync();
                         //dgvDados.DataSource = JsonConvert.DeserializeObject<Produto[]>(ProdutoJsonString).ToList();
-                        Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(ProdutoJsonString);
+                        CadastroTrilhar myDeserializedClass = JsonConvert.DeserializeObject<CadastroTrilhar>(ProdutoJsonString);
                     }
                     else
                     {

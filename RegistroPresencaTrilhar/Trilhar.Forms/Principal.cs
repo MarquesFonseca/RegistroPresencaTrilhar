@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trilhar.Integracao;
+using Trilhar.Entidades;
 
 namespace Trilhar.Forms
 {
@@ -302,82 +303,78 @@ namespace Trilhar.Forms
 
 
 
+            //valuesDTOList = new List<ValuesDTO>();
+            //HabilitaDesabilitaCampos(false);
 
+            ////string URI = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/entity/cupCkNWP1eqyoXWPtcMmoM.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE&amp;fetch_all=true&amp;page=11";
+            //string URI = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/entity/cupCkNWP1eqyoXWPtcMmoM.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE&fetch_all=true&page=";
 
+            //int i = 0;
+            //while (true)
+            //{
+            //    if (!CheckForInternetConnection())
+            //    {
+            //        MessageBox.Show("Sem conexão com internet no momento!");
+            //        break;
+            //    }
+            //    string novoI = (i + 1).ToString();
+            //    string novoURI = URI + novoI;
+            //    using (var client = new HttpClient())
+            //    {
+            //        using (var response = await client.GetAsync(novoURI))
+            //        {
+            //            if (response.IsSuccessStatusCode)
+            //            {
+            //                var ProdutoJsonString = await response.Content.ReadAsStringAsync();
+            //                CadastroTrilhar myDeserializedClass = JsonConvert.DeserializeObject<CadastroTrilhar>(ProdutoJsonString);
 
+            //                if (myDeserializedClass.records.Count == 0)
+            //                {
+            //                    break;
+            //                }
+            //                else
+            //                {
+            //                    foreach (Record record in myDeserializedClass.records)
+            //                    {
+            //                        var valuesDTO = record.values.Adapt<ValuesDTO>();
 
-            valuesDTOList = new List<ValuesDTO>();
-            HabilitaDesabilitaCampos(false);
+            //                        valuesDTOList.Add(valuesDTO);
 
-            //string URI = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/entity/cupCkNWP1eqyoXWPtcMmoM.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE&amp;fetch_all=true&amp;page=11";
-            string URI = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/entity/cupCkNWP1eqyoXWPtcMmoM.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE&fetch_all=true&page=";
+            //                        toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
+            //                        toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
+            //                    }
+            //                }
+            //            }
+            //            else
+            //            {
+            //                MessageBox.Show("Não foi possível obter os registros : " + response.StatusCode);
+            //            }
+            //        }
+            //    }
+            //    i++;
+            //}
 
-            int i = 0;
-            while (true)
-            {
-                if (!CheckForInternetConnection())
-                {
-                    MessageBox.Show("Sem conexão com internet no momento!");
-                    break;
-                }
-                string novoI = (i + 1).ToString();
-                string novoURI = URI + novoI;
-                using (var client = new HttpClient())
-                {
-                    using (var response = await client.GetAsync(novoURI))
-                    {
-                        if (response.IsSuccessStatusCode)
-                        {
-                            var ProdutoJsonString = await response.Content.ReadAsStringAsync();
-                            Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(ProdutoJsonString);
+            //if (valuesDTOList == null || valuesDTOList.Count == 0)
+            //{
+            //    HabilitaDesabilitaCampos(true);
 
-                            if (myDeserializedClass.records.Count == 0)
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                foreach (Record record in myDeserializedClass.records)
-                                {
-                                    var valuesDTO = record.values.Adapt<ValuesDTO>();
+            //    toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
+            //    toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", 0);
 
-                                    valuesDTOList.Add(valuesDTO);
+            //    TxtCodigoCadastro.Focus();
+            //    TxtCodigoCadastro.SelectAll();
+            //}
+            //else
+            //{
+            //    ValuesDTO lastRecord = valuesDTOList.OrderBy(r => r.CodigoCadastro).Last();
+            //    CarregaCampos(lastRecord);
+            //    HabilitaDesabilitaCampos(true);
+            //    toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
+            //    toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
 
-                                    toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
-                                    toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Não foi possível obter os registros : " + response.StatusCode);
-                        }
-                    }
-                }
-                i++;
-            }
-
-            if (valuesDTOList == null || valuesDTOList.Count == 0)
-            {
-                HabilitaDesabilitaCampos(true);
-
-                toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
-                toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", 0);
-
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
-            }
-            else
-            {
-                ValuesDTO lastRecord = valuesDTOList.OrderBy(r => r.CodigoCadastro).Last();
-                CarregaCampos(lastRecord);
-                HabilitaDesabilitaCampos(true);
-                toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
-                toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
-
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
-            }
+            //    TxtCodigoCadastro.Focus();
+            //    TxtCodigoCadastro.SelectAll();
+            //}
         }
 
         private bool CheckForInternetConnection()
