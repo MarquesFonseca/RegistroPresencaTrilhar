@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Entidades.dll" size="18944">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Entidades.dll" size="19456">
       <assemblyIdentity name="Trilhar.Entidades" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gXPNEXOh3BAf3gpOWM3kE4x4egdxiDJ+HZA1v12Lzu8=</dsig:DigestValue>
+        <dsig:DigestValue>ktuOadeG8XmK62wOaNGJufUi0wECquIQFMTMHSHEZ7Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,31 +97,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xhJduprPBezGiweQA9UFWde1/9SZXqTeyyXj7ZBgmPI=</dsig:DigestValue>
+        <dsig:DigestValue>2IMM5it4BV+e3A8KjqfzuvqGgJg3uOXioYOeDBW7ClQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Integracao.dll" size="11776">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Integracao.dll" size="13312">
       <assemblyIdentity name="Trilhar.Integracao" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>m2GLothrF+Twh+miaPEa54kEqRP6BD+E3L/0GA76FAc=</dsig:DigestValue>
+        <dsig:DigestValue>IWuEHlK1bvdEJkAY7y0Chz+E3cdGAXTU9VHHgJoQ2sE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Mapeamento.dll" size="9728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Mapeamento.dll" size="13312">
       <assemblyIdentity name="Trilhar.Mapeamento" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>p7I+9uYUoX6uwc9blvgGD1V4xY8h23ybmbBp2R89Smc=</dsig:DigestValue>
+        <dsig:DigestValue>q/cElCG4greyhPcpCLzPkzPUMJSIdl503Y+0zgbPwbc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

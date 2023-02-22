@@ -9,6 +9,11 @@ namespace Trilhar.Entidades
         public List<Record> records { get; set; }
     }
 
+    public class Response
+    {
+        public Record record { get; set; }
+    }
+
     public class Record
     {
         public string id { get; set; }
@@ -42,6 +47,7 @@ namespace Trilhar.Entidades
 
     public class Values
     {
+        public string entity_id { get; set; }
         public string dcPfSQWPrdP4o2ccRdLNKz { get; set; }
         public string cluCkFshndGzatxtRcKSoa { get; set; }
         public string axdSotECjbuzdcLGtdHfTI { get; set; }
@@ -84,6 +90,7 @@ namespace Trilhar.Entidades
 
     public class ValuesDTO
     {
+        public string Entity_id { get; set; }
         public string CodigoCadastro { get; set; } //dcPfSQWPrdP4o2ccRdLNKz
         public string NomeCrianca { get; set; } //cluCkFshndGzatxtRcKSoa
         public string DataNascimento { get; set; } //axdSotECjbuzdcLGtdHfTI
@@ -110,8 +117,6 @@ namespace Trilhar.Entidades
         public string ChamadaLilas_1Ano { get; set; } //bDWQ1zleTdyRNdJwtdVmkx
         public string ChamadaLilas_2_Anos { get; set; } //dcGZGaW7PcG4obW7jJWOXy
         public string ChamadaVerde_7_8Anos { get; set; }//cVF8kHn0TcT7KoWQicW41V
-        public string ChamadaVermelho_5_6Anos { get; set; } //dcTx07W7jdSioSj1JdL8kD        
-
-        
+        public string ChamadaVermelho_5_6Anos { get; set; } //dcTx07W7jdSioSj1JdL8kD
     }
 }

@@ -79,6 +79,7 @@ namespace Trilhar.Forms
             this.toolStripStatusLabelUltimaAtualizacao = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelTotalRegistros = new System.Windows.Forms.ToolStripStatusLabel();
+            this.BtnNovo = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -639,11 +640,22 @@ namespace Trilhar.Forms
             this.toolStripStatusLabelTotalRegistros.Size = new System.Drawing.Size(208, 65);
             this.toolStripStatusLabelTotalRegistros.Text = "TotalRegistos";
             // 
+            // BtnNovo
+            // 
+            this.BtnNovo.Location = new System.Drawing.Point(611, 58);
+            this.BtnNovo.Name = "BtnNovo";
+            this.BtnNovo.Size = new System.Drawing.Size(75, 44);
+            this.BtnNovo.TabIndex = 36;
+            this.BtnNovo.Text = "Novo";
+            this.BtnNovo.UseVisualStyleBackColor = true;
+            this.BtnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 894);
+            this.Controls.Add(this.BtnNovo);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtIdadeCrianca);
@@ -733,5 +745,6 @@ namespace Trilhar.Forms
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelUltimaAtualizacao;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelTotalRegistros;
+        private System.Windows.Forms.Button BtnNovo;
     }
 }

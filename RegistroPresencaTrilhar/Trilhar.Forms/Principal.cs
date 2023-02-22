@@ -28,9 +28,7 @@ namespace Trilhar.Forms
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            ValuesToMapeamento();
-
-            AtualizaDados();
+            //AtualizaDados();
 
             toolStripStatusLabelDiaSemana.Text = "";
             toolStripStatusLabelDataHora.Text = "";
@@ -43,36 +41,7 @@ namespace Trilhar.Forms
             TxtCodigoCadastro.Focus();
         }
 
-        public void ValuesToMapeamento()
-        {
-            TypeAdapterConfig<Values, ValuesDTO>.NewConfig()
-                        .Map(dest => dest.CodigoCadastro, src => src.dcPfSQWPrdP4o2ccRdLNKz)
-                        .Map(dest => dest.NomeCrianca, src => src.cluCkFshndGzatxtRcKSoa)
-                        .Map(dest => dest.DataNascimento, src => src.axdSotECjbuzdcLGtdHfTI)
-                        .Map(dest => dest.Mae, src => src.dcJSoRWPndIOkjqSkTbCk5)
-                        .Map(dest => dest.Pai, src => src.bAfHJcV8njWOGiWQztd8ks)
-                        .Map(dest => dest.OutroResponsavel, src => src.dcRCkpW59gl4k4cCojWPO1)
-                        .Map(dest => dest.SelecioneATurma, src => src.cRWPtcLSjijORdRCo5WRnR)
-                        .Map(dest => dest.Telefone, src => src.crWO5aWQTcMOk0W4hcRHOo)
-                        .Map(dest => dest.EnderecoEmail, src => src.dcJmoAW5vdHBKBsCkGvh4k)
-                        .Map(dest => dest.Alergia, src => src.bWWQqIfuLpW43dMtRcG8oN)
-                        .Map(dest => dest.SeAlergiaSimPreenchaAqui, src => src.ddIN7cMCneAA9hW7OeAa0i)
-                        .Map(dest => dest.RestrincaoAlimentar, src => src.bsWOS1bwPegikrWQ3cGSob)
-                        .Map(dest => dest.SeRestrincaoAlimentarSimDescreva, src => src.ddMCowu8nnkykKW65JESoi)
-                        .Map(dest => dest.AlgumaDeficienciaOuSituacaoAtipica, src => src.bNF2CMbHPldQ9zWQRdJx1w)
-                        .Map(dest => dest.SeAlgumaDeficienciaDescrevaOsDetalhes, src => src.c1dmoHWPHcpioPW43cN8oA)
-                        .Map(dest => dest.Batizado, src => src.cdo8kfWODhW4GCW6LwjmoG)
-                        .Map(dest => dest.DataBatismo, src => src.cAq1TbESnlW6z7tJlcKCk9)
-                        .Map(dest => dest.IgrejaBatizou, src => src.dcT8kfWQfcGOkifJXub0ir)
-                        .Map(dest => dest.ChamadaAzul_9_10Anos, src => src.cxfGFlCnhzyk1W6pdKmow)
-                        .Map(dest => dest.ChamadaAzulRoyal_11_12Anos, src => src.c9WQVdTCjjW6NcSaqPW7HL)
-                        .Map(dest => dest.ChamadaBranco_0_11Me29D, src => src.cyW4r8W7DhW6ZcS8kjW6fy)
-                        .Map(dest => dest.ChamadaLaranja_3_4Anos, src => src.bIl2VcHSjlc4ohW7pcV1CY)
-                        .Map(dest => dest.ChamadaLilas_1Ano, src => src.bDWQ1zleTdyRNdJwtdVmkx)
-                        .Map(dest => dest.ChamadaLilas_2_Anos, src => src.dcGZGaW7PcG4obW7jJWOXy)
-                        .Map(dest => dest.ChamadaVerde_7_8Anos, src => src.cVF8kHn0TcT7KoWQicW41V)
-                        .Map(dest => dest.ChamadaVermelho_5_6Anos, src => src.dcTx07W7jdSioSj1JdL8kD);
-        }
+        
 
 
         private void TxtCodigoCadastro_KeyDown(object sender, KeyEventArgs e)
@@ -237,49 +206,16 @@ namespace Trilhar.Forms
 
         public async void AtualizaDados()
         {
-            valuesDTOList = new List<ValuesDTO>();
             HabilitaDesabilitaCampos(false);
 
             QuintaBDTrilhar quintaBDTrilhar = new Integracao.QuintaBDTrilhar();
-            List<Trilhar.Entidades.ValuesDTO> values = await quintaBDTrilhar.GetListAsync();
-            foreach (var item in values)
-            {
-                ValuesDTO valuesDTO = new ValuesDTO()
-                {
-                    CodigoCadastro = item.CodigoCadastro,
-                    NomeCrianca = item.NomeCrianca,
-                    DataNascimento = item.DataNascimento,
-                    Mae = item.Mae,
-                    Pai = item.Pai,
-                    OutroResponsavel = item.OutroResponsavel,
-                    SelecioneATurma = item.SelecioneATurma,
-                    Telefone = item.Telefone,
-                    EnderecoEmail = item.EnderecoEmail,
-                    Alergia = item.Alergia,
-                    SeAlergiaSimPreenchaAqui = item.SeAlergiaSimPreenchaAqui,
-                    RestrincaoAlimentar = item.RestrincaoAlimentar,
-                    SeRestrincaoAlimentarSimDescreva = item.SeRestrincaoAlimentarSimDescreva,
-                    AlgumaDeficienciaOuSituacaoAtipica = item.AlgumaDeficienciaOuSituacaoAtipica,
-                    SeAlgumaDeficienciaDescrevaOsDetalhes = item.SeAlgumaDeficienciaDescrevaOsDetalhes,
-                    Batizado = item.Batizado,
-                    DataBatismo = item.DataBatismo,
-                    IgrejaBatizou = item.IgrejaBatizou,
-                    ChamadaAzul_9_10Anos = item.ChamadaAzul_9_10Anos,
-                    ChamadaAzulRoyal_11_12Anos = item.ChamadaAzulRoyal_11_12Anos,
-                    ChamadaBranco_0_11Me29D = item.ChamadaBranco_0_11Me29D,
-                    ChamadaLaranja_3_4Anos = item.ChamadaLaranja_3_4Anos,
-                    ChamadaLilas_1Ano = item.ChamadaLilas_1Ano,
-                    ChamadaLilas_2_Anos = item.ChamadaLilas_2_Anos,
-                    ChamadaVerde_7_8Anos = item.ChamadaVerde_7_8Anos,
-                    ChamadaVermelho_5_6Anos = item.ChamadaVermelho_5_6Anos
-                };
-
-                valuesDTOList.Add(valuesDTO);
-            }
+            valuesDTOList = await quintaBDTrilhar.GetListAsync();
 
             if (valuesDTOList == null || valuesDTOList.Count == 0)
             {
-                HabilitaDesabilitaCampos(true);
+                HabilitaDesabilitaCampos(false);
+                LimparCampos();
+                linkLabelAtualizarDados.Enabled = true;
 
                 toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
                 toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", 0);
@@ -417,6 +353,30 @@ namespace Trilhar.Forms
             TxtDescricaoRestricaoAlimentar.Enabled = valor;
             TxtDeficienteAtipicos.Enabled = valor;
             TxtDescricaoDeficienteAtipicos.Enabled = valor;
+        }
+
+        public void LimparCampos()
+        {
+            linkLabelBuscarPeloNome.ResetText();
+            linkLabelBuscarPelaMae.ResetText();
+            linkLabelBuscarPeloPai.ResetText();
+            linkLabelAtualizarDados.ResetText();
+            TxtCodigoCadastro.ResetText();
+            TxtNomeCrianca.ResetText();
+            TxtTurmaAtual.ResetText();
+            TxtDataNascimento.ResetText();
+            TxtIdadeCrianca.ResetText();
+            TxtMae.ResetText();
+            TxtPai.ResetText();
+            TxtOutroResponsavel.ResetText();
+            TxtTelefone.ResetText();
+            TxtEmail.ResetText();
+            TxtAlergia.ResetText();
+            TxtDescicaoAlergia.ResetText();
+            TxtRestrincaoAlimentar.ResetText();
+            TxtDescricaoRestricaoAlimentar.ResetText();
+            TxtDeficienteAtipicos.ResetText();
+            TxtDescricaoDeficienteAtipicos.ResetText();
         }
 
         public string GetAgeDetails(DateTime dob)
@@ -566,6 +526,39 @@ namespace Trilhar.Forms
         public object Clone()
         {
             throw new NotImplementedException();
+        }
+
+        private void BtnNovo_Click(object sender, EventArgs e)
+        {
+            NovoRegistro();
+        }
+
+        private async void NovoRegistro()
+        {
+            ValuesDTO novoValueDTO = new ValuesDTO();
+            novoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
+            novoValueDTO.NomeCrianca = "Marques Silva Fonseca Teste";
+            novoValueDTO.DataNascimento = "02/01/1986";
+            novoValueDTO.Mae = "Maria Silva Fonseca";
+            novoValueDTO.Pai = "Roque Alves Fonseeca";
+            novoValueDTO.OutroResponsavel = "";
+            novoValueDTO.SelecioneATurma = "BRANCO/ROSA (0 A 11 M)";
+            novoValueDTO.Telefone = "6399208-2269";
+            novoValueDTO.EnderecoEmail = "marquesfonseca@gmail.com";
+            novoValueDTO.Alergia = "SIM";
+            novoValueDTO.SeAlergiaSimPreenchaAqui = "Intolerância a lactose";
+            novoValueDTO.RestrincaoAlimentar = "SIM";
+            novoValueDTO.SeRestrincaoAlimentarSimDescreva = "Não pode beber leite";
+            novoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = "NÃO";
+            novoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = "-";
+            novoValueDTO.Batizado = "SIM";
+            novoValueDTO.DataBatismo = "10/12/2020";
+            novoValueDTO.IgrejaBatizou = "IGREJA BETEL BRASILEIRO";
+
+            ValuesDTO retornoNovoValueDTO = await new QuintaBDTrilhar().PostAsync<ValuesDTO>(novoValueDTO);
+
+            CarregaCampos(retornoNovoValueDTO);
+            HabilitaDesabilitaCampos(true);
         }
     }
 }

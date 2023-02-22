@@ -10,6 +10,7 @@ using Trilhar.Entidades;
 using Mapster;
 using System.Linq;
 using Trilhar.Mapeamento;
+using Newtonsoft.Json.Linq;
 
 namespace Trilhar.Integracao
 {
@@ -20,7 +21,8 @@ namespace Trilhar.Integracao
 
         public QuintaBDTrilhar()
         {
-            ValuesMapeamento.ValuesToMapeamento();
+            ValuesMapeamento.ValuesToValuesDTOMapeamento();
+            ValuesMapeamento.ValuesDTOToValuesMapeamento();
         }
         
         public async Task<List<ValuesDTO>> GetListAsync()
@@ -85,13 +87,20 @@ namespace Trilhar.Integracao
             }
         }
 
-        public async Task<T> PostAsync<T>(string url, T data)
+        public async Task<ValuesDTO> PostAsync<ValuesDTO>(ValuesDTO data)
         {
-            var json = JsonConvert.SerializeObject(data);
+            Values val = data.Adapt<ValuesDTO, Values>();
+
+            string url = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE";
+            var json = JsonConvert.SerializeObject(new { values = val });
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(url, content);
             var result = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<T>(result);
+            var formatarJson = JToken.Parse(result).ToString(Formatting.Indented);
+            Values ret = JsonConvert.DeserializeObject<Response>(formatarJson).record.values;
+            ValuesDTO valuesDTO = ret.Adapt<Values, ValuesDTO>();
+
+            return valuesDTO;
         }
 
         public async Task<T> PutAsync<T>(string url, T data)

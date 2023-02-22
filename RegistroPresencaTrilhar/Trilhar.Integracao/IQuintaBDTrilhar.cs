@@ -8,7 +8,7 @@ namespace Trilhar.Integracao
     {        
         Task<List<ValuesDTO>> GetListAsync();
 
-        Task<T> PostAsync<T>(string url, T data);
+        Task<ValuesDTO> PostAsync<ValuesDTO>(ValuesDTO data);
 
         Task<T> PutAsync<T>(string url, T data);
 

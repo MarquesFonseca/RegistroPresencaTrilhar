@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Trilhar.Forms.exe.manifest" size="10142">
+    <dependentAssembly dependencyType="install" codebase="Trilhar.Forms.exe.manifest" size="10143">
       <assemblyIdentity name="Trilhar.Forms.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dtiGfwsbOHAW0znJrB5aI9hukLebrKiLVv/xQCTMx9w=</dsig:DigestValue>
+        <dsig:DigestValue>cnMABZzAoO2Cgd4XXX03HWMSFzEQ9kYZ0ImpOJBachg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
