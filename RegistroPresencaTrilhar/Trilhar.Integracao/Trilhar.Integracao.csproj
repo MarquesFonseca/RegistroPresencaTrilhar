@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IQuintaBDTrilhar.cs" />
+    <Compile Include="Interface\IQuintaBDTrilhar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuintaBDTrilhar.cs" />
   </ItemGroup>

@@ -19,6 +19,7 @@ namespace Trilhar.Forms
 {
     public partial class Principal : Form, ICloneable
     {
+        List<Record> recordsList = new List<Record>();
         List<ValuesDTO> valuesDTOList = new List<ValuesDTO>();
 
         public Principal()
@@ -28,7 +29,7 @@ namespace Trilhar.Forms
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            //AtualizaDados();
+            AtualizaDados();
 
             toolStripStatusLabelDiaSemana.Text = "";
             toolStripStatusLabelDataHora.Text = "";
@@ -208,8 +209,9 @@ namespace Trilhar.Forms
         {
             HabilitaDesabilitaCampos(false);
 
-            QuintaBDTrilhar quintaBDTrilhar = new Integracao.QuintaBDTrilhar();
-            valuesDTOList = await quintaBDTrilhar.GetListAsync();
+            Integracao.QuintaBDTrilhar integracaoQuintaBD = new Integracao.QuintaBDTrilhar();
+            recordsList = await integracaoQuintaBD.GetListAsync();
+            valuesDTOList = integracaoQuintaBD.GetListValues(recordsList);
 
             if (valuesDTOList == null || valuesDTOList.Count == 0)
             {

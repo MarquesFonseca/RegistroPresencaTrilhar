@@ -97,19 +97,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2IMM5it4BV+e3A8KjqfzuvqGgJg3uOXioYOeDBW7ClQ=</dsig:DigestValue>
+        <dsig:DigestValue>DN2TOF6q6xVoDQriaiINJ0LSlKK/mE/WnPCzXIRih14=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Integracao.dll" size="13312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Integracao.dll" size="14336">
       <assemblyIdentity name="Trilhar.Integracao" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IWuEHlK1bvdEJkAY7y0Chz+E3cdGAXTU9VHHgJoQ2sE=</dsig:DigestValue>
+        <dsig:DigestValue>G6zxBJn5O58XWcpb0XRmGd2ZF4I6NYsivNCfCd6Tdo4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
