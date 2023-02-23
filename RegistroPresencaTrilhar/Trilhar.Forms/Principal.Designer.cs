@@ -81,6 +81,9 @@ namespace Trilhar.Forms
             this.toolStripStatusLabelTotalRegistros = new System.Windows.Forms.ToolStripStatusLabel();
             this.BtnNovo = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
+            this.BtnAlterar = new System.Windows.Forms.Button();
+            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.BtnSalvar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -131,13 +134,13 @@ namespace Trilhar.Forms
             this.linkLabelAtualizarDados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelAtualizarDados.AutoSize = true;
             this.linkLabelAtualizarDados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelAtualizarDados.Location = new System.Drawing.Point(530, 6);
+            this.linkLabelAtualizarDados.Location = new System.Drawing.Point(505, 6);
             this.linkLabelAtualizarDados.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabelAtualizarDados.Name = "linkLabelAtualizarDados";
-            this.linkLabelAtualizarDados.Size = new System.Drawing.Size(159, 20);
+            this.linkLabelAtualizarDados.Size = new System.Drawing.Size(176, 20);
             this.linkLabelAtualizarDados.TabIndex = 3;
             this.linkLabelAtualizarDados.TabStop = true;
-            this.linkLabelAtualizarDados.Text = "[F5] - Atualizar dados";
+            this.linkLabelAtualizarDados.Text = "[F5] - Sincronizar dados";
             this.linkLabelAtualizarDados.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAtualizarDados_LinkClicked);
             // 
             // BtnRegistrarPresenca
@@ -684,10 +687,12 @@ namespace Trilhar.Forms
             // 
             // BtnNovo
             // 
-            this.BtnNovo.Location = new System.Drawing.Point(407, 38);
+            this.BtnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNovo.Location = new System.Drawing.Point(231, 32);
             this.BtnNovo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnNovo.Name = "BtnNovo";
-            this.BtnNovo.Size = new System.Drawing.Size(50, 29);
+            this.BtnNovo.Size = new System.Drawing.Size(82, 29);
             this.BtnNovo.TabIndex = 36;
             this.BtnNovo.Text = "Novo";
             this.BtnNovo.UseVisualStyleBackColor = true;
@@ -695,22 +700,67 @@ namespace Trilhar.Forms
             // 
             // BtnExcluir
             // 
-            this.BtnExcluir.Location = new System.Drawing.Point(474, 38);
+            this.BtnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExcluir.Location = new System.Drawing.Point(415, 32);
             this.BtnExcluir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnExcluir.Name = "BtnExcluir";
-            this.BtnExcluir.Size = new System.Drawing.Size(50, 29);
+            this.BtnExcluir.Size = new System.Drawing.Size(82, 29);
             this.BtnExcluir.TabIndex = 36;
             this.BtnExcluir.Text = "Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = true;
             this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
+            // 
+            // BtnAlterar
+            // 
+            this.BtnAlterar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAlterar.Location = new System.Drawing.Point(323, 32);
+            this.BtnAlterar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnAlterar.Name = "BtnAlterar";
+            this.BtnAlterar.Size = new System.Drawing.Size(82, 29);
+            this.BtnAlterar.TabIndex = 36;
+            this.BtnAlterar.Text = "Alterar";
+            this.BtnAlterar.UseVisualStyleBackColor = true;
+            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
+            // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCancelar.Location = new System.Drawing.Point(599, 32);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(82, 29);
+            this.BtnCancelar.TabIndex = 36;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
+            // BtnSalvar
+            // 
+            this.BtnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSalvar.Location = new System.Drawing.Point(507, 32);
+            this.BtnSalvar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnSalvar.Name = "BtnSalvar";
+            this.BtnSalvar.Size = new System.Drawing.Size(82, 29);
+            this.BtnSalvar.TabIndex = 36;
+            this.BtnSalvar.Text = "Salvar";
+            this.BtnSalvar.UseVisualStyleBackColor = true;
+            this.BtnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(693, 487);
-            this.Controls.Add(this.BtnExcluir);
             this.Controls.Add(this.BtnNovo);
+            this.Controls.Add(this.LblNomeCrianca);
+            this.Controls.Add(this.BtnSalvar);
+            this.Controls.Add(this.BtnCancelar);
+            this.Controls.Add(this.BtnAlterar);
+            this.Controls.Add(this.BtnExcluir);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtIdadeCrianca);
@@ -721,7 +771,6 @@ namespace Trilhar.Forms
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnRegistrarPresenca);
             this.Controls.Add(this.TxtNomeCrianca);
-            this.Controls.Add(this.LblNomeCrianca);
             this.Controls.Add(this.TxtCodigoCadastro);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.linkLabelBuscarPeloNome);
@@ -803,5 +852,8 @@ namespace Trilhar.Forms
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelTotalRegistros;
         private System.Windows.Forms.Button BtnNovo;
         private System.Windows.Forms.Button BtnExcluir;
+        private System.Windows.Forms.Button BtnAlterar;
+        private System.Windows.Forms.Button BtnCancelar;
+        private System.Windows.Forms.Button BtnSalvar;
     }
 }
