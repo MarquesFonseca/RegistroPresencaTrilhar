@@ -42,7 +42,7 @@ namespace Trilhar.Forms
             TxtCodigoCadastro.Focus();
         }
 
-        
+
 
 
         private void TxtCodigoCadastro_KeyDown(object sender, KeyEventArgs e)
@@ -335,6 +335,8 @@ namespace Trilhar.Forms
 
         public void HabilitaDesabilitaCampos(bool valor)
         {
+            BtnExcluir.Enabled = valor;
+            BtnNovo.Enabled = valor;
             linkLabelBuscarPeloNome.Enabled = valor;
             linkLabelBuscarPelaMae.Enabled = valor;
             linkLabelBuscarPeloPai.Enabled = valor;
@@ -557,10 +559,71 @@ namespace Trilhar.Forms
             novoValueDTO.DataBatismo = "10/12/2020";
             novoValueDTO.IgrejaBatizou = "IGREJA BETEL BRASILEIRO";
 
-            ValuesDTO retornoNovoValueDTO = await new QuintaBDTrilhar().PostAsync<ValuesDTO>(novoValueDTO);
+            Record retornoNovoRecord = await new QuintaBDTrilhar().PostAsync<ValuesDTO>(novoValueDTO);
+            recordsList.Add(retornoNovoRecord);
 
-            CarregaCampos(retornoNovoValueDTO);
+            ValuesDTO valuesDTO = retornoNovoRecord.values.Adapt<Values, ValuesDTO>();
+            valuesDTOList.Add(valuesDTO);
+            valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
+
+            CarregaCampos(valuesDTO);
             HabilitaDesabilitaCampos(true);
+        }
+
+        private async void BtnExcluir_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(TxtCodigoCadastro.Text))
+            {
+                return;
+            }
+            if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
+            {
+                return;
+            }
+
+            DialogResult result = MessageBox.Show(string.Format("Deseja realmente remover o registro '{0} - {1}' ?", TxtCodigoCadastro.Text, TxtNomeCrianca.Text), "Remover registro", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            HabilitaDesabilitaCampos(false);
+
+            Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()).FirstOrDefault();
+            ValuesDTO valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
+            bool retorno = await new QuintaBDTrilhar().DeleteAsync(itemAtual.id);
+            if (retorno == true)
+            {
+                recordsList.Remove(itemAtual);
+                valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()));
+
+                MessageBox.Show(string.Format("O Código '{0}' foi removido com sucesso!", TxtCodigoCadastro.Text));
+
+                //diminui -1 no código
+                TxtCodigoCadastro.Text = (Convert.ToInt32(TxtCodigoCadastro.Text) - 1).ToString();
+                while (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()) == false)
+                {
+                    //enquanto não existir... 
+                    //diminui um valor no código.
+                    //se existir, sai...
+                    TxtCodigoCadastro.Text = (Convert.ToInt32(TxtCodigoCadastro.Text) - 1).ToString();
+                    if (Convert.ToInt32(TxtCodigoCadastro.Text) <= 999)
+                    {
+                        break;
+                    }
+                }
+                if (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()) == true)
+                {
+                    itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()).FirstOrDefault();
+                    valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
+                    CarregaCampos(valuesDTO);
+                }
+                HabilitaDesabilitaCampos(true);
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Algo ocorreu de errado com a exclusão do registro. Tente novamente!"));
+            }
         }
     }
 }

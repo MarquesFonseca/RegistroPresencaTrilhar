@@ -152,9 +152,9 @@ namespace Trilhar.Integracao
             }
         }
 
-        public async Task<ValuesDTO> PostAsync<T>(ValuesDTO data)
+        public async Task<Record> PostAsync<T>(ValuesDTO data)
         {
-            ValuesDTO Retono = new ValuesDTO();
+            Record Retono = new Record();
             string url = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE";
 
             Values dataValue = data.Adapt<ValuesDTO, Values>();
@@ -169,10 +169,10 @@ namespace Trilhar.Integracao
                     {
                         string retorno = await content.ReadAsStringAsync();
                         var JsonFormatado = JToken.Parse(retorno).ToString(Formatting.Indented);
-                        Trilhar.Entidades.Values value = JsonConvert.DeserializeObject<Response>(JsonFormatado).record.values;
-                        if (value != null)
+                        Trilhar.Entidades.Record record = JsonConvert.DeserializeObject<Response>(JsonFormatado).record;
+                        if (record != null)
                         {
-                            Retono = value.Adapt<Values, ValuesDTO>();
+                            Retono = record;
                         }
                     }
                 }
@@ -210,9 +210,9 @@ namespace Trilhar.Integracao
             return Retono;
         }
 
-        public async Task<bool> DeleteAsync()
+        public async Task<bool> DeleteAsync(string id)
         {
-            string url = "";
+            string url = string.Format("https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/{0}.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE", id);
 
             using (HttpClient client = new HttpClient())
             {

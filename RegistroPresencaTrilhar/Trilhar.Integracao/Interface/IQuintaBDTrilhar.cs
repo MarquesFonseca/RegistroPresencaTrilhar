@@ -10,10 +10,10 @@ namespace Trilhar.Integracao
 
         Task<List<Record>> GetListAsync();
 
-        Task<ValuesDTO> PostAsync<T>(ValuesDTO data);
+        Task<Record> PostAsync<T>(ValuesDTO data);
 
         Task<ValuesDTO> PutAsync<T>(ValuesDTO data);
 
-        Task<bool> DeleteAsync();
+        Task<bool> DeleteAsync(string id);
     }
 }
