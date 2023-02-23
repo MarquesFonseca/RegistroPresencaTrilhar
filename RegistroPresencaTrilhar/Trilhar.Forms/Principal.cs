@@ -361,10 +361,6 @@ namespace Trilhar.Forms
 
         public void LimparCampos()
         {
-            linkLabelBuscarPeloNome.ResetText();
-            linkLabelBuscarPelaMae.ResetText();
-            linkLabelBuscarPeloPai.ResetText();
-            linkLabelAtualizarDados.ResetText();
             TxtCodigoCadastro.ResetText();
             TxtNomeCrianca.ResetText();
             TxtTurmaAtual.ResetText();
@@ -381,6 +377,18 @@ namespace Trilhar.Forms
             TxtDescricaoRestricaoAlimentar.ResetText();
             TxtDeficienteAtipicos.ResetText();
             TxtDescricaoDeficienteAtipicos.ResetText();
+
+            this.TxtTurmaAtual.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.Window;
+            
+            this.TxtAlergia.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtAlergia.ForeColor = System.Drawing.SystemColors.Window;
+
+            this.TxtRestrincaoAlimentar.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.Window;
+
+            this.TxtDeficienteAtipicos.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.Window;
         }
 
         public string GetAgeDetails(DateTime dob)
@@ -568,22 +576,32 @@ namespace Trilhar.Forms
 
             CarregaCampos(valuesDTO);
             HabilitaDesabilitaCampos(true);
+            TxtCodigoCadastro.Focus();
+            TxtCodigoCadastro.SelectAll();
         }
 
         private async void BtnExcluir_Click(object sender, EventArgs e)
         {
+            string CodigoCadastroAtual = TxtCodigoCadastro.Text;
+
             if (string.IsNullOrEmpty(TxtCodigoCadastro.Text))
             {
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
                 return;
             }
             if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
             {
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
                 return;
             }
 
             DialogResult result = MessageBox.Show(string.Format("Deseja realmente remover o registro '{0} - {1}' ?", TxtCodigoCadastro.Text, TxtNomeCrianca.Text), "Remover registro", MessageBoxButtons.YesNo);
             if (result == DialogResult.No)
             {
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
                 return;
             }
 
@@ -597,10 +615,11 @@ namespace Trilhar.Forms
                 recordsList.Remove(itemAtual);
                 valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()));
 
-                MessageBox.Show(string.Format("O Código '{0}' foi removido com sucesso!", TxtCodigoCadastro.Text));
+                LimparCampos();
+                MessageBox.Show(string.Format("O Código '{0}' foi removido com sucesso!", CodigoCadastroAtual), "Resultado");                
 
                 //diminui -1 no código
-                TxtCodigoCadastro.Text = (Convert.ToInt32(TxtCodigoCadastro.Text) - 1).ToString();
+                TxtCodigoCadastro.Text = (Convert.ToInt32(CodigoCadastroAtual) - 1).ToString();
                 while (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()) == false)
                 {
                     //enquanto não existir... 
@@ -612,18 +631,26 @@ namespace Trilhar.Forms
                         break;
                     }
                 }
+
                 if (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()) == true)
                 {
                     itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()).FirstOrDefault();
                     valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
                     CarregaCampos(valuesDTO);
+                    TxtCodigoCadastro.Focus();
+                    TxtCodigoCadastro.SelectAll();
                 }
-                HabilitaDesabilitaCampos(true);
             }
             else
             {
-                MessageBox.Show(string.Format("Algo ocorreu de errado com a exclusão do registro. Tente novamente!"));
+                HabilitaDesabilitaCampos(true);
+                MessageBox.Show(string.Format("Algo ocorreu de errado com a exclusão do registro. Tente novamente!"), "Resultado");
+
             }
+            
+            HabilitaDesabilitaCampos(true);
+            TxtCodigoCadastro.Focus();
+            TxtCodigoCadastro.SelectAll();
         }
     }
 }

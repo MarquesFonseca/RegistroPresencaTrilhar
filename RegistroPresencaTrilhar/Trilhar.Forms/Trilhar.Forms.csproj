@@ -60,6 +60,12 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>IcoTrilhar.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Trilhar.Forms.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mapster, Version=7.3.0.0, Culture=neutral, PublicKeyToken=2f39883af23c29a8, processorArchitecture=MSIL">
       <HintPath>..\packages\Mapster.7.3.0\lib\netstandard2.0\Mapster.dll</HintPath>
@@ -144,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CamposJson.txt" />
+    <Content Include="IcoTrilhar.ico" />
     <Content Include="Imagens\IcoTrilhar.ico" />
     <Content Include="Imagens\Trilhar.jpeg" />
     <Content Include="Imagens\Trilhar.png" />

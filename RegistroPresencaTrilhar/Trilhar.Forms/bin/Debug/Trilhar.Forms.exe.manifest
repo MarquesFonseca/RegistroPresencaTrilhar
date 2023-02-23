@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
   <asmv1:assemblyIdentity name="Trilhar.Forms.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="IcoTrilhar.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Trilhar.Forms" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -85,19 +86,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ktuOadeG8XmK62wOaNGJufUi0wECquIQFMTMHSHEZ7Y=</dsig:DigestValue>
+        <dsig:DigestValue>zwPZAlAe7i/S4F0A7Lzh7S543NUA6S8P4LKbti/BZaw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.exe" size="356384">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.exe" size="502816">
       <assemblyIdentity name="Trilhar.Forms" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VgtPBny+N0IADW4g/b3YbFz7XRgASZZ/zQkr9/uQq0E=</dsig:DigestValue>
+        <dsig:DigestValue>kCt23N26uVmuJDbqodtmRHp1SUpHoQ0GD7fiy0CGhC8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +110,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>L0DlY7k2PTy/LjCPiVMkXtNKJ9qMfIpIR9Vu63dAEII=</dsig:DigestValue>
+        <dsig:DigestValue>sNmmKFwugbxG06haO2yssAwfGBNDoJuO9J6LKxG9K+U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -121,7 +122,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>q/cElCG4greyhPcpCLzPkzPUMJSIdl503Y+0zgbPwbc=</dsig:DigestValue>
+        <dsig:DigestValue>4h3qH/jxXbLQ9AVf6U5Xkl54ESq4GmQb2XE1a+ZNayw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -133,7 +134,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PIKOlGRVBb34eQoBg60DRJtr/47nfGrU6GpRyBVZUYQ=</dsig:DigestValue>
+        <dsig:DigestValue>MCg+7PETBjGbvuwdnFzuf0OXOFIhbpG45cGAX134oI0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -144,6 +145,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>pErhI3XH21MRFj6BsEw8th9XchG7hPhSsArTasJDHgk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="IcoTrilhar.ico" size="144734">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>hbEVN4DOn5FMXFJS/odQvZZxXKMxIBJqYfnhEbInHWk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Imagens\IcoTrilhar.ico" size="144734">
