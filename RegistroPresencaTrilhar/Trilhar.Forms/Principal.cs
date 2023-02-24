@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trilhar.Integracao;
 using Trilhar.Entidades;
+using Trilhar.Uteis;
 
 namespace Trilhar.Forms
 {
@@ -77,6 +78,8 @@ namespace Trilhar.Forms
                     ReadOnlyCampos(true);
                     HabilitaDesabilitaBotoes(false);
 
+                    TxtDataNascimento.Value = DateTime.Now;
+
                     linkLabelAtualizarDados.Enabled = true;
 
                     BtnNovo.Enabled = true;
@@ -94,12 +97,15 @@ namespace Trilhar.Forms
                     TxtTurmaAtual.Visible = false;
                     CmbTurmaAtual.SelectedIndex = -1;
                     CmbTurmaAtual.Visible = true;
-
+                    TxtAlergia.SelectedItem = "NÃO";
+                    TxtRestrincaoAlimentar.SelectedItem = "NÃO";
+                    TxtDeficienteAtipicos.SelectedItem = "NÃO";
                     HabilitaDesabilitaLinkButon(false);
                     HabilitaDesabilitaCampos(true);
                     ReadOnlyCampos(false);
                     HabilitaDesabilitaBotoes(false);
                     LimparCampos();
+                    TxtDataNascimento.Value = DateTime.Now;
 
                     CmbTurmaAtual.ForeColor = SystemColors.ControlText;
                     //BtnNovo.Enabled = true;
@@ -192,6 +198,7 @@ namespace Trilhar.Forms
                     ReadOnlyCampos(true);
                     HabilitaDesabilitaBotoes(false);
                     LimparCampos();
+                    TxtDataNascimento.Value = DateTime.Now;
                     TxtTurmaAtual.BackColor = System.Drawing.SystemColors.Window;
                     TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.WindowText;
                     break;
@@ -300,30 +307,9 @@ namespace Trilhar.Forms
                 CmbTurmaAtual.ForeColor = SystemColors.ControlText;
             }
 
-            TxtDataNascimento.Text = itemAtual != null && itemAtual.DataNascimento != null ? itemAtual.DataNascimento : "";
 
-            string idadeFormatada = "";
-            if (itemAtual != null && itemAtual.DataNascimento != null)
-            {
-                string data = itemAtual.DataNascimento;
-                DateTime dataConvertida;
-
-                if (DateTime.TryParse(data, out dataConvertida))
-                {
-                    idadeFormatada = GetAgeDetails(new DateTime(Convert.ToDateTime(itemAtual.DataNascimento).Year, Convert.ToDateTime(itemAtual.DataNascimento).Month, Convert.ToDateTime(itemAtual.DataNascimento).Day));
-                    TxtIdadeCrianca.Text = idadeFormatada;
-                }
-                else
-                {
-                    TxtIdadeCrianca.Text = "";
-                }
-
-
-            }
-            else
-            {
-                TxtIdadeCrianca.Text = "";
-            }
+            TxtDataNascimento.Text = itemAtual != null && itemAtual.DataNascimento != null ? itemAtual.DataNascimento : DateTime.Now.ToShortDateString();
+            TxtIdadeCrianca.Text = PreencheIdadeFormatada(TxtDataNascimento.Text);
 
             TxtMae.Text = itemAtual != null && itemAtual.Mae != null ? itemAtual.Mae : "";
             TxtMae.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text.ToLower());
@@ -397,6 +383,24 @@ namespace Trilhar.Forms
             TxtDescricaoDeficienteAtipicos.Text = itemAtual != null && itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes != null ? itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes : "";
         }
 
+        private string PreencheIdadeFormatada(string dataNascimento)
+        {
+            if (dataNascimento == DateTime.Now.ToShortDateString()) return "";
+
+            string idadeFormatada = "";
+            DateTime dataConvertida;
+
+            if (DateTime.TryParse(dataNascimento, out dataConvertida))
+            {
+                idadeFormatada = GetAgeDetails(new DateTime(Convert.ToDateTime(dataNascimento).Year, Convert.ToDateTime(dataNascimento).Month, Convert.ToDateTime(dataNascimento).Day));
+                return idadeFormatada;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
         public void HabilitaDesabilitaCampos(bool valor)
         {
             TxtCodigoCadastro.Enabled = valor;
@@ -430,18 +434,18 @@ namespace Trilhar.Forms
         {
             TxtNomeCrianca.ReadOnly = valor;
             TxtTurmaAtual.ReadOnly = valor;
-            TxtDataNascimento.ReadOnly = valor;
-            TxtIdadeCrianca.ReadOnly = valor;
+            TxtDataNascimento.Enabled = !valor;
+            // TxtIdadeCrianca.ReadOnly = valor;
             TxtMae.ReadOnly = valor;
             TxtPai.ReadOnly = valor;
             TxtOutroResponsavel.ReadOnly = valor;
             TxtTelefone.ReadOnly = valor;
             TxtEmail.ReadOnly = valor;
-            //TxtAlergia.ReadOnly = valor;
+            TxtAlergia.Enabled = !valor;
             TxtDescicaoAlergia.ReadOnly = valor;
-            //TxtRestrincaoAlimentar.ReadOnly = valor;
+            TxtRestrincaoAlimentar.Enabled = !valor;
             TxtDescricaoRestricaoAlimentar.ReadOnly = valor;
-            //TxtDeficienteAtipicos.ReadOnly = valor;
+            TxtDeficienteAtipicos.Enabled = !valor;
             TxtDescricaoDeficienteAtipicos.ReadOnly = valor;
         }
 
@@ -451,6 +455,7 @@ namespace Trilhar.Forms
             TxtNomeCrianca.ResetText();
             TxtTurmaAtual.ResetText();
             TxtDataNascimento.ResetText();
+            TxtDataNascimento.Value = DateTime.Now;
             TxtIdadeCrianca.ResetText();
             TxtMae.ResetText();
             TxtPai.ResetText();
@@ -708,15 +713,34 @@ namespace Trilhar.Forms
         private async void SalvarNovoRegistro()
         {
             // TODO: SalvarNovoRegistro()
+            if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
+            {
+                MessageBox.Show("O campo 'Nome da criança' não pode ser vazio!", "Resultado");
+                TxtNomeCrianca.Focus();
+                return;
+            }
+            if (TxtDataNascimento.Text == DateTime.Now.ToShortDateString())
+            {
+                MessageBox.Show("O campo 'Data de nascimento' deve ser preenchida.", "Resultado");
+                return;
+            }
+            if (CmbTurmaAtual.SelectedIndex == -1)
+            {
+                MessageBox.Show("O campo 'Turma atual' deve ser preenchida.", "Resultado");
+                return;
+            }
+
+
+
             ValuesDTO novoValueDTO = new ValuesDTO();
             novoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
             novoValueDTO.NomeCrianca = TxtNomeCrianca.Text;
-            novoValueDTO.DataNascimento = TxtDataNascimento.Text;
+            novoValueDTO.DataNascimento = TxtDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : TxtDataNascimento.Text;
             novoValueDTO.Mae = TxtMae.Text;
             novoValueDTO.Pai = TxtPai.Text;
             novoValueDTO.OutroResponsavel = TxtOutroResponsavel.Text;
             novoValueDTO.SelecioneATurma = RetornaValorCmbTurmaAtual(CmbTurmaAtual.Text);
-            novoValueDTO.Telefone = TxtTelefone.Text;
+            novoValueDTO.Telefone = TxtTelefone.Text == "(  )      -" ? "" : TxtTelefone.Text;
             novoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
             novoValueDTO.Alergia = TxtAlergia.Text;
             novoValueDTO.SeAlergiaSimPreenchaAqui = TxtDescicaoAlergia.Text;
@@ -724,9 +748,9 @@ namespace Trilhar.Forms
             novoValueDTO.SeRestrincaoAlimentarSimDescreva = TxtDescricaoRestricaoAlimentar.Text;
             novoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = TxtDeficienteAtipicos.Text;
             novoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = TxtDescricaoDeficienteAtipicos.Text;
-            novoValueDTO.Batizado = "SIM";
-            novoValueDTO.DataBatismo = "10/12/2020";
-            novoValueDTO.IgrejaBatizou = "IGREJA BETEL BRASILEIRO";
+            novoValueDTO.Batizado = "";
+            novoValueDTO.DataBatismo = "";
+            novoValueDTO.IgrejaBatizou = "";
 
             Record retornoNovoRecord = await new QuintaBDTrilhar().PostAsync<ValuesDTO>(novoValueDTO);
             recordsList.Add(retornoNovoRecord);
@@ -746,43 +770,49 @@ namespace Trilhar.Forms
 
         private async void SalvarAlteracaoRegistro()
         {
-            if (string.IsNullOrEmpty(TxtCodigoCadastro.Text))
-            {
-                MessageBox.Show("sss");
-                return;
-            }
             if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
             {
-                MessageBox.Show("sss");
+                MessageBox.Show("O campo 'Nome da criança' não pode ser vazio!", "Resultado");
+                TxtNomeCrianca.Focus();
+                return;
+            }
+            if (TxtDataNascimento.Text == DateTime.Now.ToShortDateString())
+            {
+                MessageBox.Show("O campo 'Data de nascimento' deve ser preenchida.", "Resultado");
+                return;
+            }
+            if (CmbTurmaAtual.SelectedIndex == -1)
+            {
+                MessageBox.Show("O campo 'Turma atual' deve ser preenchida.", "Resultado");
                 return;
             }
 
             // TODO: SalvarAlteracaoRegistro()
-            ValuesDTO novoValueDTO = new ValuesDTO();
-            novoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
-            novoValueDTO.NomeCrianca = TxtNomeCrianca.Text;
-            novoValueDTO.DataNascimento = TxtDataNascimento.Text;
-            novoValueDTO.Mae = TxtMae.Text;
-            novoValueDTO.Pai = TxtPai.Text;
-            novoValueDTO.OutroResponsavel = TxtOutroResponsavel.Text;
-            novoValueDTO.SelecioneATurma = RetornaValorCmbTurmaAtual(CmbTurmaAtual.Text);
-            novoValueDTO.Telefone = TxtTelefone.Text;
-            novoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
-            novoValueDTO.Alergia = TxtAlergia.Text;
-            novoValueDTO.SeAlergiaSimPreenchaAqui = TxtDescicaoAlergia.Text;
-            novoValueDTO.RestrincaoAlimentar = TxtRestrincaoAlimentar.Text;
-            novoValueDTO.SeRestrincaoAlimentarSimDescreva = TxtDescricaoRestricaoAlimentar.Text;
-            novoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = TxtDeficienteAtipicos.Text;
-            novoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = TxtDescricaoDeficienteAtipicos.Text;
-            novoValueDTO.Batizado = "SIM";
-            novoValueDTO.DataBatismo = "10/12/2020";
-            novoValueDTO.IgrejaBatizou = "IGREJA BETEL BRASILEIRO";
+            ValuesDTO alteracaoValueDTO = new ValuesDTO();
+            alteracaoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
+            alteracaoValueDTO.NomeCrianca = TxtNomeCrianca.Text;
+            alteracaoValueDTO.DataNascimento = TxtDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : TxtDataNascimento.Text;
+            alteracaoValueDTO.Mae = TxtMae.Text;
+            alteracaoValueDTO.Pai = TxtPai.Text;
+            alteracaoValueDTO.OutroResponsavel = TxtOutroResponsavel.Text;
+            alteracaoValueDTO.SelecioneATurma = RetornaValorCmbTurmaAtual(CmbTurmaAtual.Text);
+            alteracaoValueDTO.Telefone = TxtTelefone.Text;
+            alteracaoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
+            alteracaoValueDTO.Alergia = TxtAlergia.Text;
+            alteracaoValueDTO.SeAlergiaSimPreenchaAqui = TxtDescicaoAlergia.Text;
+            alteracaoValueDTO.RestrincaoAlimentar = TxtRestrincaoAlimentar.Text;
+            alteracaoValueDTO.SeRestrincaoAlimentarSimDescreva = TxtDescricaoRestricaoAlimentar.Text;
+            alteracaoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = TxtDeficienteAtipicos.Text;
+            alteracaoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = TxtDescricaoDeficienteAtipicos.Text;
+            alteracaoValueDTO.Batizado = "SIM";
+            alteracaoValueDTO.DataBatismo = "10/12/2020";
+            alteracaoValueDTO.IgrejaBatizou = "IGREJA BETEL BRASILEIRO";
 
             string CodigoCadastroAtual = TxtCodigoCadastro.Text;
             Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == CodigoCadastroAtual.Trim()).FirstOrDefault();
 
-            Record retornoNovoRecord = await new QuintaBDTrilhar().PutAsync<ValuesDTO>(itemAtual.id, novoValueDTO);
-            if (retornoNovoRecord.id == null)
+            Record retornoAlteracaoRecord = await new QuintaBDTrilhar().PutAsync<ValuesDTO>(itemAtual.id, alteracaoValueDTO);
+            if (retornoAlteracaoRecord.id == null)
             {
                 MessageBox.Show("O item de alteração não está disponível na sincronização. Faça a sincronização dos dados e tente novamente.", "Resultado");
 
@@ -791,10 +821,10 @@ namespace Trilhar.Forms
             }
 
             recordsList.Remove(itemAtual);
-            recordsList.Add(retornoNovoRecord);
+            recordsList.Add(retornoAlteracaoRecord);
 
             valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()));
-            ValuesDTO valuesDTO = retornoNovoRecord.values.Adapt<Values, ValuesDTO>();
+            ValuesDTO valuesDTO = retornoAlteracaoRecord.values.Adapt<Values, ValuesDTO>();
             valuesDTO.SelecioneATurma = RetornaDescricaoCmbTurmaAtual(valuesDTO.SelecioneATurma);
             valuesDTOList.Add(valuesDTO);
             valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
@@ -920,6 +950,99 @@ namespace Trilhar.Forms
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             AlterarEstadoFormulario(Acao.Cancelar);
+        }
+
+        private void TxtDataNascimento_ValueChanged(object sender, EventArgs e)
+        {
+            if (TxtDataNascimento.Value.VerificaSeDataValida() == false) return;
+            if (TxtDataNascimento.Value.Date >= DateTime.Now.Date) return;
+
+            if (GetAcao == Acao.Novo)
+            {
+                TxtIdadeCrianca.Text = PreencheIdadeFormatada(TxtDataNascimento.Text);
+                TxtTurmaAtual.Text = TxtDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : RetonaSugestaoTurma(TxtDataNascimento.Text);
+                if (TxtTurmaAtual.Text == "")
+                {
+                    TxtIdadeCrianca.Text = "";
+                    CmbTurmaAtual.SelectedIndex = -1;
+                }
+                else
+                {
+                    CmbTurmaAtual.SelectedItem = TxtTurmaAtual.Text;
+                }
+            }
+        }
+
+        private string RetonaSugestaoTurma(string dataNascimento)
+        {
+            #region verifica BRANCO/ROSA (0 A 11 M)
+            if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2022", limiteSuperior: DateTime.Now.Date.ToShortDateString()))
+                return "BRANCO/ROSA (0 A 11 M)";
+            #endregion
+
+            #region LILÁS (1 ANO)
+            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2021", limiteSuperior: "28/02/2022"))
+                return "LILÁS (1 ANO)";
+            #endregion
+
+            #region LILÁS (2 ANOS)
+            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2020", limiteSuperior: "28/02/2021"))
+                return "LILÁS (2 ANOS)";
+            #endregion
+
+            #region LARANJA 3-4 ANOS
+            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2018", limiteSuperior: "29/02/2020"))
+                return "LARANJA 3-4 ANOS";
+            #endregion
+
+            #region VERMELHO 5-6 ANOS
+            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2016", limiteSuperior: "28/02/2018"))
+                return "VERMELHO 5-6 ANOS";
+            #endregion
+
+            #region VERDE 7-8 ANOS
+            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2014", limiteSuperior: "29/02/2016"))
+                return "VERDE 7-8 ANOS";
+            #endregion
+
+            #region AZUL 9-10 ANOS
+            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2012", limiteSuperior: "28/02/2014"))
+                return "AZUL 9-10 ANOS";
+            #endregion
+
+            #region AZUL ROYAL 11-12 ANOS
+            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2010", limiteSuperior: "29/02/2012"))
+                return "AZUL ROYAL 11-12 ANOS";
+            #endregion
+
+            #region nenhuma das opções
+            else
+                return "";
+            #endregion
+        }
+
+        private bool VerificaPeriodoTurma(string data, string limiteInferior, string limiteSuperior)
+        {
+            try
+            {
+                DateTime dataObj = DateTime.ParseExact(data, "dd/MM/yyyy", new CultureInfo("pt-BR"));
+                DateTime limiteInfObj = DateTime.ParseExact(limiteInferior, "dd/MM/yyyy", new CultureInfo("pt-BR"));
+                DateTime limiteSupObj = DateTime.ParseExact(limiteSuperior, "dd/MM/yyyy", new CultureInfo("pt-BR"));
+
+                if (dataObj >= limiteInfObj && dataObj <= limiteSupObj)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
         }
     }
 }

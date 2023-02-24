@@ -169,6 +169,10 @@
       <Project>{2e285d22-cb69-4a7c-917d-273bbc0e53be}</Project>
       <Name>Trilhar.Mapeamento</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Trilhar.Uteis\Trilhar.Uteis.csproj">
+      <Project>{3213bbe6-65d9-4fe3-874c-523c9e29b84b}</Project>
+      <Name>Trilhar.Uteis</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

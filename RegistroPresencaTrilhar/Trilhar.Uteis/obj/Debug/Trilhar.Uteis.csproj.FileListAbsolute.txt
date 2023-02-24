@@ -8,3 +8,4 @@ C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Uteis\obj\De
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Uteis\obj\Debug\Trilhar.Uteis.csproj.CoreCompileInputs.cache
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Uteis\obj\Debug\Trilhar.Uteis.dll
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Uteis\obj\Debug\Trilhar.Uteis.pdb
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Uteis\obj\Debug\Trilhar.Uteis.csprojAssemblyReference.cache
