@@ -212,6 +212,12 @@ namespace Trilhar.Forms
                     ReadOnlyCampos(true);
                     HabilitaDesabilitaBotoes(false);
 
+                    TxtDataNascimento.Enabled = false;
+                    TxtAlergia.Enabled = false;
+                    TxtRestrincaoAlimentar.Enabled = false;
+                    TxtDeficienteAtipicos.Enabled = false;
+
+
                     BtnNovo.Enabled = true;
                     BtnAlterar.Enabled = true;
                     BtnExcluir.Enabled = true;
@@ -307,6 +313,15 @@ namespace Trilhar.Forms
                 CmbTurmaAtual.ForeColor = SystemColors.ControlText;
             }
 
+            if (itemAtual != null && itemAtual.DataNascimento != null)
+            {
+                if (itemAtual.DataNascimento.VerificaSeDataValida() == false)
+                {
+                    MessageBox.Show(string.Format("Ocorreu um erro no cadastro de número '{0}'.\nA data informada '{1}' não está no padrão correto.\nÉ necessário que haja uma correção para esse cadastro atravez da plataforma web.\nApós corrigir, volte a tentar!", itemAtual.CodigoCadastro, itemAtual.DataNascimento), "Informativo");
+                    AlterarEstadoFormulario(Acao.Inicio);
+                    return;
+                }
+            }
 
             TxtDataNascimento.Text = itemAtual != null && itemAtual.DataNascimento != null ? itemAtual.DataNascimento : DateTime.Now.ToShortDateString();
             TxtIdadeCrianca.Text = PreencheIdadeFormatada(TxtDataNascimento.Text);
@@ -514,11 +529,7 @@ namespace Trilhar.Forms
 
                 var itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == TxtCodigoCadastro.Text).FirstOrDefault();
                 CarregaCampos(itemAtual);
-
-
-                TxtCodigoCadastro.Enabled = true;
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                AlterarEstadoFormulario(Acao.Preenchido);
             }
         }
 
@@ -573,11 +584,12 @@ namespace Trilhar.Forms
             {
                 ValuesDTO lastRecord = valuesDTOList.OrderBy(r => r.CodigoCadastro).Last();
                 CarregaCampos(lastRecord);
-                HabilitaDesabilitaCampos(true);
-                HabilitaDesabilitaLinkButon(true);
-                HabilitaDesabilitaBotoes(true);
-                BtnSalvar.Enabled = false;
-                BtnCancelar.Enabled = false;
+                //HabilitaDesabilitaCampos(true);
+                //HabilitaDesabilitaLinkButon(true);
+                //HabilitaDesabilitaBotoes(true);
+                //BtnSalvar.Enabled = false;
+                //BtnCancelar.Enabled = false;
+                AlterarEstadoFormulario(Acao.Preenchido);
 
                 toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
                 toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
@@ -719,9 +731,14 @@ namespace Trilhar.Forms
                 TxtNomeCrianca.Focus();
                 return;
             }
-            if (TxtDataNascimento.Text == DateTime.Now.ToShortDateString())
+            if (Convert.ToDateTime(TxtDataNascimento.Text).Date > DateTime.Now.Date)
             {
-                MessageBox.Show("O campo 'Data de nascimento' deve ser preenchida.", "Resultado");
+                MessageBox.Show("O campo 'Data de nascimento' não pode ser maior que hoje.", "Resultado");
+                return;
+            }
+            if (Convert.ToDateTime(TxtDataNascimento.Text).Date == DateTime.Now.Date)
+            {
+                MessageBox.Show("O campo 'Data de nascimento' não deve ser igual a hoje.", "Resultado");
                 return;
             }
             if (CmbTurmaAtual.SelectedIndex == -1)
@@ -776,9 +793,14 @@ namespace Trilhar.Forms
                 TxtNomeCrianca.Focus();
                 return;
             }
-            if (TxtDataNascimento.Text == DateTime.Now.ToShortDateString())
+            if (Convert.ToDateTime(TxtDataNascimento.Text).Date > DateTime.Now.Date)
             {
-                MessageBox.Show("O campo 'Data de nascimento' deve ser preenchida.", "Resultado");
+                MessageBox.Show("O campo 'Data de nascimento' não pode ser maior que hoje.", "Resultado");
+                return;
+            }
+            if (Convert.ToDateTime(TxtDataNascimento.Text).Date == DateTime.Now.Date)
+            {
+                MessageBox.Show("O campo 'Data de nascimento' não deve ser igual a hoje.", "Resultado");
                 return;
             }
             if (CmbTurmaAtual.SelectedIndex == -1)
@@ -910,6 +932,7 @@ namespace Trilhar.Forms
                     TxtCodigoCadastro.Text = (Convert.ToInt32(TxtCodigoCadastro.Text) - 1).ToString();
                     if (Convert.ToInt32(TxtCodigoCadastro.Text) <= 999)
                     {
+                        TxtCodigoCadastro.Text = "";
                         break;
                     }
                 }
@@ -929,10 +952,7 @@ namespace Trilhar.Forms
                 MessageBox.Show(string.Format("Algo ocorreu de errado com a exclusão do registro. Tente novamente!"), "Resultado");
 
             }
-
-            HabilitaDesabilitaCampos(true);
-            TxtCodigoCadastro.Focus();
-            TxtCodigoCadastro.SelectAll();
+            AlterarEstadoFormulario(Acao.Preenchido);
         }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
@@ -955,9 +975,15 @@ namespace Trilhar.Forms
         private void TxtDataNascimento_ValueChanged(object sender, EventArgs e)
         {
             if (TxtDataNascimento.Value.VerificaSeDataValida() == false) return;
-            if (TxtDataNascimento.Value.Date >= DateTime.Now.Date) return;
+            if (TxtDataNascimento.Value.Date >= DateTime.Now.Date)
+            {
+                TxtIdadeCrianca.Text = "";
+                TxtTurmaAtual.Text = "";
+                CmbTurmaAtual.SelectedIndex = -1;
+                return;
+            }
 
-            if (GetAcao == Acao.Novo)
+            if (GetAcao == Acao.Novo || GetAcao == Acao.Alterar)
             {
                 TxtIdadeCrianca.Text = PreencheIdadeFormatada(TxtDataNascimento.Text);
                 TxtTurmaAtual.Text = TxtDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : RetonaSugestaoTurma(TxtDataNascimento.Text);

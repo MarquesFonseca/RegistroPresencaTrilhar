@@ -91,14 +91,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.exe" size="512032">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.exe" size="513056">
       <assemblyIdentity name="Trilhar.Forms" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>OodDRaF4+uDbbGXBpP+Cxa5mB7aqUIs4QYTWdw6rU3o=</dsig:DigestValue>
+        <dsig:DigestValue>qKDc5tNCip/RY2jhi6a21rZM/hZ4KtjJQZ/S0ty51C0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
