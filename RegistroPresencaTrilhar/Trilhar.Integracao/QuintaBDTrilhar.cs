@@ -20,80 +20,30 @@ namespace Trilhar.Integracao
             Trilhar.Mapeamento.ValuesMapeamento.ValuesDTOToValuesMapeamento();
         }
 
-        //public async Task<List<ValuesDTO>> GetListAsync()
-        //{
-        //    List<ValuesDTO> RetornoValuesDTOList = new List<ValuesDTO>();
-
-        //    //var response = await client.GetAsync(url);
-        //    //var content = await response.Content.ReadAsStringAsync();
-        //    //return JsonConvert.DeserializeObject<List<T>>(content);
-
-        //    //string URI = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/entity/cupCkNWP1eqyoXWPtcMmoM.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE&amp;fetch_all=true&amp;page=11";
-        //    string URI = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/entity/cupCkNWP1eqyoXWPtcMmoM.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE&fetch_all=true&page=";
-
-        //    int i = 0;
-        //    while (true)
-        //    {
-        //        if (!Internet.CheckForInternetConnection())
-        //        {
-        //            MessageBox.Show("Sem conexão com internet no momento!");
-        //            break;
-        //        }
-        //        string novoI = (i + 1).ToString();
-        //        string novoURI = URI + novoI;
-        //        using (HttpClient client = new HttpClient())
-        //        {
-        //            using (var response = await client.GetAsync(novoURI))
-        //            {
-        //                if (response.IsSuccessStatusCode)
-        //                {
-        //                    var CadastroTrilharJsonString = await response.Content.ReadAsStringAsync();
-        //                    var JsonFormatado = JToken.Parse(CadastroTrilharJsonString).ToString(Formatting.Indented);
-        //                    CadastroTrilhar myDeserializedCadastroTrilhar = JsonConvert.DeserializeObject<CadastroTrilhar>(JsonFormatado);
-
-        //                    if (myDeserializedCadastroTrilhar.records.Count == 0)
-        //                    {
-        //                        break;
-        //                    }
-        //                    else
-        //                    {
-        //                        foreach (Record record in myDeserializedCadastroTrilhar.records)
-        //                        {
-        //                            Trilhar.Entidades.ValuesDTO valuesDTO = record.values.Adapt<Trilhar.Entidades.ValuesDTO>();
-
-        //                            RetornoValuesDTOList.Add(valuesDTO);
-        //                        }
-        //                    }
-        //                }
-        //                else
-        //                {
-        //                    MessageBox.Show("Não foi possível obter os registros : " + response.StatusCode);
-        //                }
-        //            }
-        //        }
-        //        i++;
-        //    }
-
-        //    if (RetornoValuesDTOList != null && RetornoValuesDTOList.Count >= 0)
-        //    {
-        //        return RetornoValuesDTOList;
-
-        //    }
-        //    else
-        //    {
-        //        return new List<ValuesDTO>();
-        //    }
-        //}
-
         public List<ValuesDTO> GetListValues(List<Record> recordsList)
         {
             List<ValuesDTO> valuesDTOList = new List<ValuesDTO>();
             foreach (Record record in recordsList)
             {
                 ValuesDTO valuesDTO = record.values.Adapt<ValuesDTO>();
+                valuesDTO.SelecioneATurma = RetornaDescricaoCmbTurmaAtual(valuesDTO.SelecioneATurma);
                 valuesDTOList.Add(valuesDTO);
             }
             return valuesDTOList;
+        }
+
+        private string RetornaDescricaoCmbTurmaAtual(string Valor)
+        {
+            if (Valor == "BRANCO/ROSA (0 A 11 M)") { return "BRANCO/ROSA (0 A 11 M)"; }
+            if (Valor == "LILÁS (1 ANO)") { return "LILÁS (1 ANO)"; }
+            if (Valor == "LILÁS (2 ANOS)") { return "LILÁS (2 ANOS)"; }
+            if (Valor == "LARANJA") { return "LARANJA 3-4 ANOS"; }
+            if (Valor == "VERMELHO") { return "VERMELHO 5-6 ANOS"; }
+            if (Valor == "VERDE") { return "VERDE 7-8 ANOS"; }
+            if (Valor == "AZUL (9-10 ANOS)") { return "AZUL 9-10 ANOS"; }
+            if (Valor == "AZUL ROYAL (11-12 ANOS)") { return "AZUL ROYAL 11-12 ANOS"; }
+
+            return "";
         }
 
         public async Task<List<Record>> GetListAsync()
@@ -169,7 +119,7 @@ namespace Trilhar.Integracao
                     {
                         string retorno = await content.ReadAsStringAsync();
                         var JsonFormatado = JToken.Parse(retorno).ToString(Formatting.Indented);
-                        Trilhar.Entidades.Record record = JsonConvert.DeserializeObject<Response>(JsonFormatado).record;
+                        Record record = JsonConvert.DeserializeObject<Response>(JsonFormatado).record;
                         if (record != null)
                         {
                             Retono = record;
@@ -181,10 +131,10 @@ namespace Trilhar.Integracao
             return Retono;
         }
 
-        public async Task<ValuesDTO> PutAsync<T>(ValuesDTO data)
+        public async Task<Record> PutAsync<T>(string id, ValuesDTO data)
         {
-            ValuesDTO Retono = new ValuesDTO();
-            string url = "";
+            Record Retono = new Record();
+            string url = string.Format("https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/{0}.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE", id);
 
             Values dataValue = data.Adapt<ValuesDTO, Values>();
 
@@ -198,10 +148,10 @@ namespace Trilhar.Integracao
                     {
                         string retorno = await content.ReadAsStringAsync();
                         var JsonFormatado = JToken.Parse(retorno).ToString(Formatting.Indented);
-                        Trilhar.Entidades.Values value = JsonConvert.DeserializeObject<Response>(JsonFormatado).record.values;
-                        if (value != null)
+                        Record record = JsonConvert.DeserializeObject<Response>(JsonFormatado).record;
+                        if (record != null)
                         {
-                            Retono = value.Adapt<Values, ValuesDTO>();
+                            Retono = record;
                         }
                     }
                 }

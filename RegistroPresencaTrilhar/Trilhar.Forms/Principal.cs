@@ -24,6 +24,7 @@ namespace Trilhar.Forms
         ValuesDTO valuesDTOAtual = new ValuesDTO();
 
         public Acao GetAcao;
+
         public enum Acao
         {
             Inicio,
@@ -61,6 +62,7 @@ namespace Trilhar.Forms
             switch (acao)
             {
                 case Acao.Inicio:
+                    // TODO: Acao.Inicio:
                     toolStripStatusLabelDiaSemana.Text = "";
                     toolStripStatusLabelDataHora.Text = "";
                     toolStripStatusLabelUltimaAtualizacao.Text = "";
@@ -69,6 +71,7 @@ namespace Trilhar.Forms
                     TxtTurmaAtual.Visible = true;
                     CmbTurmaAtual.Visible = false;
 
+                    LimparCampos();
                     HabilitaDesabilitaLinkButon(false);
                     HabilitaDesabilitaCampos(false);
                     ReadOnlyCampos(true);
@@ -87,6 +90,7 @@ namespace Trilhar.Forms
 
                     break;
                 case Acao.Novo:
+                    // TODO: Acao.Novo:
                     TxtTurmaAtual.Visible = false;
                     CmbTurmaAtual.SelectedIndex = -1;
                     CmbTurmaAtual.Visible = true;
@@ -121,6 +125,7 @@ namespace Trilhar.Forms
                     TxtNomeCrianca.SelectAll();
                     break;
                 case Acao.Alterar:
+                    // TODO: Acao.Alterar:
                     TxtTurmaAtual.Visible = false;
                     CmbTurmaAtual.SelectedIndex = -1;
                     CmbTurmaAtual.Visible = true;
@@ -155,8 +160,10 @@ namespace Trilhar.Forms
                     //TxtNomeCrianca.SelectAll();
                     break;
                 case Acao.Excluir:
+                    // TODO: Acao.Excluir:
                     break;
                 case Acao.Cancelar:
+                    // TODO: Acao.Cancelar:
                     TxtTurmaAtual.Visible = true;
                     CmbTurmaAtual.SelectedIndex = -1;
                     CmbTurmaAtual.Visible = false;
@@ -179,6 +186,7 @@ namespace Trilhar.Forms
                     TxtCodigoCadastro.SelectAll();
                     break;
                 case Acao.Sincronizando:
+                    // TODO: Acao.Sincronizando:
                     HabilitaDesabilitaLinkButon(false);
                     HabilitaDesabilitaCampos(false);
                     ReadOnlyCampos(true);
@@ -188,15 +196,21 @@ namespace Trilhar.Forms
                     TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.WindowText;
                     break;
                 case Acao.Preenchido:
+                    // TODO: Acao.Preenchido:
+                    TxtTurmaAtual.Visible = true;
+                    CmbTurmaAtual.Visible = false;
+
                     HabilitaDesabilitaLinkButon(true);
                     HabilitaDesabilitaCampos(true);
                     ReadOnlyCampos(true);
                     HabilitaDesabilitaBotoes(false);
+
                     BtnNovo.Enabled = true;
                     BtnAlterar.Enabled = true;
                     BtnExcluir.Enabled = true;
                     //BtnSalvar.Enabled = true;
                     //BtnCancelar.Enabled = true;
+
                     TxtCodigoCadastro.Focus();
                     TxtCodigoCadastro.SelectAll();
                     break;
@@ -216,6 +230,7 @@ namespace Trilhar.Forms
 
         private void CarregaCampos(ValuesDTO itemAtual)
         {
+            //TODO: CarregaCampos()
             valuesDTOAtual = itemAtual;
 
             TxtCodigoCadastro.Text = itemAtual != null && itemAtual.CodigoCadastro != null ? itemAtual.CodigoCadastro : "";
@@ -279,6 +294,7 @@ namespace Trilhar.Forms
             else
             {
                 TxtTurmaAtual.Text = "";
+                CmbTurmaAtual.SelectedIndex = -1;
                 TxtTurmaAtual.BackColor = System.Drawing.Color.Empty;
                 TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.InfoText;
                 CmbTurmaAtual.ForeColor = SystemColors.ControlText;
@@ -337,39 +353,45 @@ namespace Trilhar.Forms
             TxtAlergia.Text = itemAtual != null && itemAtual.Alergia != null ? itemAtual.Alergia : "";
             if (TxtAlergia.Text.ToUpper() == "SIM")
             {
-                this.TxtAlergia.BackColor = System.Drawing.Color.Red;
-                this.TxtAlergia.ForeColor = System.Drawing.SystemColors.Info;
+                TxtAlergia.SelectedItem = "SIM";
+                TxtAlergia.BackColor = System.Drawing.Color.Red;
+                TxtAlergia.ForeColor = System.Drawing.SystemColors.Info;
             }
             else
             {
-                this.TxtAlergia.BackColor = System.Drawing.Color.Empty;
-                this.TxtAlergia.ForeColor = System.Drawing.SystemColors.InfoText;
+                TxtAlergia.SelectedItem = "NÃO";
+                TxtAlergia.BackColor = System.Drawing.Color.Empty;
+                TxtAlergia.ForeColor = System.Drawing.SystemColors.InfoText;
             }
 
             TxtDescicaoAlergia.Text = itemAtual != null && itemAtual.SeAlergiaSimPreenchaAqui != null ? itemAtual.SeAlergiaSimPreenchaAqui : "";
             TxtRestrincaoAlimentar.Text = itemAtual != null && itemAtual.RestrincaoAlimentar != null ? itemAtual.RestrincaoAlimentar : "";
             if (TxtRestrincaoAlimentar.Text.ToUpper() == "SIM")
             {
-                this.TxtRestrincaoAlimentar.BackColor = System.Drawing.Color.Red;
-                this.TxtRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.Info;
+                TxtRestrincaoAlimentar.SelectedItem = "SIM";
+                TxtRestrincaoAlimentar.BackColor = System.Drawing.Color.Red;
+                TxtRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.Info;
             }
             else
             {
-                this.TxtRestrincaoAlimentar.BackColor = System.Drawing.Color.Empty;
-                this.TxtRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.InfoText;
+                TxtRestrincaoAlimentar.SelectedItem = "NÃO";
+                TxtRestrincaoAlimentar.BackColor = System.Drawing.Color.Empty;
+                TxtRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.InfoText;
             }
 
             TxtDescricaoRestricaoAlimentar.Text = itemAtual != null && itemAtual.SeRestrincaoAlimentarSimDescreva != null ? itemAtual.SeRestrincaoAlimentarSimDescreva : "";
             TxtDeficienteAtipicos.Text = itemAtual != null && itemAtual.AlgumaDeficienciaOuSituacaoAtipica != null ? itemAtual.AlgumaDeficienciaOuSituacaoAtipica : "";
             if (TxtDeficienteAtipicos.Text.ToUpper() == "SIM")
             {
-                this.TxtDeficienteAtipicos.BackColor = System.Drawing.Color.Red;
-                this.TxtDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.Info;
+                TxtDeficienteAtipicos.SelectedItem = "SIM";
+                TxtDeficienteAtipicos.BackColor = System.Drawing.Color.Red;
+                TxtDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.Info;
             }
             else
             {
-                this.TxtDeficienteAtipicos.BackColor = System.Drawing.Color.Empty;
-                this.TxtDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.InfoText;
+                TxtDeficienteAtipicos.SelectedItem = "NÃO";
+                TxtDeficienteAtipicos.BackColor = System.Drawing.Color.Empty;
+                TxtDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.InfoText;
             }
 
             TxtDescricaoDeficienteAtipicos.Text = itemAtual != null && itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes != null ? itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes : "";
@@ -415,11 +437,11 @@ namespace Trilhar.Forms
             TxtOutroResponsavel.ReadOnly = valor;
             TxtTelefone.ReadOnly = valor;
             TxtEmail.ReadOnly = valor;
-            TxtAlergia.ReadOnly = valor;
+            //TxtAlergia.ReadOnly = valor;
             TxtDescicaoAlergia.ReadOnly = valor;
-            TxtRestrincaoAlimentar.ReadOnly = valor;
+            //TxtRestrincaoAlimentar.ReadOnly = valor;
             TxtDescricaoRestricaoAlimentar.ReadOnly = valor;
-            TxtDeficienteAtipicos.ReadOnly = valor;
+            //TxtDeficienteAtipicos.ReadOnly = valor;
             TxtDescricaoDeficienteAtipicos.ReadOnly = valor;
         }
 
@@ -522,6 +544,7 @@ namespace Trilhar.Forms
 
         public async void AtualizaDados()
         {
+            //TODO: AtualizaDados()
             Integracao.QuintaBDTrilhar integracaoQuintaBD = new Integracao.QuintaBDTrilhar();
             recordsList = await integracaoQuintaBD.GetListAsync();
             valuesDTOList = integracaoQuintaBD.GetListValues(recordsList);
@@ -684,6 +707,7 @@ namespace Trilhar.Forms
 
         private async void SalvarNovoRegistro()
         {
+            // TODO: SalvarNovoRegistro()
             ValuesDTO novoValueDTO = new ValuesDTO();
             novoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
             novoValueDTO.NomeCrianca = TxtNomeCrianca.Text;
@@ -708,6 +732,7 @@ namespace Trilhar.Forms
             recordsList.Add(retornoNovoRecord);
 
             ValuesDTO valuesDTO = retornoNovoRecord.values.Adapt<Values, ValuesDTO>();
+            valuesDTO.SelecioneATurma = RetornaDescricaoCmbTurmaAtual(valuesDTO.SelecioneATurma);
             valuesDTOList.Add(valuesDTO);
             valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
             CarregaCampos(valuesDTO);
@@ -721,6 +746,18 @@ namespace Trilhar.Forms
 
         private async void SalvarAlteracaoRegistro()
         {
+            if (string.IsNullOrEmpty(TxtCodigoCadastro.Text))
+            {
+                MessageBox.Show("sss");
+                return;
+            }
+            if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
+            {
+                MessageBox.Show("sss");
+                return;
+            }
+
+            // TODO: SalvarAlteracaoRegistro()
             ValuesDTO novoValueDTO = new ValuesDTO();
             novoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
             novoValueDTO.NomeCrianca = TxtNomeCrianca.Text;
@@ -741,17 +778,29 @@ namespace Trilhar.Forms
             novoValueDTO.DataBatismo = "10/12/2020";
             novoValueDTO.IgrejaBatizou = "IGREJA BETEL BRASILEIRO";
 
-            Record retornoNovoRecord = await new QuintaBDTrilhar().PostAsync<ValuesDTO>(novoValueDTO);
+            string CodigoCadastroAtual = TxtCodigoCadastro.Text;
+            Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == CodigoCadastroAtual.Trim()).FirstOrDefault();
+
+            Record retornoNovoRecord = await new QuintaBDTrilhar().PutAsync<ValuesDTO>(itemAtual.id, novoValueDTO);
+            if (retornoNovoRecord.id == null)
+            {
+                MessageBox.Show("O item de alteração não está disponível na sincronização. Faça a sincronização dos dados e tente novamente.", "Resultado");
+
+                AlterarEstadoFormulario(Acao.Inicio);
+                return;
+            }
+
+            recordsList.Remove(itemAtual);
             recordsList.Add(retornoNovoRecord);
 
+            valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()));
             ValuesDTO valuesDTO = retornoNovoRecord.values.Adapt<Values, ValuesDTO>();
+            valuesDTO.SelecioneATurma = RetornaDescricaoCmbTurmaAtual(valuesDTO.SelecioneATurma);
             valuesDTOList.Add(valuesDTO);
             valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
 
             CarregaCampos(valuesDTO);
-            HabilitaDesabilitaCampos(true);
-            TxtCodigoCadastro.Focus();
-            TxtCodigoCadastro.SelectAll();
+            AlterarEstadoFormulario(Acao.Preenchido);
         }
 
         private string RetornaValorCmbTurmaAtual(string text)
@@ -764,12 +813,27 @@ namespace Trilhar.Forms
             if (text == "VERDE 7-8 ANOS") { return "VERDE"; }
             if (text == "AZUL 9-10 ANOS") { return "AZUL (9-10 ANOS)"; }
             if (text == "AZUL ROYAL 11-12 ANOS") { return "AZUL ROYAL (11-12 ANOS)"; }
-            
+
+            return "";
+        }
+
+        private string RetornaDescricaoCmbTurmaAtual(string Valor)
+        {
+            if (Valor == "BRANCO/ROSA (0 A 11 M)") { return "BRANCO/ROSA (0 A 11 M)"; }
+            if (Valor == "LILÁS (1 ANO)") { return "LILÁS (1 ANO)"; }
+            if (Valor == "LILÁS (2 ANOS)") { return "LILÁS (2 ANOS)"; }
+            if (Valor == "LARANJA") { return "LARANJA 3-4 ANOS"; }
+            if (Valor == "VERMELHO") { return "VERMELHO 5-6 ANOS"; }
+            if (Valor == "VERDE") { return "VERDE 7-8 ANOS"; }
+            if (Valor == "AZUL (9-10 ANOS)") { return "AZUL 9-10 ANOS"; }
+            if (Valor == "AZUL ROYAL (11-12 ANOS)") { return "AZUL ROYAL 11-12 ANOS"; }
+
             return "";
         }
 
         private async void BtnExcluir_Click(object sender, EventArgs e)
         {
+            //TODO: ExcluirRegistro()
             string CodigoCadastroAtual = TxtCodigoCadastro.Text;
 
             if (string.IsNullOrEmpty(TxtCodigoCadastro.Text))

@@ -12,8 +12,8 @@ namespace Trilhar.Integracao
 
         Task<Record> PostAsync<T>(ValuesDTO data);
 
-        Task<ValuesDTO> PutAsync<T>(ValuesDTO data);
-
+        Task<Record> PutAsync<T>(string id, ValuesDTO data);
+            
         Task<bool> DeleteAsync(string id);
     }
 }
