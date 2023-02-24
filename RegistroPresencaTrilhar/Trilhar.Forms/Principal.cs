@@ -30,6 +30,7 @@ namespace Trilhar.Forms
             Novo,
             Alterar,
             Excluir,
+            Sincronizando,
             Cancelar
         }
 
@@ -40,46 +41,163 @@ namespace Trilhar.Forms
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            GetAcao = Acao.Inicio;
-            //AtualizaDados();
-
-            toolStripStatusLabelDiaSemana.Text = "";
-            toolStripStatusLabelDataHora.Text = "";
-            toolStripStatusLabelUltimaAtualizacao.Text = "";
-            toolStripStatusLabelTotalRegistros.Text = "";
-
-            BtnNovo.Enabled = false;
-            BtnAlterar.Enabled = false;
-            BtnExcluir.Enabled = false;
-            BtnCancelar.Enabled = false;
-            BtnSalvar.Enabled = false;
-
-            BtnNovo.Enabled = true;
-            BtnAlterar.Enabled = true;
-            BtnExcluir.Enabled = true;
-
             clock.Start();
 
-            TxtCodigoCadastro.Enabled = false;
-            TxtCodigoCadastro.Focus();
+            AlterarEstadoFormulario(Acao.Inicio);
+
+            //AtualizaDados();           
         }
 
-        private void TxtCodigoCadastro_KeyDown(object sender, KeyEventArgs e)
+        private void clock_Tick(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            toolStripStatusLabelDiaSemana.Text = DateTime.Now.ToLongDateString().ToString();
+            toolStripStatusLabelDataHora.Text = DateTime.Now.ToLongTimeString().ToString();
+        }
+
+        private void AlterarEstadoFormulario(Acao acao)
+        {
+            GetAcao = acao;
+            switch (acao)
             {
-                e.Handled = true;
-                e.SuppressKeyPress = true;
-                TxtCodigoCadastro.Enabled = false;
+                case Acao.Inicio:
+                    toolStripStatusLabelDiaSemana.Text = "";
+                    toolStripStatusLabelDataHora.Text = "";
+                    toolStripStatusLabelUltimaAtualizacao.Text = "";
+                    toolStripStatusLabelTotalRegistros.Text = "";
 
-                var itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == TxtCodigoCadastro.Text).FirstOrDefault();
-                CarregaCampos(itemAtual);
+                    TxtTurmaAtual.Visible = true;
+                    CmbTurmaAtual.Visible = false;
 
+                    HabilitaDesabilitaLinkButon(false);
+                    HabilitaDesabilitaCampos(false);
+                    ReadOnlyCampos(true);
+                    HabilitaDesabilitaBotoes(false);
 
-                TxtCodigoCadastro.Enabled = true;
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                    linkLabelAtualizarDados.Enabled = true;
+
+                    BtnNovo.Enabled = true;
+                    //BtnAlterar.Enabled = true;
+                    //BtnExcluir.Enabled = true;
+                    //BtnSalvar.Enabled = true;
+                    // BtnCancelar.Enabled = true;
+
+                    TxtCodigoCadastro.Enabled = false;
+                    TxtCodigoCadastro.Focus();
+
+                    break;
+                case Acao.Novo:
+                    TxtTurmaAtual.Visible = false;
+                    CmbTurmaAtual.SelectedIndex = -1;
+                    CmbTurmaAtual.Visible = true;
+
+                    HabilitaDesabilitaLinkButon(false);
+                    HabilitaDesabilitaCampos(true);
+                    ReadOnlyCampos(false);
+                    HabilitaDesabilitaBotoes(false);
+                    LimparCampos();
+
+                    CmbTurmaAtual.ForeColor = SystemColors.ControlText;
+                    //BtnNovo.Enabled = true;
+                    //BtnAlterar.Enabled = true;
+                    //BtnExcluir.Enabled = true;
+                    BtnSalvar.Enabled = true;
+                    BtnCancelar.Enabled = true;
+
+                    TxtTurmaAtual.BackColor = System.Drawing.SystemColors.Window;
+                    TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.WindowText;
+
+                    TxtAlergia.BackColor = System.Drawing.SystemColors.Window;
+                    TxtAlergia.ForeColor = System.Drawing.SystemColors.WindowText;
+
+                    TxtRestrincaoAlimentar.BackColor = System.Drawing.SystemColors.Window;
+                    TxtRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.WindowText;
+
+                    TxtDeficienteAtipicos.BackColor = System.Drawing.SystemColors.Window;
+                    TxtDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.WindowText;
+
+                    TxtCodigoCadastro.Enabled = false;
+                    TxtNomeCrianca.Focus();
+                    TxtNomeCrianca.SelectAll();
+                    break;
+                case Acao.Alterar:
+                    TxtTurmaAtual.Visible = false;
+                    CmbTurmaAtual.SelectedIndex = -1;
+                    CmbTurmaAtual.Visible = true;
+
+                    HabilitaDesabilitaLinkButon(false);
+                    HabilitaDesabilitaCampos(true);
+                    ReadOnlyCampos(false);
+                    HabilitaDesabilitaBotoes(false);
+
+                    //BtnNovo.Enabled = true;
+                    //BtnAlterar.Enabled = true;
+                    //BtnExcluir.Enabled = true;
+                    BtnSalvar.Enabled = true;
+                    BtnCancelar.Enabled = true;
+
+                    CarregaCampos(valuesDTOAtual);
+
+                    //TxtTurmaAtual.BackColor = System.Drawing.SystemColors.Window;
+                    //TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.WindowText;
+
+                    //TxtAlergia.BackColor = System.Drawing.SystemColors.Window;
+                    //TxtAlergia.ForeColor = System.Drawing.SystemColors.WindowText;
+
+                    //TxtRestrincaoAlimentar.BackColor = System.Drawing.SystemColors.Window;
+                    //TxtRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.WindowText;
+
+                    //TxtDeficienteAtipicos.BackColor = System.Drawing.SystemColors.Window;
+                    //TxtDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.WindowText;
+
+                    TxtCodigoCadastro.Enabled = false;
+                    TxtNomeCrianca.Focus();
+                    //TxtNomeCrianca.SelectAll();
+                    break;
+                case Acao.Excluir:
+                    break;
+                case Acao.Cancelar:
+                    TxtTurmaAtual.Visible = true;
+                    CmbTurmaAtual.SelectedIndex = -1;
+                    CmbTurmaAtual.Visible = false;
+
+                    HabilitaDesabilitaLinkButon(true);
+                    HabilitaDesabilitaCampos(true);
+                    ReadOnlyCampos(true);
+                    HabilitaDesabilitaBotoes(false);
+
+                    BtnNovo.Enabled = true;
+                    BtnAlterar.Enabled = true;
+                    BtnExcluir.Enabled = true;
+                    //BtnSalvar.Enabled = true;
+                    //BtnCancelar.Enabled = true;
+
+                    CarregaCampos(valuesDTOAtual);
+
+                    TxtCodigoCadastro.Enabled = true;
+                    TxtCodigoCadastro.Focus();
+                    TxtCodigoCadastro.SelectAll();
+                    break;
+                case Acao.Sincronizando:
+                    HabilitaDesabilitaLinkButon(false);
+                    HabilitaDesabilitaCampos(false);
+                    ReadOnlyCampos(true);
+                    HabilitaDesabilitaBotoes(false);
+                    LimparCampos();
+                    TxtTurmaAtual.BackColor = System.Drawing.SystemColors.Window;
+                    TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.WindowText;
+                    break;
+                default:
+                    break;
             }
+        }
+
+        private void HabilitaDesabilitaBotoes(bool valor)
+        {
+            BtnNovo.Enabled = valor;
+            BtnAlterar.Enabled = valor;
+            BtnExcluir.Enabled = valor;
+            BtnCancelar.Enabled = valor;
+            BtnSalvar.Enabled = valor;
         }
 
         private void CarregaCampos(ValuesDTO itemAtual)
@@ -93,53 +211,63 @@ namespace Trilhar.Forms
             if (itemAtual != null && itemAtual.SelecioneATurma != null)
             {
                 TxtTurmaAtual.Text = itemAtual.SelecioneATurma;
+                CmbTurmaAtual.SelectedItem = itemAtual.SelecioneATurma;
 
                 if (TxtTurmaAtual.Text.ToUpper().Contains("LILÁS (1 ano)".ToUpper()))
                 {
-                    this.TxtTurmaAtual.BackColor = Color.FromArgb(200, 162, 200);
-                    this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.ControlText;
+                    TxtTurmaAtual.BackColor = Color.FromArgb(200, 162, 200);
+                    TxtTurmaAtual.ForeColor = SystemColors.ControlText;
+                    CmbTurmaAtual.ForeColor = SystemColors.ControlText;
                 }
                 if (TxtTurmaAtual.Text.ToUpper().Contains("LILÁS (2 ANOS)".ToUpper()))
                 {
-                    this.TxtTurmaAtual.BackColor = Color.FromArgb(153, 50, 204);
-                    this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.Info;
+                    TxtTurmaAtual.BackColor = Color.FromArgb(153, 50, 204);
+                    TxtTurmaAtual.ForeColor = SystemColors.Info;
+                    CmbTurmaAtual.ForeColor = SystemColors.ControlText;
                 }
                 if (TxtTurmaAtual.Text.ToUpper().Contains("LARANJA".ToUpper()))
                 {
-                    this.TxtTurmaAtual.BackColor = Color.FromArgb(255, 165, 0);
-                    this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.Info;
+                    TxtTurmaAtual.BackColor = Color.FromArgb(255, 165, 0);
+                    TxtTurmaAtual.ForeColor = SystemColors.Info;
+                    CmbTurmaAtual.ForeColor = SystemColors.ControlText;
                 }
                 if (TxtTurmaAtual.Text.ToUpper().Contains("VERMELHO".ToUpper()))
                 {
-                    this.TxtTurmaAtual.BackColor = Color.FromArgb(255, 0, 0);
-                    this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.Info;
+                    TxtTurmaAtual.BackColor = Color.FromArgb(255, 0, 0);
+                    TxtTurmaAtual.ForeColor = SystemColors.Info;
+                    CmbTurmaAtual.ForeColor = SystemColors.ControlText;
                 }
                 if (TxtTurmaAtual.Text.ToUpper().Contains("VERDE".ToUpper()))
                 {
-                    this.TxtTurmaAtual.BackColor = Color.FromArgb(0, 255, 100);
-                    this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.ControlText;
+                    TxtTurmaAtual.BackColor = Color.FromArgb(0, 255, 100);
+                    TxtTurmaAtual.ForeColor = SystemColors.ControlText;
+                    CmbTurmaAtual.ForeColor = SystemColors.ControlText;
                 }
                 if (TxtTurmaAtual.Text.ToUpper().Contains("AZUL".ToUpper()))
                 {
-                    this.TxtTurmaAtual.BackColor = Color.FromArgb(173, 216, 230);
-                    this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.ControlText;
+                    TxtTurmaAtual.BackColor = Color.FromArgb(173, 216, 230);
+                    TxtTurmaAtual.ForeColor = SystemColors.ControlText;
+                    CmbTurmaAtual.ForeColor = SystemColors.ControlText;
                 }
                 if (TxtTurmaAtual.Text.ToUpper().Contains("AZUL ROYAL".ToUpper()))
                 {
-                    this.TxtTurmaAtual.BackColor = Color.FromArgb(0, 0, 128);
-                    this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.Info;
+                    TxtTurmaAtual.BackColor = Color.FromArgb(0, 0, 128);
+                    TxtTurmaAtual.ForeColor = SystemColors.Info;
+                    CmbTurmaAtual.ForeColor = SystemColors.ControlText;
                 }
                 if (TxtTurmaAtual.Text.ToUpper().Contains("ROSA".ToUpper()))
                 {
-                    this.TxtTurmaAtual.BackColor = Color.FromArgb(255, 192, 203);
-                    this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.ControlText;
+                    TxtTurmaAtual.BackColor = Color.FromArgb(255, 192, 203);
+                    TxtTurmaAtual.ForeColor = SystemColors.ControlText;
+                    CmbTurmaAtual.ForeColor = SystemColors.ControlText;
                 }
             }
             else
             {
                 TxtTurmaAtual.Text = "";
-                this.TxtTurmaAtual.BackColor = System.Drawing.Color.Empty;
-                this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.InfoText;
+                TxtTurmaAtual.BackColor = System.Drawing.Color.Empty;
+                TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.InfoText;
+                CmbTurmaAtual.ForeColor = SystemColors.ControlText;
             }
 
             TxtDataNascimento.Text = itemAtual != null && itemAtual.DataNascimento != null ? itemAtual.DataNascimento : "";
@@ -147,9 +275,20 @@ namespace Trilhar.Forms
             string idadeFormatada = "";
             if (itemAtual != null && itemAtual.DataNascimento != null)
             {
+                string data = itemAtual.DataNascimento;
+                DateTime dataConvertida;
 
-                idadeFormatada = GetAgeDetails(new DateTime(Convert.ToDateTime(itemAtual.DataNascimento).Year, Convert.ToDateTime(itemAtual.DataNascimento).Month, Convert.ToDateTime(itemAtual.DataNascimento).Day));
-                TxtIdadeCrianca.Text = idadeFormatada;
+                if (DateTime.TryParse(data, out dataConvertida))
+                {
+                    idadeFormatada = GetAgeDetails(new DateTime(Convert.ToDateTime(itemAtual.DataNascimento).Year, Convert.ToDateTime(itemAtual.DataNascimento).Month, Convert.ToDateTime(itemAtual.DataNascimento).Day));
+                    TxtIdadeCrianca.Text = idadeFormatada;
+                }
+                else
+                {
+                    TxtIdadeCrianca.Text = "";
+                }
+
+
             }
             else
             {
@@ -222,88 +361,12 @@ namespace Trilhar.Forms
             TxtDescricaoDeficienteAtipicos.Text = itemAtual != null && itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes != null ? itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes : "";
         }
 
-        private void linkLabelAtualizarDados_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            AtualizaDados();
-        }
-
-        public async void AtualizaDados()
-        {
-            HabilitaDesabilitaCampos(false);
-
-            Integracao.QuintaBDTrilhar integracaoQuintaBD = new Integracao.QuintaBDTrilhar();
-            recordsList = await integracaoQuintaBD.GetListAsync();
-            valuesDTOList = integracaoQuintaBD.GetListValues(recordsList);
-
-            if (valuesDTOList == null || valuesDTOList.Count == 0)
-            {
-                HabilitaDesabilitaCampos(false);
-                LimparCampos();
-                linkLabelAtualizarDados.Enabled = true;
-
-                toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
-                toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", 0);
-
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
-            }
-            else
-            {
-                ValuesDTO lastRecord = valuesDTOList.OrderBy(r => r.CodigoCadastro).Last();
-                CarregaCampos(lastRecord);
-                HabilitaDesabilitaCampos(true);
-                toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
-                toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
-
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
-            }
-
-            BtnNovo.Enabled = false;
-            BtnAlterar.Enabled = false;
-            BtnExcluir.Enabled = false;
-            BtnCancelar.Enabled = false;
-            BtnSalvar.Enabled = false;
-
-            BtnNovo.Enabled = true;
-            BtnAlterar.Enabled = true;
-            BtnExcluir.Enabled = true;
-
-            return;
-        }
-
-        private bool CheckForInternetConnection()
-        {
-            try
-            {
-                using (var client = new WebClient())
-                {
-                    using (client.OpenRead("http://clients3.google.com/generate_204"))
-                    {
-                        return true;
-                    }
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
         public void HabilitaDesabilitaCampos(bool valor)
         {
-            BtnNovo.Enabled = valor;
-            BtnAlterar.Enabled = valor;
-            BtnExcluir.Enabled = valor;
-            BtnCancelar.Enabled = valor;
-            BtnSalvar.Enabled = valor;
-            linkLabelBuscarPeloNome.Enabled = valor;
-            linkLabelBuscarPelaMae.Enabled = valor;
-            linkLabelBuscarPeloPai.Enabled = valor;
-            linkLabelAtualizarDados.Enabled = valor;
             TxtCodigoCadastro.Enabled = valor;
             TxtNomeCrianca.Enabled = valor;
             TxtTurmaAtual.Enabled = valor;
+            CmbTurmaAtual.Enabled = valor;
             TxtDataNascimento.Enabled = valor;
             TxtIdadeCrianca.Enabled = valor;
             TxtMae.Enabled = valor;
@@ -317,6 +380,14 @@ namespace Trilhar.Forms
             TxtDescricaoRestricaoAlimentar.Enabled = valor;
             TxtDeficienteAtipicos.Enabled = valor;
             TxtDescricaoDeficienteAtipicos.Enabled = valor;
+        }
+
+        public void HabilitaDesabilitaLinkButon(bool valor)
+        {
+            linkLabelBuscarPeloNome.Enabled = valor;
+            linkLabelBuscarPelaMae.Enabled = valor;
+            linkLabelBuscarPeloPai.Enabled = valor;
+            linkLabelAtualizarDados.Enabled = valor;
         }
 
         public void ReadOnlyCampos(bool valor)
@@ -357,9 +428,9 @@ namespace Trilhar.Forms
             TxtDeficienteAtipicos.ResetText();
             TxtDescricaoDeficienteAtipicos.ResetText();
 
-            this.TxtTurmaAtual.BackColor = System.Drawing.SystemColors.Control;
-            this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.Window;
-            
+            this.CmbTurmaAtual.BackColor = System.Drawing.SystemColors.Control;
+            this.CmbTurmaAtual.ForeColor = System.Drawing.SystemColors.Window;
+
             this.TxtAlergia.BackColor = System.Drawing.SystemColors.Control;
             this.TxtAlergia.ForeColor = System.Drawing.SystemColors.Window;
 
@@ -370,7 +441,7 @@ namespace Trilhar.Forms
             this.TxtDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.Window;
         }
 
-        public string GetAgeDetails(DateTime dob)
+        private string GetAgeDetails(DateTime dob)
         {
             DateTime today = DateTime.Now;
             int age = today.Year - dob.Year;
@@ -392,10 +463,86 @@ namespace Trilhar.Forms
             return string.Format("{0} anos, {1} meses e {2} dias", age, month, day);
         }
 
-        private void clock_Tick(object sender, EventArgs e)
+        private void TxtCodigoCadastro_KeyDown(object sender, KeyEventArgs e)
         {
-            toolStripStatusLabelDiaSemana.Text = DateTime.Now.ToLongDateString().ToString();
-            toolStripStatusLabelDataHora.Text = DateTime.Now.ToLongTimeString().ToString();
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                TxtCodigoCadastro.Enabled = false;
+
+                var itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == TxtCodigoCadastro.Text).FirstOrDefault();
+                CarregaCampos(itemAtual);
+
+
+                TxtCodigoCadastro.Enabled = true;
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+            }
+        }
+
+        private bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    using (client.OpenRead("http://clients3.google.com/generate_204"))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private void linkLabelAtualizarDados_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AlterarEstadoFormulario(Acao.Sincronizando);
+
+            AtualizaDados();
+        }
+
+        public async void AtualizaDados()
+        {
+            Integracao.QuintaBDTrilhar integracaoQuintaBD = new Integracao.QuintaBDTrilhar();
+            recordsList = await integracaoQuintaBD.GetListAsync();
+            valuesDTOList = integracaoQuintaBD.GetListValues(recordsList);
+
+            if (valuesDTOList == null || valuesDTOList.Count == 0)
+            {
+                //HabilitaDesabilitaCampos(false);
+                linkLabelAtualizarDados.Enabled = true;
+                BtnNovo.Enabled = true;
+                BtnAlterar.Enabled = false;
+                BtnExcluir.Enabled = false;
+
+
+                toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
+                toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", 0);
+
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+            }
+            else
+            {
+                ValuesDTO lastRecord = valuesDTOList.OrderBy(r => r.CodigoCadastro).Last();
+                CarregaCampos(lastRecord);
+                HabilitaDesabilitaCampos(true);
+                HabilitaDesabilitaLinkButon(true);
+                HabilitaDesabilitaBotoes(true);
+                BtnSalvar.Enabled = false;
+                BtnCancelar.Enabled = false;
+
+                toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
+                toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
+
+                TxtCodigoCadastro.Focus();
+                TxtCodigoCadastro.SelectAll();
+            }
         }
 
         private void linkLabelBuscarPeloNome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -518,36 +665,7 @@ namespace Trilhar.Forms
 
         private void BtnNovo_Click(object sender, EventArgs e)
         {
-            GetAcao = Acao.Novo;
-
-            BtnNovo.Enabled = false;
-            BtnAlterar.Enabled = false;
-            BtnExcluir.Enabled = false;
-            BtnCancelar.Enabled = false;
-            BtnSalvar.Enabled = false;
-            
-            BtnCancelar.Enabled = true;
-            BtnSalvar.Enabled = true;
-
-            ReadOnlyCampos(false);
-            LimparCampos();
-
-            this.TxtTurmaAtual.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.WindowText;
-
-            this.TxtAlergia.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtAlergia.ForeColor = System.Drawing.SystemColors.WindowText;
-
-            this.TxtRestrincaoAlimentar.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.WindowText;
-
-            this.TxtDeficienteAtipicos.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.WindowText;
-
-
-            TxtCodigoCadastro.Enabled = false;
-            TxtNomeCrianca.Focus();
-            TxtNomeCrianca.SelectAll();
+            AlterarEstadoFormulario(Acao.Novo);
         }
 
         private async void SalvarNovoRegistro()
@@ -559,7 +677,7 @@ namespace Trilhar.Forms
             novoValueDTO.Mae = TxtMae.Text;
             novoValueDTO.Pai = TxtPai.Text;
             novoValueDTO.OutroResponsavel = TxtOutroResponsavel.Text;
-            novoValueDTO.SelecioneATurma = TxtTurmaAtual.Text;
+            novoValueDTO.SelecioneATurma = RetornaValorCmbTurmaAtual(CmbTurmaAtual.Text);
             novoValueDTO.Telefone = TxtTelefone.Text;
             novoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
             novoValueDTO.Alergia = TxtAlergia.Text;
@@ -579,19 +697,14 @@ namespace Trilhar.Forms
             valuesDTOList.Add(valuesDTO);
             valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
             CarregaCampos(valuesDTO);
-            HabilitaDesabilitaCampos(true);
+            HabilitaDesabilitaCampos(false);
             TxtCodigoCadastro.Focus();
             TxtCodigoCadastro.SelectAll();
         }
 
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            GetAcao = Acao.Alterar;
-            BtnNovo.Enabled = false;
-            BtnAlterar.Enabled = false;
-            BtnExcluir.Enabled = false;
-            BtnCancelar.Enabled = false;
-            BtnSalvar.Enabled = false;
+            AlterarEstadoFormulario(Acao.Alterar);
         }
 
         private async void SalvarAlteracaoRegistro()
@@ -603,7 +716,7 @@ namespace Trilhar.Forms
             novoValueDTO.Mae = TxtMae.Text;
             novoValueDTO.Pai = TxtPai.Text;
             novoValueDTO.OutroResponsavel = TxtOutroResponsavel.Text;
-            novoValueDTO.SelecioneATurma = TxtTurmaAtual.Text;
+            novoValueDTO.SelecioneATurma = RetornaValorCmbTurmaAtual(CmbTurmaAtual.Text);
             novoValueDTO.Telefone = TxtTelefone.Text;
             novoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
             novoValueDTO.Alergia = TxtAlergia.Text;
@@ -627,6 +740,20 @@ namespace Trilhar.Forms
             HabilitaDesabilitaCampos(true);
             TxtCodigoCadastro.Focus();
             TxtCodigoCadastro.SelectAll();
+        }
+
+        private string RetornaValorCmbTurmaAtual(string text)
+        {
+            if (text == "BRANCO/ROSA (0 A 11 M)") { return "BRANCO/ROSA (0 A 11 M)"; }
+            if (text == "LILÁS (1 ANO)") { return "LILÁS (1 ANO)"; }
+            if (text == "LILÁS (2 ANOS)") { return "LILÁS (2 ANOS)"; }
+            if (text == "LARANJA 3-4 ANOS") { return "LARANJA"; }
+            if (text == "VERMELHO 5-6 ANOS") { return "VERMELHO"; }
+            if (text == "VERDE 7-8 ANOS") { return "VERDE"; }
+            if (text == "AZUL 9-10 ANOS") { return "AZUL (9-10 ANOS)"; }
+            if (text == "AZUL ROYAL 11-12 ANOS") { return "AZUL ROYAL (11-12 ANOS)"; }
+            
+            return "";
         }
 
         private async void BtnExcluir_Click(object sender, EventArgs e)
@@ -665,7 +792,7 @@ namespace Trilhar.Forms
                 valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()));
 
                 LimparCampos();
-                MessageBox.Show(string.Format("O Código '{0}' foi removido com sucesso!", CodigoCadastroAtual), "Resultado");                
+                MessageBox.Show(string.Format("O Código '{0}' foi removido com sucesso!", CodigoCadastroAtual), "Resultado");
 
                 //diminui -1 no código
                 TxtCodigoCadastro.Text = (Convert.ToInt32(CodigoCadastroAtual) - 1).ToString();
@@ -696,7 +823,7 @@ namespace Trilhar.Forms
                 MessageBox.Show(string.Format("Algo ocorreu de errado com a exclusão do registro. Tente novamente!"), "Resultado");
 
             }
-            
+
             HabilitaDesabilitaCampos(true);
             TxtCodigoCadastro.Focus();
             TxtCodigoCadastro.SelectAll();
@@ -704,29 +831,19 @@ namespace Trilhar.Forms
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-
+            if (GetAcao == Acao.Novo)
+            {
+                SalvarNovoRegistro();
+            }
+            if (GetAcao == Acao.Alterar)
+            {
+                SalvarAlteracaoRegistro();
+            }
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            GetAcao = Acao.Cancelar;
-            BtnNovo.Enabled = false;
-            BtnAlterar.Enabled = false;
-            BtnExcluir.Enabled = false;
-            BtnCancelar.Enabled = false;
-            BtnSalvar.Enabled = false;
-
-            BtnNovo.Enabled = true;
-            BtnAlterar.Enabled = true;
-            BtnExcluir.Enabled = true;
-
-            ReadOnlyCampos(true);
-            
-            CarregaCampos(valuesDTOAtual);
-
-            TxtCodigoCadastro.Enabled = true;
-            TxtCodigoCadastro.Focus();
-            TxtCodigoCadastro.SelectAll();
+            AlterarEstadoFormulario(Acao.Cancelar);
         }
     }
 }

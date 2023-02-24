@@ -44,7 +44,6 @@ namespace Trilhar.Forms
             this.TxtDataNascimento = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.TxtTurmaAtual = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtOutroResponsavel = new System.Windows.Forms.TextBox();
             this.TxtPai = new System.Windows.Forms.TextBox();
@@ -84,6 +83,8 @@ namespace Trilhar.Forms
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnSalvar = new System.Windows.Forms.Button();
+            this.CmbTurmaAtual = new System.Windows.Forms.ComboBox();
+            this.TxtTurmaAtual = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -152,7 +153,7 @@ namespace Trilhar.Forms
             this.BtnRegistrarPresenca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnRegistrarPresenca.Name = "BtnRegistrarPresenca";
             this.BtnRegistrarPresenca.Size = new System.Drawing.Size(224, 43);
-            this.BtnRegistrarPresenca.TabIndex = 8;
+            this.BtnRegistrarPresenca.TabIndex = 13;
             this.BtnRegistrarPresenca.Text = "Registrar presença";
             this.BtnRegistrarPresenca.UseVisualStyleBackColor = true;
             // 
@@ -166,7 +167,7 @@ namespace Trilhar.Forms
             this.TxtNomeCrianca.Name = "TxtNomeCrianca";
             this.TxtNomeCrianca.ReadOnly = true;
             this.TxtNomeCrianca.Size = new System.Drawing.Size(298, 41);
-            this.TxtNomeCrianca.TabIndex = 7;
+            this.TxtNomeCrianca.TabIndex = 12;
             // 
             // LblNomeCrianca
             // 
@@ -176,7 +177,7 @@ namespace Trilhar.Forms
             this.LblNomeCrianca.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblNomeCrianca.Name = "LblNomeCrianca";
             this.LblNomeCrianca.Size = new System.Drawing.Size(183, 26);
-            this.LblNomeCrianca.TabIndex = 6;
+            this.LblNomeCrianca.TabIndex = 11;
             this.LblNomeCrianca.Text = "Nome da criança:";
             // 
             // TxtCodigoCadastro
@@ -189,7 +190,7 @@ namespace Trilhar.Forms
             this.TxtCodigoCadastro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TxtCodigoCadastro.Name = "TxtCodigoCadastro";
             this.TxtCodigoCadastro.Size = new System.Drawing.Size(129, 41);
-            this.TxtCodigoCadastro.TabIndex = 5;
+            this.TxtCodigoCadastro.TabIndex = 10;
             this.TxtCodigoCadastro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCadastro_KeyDown);
             // 
             // label15
@@ -200,7 +201,7 @@ namespace Trilhar.Forms
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(134, 26);
-            this.label15.TabIndex = 4;
+            this.label15.TabIndex = 9;
             this.label15.Text = "Código cad.:";
             // 
             // TxtIdadeCrianca
@@ -213,7 +214,7 @@ namespace Trilhar.Forms
             this.TxtIdadeCrianca.Name = "TxtIdadeCrianca";
             this.TxtIdadeCrianca.ReadOnly = true;
             this.TxtIdadeCrianca.Size = new System.Drawing.Size(418, 41);
-            this.TxtIdadeCrianca.TabIndex = 14;
+            this.TxtIdadeCrianca.TabIndex = 20;
             // 
             // TxtDataNascimento
             // 
@@ -224,7 +225,7 @@ namespace Trilhar.Forms
             this.TxtDataNascimento.Name = "TxtDataNascimento";
             this.TxtDataNascimento.ReadOnly = true;
             this.TxtDataNascimento.Size = new System.Drawing.Size(209, 41);
-            this.TxtDataNascimento.TabIndex = 12;
+            this.TxtDataNascimento.TabIndex = 18;
             // 
             // label4
             // 
@@ -235,7 +236,7 @@ namespace Trilhar.Forms
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(212, 26);
-            this.label4.TabIndex = 11;
+            this.label4.TabIndex = 17;
             this.label4.Text = "Data de nascimento:";
             // 
             // label1
@@ -247,20 +248,8 @@ namespace Trilhar.Forms
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 26);
-            this.label1.TabIndex = 13;
+            this.label1.TabIndex = 19;
             this.label1.Text = "Idade da criança:";
-            // 
-            // TxtTurmaAtual
-            // 
-            this.TxtTurmaAtual.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtTurmaAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.TxtTurmaAtual.Location = new System.Drawing.Point(11, 144);
-            this.TxtTurmaAtual.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtTurmaAtual.Name = "TxtTurmaAtual";
-            this.TxtTurmaAtual.ReadOnly = true;
-            this.TxtTurmaAtual.Size = new System.Drawing.Size(38, 41);
-            this.TxtTurmaAtual.TabIndex = 10;
             // 
             // label3
             // 
@@ -270,7 +259,7 @@ namespace Trilhar.Forms
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 26);
-            this.label3.TabIndex = 9;
+            this.label3.TabIndex = 14;
             this.label3.Text = "Turma atual:";
             // 
             // TxtOutroResponsavel
@@ -576,7 +565,7 @@ namespace Trilhar.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(673, 341);
-            this.tableLayoutPanel1.TabIndex = 33;
+            this.tableLayoutPanel1.TabIndex = 21;
             // 
             // label8
             // 
@@ -693,7 +682,7 @@ namespace Trilhar.Forms
             this.BtnNovo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnNovo.Name = "BtnNovo";
             this.BtnNovo.Size = new System.Drawing.Size(82, 29);
-            this.BtnNovo.TabIndex = 36;
+            this.BtnNovo.TabIndex = 4;
             this.BtnNovo.Text = "Novo";
             this.BtnNovo.UseVisualStyleBackColor = true;
             this.BtnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
@@ -706,7 +695,7 @@ namespace Trilhar.Forms
             this.BtnExcluir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(82, 29);
-            this.BtnExcluir.TabIndex = 36;
+            this.BtnExcluir.TabIndex = 6;
             this.BtnExcluir.Text = "Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = true;
             this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
@@ -719,7 +708,7 @@ namespace Trilhar.Forms
             this.BtnAlterar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnAlterar.Name = "BtnAlterar";
             this.BtnAlterar.Size = new System.Drawing.Size(82, 29);
-            this.BtnAlterar.TabIndex = 36;
+            this.BtnAlterar.TabIndex = 5;
             this.BtnAlterar.Text = "Alterar";
             this.BtnAlterar.UseVisualStyleBackColor = true;
             this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
@@ -732,7 +721,7 @@ namespace Trilhar.Forms
             this.BtnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(82, 29);
-            this.BtnCancelar.TabIndex = 36;
+            this.BtnCancelar.TabIndex = 8;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -745,16 +734,50 @@ namespace Trilhar.Forms
             this.BtnSalvar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnSalvar.Name = "BtnSalvar";
             this.BtnSalvar.Size = new System.Drawing.Size(82, 29);
-            this.BtnSalvar.TabIndex = 36;
+            this.BtnSalvar.TabIndex = 7;
             this.BtnSalvar.Text = "Salvar";
             this.BtnSalvar.UseVisualStyleBackColor = true;
             this.BtnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
+            // 
+            // CmbTurmaAtual
+            // 
+            this.CmbTurmaAtual.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CmbTurmaAtual.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTurmaAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.CmbTurmaAtual.FormattingEnabled = true;
+            this.CmbTurmaAtual.Items.AddRange(new object[] {
+            "BRANCO/ROSA (0 A 11 M)",
+            "LILÁS (1 ANO)",
+            "LILÁS (2 ANOS)",
+            "LARANJA 3-4 ANOS",
+            "VERMELHO 5-6 ANOS",
+            "VERDE 7-8 ANOS",
+            "AZUL 9-10 ANOS",
+            "AZUL ROYAL 11-12 ANOS"});
+            this.CmbTurmaAtual.Location = new System.Drawing.Point(11, 144);
+            this.CmbTurmaAtual.Name = "CmbTurmaAtual";
+            this.CmbTurmaAtual.Size = new System.Drawing.Size(36, 41);
+            this.CmbTurmaAtual.TabIndex = 16;
+            // 
+            // TxtTurmaAtual
+            // 
+            this.TxtTurmaAtual.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtTurmaAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtTurmaAtual.Location = new System.Drawing.Point(11, 144);
+            this.TxtTurmaAtual.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtTurmaAtual.Name = "TxtTurmaAtual";
+            this.TxtTurmaAtual.ReadOnly = true;
+            this.TxtTurmaAtual.Size = new System.Drawing.Size(36, 41);
+            this.TxtTurmaAtual.TabIndex = 15;
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(693, 487);
+            this.Controls.Add(this.CmbTurmaAtual);
             this.Controls.Add(this.BtnNovo);
             this.Controls.Add(this.LblNomeCrianca);
             this.Controls.Add(this.BtnSalvar);
@@ -764,10 +787,10 @@ namespace Trilhar.Forms
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtIdadeCrianca);
+            this.Controls.Add(this.TxtTurmaAtual);
             this.Controls.Add(this.TxtDataNascimento);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.TxtTurmaAtual);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnRegistrarPresenca);
             this.Controls.Add(this.TxtNomeCrianca);
@@ -815,7 +838,6 @@ namespace Trilhar.Forms
         private System.Windows.Forms.TextBox TxtDataNascimento;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TxtTurmaAtual;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtOutroResponsavel;
         private System.Windows.Forms.TextBox TxtPai;
@@ -855,5 +877,7 @@ namespace Trilhar.Forms
         private System.Windows.Forms.Button BtnAlterar;
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.Button BtnSalvar;
+        private System.Windows.Forms.ComboBox CmbTurmaAtual;
+        private System.Windows.Forms.TextBox TxtTurmaAtual;
     }
 }
