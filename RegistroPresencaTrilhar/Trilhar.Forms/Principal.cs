@@ -31,6 +31,7 @@ namespace Trilhar.Forms
             Alterar,
             Excluir,
             Sincronizando,
+            Preenchido,
             Cancelar
         }
 
@@ -185,6 +186,19 @@ namespace Trilhar.Forms
                     LimparCampos();
                     TxtTurmaAtual.BackColor = System.Drawing.SystemColors.Window;
                     TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.WindowText;
+                    break;
+                case Acao.Preenchido:
+                    HabilitaDesabilitaLinkButon(true);
+                    HabilitaDesabilitaCampos(true);
+                    ReadOnlyCampos(true);
+                    HabilitaDesabilitaBotoes(false);
+                    BtnNovo.Enabled = true;
+                    BtnAlterar.Enabled = true;
+                    BtnExcluir.Enabled = true;
+                    //BtnSalvar.Enabled = true;
+                    //BtnCancelar.Enabled = true;
+                    TxtCodigoCadastro.Focus();
+                    TxtCodigoCadastro.SelectAll();
                     break;
                 default:
                     break;
@@ -697,9 +711,7 @@ namespace Trilhar.Forms
             valuesDTOList.Add(valuesDTO);
             valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
             CarregaCampos(valuesDTO);
-            HabilitaDesabilitaCampos(false);
-            TxtCodigoCadastro.Focus();
-            TxtCodigoCadastro.SelectAll();
+            AlterarEstadoFormulario(Acao.Preenchido);
         }
 
         private void BtnAlterar_Click(object sender, EventArgs e)
