@@ -214,7 +214,7 @@ namespace Trilhar.Forms
             this.TxtIdadeCrianca.Name = "TxtIdadeCrianca";
             this.TxtIdadeCrianca.ReadOnly = true;
             this.TxtIdadeCrianca.Size = new System.Drawing.Size(387, 41);
-            this.TxtIdadeCrianca.TabIndex = 17;
+            this.TxtIdadeCrianca.TabIndex = 18;
             // 
             // label4
             // 
@@ -235,7 +235,7 @@ namespace Trilhar.Forms
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 26);
-            this.label1.TabIndex = 16;
+            this.label1.TabIndex = 17;
             this.label1.Text = "Idade da criança:";
             // 
             // label3
@@ -246,7 +246,7 @@ namespace Trilhar.Forms
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 26);
-            this.label3.TabIndex = 18;
+            this.label3.TabIndex = 19;
             this.label3.Text = "Turma atual:";
             // 
             // TxtOutroResponsavel
@@ -308,7 +308,7 @@ namespace Trilhar.Forms
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(206, 26);
-            this.label10.TabIndex = 12;
+            this.label10.TabIndex = 14;
             this.label10.Text = "Restrição alimentar:";
             // 
             // label13
@@ -321,7 +321,7 @@ namespace Trilhar.Forms
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(220, 26);
-            this.label13.TabIndex = 18;
+            this.label13.TabIndex = 16;
             this.label13.Text = "Descrição alimentar:";
             // 
             // label6
@@ -370,7 +370,7 @@ namespace Trilhar.Forms
             this.TxtDescicaoAlergia.Name = "TxtDescicaoAlergia";
             this.TxtDescicaoAlergia.ReadOnly = true;
             this.TxtDescicaoAlergia.Size = new System.Drawing.Size(220, 62);
-            this.TxtDescicaoAlergia.TabIndex = 17;
+            this.TxtDescicaoAlergia.TabIndex = 13;
             // 
             // TxtDescricaoRestricaoAlimentar
             // 
@@ -385,7 +385,7 @@ namespace Trilhar.Forms
             this.TxtDescricaoRestricaoAlimentar.Name = "TxtDescricaoRestricaoAlimentar";
             this.TxtDescricaoRestricaoAlimentar.ReadOnly = true;
             this.TxtDescricaoRestricaoAlimentar.Size = new System.Drawing.Size(220, 62);
-            this.TxtDescricaoRestricaoAlimentar.TabIndex = 19;
+            this.TxtDescricaoRestricaoAlimentar.TabIndex = 17;
             // 
             // label9
             // 
@@ -395,7 +395,7 @@ namespace Trilhar.Forms
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(216, 26);
-            this.label9.TabIndex = 16;
+            this.label9.TabIndex = 12;
             this.label9.Text = "Descrição da alergia:";
             // 
             // label14
@@ -419,7 +419,7 @@ namespace Trilhar.Forms
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(204, 26);
-            this.label11.TabIndex = 14;
+            this.label11.TabIndex = 18;
             this.label11.Text = "Deficiente / Atípicos";
             // 
             // label12
@@ -501,7 +501,7 @@ namespace Trilhar.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(673, 261);
-            this.tableLayoutPanel1.TabIndex = 21;
+            this.tableLayoutPanel1.TabIndex = 22;
             // 
             // TxtCmbAlergia
             // 
@@ -544,7 +544,7 @@ namespace Trilhar.Forms
             this.TxtCmbRestrincaoAlimentar.Location = new System.Drawing.Point(227, 169);
             this.TxtCmbRestrincaoAlimentar.Name = "TxtCmbRestrincaoAlimentar";
             this.TxtCmbRestrincaoAlimentar.Size = new System.Drawing.Size(218, 41);
-            this.TxtCmbRestrincaoAlimentar.TabIndex = 13;
+            this.TxtCmbRestrincaoAlimentar.TabIndex = 15;
             // 
             // TxtCmbDeficienteAtipicos
             // 
@@ -559,7 +559,7 @@ namespace Trilhar.Forms
             this.TxtCmbDeficienteAtipicos.Location = new System.Drawing.Point(451, 169);
             this.TxtCmbDeficienteAtipicos.Name = "TxtCmbDeficienteAtipicos";
             this.TxtCmbDeficienteAtipicos.Size = new System.Drawing.Size(219, 41);
-            this.TxtCmbDeficienteAtipicos.TabIndex = 15;
+            this.TxtCmbDeficienteAtipicos.TabIndex = 19;
             // 
             // TxtTelefone
             // 
@@ -579,11 +579,11 @@ namespace Trilhar.Forms
             this.TxtMaskedDataNascimento.CustomFormat = "";
             this.TxtMaskedDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.TxtMaskedDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.TxtMaskedDataNascimento.Location = new System.Drawing.Point(10, 143);
+            this.TxtMaskedDataNascimento.Location = new System.Drawing.Point(48, 143);
             this.TxtMaskedDataNascimento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.TxtMaskedDataNascimento.Name = "TxtMaskedDataNascimento";
             this.TxtMaskedDataNascimento.Size = new System.Drawing.Size(206, 41);
-            this.TxtMaskedDataNascimento.TabIndex = 15;
+            this.TxtMaskedDataNascimento.TabIndex = 16;
             this.TxtMaskedDataNascimento.Value = new System.DateTime(2023, 2, 24, 0, 0, 0, 0);
             this.TxtMaskedDataNascimento.ValueChanged += new System.EventHandler(this.TxtMaskedDataNascimento_ValueChanged);
             // 
@@ -762,10 +762,10 @@ namespace Trilhar.Forms
             "VERDE 7-8 ANOS",
             "AZUL 9-10 ANOS",
             "AZUL ROYAL 11-12 ANOS"});
-            this.CmbTurmaAtual.Location = new System.Drawing.Point(613, 142);
+            this.CmbTurmaAtual.Location = new System.Drawing.Point(550, 143);
             this.CmbTurmaAtual.Name = "CmbTurmaAtual";
             this.CmbTurmaAtual.Size = new System.Drawing.Size(68, 41);
-            this.CmbTurmaAtual.TabIndex = 19;
+            this.CmbTurmaAtual.TabIndex = 21;
             // 
             // TxtTurmaAtual
             // 
@@ -786,7 +786,7 @@ namespace Trilhar.Forms
             this.TxtDataNascimento.Name = "TxtDataNascimento";
             this.TxtDataNascimento.ReadOnly = true;
             this.TxtDataNascimento.Size = new System.Drawing.Size(206, 41);
-            this.TxtDataNascimento.TabIndex = 36;
+            this.TxtDataNascimento.TabIndex = 15;
             // 
             // Principal
             // 
