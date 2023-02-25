@@ -67,7 +67,7 @@ namespace Trilhar.Forms
             this.TxtRestrincaoAlimentar = new System.Windows.Forms.ComboBox();
             this.TxtDeficienteAtipicos = new System.Windows.Forms.ComboBox();
             this.TxtTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.TxtDataNascimento = new System.Windows.Forms.DateTimePicker();
+            this.TxtMaskedDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDiaSemana = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -85,6 +85,7 @@ namespace Trilhar.Forms
             this.BtnSalvar = new System.Windows.Forms.Button();
             this.CmbTurmaAtual = new System.Windows.Forms.ComboBox();
             this.TxtTurmaAtual = new System.Windows.Forms.TextBox();
+            this.TxtDataNascimento = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -206,13 +207,13 @@ namespace Trilhar.Forms
             // 
             // TxtIdadeCrianca
             // 
-            this.TxtIdadeCrianca.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.TxtIdadeCrianca.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.TxtIdadeCrianca.ForeColor = System.Drawing.SystemColors.WindowText;
             this.TxtIdadeCrianca.Location = new System.Drawing.Point(221, 143);
             this.TxtIdadeCrianca.Margin = new System.Windows.Forms.Padding(2);
             this.TxtIdadeCrianca.Name = "TxtIdadeCrianca";
             this.TxtIdadeCrianca.ReadOnly = true;
-            this.TxtIdadeCrianca.Size = new System.Drawing.Size(387, 38);
+            this.TxtIdadeCrianca.Size = new System.Drawing.Size(387, 41);
             this.TxtIdadeCrianca.TabIndex = 17;
             // 
             // label4
@@ -573,18 +574,18 @@ namespace Trilhar.Forms
             this.TxtTelefone.Size = new System.Drawing.Size(220, 38);
             this.TxtTelefone.TabIndex = 7;
             // 
-            // TxtDataNascimento
+            // TxtMaskedDataNascimento
             // 
-            this.TxtDataNascimento.CustomFormat = "";
-            this.TxtDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.TxtDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.TxtDataNascimento.Location = new System.Drawing.Point(10, 143);
-            this.TxtDataNascimento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.TxtDataNascimento.Name = "TxtDataNascimento";
-            this.TxtDataNascimento.Size = new System.Drawing.Size(206, 41);
-            this.TxtDataNascimento.TabIndex = 15;
-            this.TxtDataNascimento.Value = new System.DateTime(2023, 2, 24, 0, 0, 0, 0);
-            this.TxtDataNascimento.ValueChanged += new System.EventHandler(this.TxtDataNascimento_ValueChanged);
+            this.TxtMaskedDataNascimento.CustomFormat = "";
+            this.TxtMaskedDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.TxtMaskedDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.TxtMaskedDataNascimento.Location = new System.Drawing.Point(10, 143);
+            this.TxtMaskedDataNascimento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.TxtMaskedDataNascimento.Name = "TxtMaskedDataNascimento";
+            this.TxtMaskedDataNascimento.Size = new System.Drawing.Size(206, 41);
+            this.TxtMaskedDataNascimento.TabIndex = 15;
+            this.TxtMaskedDataNascimento.Value = new System.DateTime(2023, 2, 24, 0, 0, 0, 0);
+            this.TxtMaskedDataNascimento.ValueChanged += new System.EventHandler(this.TxtMaskedDataNascimento_ValueChanged);
             // 
             // statusStrip1
             // 
@@ -778,11 +779,21 @@ namespace Trilhar.Forms
             this.TxtTurmaAtual.Size = new System.Drawing.Size(68, 41);
             this.TxtTurmaAtual.TabIndex = 20;
             // 
+            // TxtDataNascimento
+            // 
+            this.TxtDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.TxtDataNascimento.Location = new System.Drawing.Point(10, 143);
+            this.TxtDataNascimento.Name = "TxtDataNascimento";
+            this.TxtDataNascimento.ReadOnly = true;
+            this.TxtDataNascimento.Size = new System.Drawing.Size(206, 41);
+            this.TxtDataNascimento.TabIndex = 36;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(693, 487);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbTurmaAtual);
             this.Controls.Add(this.BtnNovo);
             this.Controls.Add(this.LblNomeCrianca);
@@ -791,7 +802,6 @@ namespace Trilhar.Forms
             this.Controls.Add(this.BtnAlterar);
             this.Controls.Add(this.BtnExcluir);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtIdadeCrianca);
             this.Controls.Add(this.TxtTurmaAtual);
             this.Controls.Add(this.label4);
@@ -805,6 +815,7 @@ namespace Trilhar.Forms
             this.Controls.Add(this.linkLabelBuscarPeloPai);
             this.Controls.Add(this.linkLabelBuscarPelaMae);
             this.Controls.Add(this.linkLabelAtualizarDados);
+            this.Controls.Add(this.TxtMaskedDataNascimento);
             this.Controls.Add(this.TxtDataNascimento);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -884,6 +895,7 @@ namespace Trilhar.Forms
         private System.Windows.Forms.ComboBox TxtRestrincaoAlimentar;
         private System.Windows.Forms.ComboBox TxtDeficienteAtipicos;
         private System.Windows.Forms.MaskedTextBox TxtTelefone;
-        private System.Windows.Forms.DateTimePicker TxtDataNascimento;
+        private System.Windows.Forms.DateTimePicker TxtMaskedDataNascimento;
+        private System.Windows.Forms.TextBox TxtDataNascimento;
     }
 }

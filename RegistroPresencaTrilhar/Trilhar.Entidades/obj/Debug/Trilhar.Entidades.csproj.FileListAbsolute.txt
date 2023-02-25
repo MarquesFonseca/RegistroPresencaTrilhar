@@ -13,3 +13,4 @@ C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\ob
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\obj\Debug\Trilhar.Entidades.csproj.CopyComplete
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\obj\Debug\Trilhar.Entidades.dll
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\obj\Debug\Trilhar.Entidades.pdb
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\obj\Debug\Trilhar.Entidades.csprojAssemblyReference.cache

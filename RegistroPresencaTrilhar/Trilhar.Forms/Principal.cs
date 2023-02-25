@@ -1,19 +1,14 @@
-﻿using Mapster;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
+using System.Net;
+using System.Linq;
 using System.Data;
 using System.Drawing;
+using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Trilhar.Integracao;
+using Mapster;
 using Trilhar.Entidades;
+using Trilhar.Integracao;
 using Trilhar.Uteis;
 
 namespace Trilhar.Forms
@@ -69,8 +64,8 @@ namespace Trilhar.Forms
                     toolStripStatusLabelUltimaAtualizacao.Text = "";
                     toolStripStatusLabelTotalRegistros.Text = "";
 
-                    TxtTurmaAtual.Visible = true;
-                    CmbTurmaAtual.Visible = false;
+                    TxtTurmaAtual.Visible = TxtDataNascimento.Visible = true;
+                    CmbTurmaAtual.Visible = TxtMaskedDataNascimento.Visible = false;
 
                     LimparCampos();
                     HabilitaDesabilitaLinkButon(false);
@@ -78,15 +73,12 @@ namespace Trilhar.Forms
                     ReadOnlyCampos(true);
                     HabilitaDesabilitaBotoes(false);
 
-                    TxtDataNascimento.Value = DateTime.Now;
+                    TxtDataNascimento.Text = "";
+                    TxtMaskedDataNascimento.Value = DateTime.Now;
 
                     linkLabelAtualizarDados.Enabled = true;
 
                     BtnNovo.Enabled = true;
-                    //BtnAlterar.Enabled = true;
-                    //BtnExcluir.Enabled = true;
-                    //BtnSalvar.Enabled = true;
-                    // BtnCancelar.Enabled = true;
 
                     TxtCodigoCadastro.Enabled = false;
                     TxtCodigoCadastro.Focus();
@@ -94,37 +86,38 @@ namespace Trilhar.Forms
                     break;
                 case Acao.Novo:
                     // TODO: Acao.Novo:
-                    TxtTurmaAtual.Visible = false;
+                    TxtTurmaAtual.Visible = TxtDataNascimento.Visible = false;
                     CmbTurmaAtual.SelectedIndex = -1;
-                    CmbTurmaAtual.Visible = true;
+                    CmbTurmaAtual.Visible = TxtMaskedDataNascimento.Visible = true;
+
                     TxtAlergia.SelectedItem = "NÃO";
                     TxtRestrincaoAlimentar.SelectedItem = "NÃO";
                     TxtDeficienteAtipicos.SelectedItem = "NÃO";
+
                     HabilitaDesabilitaLinkButon(false);
                     HabilitaDesabilitaCampos(true);
                     ReadOnlyCampos(false);
                     HabilitaDesabilitaBotoes(false);
                     LimparCampos();
-                    TxtDataNascimento.Value = DateTime.Now;
+                    TxtDataNascimento.Text = "";
+                    TxtMaskedDataNascimento.Value = DateTime.Now;
 
-                    CmbTurmaAtual.ForeColor = SystemColors.ControlText;
-                    //BtnNovo.Enabled = true;
-                    //BtnAlterar.Enabled = true;
-                    //BtnExcluir.Enabled = true;
                     BtnSalvar.Enabled = true;
                     BtnCancelar.Enabled = true;
 
-                    TxtTurmaAtual.BackColor = System.Drawing.SystemColors.Window;
-                    TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.WindowText;
+                    CmbTurmaAtual.ForeColor = SystemColors.ControlText;
 
-                    TxtAlergia.BackColor = System.Drawing.SystemColors.Window;
-                    TxtAlergia.ForeColor = System.Drawing.SystemColors.WindowText;
+                    TxtTurmaAtual.BackColor = SystemColors.Window;
+                    TxtTurmaAtual.ForeColor = SystemColors.WindowText;
 
-                    TxtRestrincaoAlimentar.BackColor = System.Drawing.SystemColors.Window;
-                    TxtRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.WindowText;
+                    TxtAlergia.BackColor = SystemColors.Window;
+                    TxtAlergia.ForeColor = SystemColors.WindowText;
 
-                    TxtDeficienteAtipicos.BackColor = System.Drawing.SystemColors.Window;
-                    TxtDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.WindowText;
+                    TxtRestrincaoAlimentar.BackColor = SystemColors.Window;
+                    TxtRestrincaoAlimentar.ForeColor = SystemColors.WindowText;
+
+                    TxtDeficienteAtipicos.BackColor = SystemColors.Window;
+                    TxtDeficienteAtipicos.ForeColor = SystemColors.WindowText;
 
                     TxtCodigoCadastro.Enabled = false;
                     TxtNomeCrianca.Focus();
@@ -132,34 +125,19 @@ namespace Trilhar.Forms
                     break;
                 case Acao.Alterar:
                     // TODO: Acao.Alterar:
-                    TxtTurmaAtual.Visible = false;
+                    TxtTurmaAtual.Visible = TxtDataNascimento.Visible = false;
                     CmbTurmaAtual.SelectedIndex = -1;
-                    CmbTurmaAtual.Visible = true;
+                    CmbTurmaAtual.Visible = TxtMaskedDataNascimento.Visible = true;
 
                     HabilitaDesabilitaLinkButon(false);
                     HabilitaDesabilitaCampos(true);
                     ReadOnlyCampos(false);
                     HabilitaDesabilitaBotoes(false);
 
-                    //BtnNovo.Enabled = true;
-                    //BtnAlterar.Enabled = true;
-                    //BtnExcluir.Enabled = true;
                     BtnSalvar.Enabled = true;
                     BtnCancelar.Enabled = true;
 
                     CarregaCampos(valuesDTOAtual);
-
-                    //TxtTurmaAtual.BackColor = System.Drawing.SystemColors.Window;
-                    //TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.WindowText;
-
-                    //TxtAlergia.BackColor = System.Drawing.SystemColors.Window;
-                    //TxtAlergia.ForeColor = System.Drawing.SystemColors.WindowText;
-
-                    //TxtRestrincaoAlimentar.BackColor = System.Drawing.SystemColors.Window;
-                    //TxtRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.WindowText;
-
-                    //TxtDeficienteAtipicos.BackColor = System.Drawing.SystemColors.Window;
-                    //TxtDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.WindowText;
 
                     TxtCodigoCadastro.Enabled = false;
                     TxtNomeCrianca.Focus();
@@ -170,9 +148,9 @@ namespace Trilhar.Forms
                     break;
                 case Acao.Cancelar:
                     // TODO: Acao.Cancelar:
-                    TxtTurmaAtual.Visible = true;
+                    TxtTurmaAtual.Visible = TxtDataNascimento.Visible = true;
                     CmbTurmaAtual.SelectedIndex = -1;
-                    CmbTurmaAtual.Visible = false;
+                    CmbTurmaAtual.Visible = TxtMaskedDataNascimento.Visible = false;
 
                     HabilitaDesabilitaLinkButon(true);
                     HabilitaDesabilitaCampos(true);
@@ -198,21 +176,23 @@ namespace Trilhar.Forms
                     ReadOnlyCampos(true);
                     HabilitaDesabilitaBotoes(false);
                     LimparCampos();
-                    TxtDataNascimento.Value = DateTime.Now;
-                    TxtTurmaAtual.BackColor = System.Drawing.SystemColors.Window;
-                    TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.WindowText;
+                    TxtDataNascimento.Text = "";
+                    TxtMaskedDataNascimento.Value = DateTime.Now;
+                    TxtTurmaAtual.BackColor = SystemColors.Window;
+                    TxtTurmaAtual.ForeColor = SystemColors.WindowText;
                     break;
                 case Acao.Preenchido:
                     // TODO: Acao.Preenchido:
-                    TxtTurmaAtual.Visible = true;
-                    CmbTurmaAtual.Visible = false;
+                    TxtTurmaAtual.Visible = TxtDataNascimento.Visible = true;
+                    CmbTurmaAtual.Visible = TxtMaskedDataNascimento.Visible = false;
 
                     HabilitaDesabilitaLinkButon(true);
                     HabilitaDesabilitaCampos(true);
                     ReadOnlyCampos(true);
                     HabilitaDesabilitaBotoes(false);
 
-                    TxtDataNascimento.Enabled = false;
+                    //TxtDataNascimento.Enabled = false;
+                    TxtMaskedDataNascimento.Enabled = false;
                     TxtAlergia.Enabled = false;
                     TxtRestrincaoAlimentar.Enabled = false;
                     TxtDeficienteAtipicos.Enabled = false;
@@ -246,10 +226,16 @@ namespace Trilhar.Forms
             //TODO: CarregaCampos()
             valuesDTOAtual = itemAtual;
 
+            #region CodigoCadastro
             TxtCodigoCadastro.Text = itemAtual != null && itemAtual.CodigoCadastro != null ? itemAtual.CodigoCadastro : "";
+            #endregion
+
+            #region NomeCrianca
             TxtNomeCrianca.Text = itemAtual != null && itemAtual.NomeCrianca != null ? itemAtual.NomeCrianca : "";
             TxtNomeCrianca.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text);
+            #endregion
 
+            #region SelecioneATurma
             if (itemAtual != null && itemAtual.SelecioneATurma != null)
             {
                 TxtTurmaAtual.Text = itemAtual.SelecioneATurma;
@@ -308,11 +294,13 @@ namespace Trilhar.Forms
             {
                 TxtTurmaAtual.Text = "";
                 CmbTurmaAtual.SelectedIndex = -1;
-                TxtTurmaAtual.BackColor = System.Drawing.Color.Empty;
-                TxtTurmaAtual.ForeColor = System.Drawing.SystemColors.InfoText;
+                TxtTurmaAtual.BackColor = Color.Empty;
+                TxtTurmaAtual.ForeColor = SystemColors.InfoText;
                 CmbTurmaAtual.ForeColor = SystemColors.ControlText;
             }
+            #endregion
 
+            #region DataNascimento + IdadeCrianca
             if (itemAtual != null && itemAtual.DataNascimento != null)
             {
                 if (itemAtual.DataNascimento.VerificaSeDataValida() == false)
@@ -323,15 +311,22 @@ namespace Trilhar.Forms
                 }
             }
 
-            TxtDataNascimento.Text = itemAtual != null && itemAtual.DataNascimento != null ? itemAtual.DataNascimento : DateTime.Now.ToShortDateString();
-            TxtIdadeCrianca.Text = PreencheIdadeFormatada(TxtDataNascimento.Text);
+            TxtDataNascimento.Text = itemAtual != null && itemAtual.DataNascimento != null ? itemAtual.DataNascimento : "";
+            TxtMaskedDataNascimento.Text = itemAtual != null && itemAtual.DataNascimento != null ? itemAtual.DataNascimento : DateTime.Now.ToShortDateString();
+            TxtIdadeCrianca.Text = PreencheIdadeFormatada(TxtMaskedDataNascimento.Text);
+            #endregion
 
+            #region Mae
             TxtMae.Text = itemAtual != null && itemAtual.Mae != null ? itemAtual.Mae : "";
             TxtMae.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text.ToLower());
+            #endregion
 
+            #region Pai
             TxtPai.Text = itemAtual != null && itemAtual.Pai != null ? itemAtual.Pai : "";
             TxtPai.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text.ToLower());
+            #endregion
 
+            #region Outro Responsável
             TxtOutroResponsavel.Text = itemAtual != null && itemAtual.OutroResponsavel != null ? itemAtual.OutroResponsavel : "";
             if (itemAtual != null && itemAtual.OutroResponsavel != null)
             {
@@ -348,9 +343,17 @@ namespace Trilhar.Forms
             {
                 TxtOutroResponsavel.Text = "";
             }
+            #endregion
 
+            #region Telefone
             TxtTelefone.Text = itemAtual != null && itemAtual.Telefone != null ? itemAtual.Telefone : "";
+            #endregion
+
+            #region Email
             TxtEmail.Text = itemAtual != null && itemAtual.EnderecoEmail != null ? itemAtual.EnderecoEmail.ToLower() : "";
+            #endregion
+
+            #region Alergia + Descricao
             TxtAlergia.Text = itemAtual != null && itemAtual.Alergia != null ? itemAtual.Alergia : "";
             if (TxtAlergia.Text.ToUpper() == "SIM")
             {
@@ -366,6 +369,9 @@ namespace Trilhar.Forms
             }
 
             TxtDescicaoAlergia.Text = itemAtual != null && itemAtual.SeAlergiaSimPreenchaAqui != null ? itemAtual.SeAlergiaSimPreenchaAqui : "";
+            #endregion
+
+            #region RestrincaoAlimentar + Descricao
             TxtRestrincaoAlimentar.Text = itemAtual != null && itemAtual.RestrincaoAlimentar != null ? itemAtual.RestrincaoAlimentar : "";
             if (TxtRestrincaoAlimentar.Text.ToUpper() == "SIM")
             {
@@ -381,6 +387,9 @@ namespace Trilhar.Forms
             }
 
             TxtDescricaoRestricaoAlimentar.Text = itemAtual != null && itemAtual.SeRestrincaoAlimentarSimDescreva != null ? itemAtual.SeRestrincaoAlimentarSimDescreva : "";
+            #endregion
+
+            #region Deficiencia + Descricao
             TxtDeficienteAtipicos.Text = itemAtual != null && itemAtual.AlgumaDeficienciaOuSituacaoAtipica != null ? itemAtual.AlgumaDeficienciaOuSituacaoAtipica : "";
             if (TxtDeficienteAtipicos.Text.ToUpper() == "SIM")
             {
@@ -396,6 +405,7 @@ namespace Trilhar.Forms
             }
 
             TxtDescricaoDeficienteAtipicos.Text = itemAtual != null && itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes != null ? itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes : "";
+            #endregion
         }
 
         private string PreencheIdadeFormatada(string dataNascimento)
@@ -423,6 +433,7 @@ namespace Trilhar.Forms
             TxtTurmaAtual.Enabled = valor;
             CmbTurmaAtual.Enabled = valor;
             TxtDataNascimento.Enabled = valor;
+            TxtMaskedDataNascimento.Enabled = valor;
             TxtIdadeCrianca.Enabled = valor;
             TxtMae.Enabled = valor;
             TxtPai.Enabled = valor;
@@ -449,7 +460,8 @@ namespace Trilhar.Forms
         {
             TxtNomeCrianca.ReadOnly = valor;
             TxtTurmaAtual.ReadOnly = valor;
-            TxtDataNascimento.Enabled = !valor;
+            TxtDataNascimento.ReadOnly = valor;
+            TxtMaskedDataNascimento.Enabled = !valor;
             // TxtIdadeCrianca.ReadOnly = valor;
             TxtMae.ReadOnly = valor;
             TxtPai.ReadOnly = valor;
@@ -470,7 +482,7 @@ namespace Trilhar.Forms
             TxtNomeCrianca.ResetText();
             TxtTurmaAtual.ResetText();
             TxtDataNascimento.ResetText();
-            TxtDataNascimento.Value = DateTime.Now;
+            TxtMaskedDataNascimento.Value = DateTime.Now;
             TxtIdadeCrianca.ResetText();
             TxtMae.ResetText();
             TxtPai.ResetText();
@@ -731,12 +743,12 @@ namespace Trilhar.Forms
                 TxtNomeCrianca.Focus();
                 return;
             }
-            if (Convert.ToDateTime(TxtDataNascimento.Text).Date > DateTime.Now.Date)
+            if (Convert.ToDateTime(TxtMaskedDataNascimento.Text).Date > DateTime.Now.Date)
             {
                 MessageBox.Show("O campo 'Data de nascimento' não pode ser maior que hoje.", "Resultado");
                 return;
             }
-            if (Convert.ToDateTime(TxtDataNascimento.Text).Date == DateTime.Now.Date)
+            if (Convert.ToDateTime(TxtMaskedDataNascimento.Text).Date == DateTime.Now.Date)
             {
                 MessageBox.Show("O campo 'Data de nascimento' não deve ser igual a hoje.", "Resultado");
                 return;
@@ -752,7 +764,7 @@ namespace Trilhar.Forms
             ValuesDTO novoValueDTO = new ValuesDTO();
             novoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
             novoValueDTO.NomeCrianca = TxtNomeCrianca.Text;
-            novoValueDTO.DataNascimento = TxtDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : TxtDataNascimento.Text;
+            novoValueDTO.DataNascimento = TxtMaskedDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : TxtMaskedDataNascimento.Text;
             novoValueDTO.Mae = TxtMae.Text;
             novoValueDTO.Pai = TxtPai.Text;
             novoValueDTO.OutroResponsavel = TxtOutroResponsavel.Text;
@@ -793,12 +805,12 @@ namespace Trilhar.Forms
                 TxtNomeCrianca.Focus();
                 return;
             }
-            if (Convert.ToDateTime(TxtDataNascimento.Text).Date > DateTime.Now.Date)
+            if (Convert.ToDateTime(TxtMaskedDataNascimento.Text).Date > DateTime.Now.Date)
             {
                 MessageBox.Show("O campo 'Data de nascimento' não pode ser maior que hoje.", "Resultado");
                 return;
             }
-            if (Convert.ToDateTime(TxtDataNascimento.Text).Date == DateTime.Now.Date)
+            if (Convert.ToDateTime(TxtMaskedDataNascimento.Text).Date == DateTime.Now.Date)
             {
                 MessageBox.Show("O campo 'Data de nascimento' não deve ser igual a hoje.", "Resultado");
                 return;
@@ -813,7 +825,7 @@ namespace Trilhar.Forms
             ValuesDTO alteracaoValueDTO = new ValuesDTO();
             alteracaoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
             alteracaoValueDTO.NomeCrianca = TxtNomeCrianca.Text;
-            alteracaoValueDTO.DataNascimento = TxtDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : TxtDataNascimento.Text;
+            alteracaoValueDTO.DataNascimento = TxtMaskedDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : TxtMaskedDataNascimento.Text;
             alteracaoValueDTO.Mae = TxtMae.Text;
             alteracaoValueDTO.Pai = TxtPai.Text;
             alteracaoValueDTO.OutroResponsavel = TxtOutroResponsavel.Text;
@@ -972,11 +984,12 @@ namespace Trilhar.Forms
             AlterarEstadoFormulario(Acao.Cancelar);
         }
 
-        private void TxtDataNascimento_ValueChanged(object sender, EventArgs e)
+        private void TxtMaskedDataNascimento_ValueChanged(object sender, EventArgs e)
         {
-            if (TxtDataNascimento.Value.VerificaSeDataValida() == false) return;
-            if (TxtDataNascimento.Value.Date >= DateTime.Now.Date)
+            if (TxtMaskedDataNascimento.Value.VerificaSeDataValida() == false) return;
+            if (TxtMaskedDataNascimento.Value.Date >= DateTime.Now.Date)
             {
+                TxtDataNascimento.Text = "";
                 TxtIdadeCrianca.Text = "";
                 TxtTurmaAtual.Text = "";
                 CmbTurmaAtual.SelectedIndex = -1;
@@ -985,8 +998,8 @@ namespace Trilhar.Forms
 
             if (GetAcao == Acao.Novo || GetAcao == Acao.Alterar)
             {
-                TxtIdadeCrianca.Text = PreencheIdadeFormatada(TxtDataNascimento.Text);
-                TxtTurmaAtual.Text = TxtDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : RetonaSugestaoTurma(TxtDataNascimento.Text);
+                TxtIdadeCrianca.Text = PreencheIdadeFormatada(TxtMaskedDataNascimento.Text);
+                TxtTurmaAtual.Text = TxtMaskedDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : RetonaSugestaoTurma(TxtMaskedDataNascimento.Text);
                 if (TxtTurmaAtual.Text == "")
                 {
                     TxtIdadeCrianca.Text = "";
