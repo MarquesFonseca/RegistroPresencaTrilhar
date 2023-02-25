@@ -759,15 +759,13 @@ namespace Trilhar.Forms
                 return;
             }
 
-
-
             ValuesDTO novoValueDTO = new ValuesDTO();
             novoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
-            novoValueDTO.NomeCrianca = TxtNomeCrianca.Text;
+            novoValueDTO.NomeCrianca = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text);
             novoValueDTO.DataNascimento = TxtMaskedDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : TxtMaskedDataNascimento.Text;
-            novoValueDTO.Mae = TxtMae.Text;
-            novoValueDTO.Pai = TxtPai.Text;
-            novoValueDTO.OutroResponsavel = TxtOutroResponsavel.Text;
+            novoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text);
+            novoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text);
+            novoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text);
             novoValueDTO.SelecioneATurma = RetornaValorCmbTurmaAtual(CmbTurmaAtual.Text);
             novoValueDTO.Telefone = TxtTelefone.Text == "(  )      -" ? "" : TxtTelefone.Text;
             novoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
@@ -789,11 +787,11 @@ namespace Trilhar.Forms
             valuesDTOList.Add(valuesDTO);
             valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
             CarregaCampos(valuesDTO);
-            AlterarEstadoFormulario(Acao.Preenchido);
+            AlterarEstadoFormulario(Acao.Preenchido);            
         }
 
         private void BtnAlterar_Click(object sender, EventArgs e)
-        {
+        {            
             AlterarEstadoFormulario(Acao.Alterar);
         }
 
@@ -824,13 +822,13 @@ namespace Trilhar.Forms
             // TODO: SalvarAlteracaoRegistro()
             ValuesDTO alteracaoValueDTO = new ValuesDTO();
             alteracaoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
-            alteracaoValueDTO.NomeCrianca = TxtNomeCrianca.Text;
+            alteracaoValueDTO.NomeCrianca = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text);
             alteracaoValueDTO.DataNascimento = TxtMaskedDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : TxtMaskedDataNascimento.Text;
-            alteracaoValueDTO.Mae = TxtMae.Text;
-            alteracaoValueDTO.Pai = TxtPai.Text;
-            alteracaoValueDTO.OutroResponsavel = TxtOutroResponsavel.Text;
+            alteracaoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text);
+            alteracaoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text);
+            alteracaoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text);
             alteracaoValueDTO.SelecioneATurma = RetornaValorCmbTurmaAtual(CmbTurmaAtual.Text);
-            alteracaoValueDTO.Telefone = TxtTelefone.Text;
+            alteracaoValueDTO.Telefone = TxtTelefone.Text == "(  )      -" ? "" : TxtTelefone.Text;
             alteracaoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
             alteracaoValueDTO.Alergia = TxtCmbAlergia.Text;
             alteracaoValueDTO.SeAlergiaSimPreenchaAqui = TxtDescicaoAlergia.Text;
@@ -838,9 +836,9 @@ namespace Trilhar.Forms
             alteracaoValueDTO.SeRestrincaoAlimentarSimDescreva = TxtDescricaoRestricaoAlimentar.Text;
             alteracaoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = TxtCmbDeficienteAtipicos.Text;
             alteracaoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = TxtDescricaoDeficienteAtipicos.Text;
-            alteracaoValueDTO.Batizado = "SIM";
-            alteracaoValueDTO.DataBatismo = "10/12/2020";
-            alteracaoValueDTO.IgrejaBatizou = "IGREJA BETEL BRASILEIRO";
+            alteracaoValueDTO.Batizado = "";
+            alteracaoValueDTO.DataBatismo = "";
+            alteracaoValueDTO.IgrejaBatizou = "";
 
             string CodigoCadastroAtual = TxtCodigoCadastro.Text;
             Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == CodigoCadastroAtual.Trim()).FirstOrDefault();
@@ -969,6 +967,7 @@ namespace Trilhar.Forms
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
+            this.BtnSalvar.Enabled = false;
             if (GetAcao == Acao.Novo)
             {
                 SalvarNovoRegistro();
