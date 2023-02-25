@@ -62,10 +62,10 @@ namespace Trilhar.Forms
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.TxtAlergia = new System.Windows.Forms.ComboBox();
+            this.TxtCmbAlergia = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.TxtRestrincaoAlimentar = new System.Windows.Forms.ComboBox();
-            this.TxtDeficienteAtipicos = new System.Windows.Forms.ComboBox();
+            this.TxtCmbRestrincaoAlimentar = new System.Windows.Forms.ComboBox();
+            this.TxtCmbDeficienteAtipicos = new System.Windows.Forms.ComboBox();
             this.TxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.TxtMaskedDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -297,7 +297,7 @@ namespace Trilhar.Forms
             this.TxtDescricaoDeficienteAtipicos.Multiline = true;
             this.TxtDescricaoDeficienteAtipicos.Name = "TxtDescricaoDeficienteAtipicos";
             this.TxtDescricaoDeficienteAtipicos.ReadOnly = true;
-            this.TxtDescricaoDeficienteAtipicos.Size = new System.Drawing.Size(221, 95);
+            this.TxtDescricaoDeficienteAtipicos.Size = new System.Drawing.Size(221, 62);
             this.TxtDescricaoDeficienteAtipicos.TabIndex = 21;
             // 
             // label10
@@ -369,7 +369,7 @@ namespace Trilhar.Forms
             this.TxtDescicaoAlergia.Multiline = true;
             this.TxtDescicaoAlergia.Name = "TxtDescicaoAlergia";
             this.TxtDescicaoAlergia.ReadOnly = true;
-            this.TxtDescicaoAlergia.Size = new System.Drawing.Size(220, 95);
+            this.TxtDescicaoAlergia.Size = new System.Drawing.Size(220, 62);
             this.TxtDescicaoAlergia.TabIndex = 17;
             // 
             // TxtDescricaoRestricaoAlimentar
@@ -384,7 +384,7 @@ namespace Trilhar.Forms
             this.TxtDescricaoRestricaoAlimentar.Multiline = true;
             this.TxtDescricaoRestricaoAlimentar.Name = "TxtDescricaoRestricaoAlimentar";
             this.TxtDescricaoRestricaoAlimentar.ReadOnly = true;
-            this.TxtDescricaoRestricaoAlimentar.Size = new System.Drawing.Size(220, 95);
+            this.TxtDescricaoRestricaoAlimentar.Size = new System.Drawing.Size(220, 62);
             this.TxtDescricaoRestricaoAlimentar.TabIndex = 19;
             // 
             // label9
@@ -465,7 +465,7 @@ namespace Trilhar.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel1.Controls.Add(this.TxtAlergia, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.TxtCmbAlergia, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.TxtOutroResponsavel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.TxtPai, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.TxtMae, 0, 1);
@@ -484,8 +484,8 @@ namespace Trilhar.Forms
             this.tableLayoutPanel1.Controls.Add(this.TxtEmail, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label8, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.TxtRestrincaoAlimentar, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.TxtDeficienteAtipicos, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.TxtCmbRestrincaoAlimentar, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.TxtCmbDeficienteAtipicos, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.TxtTelefone, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 189);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
@@ -500,23 +500,23 @@ namespace Trilhar.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(673, 341);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(673, 261);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
-            // TxtAlergia
+            // TxtCmbAlergia
             // 
-            this.TxtAlergia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TxtCmbAlergia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtAlergia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtAlergia.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.TxtAlergia.FormattingEnabled = true;
-            this.TxtAlergia.Items.AddRange(new object[] {
+            this.TxtCmbAlergia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtCmbAlergia.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.TxtCmbAlergia.FormattingEnabled = true;
+            this.TxtCmbAlergia.Items.AddRange(new object[] {
             "NÃO",
             "SIM"});
-            this.TxtAlergia.Location = new System.Drawing.Point(3, 169);
-            this.TxtAlergia.Name = "TxtAlergia";
-            this.TxtAlergia.Size = new System.Drawing.Size(218, 41);
-            this.TxtAlergia.TabIndex = 11;
+            this.TxtCmbAlergia.Location = new System.Drawing.Point(3, 169);
+            this.TxtCmbAlergia.Name = "TxtCmbAlergia";
+            this.TxtCmbAlergia.Size = new System.Drawing.Size(218, 41);
+            this.TxtCmbAlergia.TabIndex = 11;
             // 
             // label8
             // 
@@ -531,35 +531,35 @@ namespace Trilhar.Forms
             this.label8.TabIndex = 8;
             this.label8.Text = "Endereço de email:";
             // 
-            // TxtRestrincaoAlimentar
+            // TxtCmbRestrincaoAlimentar
             // 
-            this.TxtRestrincaoAlimentar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TxtCmbRestrincaoAlimentar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtRestrincaoAlimentar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtRestrincaoAlimentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.TxtRestrincaoAlimentar.FormattingEnabled = true;
-            this.TxtRestrincaoAlimentar.Items.AddRange(new object[] {
+            this.TxtCmbRestrincaoAlimentar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtCmbRestrincaoAlimentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.TxtCmbRestrincaoAlimentar.FormattingEnabled = true;
+            this.TxtCmbRestrincaoAlimentar.Items.AddRange(new object[] {
             "NÃO",
             "SIM"});
-            this.TxtRestrincaoAlimentar.Location = new System.Drawing.Point(227, 169);
-            this.TxtRestrincaoAlimentar.Name = "TxtRestrincaoAlimentar";
-            this.TxtRestrincaoAlimentar.Size = new System.Drawing.Size(218, 41);
-            this.TxtRestrincaoAlimentar.TabIndex = 13;
+            this.TxtCmbRestrincaoAlimentar.Location = new System.Drawing.Point(227, 169);
+            this.TxtCmbRestrincaoAlimentar.Name = "TxtCmbRestrincaoAlimentar";
+            this.TxtCmbRestrincaoAlimentar.Size = new System.Drawing.Size(218, 41);
+            this.TxtCmbRestrincaoAlimentar.TabIndex = 13;
             // 
-            // TxtDeficienteAtipicos
+            // TxtCmbDeficienteAtipicos
             // 
-            this.TxtDeficienteAtipicos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TxtCmbDeficienteAtipicos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtDeficienteAtipicos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtDeficienteAtipicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.TxtDeficienteAtipicos.FormattingEnabled = true;
-            this.TxtDeficienteAtipicos.Items.AddRange(new object[] {
+            this.TxtCmbDeficienteAtipicos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtCmbDeficienteAtipicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.TxtCmbDeficienteAtipicos.FormattingEnabled = true;
+            this.TxtCmbDeficienteAtipicos.Items.AddRange(new object[] {
             "NÃO",
             "SIM"});
-            this.TxtDeficienteAtipicos.Location = new System.Drawing.Point(451, 169);
-            this.TxtDeficienteAtipicos.Name = "TxtDeficienteAtipicos";
-            this.TxtDeficienteAtipicos.Size = new System.Drawing.Size(219, 41);
-            this.TxtDeficienteAtipicos.TabIndex = 15;
+            this.TxtCmbDeficienteAtipicos.Location = new System.Drawing.Point(451, 169);
+            this.TxtCmbDeficienteAtipicos.Name = "TxtCmbDeficienteAtipicos";
+            this.TxtCmbDeficienteAtipicos.Size = new System.Drawing.Size(219, 41);
+            this.TxtCmbDeficienteAtipicos.TabIndex = 15;
             // 
             // TxtTelefone
             // 
@@ -599,7 +599,7 @@ namespace Trilhar.Forms
             this.statusStrip1.Location = new System.Drawing.Point(533, 0);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 9, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(256, 47);
+            this.statusStrip1.Size = new System.Drawing.Size(256, 35);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -607,21 +607,21 @@ namespace Trilhar.Forms
             // 
             this.toolStripStatusLabelDiaSemana.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.toolStripStatusLabelDiaSemana.Name = "toolStripStatusLabelDiaSemana";
-            this.toolStripStatusLabelDiaSemana.Size = new System.Drawing.Size(121, 42);
+            this.toolStripStatusLabelDiaSemana.Size = new System.Drawing.Size(121, 30);
             this.toolStripStatusLabelDiaSemana.Text = "DiaSemana";
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(18, 42);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(18, 30);
             this.toolStripStatusLabel2.Text = "|";
             // 
             // toolStripStatusLabelDataHora
             // 
             this.toolStripStatusLabelDataHora.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.toolStripStatusLabelDataHora.Name = "toolStripStatusLabelDataHora";
-            this.toolStripStatusLabelDataHora.Size = new System.Drawing.Size(105, 42);
+            this.toolStripStatusLabelDataHora.Size = new System.Drawing.Size(105, 30);
             this.toolStripStatusLabelDataHora.Text = "DataHora";
             // 
             // clock
@@ -637,12 +637,12 @@ namespace Trilhar.Forms
             this.tableLayoutPanel2.Controls.Add(this.statusStrip1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.statusStrip2, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 440);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 452);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(693, 47);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(693, 35);
             this.tableLayoutPanel2.TabIndex = 35;
             // 
             // statusStrip2
@@ -656,7 +656,7 @@ namespace Trilhar.Forms
             this.statusStrip2.Location = new System.Drawing.Point(0, 0);
             this.statusStrip2.Name = "statusStrip2";
             this.statusStrip2.Padding = new System.Windows.Forms.Padding(1, 0, 9, 0);
-            this.statusStrip2.Size = new System.Drawing.Size(533, 47);
+            this.statusStrip2.Size = new System.Drawing.Size(533, 35);
             this.statusStrip2.TabIndex = 0;
             this.statusStrip2.Text = "statusStrip2";
             // 
@@ -664,21 +664,21 @@ namespace Trilhar.Forms
             // 
             this.toolStripStatusLabelUltimaAtualizacao.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.toolStripStatusLabelUltimaAtualizacao.Name = "toolStripStatusLabelUltimaAtualizacao";
-            this.toolStripStatusLabelUltimaAtualizacao.Size = new System.Drawing.Size(149, 42);
+            this.toolStripStatusLabelUltimaAtualizacao.Size = new System.Drawing.Size(149, 30);
             this.toolStripStatusLabelUltimaAtualizacao.Text = "UltAtualizacao";
             // 
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(18, 42);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(18, 30);
             this.toolStripStatusLabel3.Text = "|";
             // 
             // toolStripStatusLabelTotalRegistros
             // 
             this.toolStripStatusLabelTotalRegistros.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.toolStripStatusLabelTotalRegistros.Name = "toolStripStatusLabelTotalRegistros";
-            this.toolStripStatusLabelTotalRegistros.Size = new System.Drawing.Size(139, 42);
+            this.toolStripStatusLabelTotalRegistros.Size = new System.Drawing.Size(139, 30);
             this.toolStripStatusLabelTotalRegistros.Text = "TotalRegistos";
             // 
             // BtnNovo
@@ -891,9 +891,9 @@ namespace Trilhar.Forms
         private System.Windows.Forms.Button BtnSalvar;
         private System.Windows.Forms.ComboBox CmbTurmaAtual;
         private System.Windows.Forms.TextBox TxtTurmaAtual;
-        private System.Windows.Forms.ComboBox TxtAlergia;
-        private System.Windows.Forms.ComboBox TxtRestrincaoAlimentar;
-        private System.Windows.Forms.ComboBox TxtDeficienteAtipicos;
+        private System.Windows.Forms.ComboBox TxtCmbAlergia;
+        private System.Windows.Forms.ComboBox TxtCmbRestrincaoAlimentar;
+        private System.Windows.Forms.ComboBox TxtCmbDeficienteAtipicos;
         private System.Windows.Forms.MaskedTextBox TxtTelefone;
         private System.Windows.Forms.DateTimePicker TxtMaskedDataNascimento;
         private System.Windows.Forms.TextBox TxtDataNascimento;
