@@ -32,12 +32,7 @@ C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPrese
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.Principal.resources
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.Properties.Resources.resources
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.csproj.GenerateResource.cache
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.exe
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.pdb
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Trilhar.Forms.exe.config
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Trilhar.Forms.exe.manifest
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Trilhar.Forms.application
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Trilhar.Forms.exe
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Trilhar.Forms.pdb
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Mapster.Core.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Mapster.dll
@@ -51,8 +46,6 @@ C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPrese
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Trilhar.Mapeamento.pdb
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Newtonsoft.Json.xml
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Trilhar.Uteis.pdb
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.exe.manifest
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.application
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.csproj.CopyComplete
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Trilhar.Forms.exe.config
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Trilhar.Forms.exe.manifest
@@ -82,4 +75,6 @@ C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\De
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.csproj.CopyComplete
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.exe
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.pdb
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.LixoApagar.resources
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Trilhar.Forms.dll.config
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\Debug\Trilhar.Forms.dll
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.dll

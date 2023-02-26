@@ -71,6 +71,7 @@ namespace Trilhar.Forms
             this.TxtCmbDeficienteAtipicos = new System.Windows.Forms.ComboBox();
             this.TxtIgrejaBatismo = new System.Windows.Forms.TextBox();
             this.TxtCmbBatizado = new System.Windows.Forms.ComboBox();
+            this.TxtDataBatismo = new System.Windows.Forms.MaskedTextBox();
             this.TxtMaskedDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDiaSemana = new System.Windows.Forms.ToolStripStatusLabel();
@@ -91,7 +92,6 @@ namespace Trilhar.Forms
             this.TxtTurmaAtual = new System.Windows.Forms.TextBox();
             this.TxtDataNascimento = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.TxtDataBatismo = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -599,6 +599,18 @@ namespace Trilhar.Forms
             this.TxtCmbBatizado.Size = new System.Drawing.Size(330, 60);
             this.TxtCmbBatizado.TabIndex = 11;
             // 
+            // TxtDataBatismo
+            // 
+            this.TxtDataBatismo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtDataBatismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.TxtDataBatismo.Location = new System.Drawing.Point(339, 259);
+            this.TxtDataBatismo.Mask = "00/00/0000";
+            this.TxtDataBatismo.Name = "TxtDataBatismo";
+            this.TxtDataBatismo.ReadOnly = true;
+            this.TxtDataBatismo.Size = new System.Drawing.Size(330, 53);
+            this.TxtDataBatismo.TabIndex = 13;
+            this.TxtDataBatismo.ValidatingType = typeof(System.DateTime);
+            // 
             // TxtMaskedDataNascimento
             // 
             this.TxtMaskedDataNascimento.CustomFormat = "";
@@ -824,18 +836,6 @@ namespace Trilhar.Forms
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDown1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown1_KeyDown);
             // 
-            // TxtDataBatismo
-            // 
-            this.TxtDataBatismo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtDataBatismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.TxtDataBatismo.Location = new System.Drawing.Point(339, 259);
-            this.TxtDataBatismo.Mask = "00/00/0000";
-            this.TxtDataBatismo.Name = "TxtDataBatismo";
-            this.TxtDataBatismo.ReadOnly = true;
-            this.TxtDataBatismo.Size = new System.Drawing.Size(330, 53);
-            this.TxtDataBatismo.TabIndex = 13;
-            this.TxtDataBatismo.ValidatingType = typeof(System.DateTime);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -869,7 +869,7 @@ namespace Trilhar.Forms
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(1044, 56);
             this.Name = "Principal";
-            this.Text = "Cadastro Trilhar - Registro de presença";
+            this.Text = "Cadastro de criança - Trilhar";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Principal_FormClosing);
             this.Load += new System.EventHandler(this.Principal_Load);

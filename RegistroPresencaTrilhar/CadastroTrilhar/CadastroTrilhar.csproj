@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1A381AB4-7B94-4F7D-AB39-F697BE344286}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Trilhar.Forms</RootNamespace>
-    <AssemblyName>Trilhar.Forms</AssemblyName>
+    <ProjectGuid>{34AE77A1-7AAA-48EC-AD5E-C65C86A9AE82}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CadastroTrilhar</RootNamespace>
+    <AssemblyName>CadastroTrilhar</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -49,10 +49,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>071A70B207B6035DB5488E0A006A20B40A81354F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>CF75EB0A1F1D3AEDF7E0B36AF0EDB2F3333B0FCE</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>RegistroPresencaTrilhar_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>CadastroTrilhar_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -60,24 +60,7 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>IcoTrilhar.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
-  </PropertyGroup>
-  <PropertyGroup />
   <ItemGroup>
-    <Reference Include="Mapster, Version=7.3.0.0, Culture=neutral, PublicKeyToken=2f39883af23c29a8, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mapster.7.3.0\lib\netstandard2.0\Mapster.dll</HintPath>
-    </Reference>
-    <Reference Include="Mapster.Core, Version=1.2.0.0, Culture=neutral, PublicKeyToken=e64997d676a9c1d3, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mapster.Core.1.2.0\lib\net45\Mapster.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -91,27 +74,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Campos.cs" />
-    <Compile Include="FormBuscar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormBuscar.Designer.cs">
-      <DependentUpon>FormBuscar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Principal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Principal.Designer.cs">
-      <DependentUpon>Principal.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormBuscar.resx">
-      <DependentUpon>FormBuscar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Principal.resx">
-      <DependentUpon>Principal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -120,10 +84,8 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="packages.config" />
-    <None Include="Properties\DataSources\ValuesDTO.datasource" />
+    <None Include="CadastroTrilhar_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -133,10 +95,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="RegistroPresencaTrilhar_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Trilhar.Forms\Trilhar.Forms.csproj">
+      <Project>{1a381ab4-7b94-4f7d-ab39-f697be344286}</Project>
+      <Name>Trilhar.Forms</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -149,32 +116,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="CamposJson.txt" />
-    <Content Include="IcoTrilhar.ico" />
-    <Content Include="Imagens\IcoTrilhar.ico" />
-    <Content Include="Imagens\Trilhar.jpeg" />
-    <Content Include="Imagens\Trilhar.png" />
-    <Content Include="Imagens\TrilharCortado.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Trilhar.Entidades\Trilhar.Entidades.csproj">
-      <Project>{06f489ab-f29f-4c74-8010-00a31f656653}</Project>
-      <Name>Trilhar.Entidades</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Trilhar.Integracao\Trilhar.Integracao.csproj">
-      <Project>{40dcf121-f235-41de-8d97-7e3c5a31ca42}</Project>
-      <Name>Trilhar.Integracao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Trilhar.Mapeamento\Trilhar.Mapeamento.csproj">
-      <Project>{2e285d22-cb69-4a7c-917d-273bbc0e53be}</Project>
-      <Name>Trilhar.Mapeamento</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Trilhar.Uteis\Trilhar.Uteis.csproj">
-      <Project>{3213bbe6-65d9-4fe3-874c-523c9e29b84b}</Project>
-      <Name>Trilhar.Uteis</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
