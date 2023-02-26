@@ -38,7 +38,6 @@ namespace Trilhar.Forms
             this.BtnRegistrarPresenca = new System.Windows.Forms.Button();
             this.TxtNomeCrianca = new System.Windows.Forms.TextBox();
             this.LblNomeCrianca = new System.Windows.Forms.Label();
-            this.TxtCodigoCadastro = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.TxtIdadeCrianca = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -86,10 +85,12 @@ namespace Trilhar.Forms
             this.CmbTurmaAtual = new System.Windows.Forms.ComboBox();
             this.TxtTurmaAtual = new System.Windows.Forms.TextBox();
             this.TxtDataNascimento = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.statusStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // linkLabelBuscarPeloNome
@@ -173,18 +174,6 @@ namespace Trilhar.Forms
             this.LblNomeCrianca.Size = new System.Drawing.Size(270, 37);
             this.LblNomeCrianca.TabIndex = 11;
             this.LblNomeCrianca.Text = "Nome da criança:";
-            // 
-            // TxtCodigoCadastro
-            // 
-            this.TxtCodigoCadastro.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtCodigoCadastro.CausesValidation = false;
-            this.TxtCodigoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.TxtCodigoCadastro.ForeColor = System.Drawing.Color.Red;
-            this.TxtCodigoCadastro.Location = new System.Drawing.Point(16, 112);
-            this.TxtCodigoCadastro.Name = "TxtCodigoCadastro";
-            this.TxtCodigoCadastro.Size = new System.Drawing.Size(192, 57);
-            this.TxtCodigoCadastro.TabIndex = 10;
-            this.TxtCodigoCadastro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoCadastro_KeyDown);
             // 
             // label15
             // 
@@ -754,11 +743,27 @@ namespace Trilhar.Forms
             this.TxtDataNascimento.Size = new System.Drawing.Size(307, 57);
             this.TxtDataNascimento.TabIndex = 15;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.numericUpDown1.Location = new System.Drawing.Point(16, 113);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(196, 57);
+            this.numericUpDown1.TabIndex = 10;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown1_KeyDown);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 749);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbTurmaAtual);
             this.Controls.Add(this.BtnNovo);
@@ -775,7 +780,6 @@ namespace Trilhar.Forms
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnRegistrarPresenca);
             this.Controls.Add(this.TxtNomeCrianca);
-            this.Controls.Add(this.TxtCodigoCadastro);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.linkLabelBuscarPeloNome);
             this.Controls.Add(this.linkLabelBuscarPeloPai);
@@ -800,6 +804,7 @@ namespace Trilhar.Forms
             this.tableLayoutPanel2.PerformLayout();
             this.statusStrip2.ResumeLayout(false);
             this.statusStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -814,7 +819,6 @@ namespace Trilhar.Forms
         private System.Windows.Forms.Button BtnRegistrarPresenca;
         private System.Windows.Forms.TextBox TxtNomeCrianca;
         private System.Windows.Forms.Label LblNomeCrianca;
-        private System.Windows.Forms.TextBox TxtCodigoCadastro;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox TxtIdadeCrianca;
         private System.Windows.Forms.Label label4;
@@ -862,5 +866,6 @@ namespace Trilhar.Forms
         private System.Windows.Forms.MaskedTextBox TxtTelefone;
         private System.Windows.Forms.DateTimePicker TxtMaskedDataNascimento;
         private System.Windows.Forms.TextBox TxtDataNascimento;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

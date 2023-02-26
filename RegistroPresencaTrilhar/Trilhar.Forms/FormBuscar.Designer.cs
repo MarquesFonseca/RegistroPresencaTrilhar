@@ -44,7 +44,6 @@ namespace Trilhar.Forms
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.valuesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codigoCadastroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeCriancaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selecioneATurmaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +70,7 @@ namespace Trilhar.Forms
             this.chamadaLilas2AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chamadaVerde78AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valuesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -85,7 +85,7 @@ namespace Trilhar.Forms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 471);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(870, 78);
+            this.panel1.Size = new System.Drawing.Size(1142, 78);
             this.panel1.TabIndex = 2;
             // 
             // BtnConfirmar
@@ -103,7 +103,7 @@ namespace Trilhar.Forms
             // 
             this.BtnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.BtnCancelar.Location = new System.Drawing.Point(703, 12);
+            this.BtnCancelar.Location = new System.Drawing.Point(975, 12);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(155, 54);
             this.BtnCancelar.TabIndex = 1;
@@ -118,7 +118,7 @@ namespace Trilhar.Forms
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(870, 100);
+            this.groupBox2.Size = new System.Drawing.Size(1142, 100);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
@@ -132,7 +132,7 @@ namespace Trilhar.Forms
             this.TxtCampoPesquisa.ForeColor = System.Drawing.Color.Red;
             this.TxtCampoPesquisa.Location = new System.Drawing.Point(12, 51);
             this.TxtCampoPesquisa.Name = "TxtCampoPesquisa";
-            this.TxtCampoPesquisa.Size = new System.Drawing.Size(846, 35);
+            this.TxtCampoPesquisa.Size = new System.Drawing.Size(1118, 35);
             this.TxtCampoPesquisa.TabIndex = 1;
             this.TxtCampoPesquisa.TextChanged += new System.EventHandler(this.TxtCampoPesquisa_TextChanged);
             this.TxtCampoPesquisa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCampoPesquisa_KeyDown);
@@ -154,7 +154,7 @@ namespace Trilhar.Forms
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(870, 371);
+            this.groupBox1.Size = new System.Drawing.Size(1142, 371);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Resultado da pesquisa";
@@ -234,13 +234,9 @@ namespace Trilhar.Forms
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(864, 346);
+            this.dataGridView1.Size = new System.Drawing.Size(1136, 346);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            // 
-            // valuesDTOBindingSource
-            // 
-            this.valuesDTOBindingSource.DataSource = typeof(Trilhar.Entidades.ValuesDTO);
             // 
             // codigoCadastroDataGridViewTextBoxColumn
             // 
@@ -482,11 +478,15 @@ namespace Trilhar.Forms
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn.ReadOnly = true;
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn.Width = 331;
             // 
+            // valuesDTOBindingSource
+            // 
+            this.valuesDTOBindingSource.DataSource = typeof(Trilhar.Entidades.ValuesDTO);
+            // 
             // FormBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 549);
+            this.ClientSize = new System.Drawing.Size(1142, 549);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);

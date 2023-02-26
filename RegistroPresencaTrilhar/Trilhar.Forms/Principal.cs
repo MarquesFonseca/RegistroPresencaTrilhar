@@ -25,6 +25,7 @@ namespace Trilhar.Forms
         {
             Inicio,
             Novo,
+            NovoAproveitando,
             Alterar,
             Excluir,
             Sincronizando,
@@ -80,8 +81,9 @@ namespace Trilhar.Forms
 
                     BtnNovo.Enabled = true;
 
-                    TxtCodigoCadastro.Enabled = false;
-                    TxtCodigoCadastro.Focus();
+                    numericUpDown1.Enabled = false;
+                    numericUpDown1.Focus();
+                    numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
 
                     break;
                 case Acao.Novo:
@@ -119,7 +121,46 @@ namespace Trilhar.Forms
                     TxtCmbDeficienteAtipicos.BackColor = SystemColors.Window;
                     TxtCmbDeficienteAtipicos.ForeColor = SystemColors.WindowText;
 
-                    TxtCodigoCadastro.Enabled = false;
+                    numericUpDown1.Enabled = false;
+                    TxtNomeCrianca.Focus();
+                    TxtNomeCrianca.SelectAll();
+                    break;
+                case Acao.NovoAproveitando:
+                    // TODO: Acao.NovoAproveitando:
+                    TxtTurmaAtual.Visible = TxtDataNascimento.Visible = false;
+                    //CmbTurmaAtual.SelectedIndex = -1;
+                    CmbTurmaAtual.Visible = TxtMaskedDataNascimento.Visible = true;
+
+                    //TxtCmbAlergia.SelectedItem = "NÃO";
+                    //TxtCmbRestrincaoAlimentar.SelectedItem = "NÃO";
+                    //TxtCmbDeficienteAtipicos.SelectedItem = "NÃO";
+
+                    HabilitaDesabilitaLinkButon(false);
+                    HabilitaDesabilitaCampos(true);
+                    ReadOnlyCampos(false);
+                    HabilitaDesabilitaBotoes(false);
+                    //LimparCampos();
+                    TxtNomeCrianca.Text = "";
+                    //TxtMaskedDataNascimento.Value = DateTime.Now;
+
+                    BtnSalvar.Enabled = true;
+                    BtnCancelar.Enabled = true;
+
+                    //CmbTurmaAtual.ForeColor = SystemColors.ControlText;
+
+                    //TxtTurmaAtual.BackColor = SystemColors.Window;
+                    //TxtTurmaAtual.ForeColor = SystemColors.WindowText;
+
+                    //TxtCmbAlergia.BackColor = SystemColors.Window;
+                    //TxtCmbAlergia.ForeColor = SystemColors.WindowText;
+
+                    //TxtCmbRestrincaoAlimentar.BackColor = SystemColors.Window;
+                    //TxtCmbRestrincaoAlimentar.ForeColor = SystemColors.WindowText;
+
+                    //TxtCmbDeficienteAtipicos.BackColor = SystemColors.Window;
+                    //TxtCmbDeficienteAtipicos.ForeColor = SystemColors.WindowText;
+
+                    numericUpDown1.Enabled = false;
                     TxtNomeCrianca.Focus();
                     TxtNomeCrianca.SelectAll();
                     break;
@@ -139,7 +180,7 @@ namespace Trilhar.Forms
 
                     CarregaCampos(valuesDTOAtual);
 
-                    TxtCodigoCadastro.Enabled = false;
+                    numericUpDown1.Enabled = false;
                     TxtNomeCrianca.Focus();
                     //TxtNomeCrianca.SelectAll();
                     break;
@@ -165,9 +206,7 @@ namespace Trilhar.Forms
 
                     CarregaCampos(valuesDTOAtual);
 
-                    TxtCodigoCadastro.Enabled = true;
-                    TxtCodigoCadastro.Focus();
-                    TxtCodigoCadastro.SelectAll();
+                    AlterarEstadoFormulario(Acao.Preenchido);
                     break;
                 case Acao.Sincronizando:
                     // TODO: Acao.Sincronizando:
@@ -197,15 +236,12 @@ namespace Trilhar.Forms
                     TxtCmbRestrincaoAlimentar.Enabled = false;
                     TxtCmbDeficienteAtipicos.Enabled = false;
 
-
                     BtnNovo.Enabled = true;
                     BtnAlterar.Enabled = true;
                     BtnExcluir.Enabled = true;
-                    //BtnSalvar.Enabled = true;
-                    //BtnCancelar.Enabled = true;
 
-                    TxtCodigoCadastro.Focus();
-                    TxtCodigoCadastro.SelectAll();
+                    numericUpDown1.Focus();
+                    numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                     break;
                 default:
                     break;
@@ -227,7 +263,18 @@ namespace Trilhar.Forms
             valuesDTOAtual = itemAtual;
 
             #region CodigoCadastro
-            TxtCodigoCadastro.Text = itemAtual != null && itemAtual.CodigoCadastro != null ? itemAtual.CodigoCadastro : "";
+            if (itemAtual == null)
+            {
+                //numericUpDown1.Maximum = valuesDTOList.Max(r => Convert.ToInt32(r.CodigoCadastro));
+                //numericUpDown1.Minimum = 0;
+                //numericUpDown1.Value = 0;
+            }
+            if (itemAtual != null && itemAtual.CodigoCadastro != null)
+            {
+                numericUpDown1.Maximum = valuesDTOList.Max(r => Convert.ToInt32(r.CodigoCadastro));
+                numericUpDown1.Minimum = valuesDTOList.Min(r => Convert.ToInt32(r.CodigoCadastro));
+                numericUpDown1.Value = itemAtual != null && itemAtual.CodigoCadastro != null ? Convert.ToDecimal(itemAtual.CodigoCadastro) : 0000;
+            }
             #endregion
 
             #region NomeCrianca
@@ -428,7 +475,7 @@ namespace Trilhar.Forms
 
         public void HabilitaDesabilitaCampos(bool valor)
         {
-            TxtCodigoCadastro.Enabled = valor;
+            numericUpDown1.Enabled = valor;
             TxtNomeCrianca.Enabled = valor;
             TxtTurmaAtual.Enabled = valor;
             CmbTurmaAtual.Enabled = valor;
@@ -478,7 +525,7 @@ namespace Trilhar.Forms
 
         public void LimparCampos()
         {
-            TxtCodigoCadastro.ResetText();
+            numericUpDown1.ResetText();
             TxtNomeCrianca.ResetText();
             TxtTurmaAtual.ResetText();
             TxtDataNascimento.ResetText();
@@ -531,17 +578,31 @@ namespace Trilhar.Forms
             return string.Format("{0} anos, {1} meses e {2} dias", age, month, day);
         }
 
-        private void TxtCodigoCadastro_KeyDown(object sender, KeyEventArgs e)
+        private void numericUpDown1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
                 e.SuppressKeyPress = true;
-                TxtCodigoCadastro.Enabled = false;
+                numericUpDown1.Enabled = false;
 
-                var itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == TxtCodigoCadastro.Text).FirstOrDefault();
+                var itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == numericUpDown1.Text).FirstOrDefault();
                 CarregaCampos(itemAtual);
                 AlterarEstadoFormulario(Acao.Preenchido);
+
+                if (itemAtual != null)
+                    numericUpDown1.Value = Convert.ToDecimal(itemAtual.CodigoCadastro);
+
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+            }
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
             }
         }
 
@@ -585,29 +646,29 @@ namespace Trilhar.Forms
                 BtnAlterar.Enabled = false;
                 BtnExcluir.Enabled = false;
 
-
                 toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
                 toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", 0);
 
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                //numericUpDown1.Maximum = 0;
+                //numericUpDown1.Minimum = 999999;
+
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
             }
             else
             {
                 ValuesDTO lastRecord = valuesDTOList.OrderBy(r => r.CodigoCadastro).Last();
                 CarregaCampos(lastRecord);
-                //HabilitaDesabilitaCampos(true);
-                //HabilitaDesabilitaLinkButon(true);
-                //HabilitaDesabilitaBotoes(true);
-                //BtnSalvar.Enabled = false;
-                //BtnCancelar.Enabled = false;
                 AlterarEstadoFormulario(Acao.Preenchido);
 
                 toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
                 toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
 
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                numericUpDown1.Maximum = 999999;
+                numericUpDown1.Minimum = valuesDTOList.Min(r => Convert.ToDecimal(r.CodigoCadastro));
+
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
             }
         }
 
@@ -617,23 +678,23 @@ namespace Trilhar.Forms
             frm.ShowDialog();
             if (frm.Cancelado)
             {
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                 return;
             }
             ValuesDTO itemAtual = new ValuesDTO();
             itemAtual = (ValuesDTO)frm.ItemSelecionado;
             if (itemAtual == null)
             {
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                 return;
             }
             itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == itemAtual.CodigoCadastro).FirstOrDefault();
             CarregaCampos(itemAtual);
 
-            TxtCodigoCadastro.Focus();
-            TxtCodigoCadastro.SelectAll();
+            numericUpDown1.Focus();
+            numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
         }
 
         private void linkLabelBuscarPelaMae_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -642,23 +703,23 @@ namespace Trilhar.Forms
             frm.ShowDialog();
             if (frm.Cancelado)
             {
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                 return;
             }
             ValuesDTO itemAtual = new ValuesDTO();
             itemAtual = (ValuesDTO)frm.ItemSelecionado;
             if (itemAtual == null)
             {
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                 return;
             }
             itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == itemAtual.CodigoCadastro).FirstOrDefault();
             CarregaCampos(itemAtual);
 
-            TxtCodigoCadastro.Focus();
-            TxtCodigoCadastro.SelectAll();
+            numericUpDown1.Focus();
+            numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
         }
 
         private void linkLabelBuscarPeloPai_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -667,23 +728,23 @@ namespace Trilhar.Forms
             frm.ShowDialog();
             if (frm.Cancelado)
             {
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                 return;
             }
             ValuesDTO itemAtual = new ValuesDTO();
             itemAtual = (ValuesDTO)frm.ItemSelecionado;
             if (itemAtual == null)
             {
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                 return;
             }
             itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == itemAtual.CodigoCadastro).FirstOrDefault();
             CarregaCampos(itemAtual);
 
-            TxtCodigoCadastro.Focus();
-            TxtCodigoCadastro.SelectAll();
+            numericUpDown1.Focus();
+            numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
         }
 
         private void Principal_KeyDown(object sender, KeyEventArgs e)
@@ -731,6 +792,15 @@ namespace Trilhar.Forms
 
         private void BtnNovo_Click(object sender, EventArgs e)
         {
+            if(GetAcao == Acao.Preenchido && valuesDTOAtual != null && valuesDTOAtual.NomeCrianca != null)
+            {
+                DialogResult result = MessageBox.Show(String.Format("Deseja aproveitar o cadastro atual de:\nMãe: {0}\nPai: {1}?\n\nClique em SIM para aproveitar, ou NÃO para iniciar novo cadastro.", valuesDTOAtual.Mae, valuesDTOAtual.Pai), "Pergunta", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    AlterarEstadoFormulario(Acao.NovoAproveitando);
+                    return;
+                }
+            }
             AlterarEstadoFormulario(Acao.Novo);
         }
 
@@ -761,11 +831,11 @@ namespace Trilhar.Forms
 
             ValuesDTO novoValueDTO = new ValuesDTO();
             novoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
-            novoValueDTO.NomeCrianca = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text);
+            novoValueDTO.NomeCrianca = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text.ToLowerInvariant());
             novoValueDTO.DataNascimento = TxtMaskedDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : TxtMaskedDataNascimento.Text;
-            novoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text);
-            novoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text);
-            novoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text);
+            novoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text.ToLowerInvariant());
+            novoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text.ToLowerInvariant());
+            novoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text.ToLowerInvariant());
             novoValueDTO.SelecioneATurma = RetornaValorCmbTurmaAtual(CmbTurmaAtual.Text);
             novoValueDTO.Telefone = TxtTelefone.Text == "(  )      -" ? "" : TxtTelefone.Text;
             novoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
@@ -787,11 +857,11 @@ namespace Trilhar.Forms
             valuesDTOList.Add(valuesDTO);
             valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
             CarregaCampos(valuesDTO);
-            AlterarEstadoFormulario(Acao.Preenchido);            
+            AlterarEstadoFormulario(Acao.Preenchido);
         }
 
         private void BtnAlterar_Click(object sender, EventArgs e)
-        {            
+        {
             AlterarEstadoFormulario(Acao.Alterar);
         }
 
@@ -822,11 +892,11 @@ namespace Trilhar.Forms
             // TODO: SalvarAlteracaoRegistro()
             ValuesDTO alteracaoValueDTO = new ValuesDTO();
             alteracaoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
-            alteracaoValueDTO.NomeCrianca = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text);
+            alteracaoValueDTO.NomeCrianca = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text.ToLowerInvariant());
             alteracaoValueDTO.DataNascimento = TxtMaskedDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : TxtMaskedDataNascimento.Text;
-            alteracaoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text);
-            alteracaoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text);
-            alteracaoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text);
+            alteracaoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text.ToLowerInvariant());
+            alteracaoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text.ToLowerInvariant());
+            alteracaoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text.ToLowerInvariant());
             alteracaoValueDTO.SelecioneATurma = RetornaValorCmbTurmaAtual(CmbTurmaAtual.Text);
             alteracaoValueDTO.Telefone = TxtTelefone.Text == "(  )      -" ? "" : TxtTelefone.Text;
             alteracaoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
@@ -840,7 +910,7 @@ namespace Trilhar.Forms
             alteracaoValueDTO.DataBatismo = "";
             alteracaoValueDTO.IgrejaBatizou = "";
 
-            string CodigoCadastroAtual = TxtCodigoCadastro.Text;
+            string CodigoCadastroAtual = numericUpDown1.Value.ToString();
             Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == CodigoCadastroAtual.Trim()).FirstOrDefault();
 
             Record retornoAlteracaoRecord = await new QuintaBDTrilhar().PutAsync<ValuesDTO>(itemAtual.id, alteracaoValueDTO);
@@ -855,7 +925,7 @@ namespace Trilhar.Forms
             recordsList.Remove(itemAtual);
             recordsList.Add(retornoAlteracaoRecord);
 
-            valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()));
+            valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()));
             ValuesDTO valuesDTO = retornoAlteracaoRecord.values.Adapt<Values, ValuesDTO>();
             valuesDTO.SelecioneATurma = RetornaDescricaoCmbTurmaAtual(valuesDTO.SelecioneATurma);
             valuesDTOList.Add(valuesDTO);
@@ -896,64 +966,64 @@ namespace Trilhar.Forms
         private async void BtnExcluir_Click(object sender, EventArgs e)
         {
             //TODO: ExcluirRegistro()
-            string CodigoCadastroAtual = TxtCodigoCadastro.Text;
+            string CodigoCadastroAtual = numericUpDown1.Value.ToString();
 
-            if (string.IsNullOrEmpty(TxtCodigoCadastro.Text))
+            if (string.IsNullOrEmpty(CodigoCadastroAtual))
             {
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                 return;
             }
             if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
             {
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                 return;
             }
 
-            DialogResult result = MessageBox.Show(string.Format("Deseja realmente remover o registro '{0} - {1}' ?", TxtCodigoCadastro.Text, TxtNomeCrianca.Text), "Remover registro", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show(string.Format("Deseja realmente remover o registro '{0} - {1}' ?", numericUpDown1.Value.ToString(), TxtNomeCrianca.Text), "Remover registro", MessageBoxButtons.YesNo);
             if (result == DialogResult.No)
             {
-                TxtCodigoCadastro.Focus();
-                TxtCodigoCadastro.SelectAll();
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                 return;
             }
 
             HabilitaDesabilitaCampos(false);
 
-            Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()).FirstOrDefault();
+            Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()).FirstOrDefault();
             ValuesDTO valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
             bool retorno = await new QuintaBDTrilhar().DeleteAsync(itemAtual.id);
             if (retorno == true)
             {
                 recordsList.Remove(itemAtual);
-                valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()));
+                valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()));
 
                 LimparCampos();
                 MessageBox.Show(string.Format("O Código '{0}' foi removido com sucesso!", CodigoCadastroAtual), "Resultado");
 
                 //diminui -1 no código
-                TxtCodigoCadastro.Text = (Convert.ToInt32(CodigoCadastroAtual) - 1).ToString();
-                while (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()) == false)
+                numericUpDown1.Value = (Convert.ToInt32(CodigoCadastroAtual) - 1);
+                while (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()) == false)
                 {
                     //enquanto não existir... 
                     //diminui um valor no código.
                     //se existir, sai...
-                    TxtCodigoCadastro.Text = (Convert.ToInt32(TxtCodigoCadastro.Text) - 1).ToString();
-                    if (Convert.ToInt32(TxtCodigoCadastro.Text) <= 999)
+                    numericUpDown1.Value = (Convert.ToInt32(numericUpDown1.Value) - 1);
+                    if (Convert.ToInt32(numericUpDown1.Value) <= 999)
                     {
-                        TxtCodigoCadastro.Text = "";
+                        numericUpDown1.Value = 0000;
                         break;
                     }
                 }
 
-                if (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()) == true)
+                if (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()) == true)
                 {
-                    itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == TxtCodigoCadastro.Text.Trim()).FirstOrDefault();
+                    itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()).FirstOrDefault();
                     valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
                     CarregaCampos(valuesDTO);
-                    TxtCodigoCadastro.Focus();
-                    TxtCodigoCadastro.SelectAll();
+                    numericUpDown1.Focus();
+                    numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                 }
             }
             else
@@ -968,7 +1038,7 @@ namespace Trilhar.Forms
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             this.BtnSalvar.Enabled = false;
-            if (GetAcao == Acao.Novo)
+            if (GetAcao == Acao.Novo || GetAcao == Acao.NovoAproveitando)
             {
                 SalvarNovoRegistro();
             }
