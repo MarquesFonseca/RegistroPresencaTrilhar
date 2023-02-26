@@ -86,6 +86,7 @@ namespace Trilhar.Forms
             this.TxtTurmaAtual = new System.Windows.Forms.TextBox();
             this.TxtDataNascimento = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -446,6 +447,7 @@ namespace Trilhar.Forms
             this.tableLayoutPanel1.Controls.Add(this.TxtCmbRestrincaoAlimentar, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.TxtCmbDeficienteAtipicos, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.TxtTelefone, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label16, 2, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 291);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
@@ -648,7 +650,7 @@ namespace Trilhar.Forms
             this.BtnNovo.Name = "BtnNovo";
             this.BtnNovo.Size = new System.Drawing.Size(123, 45);
             this.BtnNovo.TabIndex = 4;
-            this.BtnNovo.Text = "Novo";
+            this.BtnNovo.Text = "&Novo";
             this.BtnNovo.UseVisualStyleBackColor = true;
             this.BtnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
@@ -660,7 +662,7 @@ namespace Trilhar.Forms
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(123, 45);
             this.BtnExcluir.TabIndex = 6;
-            this.BtnExcluir.Text = "Excluir";
+            this.BtnExcluir.Text = "&Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = true;
             this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
@@ -672,7 +674,7 @@ namespace Trilhar.Forms
             this.BtnAlterar.Name = "BtnAlterar";
             this.BtnAlterar.Size = new System.Drawing.Size(123, 45);
             this.BtnAlterar.TabIndex = 5;
-            this.BtnAlterar.Text = "Alterar";
+            this.BtnAlterar.Text = "&Alterar";
             this.BtnAlterar.UseVisualStyleBackColor = true;
             this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
@@ -684,7 +686,7 @@ namespace Trilhar.Forms
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(123, 45);
             this.BtnCancelar.TabIndex = 8;
-            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.Text = "&Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
@@ -696,7 +698,7 @@ namespace Trilhar.Forms
             this.BtnSalvar.Name = "BtnSalvar";
             this.BtnSalvar.Size = new System.Drawing.Size(123, 45);
             this.BtnSalvar.TabIndex = 7;
-            this.BtnSalvar.Text = "Salvar";
+            this.BtnSalvar.Text = "&Salvar";
             this.BtnSalvar.UseVisualStyleBackColor = true;
             this.BtnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
@@ -757,6 +759,15 @@ namespace Trilhar.Forms
             this.numericUpDown1.TabIndex = 10;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDown1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown1_KeyDown);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(675, 148);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(60, 20);
+            this.label16.TabIndex = 22;
+            this.label16.Text = "label16";
             // 
             // Principal
             // 
@@ -867,5 +878,6 @@ namespace Trilhar.Forms
         private System.Windows.Forms.DateTimePicker TxtMaskedDataNascimento;
         private System.Windows.Forms.TextBox TxtDataNascimento;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label16;
     }
 }

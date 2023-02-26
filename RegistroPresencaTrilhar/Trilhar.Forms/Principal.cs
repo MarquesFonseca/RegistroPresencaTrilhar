@@ -58,6 +58,7 @@ namespace Trilhar.Forms
             GetAcao = acao;
             switch (acao)
             {
+                #region Acao.Inicio
                 case Acao.Inicio:
                     // TODO: Acao.Inicio:
                     toolStripStatusLabelDiaSemana.Text = "";
@@ -86,6 +87,8 @@ namespace Trilhar.Forms
                     numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
 
                     break;
+                #endregion
+                #region Acao.Novo
                 case Acao.Novo:
                     // TODO: Acao.Novo:
                     TxtTurmaAtual.Visible = TxtDataNascimento.Visible = false;
@@ -125,6 +128,8 @@ namespace Trilhar.Forms
                     TxtNomeCrianca.Focus();
                     TxtNomeCrianca.SelectAll();
                     break;
+                #endregion
+                #region Acao.NovoAproveitando
                 case Acao.NovoAproveitando:
                     // TODO: Acao.NovoAproveitando:
                     TxtTurmaAtual.Visible = TxtDataNascimento.Visible = false;
@@ -146,24 +151,12 @@ namespace Trilhar.Forms
                     BtnSalvar.Enabled = true;
                     BtnCancelar.Enabled = true;
 
-                    //CmbTurmaAtual.ForeColor = SystemColors.ControlText;
-
-                    //TxtTurmaAtual.BackColor = SystemColors.Window;
-                    //TxtTurmaAtual.ForeColor = SystemColors.WindowText;
-
-                    //TxtCmbAlergia.BackColor = SystemColors.Window;
-                    //TxtCmbAlergia.ForeColor = SystemColors.WindowText;
-
-                    //TxtCmbRestrincaoAlimentar.BackColor = SystemColors.Window;
-                    //TxtCmbRestrincaoAlimentar.ForeColor = SystemColors.WindowText;
-
-                    //TxtCmbDeficienteAtipicos.BackColor = SystemColors.Window;
-                    //TxtCmbDeficienteAtipicos.ForeColor = SystemColors.WindowText;
-
                     numericUpDown1.Enabled = false;
                     TxtNomeCrianca.Focus();
                     TxtNomeCrianca.SelectAll();
                     break;
+                #endregion
+                #region Acao.Alterar
                 case Acao.Alterar:
                     // TODO: Acao.Alterar:
                     TxtTurmaAtual.Visible = TxtDataNascimento.Visible = false;
@@ -184,9 +177,13 @@ namespace Trilhar.Forms
                     TxtNomeCrianca.Focus();
                     //TxtNomeCrianca.SelectAll();
                     break;
+                #endregion
+                #region Acao.Excluir
                 case Acao.Excluir:
                     // TODO: Acao.Excluir:
                     break;
+                #endregion
+                #region Acao.Cancelar
                 case Acao.Cancelar:
                     // TODO: Acao.Cancelar:
                     TxtTurmaAtual.Visible = TxtDataNascimento.Visible = true;
@@ -201,13 +198,13 @@ namespace Trilhar.Forms
                     BtnNovo.Enabled = true;
                     BtnAlterar.Enabled = true;
                     BtnExcluir.Enabled = true;
-                    //BtnSalvar.Enabled = true;
-                    //BtnCancelar.Enabled = true;
 
                     CarregaCampos(valuesDTOAtual);
 
                     AlterarEstadoFormulario(Acao.Preenchido);
                     break;
+                #endregion
+                #region Acao.Sincronizando
                 case Acao.Sincronizando:
                     // TODO: Acao.Sincronizando:
                     HabilitaDesabilitaLinkButon(false);
@@ -220,6 +217,8 @@ namespace Trilhar.Forms
                     TxtTurmaAtual.BackColor = SystemColors.Window;
                     TxtTurmaAtual.ForeColor = SystemColors.WindowText;
                     break;
+                #endregion
+                #region Acao.Preenchido
                 case Acao.Preenchido:
                     // TODO: Acao.Preenchido:
                     TxtTurmaAtual.Visible = TxtDataNascimento.Visible = true;
@@ -232,9 +231,9 @@ namespace Trilhar.Forms
 
                     //TxtDataNascimento.Enabled = false;
                     TxtMaskedDataNascimento.Enabled = false;
-                    TxtCmbAlergia.Enabled = false;
-                    TxtCmbRestrincaoAlimentar.Enabled = false;
-                    TxtCmbDeficienteAtipicos.Enabled = false;
+                    //TxtCmbAlergia.Enabled = false;
+                    //TxtCmbRestrincaoAlimentar.Enabled = false;
+                    //TxtCmbDeficienteAtipicos.Enabled = false;
 
                     BtnNovo.Enabled = true;
                     BtnAlterar.Enabled = true;
@@ -243,6 +242,7 @@ namespace Trilhar.Forms
                     numericUpDown1.Focus();
                     numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                     break;
+                #endregion
                 default:
                     break;
             }
@@ -263,18 +263,10 @@ namespace Trilhar.Forms
             valuesDTOAtual = itemAtual;
 
             #region CodigoCadastro
-            if (itemAtual == null)
-            {
-                //numericUpDown1.Maximum = valuesDTOList.Max(r => Convert.ToInt32(r.CodigoCadastro));
-                //numericUpDown1.Minimum = 0;
-                //numericUpDown1.Value = 0;
-            }
-            if (itemAtual != null && itemAtual.CodigoCadastro != null)
-            {
-                numericUpDown1.Maximum = valuesDTOList.Max(r => Convert.ToInt32(r.CodigoCadastro));
-                numericUpDown1.Minimum = valuesDTOList.Min(r => Convert.ToInt32(r.CodigoCadastro));
-                numericUpDown1.Value = itemAtual != null && itemAtual.CodigoCadastro != null ? Convert.ToDecimal(itemAtual.CodigoCadastro) : 0000;
-            }
+            numericUpDown1.Value = itemAtual != null && itemAtual.CodigoCadastro != null
+                    ? Convert.ToDecimal(itemAtual.CodigoCadastro)
+                    : 0000;
+
             #endregion
 
             #region NomeCrianca
@@ -525,7 +517,7 @@ namespace Trilhar.Forms
 
         public void LimparCampos()
         {
-            numericUpDown1.ResetText();
+            numericUpDown1.Value = 0;
             TxtNomeCrianca.ResetText();
             TxtTurmaAtual.ResetText();
             TxtDataNascimento.ResetText();
@@ -537,10 +529,13 @@ namespace Trilhar.Forms
             TxtTelefone.ResetText();
             TxtEmail.ResetText();
             TxtCmbAlergia.ResetText();
+            TxtCmbAlergia.SelectedItem = "NÃO";
             TxtDescicaoAlergia.ResetText();
             TxtCmbRestrincaoAlimentar.ResetText();
+            TxtCmbRestrincaoAlimentar.SelectedItem = "NÃO";
             TxtDescricaoRestricaoAlimentar.ResetText();
             TxtCmbDeficienteAtipicos.ResetText();
+            TxtCmbDeficienteAtipicos.SelectedItem = "NÃO";
             TxtDescricaoDeficienteAtipicos.ResetText();
 
             this.CmbTurmaAtual.BackColor = System.Drawing.SystemColors.Control;
@@ -634,7 +629,7 @@ namespace Trilhar.Forms
         public async void AtualizaDados()
         {
             //TODO: AtualizaDados()
-            Integracao.QuintaBDTrilhar integracaoQuintaBD = new Integracao.QuintaBDTrilhar();
+            QuintaBDTrilhar integracaoQuintaBD = new QuintaBDTrilhar();
             recordsList = await integracaoQuintaBD.GetListAsync();
             valuesDTOList = integracaoQuintaBD.GetListValues(recordsList);
 
@@ -649,9 +644,6 @@ namespace Trilhar.Forms
                 toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
                 toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", 0);
 
-                //numericUpDown1.Maximum = 0;
-                //numericUpDown1.Minimum = 999999;
-
                 numericUpDown1.Focus();
                 numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
             }
@@ -663,12 +655,6 @@ namespace Trilhar.Forms
 
                 toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
                 toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
-
-                numericUpDown1.Maximum = 999999;
-                numericUpDown1.Minimum = valuesDTOList.Min(r => Convert.ToDecimal(r.CodigoCadastro));
-
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
             }
         }
 
@@ -792,7 +778,7 @@ namespace Trilhar.Forms
 
         private void BtnNovo_Click(object sender, EventArgs e)
         {
-            if(GetAcao == Acao.Preenchido && valuesDTOAtual != null && valuesDTOAtual.NomeCrianca != null)
+            if (GetAcao == Acao.Preenchido && valuesDTOAtual != null && valuesDTOAtual.NomeCrianca != null)
             {
                 DialogResult result = MessageBox.Show(String.Format("Deseja aproveitar o cadastro atual de:\nMãe: {0}\nPai: {1}?\n\nClique em SIM para aproveitar, ou NÃO para iniciar novo cadastro.", valuesDTOAtual.Mae, valuesDTOAtual.Pai), "Pergunta", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
@@ -806,25 +792,31 @@ namespace Trilhar.Forms
 
         private async void SalvarNovoRegistro()
         {
+            this.BtnSalvar.Enabled = false;
+
             // TODO: SalvarNovoRegistro()
             if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
             {
+                this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Nome da criança' não pode ser vazio!", "Resultado");
                 TxtNomeCrianca.Focus();
                 return;
             }
             if (Convert.ToDateTime(TxtMaskedDataNascimento.Text).Date > DateTime.Now.Date)
             {
+                this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Data de nascimento' não pode ser maior que hoje.", "Resultado");
                 return;
             }
             if (Convert.ToDateTime(TxtMaskedDataNascimento.Text).Date == DateTime.Now.Date)
             {
+                this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Data de nascimento' não deve ser igual a hoje.", "Resultado");
                 return;
             }
             if (CmbTurmaAtual.SelectedIndex == -1)
             {
+                this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Turma atual' deve ser preenchida.", "Resultado");
                 return;
             }
@@ -867,24 +859,29 @@ namespace Trilhar.Forms
 
         private async void SalvarAlteracaoRegistro()
         {
+            this.BtnSalvar.Enabled = false;
             if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
             {
+                this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Nome da criança' não pode ser vazio!", "Resultado");
                 TxtNomeCrianca.Focus();
                 return;
             }
             if (Convert.ToDateTime(TxtMaskedDataNascimento.Text).Date > DateTime.Now.Date)
             {
+                this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Data de nascimento' não pode ser maior que hoje.", "Resultado");
                 return;
             }
             if (Convert.ToDateTime(TxtMaskedDataNascimento.Text).Date == DateTime.Now.Date)
             {
+                this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Data de nascimento' não deve ser igual a hoje.", "Resultado");
                 return;
             }
             if (CmbTurmaAtual.SelectedIndex == -1)
             {
+                this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Turma atual' deve ser preenchida.", "Resultado");
                 return;
             }
@@ -1036,8 +1033,7 @@ namespace Trilhar.Forms
         }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
-        {
-            this.BtnSalvar.Enabled = false;
+        {            
             if (GetAcao == Acao.Novo || GetAcao == Acao.NovoAproveitando)
             {
                 SalvarNovoRegistro();
