@@ -82,3 +82,4 @@ C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\De
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.csproj.CopyComplete
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.exe
 C:\Projetos\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.pdb
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\Debug\Trilhar.Forms.LixoApagar.resources

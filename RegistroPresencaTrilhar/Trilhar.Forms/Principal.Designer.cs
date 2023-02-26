@@ -47,7 +47,7 @@ namespace Trilhar.Forms
             this.TxtPai = new System.Windows.Forms.TextBox();
             this.TxtMae = new System.Windows.Forms.TextBox();
             this.TxtDescricaoDeficienteAtipicos = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.LblRestrincaoAlimentar = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,16 +56,21 @@ namespace Trilhar.Forms
             this.TxtDescricaoRestricaoAlimentar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.LblDeficiente = new System.Windows.Forms.Label();
+            this.LblAlergia = new System.Windows.Forms.Label();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.TxtCmbAlergia = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.TxtCmbRestrincaoAlimentar = new System.Windows.Forms.ComboBox();
-            this.TxtCmbDeficienteAtipicos = new System.Windows.Forms.ComboBox();
             this.TxtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TxtCmbAlergia = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TxtCmbRestrincaoAlimentar = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.TxtCmbDeficienteAtipicos = new System.Windows.Forms.ComboBox();
+            this.TxtIgrejaBatismo = new System.Windows.Forms.TextBox();
+            this.TxtCmbBatizado = new System.Windows.Forms.ComboBox();
             this.TxtMaskedDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDiaSemana = new System.Windows.Forms.ToolStripStatusLabel();
@@ -86,7 +91,7 @@ namespace Trilhar.Forms
             this.TxtTurmaAtual = new System.Windows.Forms.TextBox();
             this.TxtDataNascimento = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label16 = new System.Windows.Forms.Label();
+            this.TxtDataBatismo = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -261,27 +266,26 @@ namespace Trilhar.Forms
             // 
             // TxtDescricaoDeficienteAtipicos
             // 
-            this.TxtDescricaoDeficienteAtipicos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtDescricaoDeficienteAtipicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDescricaoDeficienteAtipicos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtDescricaoDeficienteAtipicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDescricaoDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.TxtDescricaoDeficienteAtipicos.Location = new System.Drawing.Point(675, 376);
+            this.TxtDescricaoDeficienteAtipicos.Location = new System.Drawing.Point(675, 488);
             this.TxtDescricaoDeficienteAtipicos.Multiline = true;
             this.TxtDescricaoDeficienteAtipicos.Name = "TxtDescricaoDeficienteAtipicos";
             this.TxtDescricaoDeficienteAtipicos.ReadOnly = true;
-            this.TxtDescricaoDeficienteAtipicos.Size = new System.Drawing.Size(332, 96);
-            this.TxtDescricaoDeficienteAtipicos.TabIndex = 21;
+            this.TxtDescricaoDeficienteAtipicos.Size = new System.Drawing.Size(332, 125);
+            this.TxtDescricaoDeficienteAtipicos.TabIndex = 27;
             // 
-            // label10
+            // LblRestrincaoAlimentar
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(339, 216);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(301, 37);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Restrição alimentar:";
+            this.LblRestrincaoAlimentar.AutoSize = true;
+            this.LblRestrincaoAlimentar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LblRestrincaoAlimentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblRestrincaoAlimentar.Location = new System.Drawing.Point(339, 332);
+            this.LblRestrincaoAlimentar.Name = "LblRestrincaoAlimentar";
+            this.LblRestrincaoAlimentar.Size = new System.Drawing.Size(330, 37);
+            this.LblRestrincaoAlimentar.TabIndex = 20;
+            this.LblRestrincaoAlimentar.Text = "Restrição alimentar:";
             // 
             // label13
             // 
@@ -289,10 +293,10 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(339, 325);
+            this.label13.Location = new System.Drawing.Point(339, 441);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(330, 37);
-            this.label13.TabIndex = 16;
+            this.label13.TabIndex = 22;
             this.label13.Text = "Descrição alimentar:";
             // 
             // label6
@@ -327,40 +331,36 @@ namespace Trilhar.Forms
             // 
             // TxtDescicaoAlergia
             // 
-            this.TxtDescicaoAlergia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtDescicaoAlergia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDescicaoAlergia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtDescicaoAlergia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDescicaoAlergia.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.TxtDescicaoAlergia.Location = new System.Drawing.Point(3, 376);
+            this.TxtDescicaoAlergia.Location = new System.Drawing.Point(3, 488);
             this.TxtDescicaoAlergia.Multiline = true;
             this.TxtDescicaoAlergia.Name = "TxtDescicaoAlergia";
             this.TxtDescicaoAlergia.ReadOnly = true;
-            this.TxtDescicaoAlergia.Size = new System.Drawing.Size(330, 96);
-            this.TxtDescicaoAlergia.TabIndex = 13;
+            this.TxtDescicaoAlergia.Size = new System.Drawing.Size(330, 125);
+            this.TxtDescicaoAlergia.TabIndex = 19;
             // 
             // TxtDescricaoRestricaoAlimentar
             // 
-            this.TxtDescricaoRestricaoAlimentar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtDescricaoRestricaoAlimentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDescricaoRestricaoAlimentar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtDescricaoRestricaoAlimentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDescricaoRestricaoAlimentar.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.TxtDescricaoRestricaoAlimentar.Location = new System.Drawing.Point(339, 376);
+            this.TxtDescricaoRestricaoAlimentar.Location = new System.Drawing.Point(339, 488);
             this.TxtDescricaoRestricaoAlimentar.Multiline = true;
             this.TxtDescricaoRestricaoAlimentar.Name = "TxtDescricaoRestricaoAlimentar";
             this.TxtDescricaoRestricaoAlimentar.ReadOnly = true;
-            this.TxtDescricaoRestricaoAlimentar.Size = new System.Drawing.Size(330, 96);
-            this.TxtDescricaoRestricaoAlimentar.TabIndex = 17;
+            this.TxtDescricaoRestricaoAlimentar.Size = new System.Drawing.Size(330, 125);
+            this.TxtDescricaoRestricaoAlimentar.TabIndex = 23;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 325);
+            this.label9.Location = new System.Drawing.Point(3, 441);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(318, 37);
-            this.label9.TabIndex = 12;
+            this.label9.TabIndex = 18;
             this.label9.Text = "Descrição da alergia:";
             // 
             // label14
@@ -369,31 +369,33 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(675, 325);
+            this.label14.Location = new System.Drawing.Point(675, 441);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(332, 37);
-            this.label14.TabIndex = 20;
+            this.label14.TabIndex = 26;
             this.label14.Text = "Descrições atípicas:";
             // 
-            // label11
+            // LblDeficiente
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(675, 216);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(297, 37);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Deficiente / Atípicos";
+            this.LblDeficiente.AutoSize = true;
+            this.LblDeficiente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LblDeficiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDeficiente.Location = new System.Drawing.Point(675, 332);
+            this.LblDeficiente.Name = "LblDeficiente";
+            this.LblDeficiente.Size = new System.Drawing.Size(332, 37);
+            this.LblDeficiente.TabIndex = 24;
+            this.LblDeficiente.Text = "Deficiente / Atípicos:";
             // 
-            // label12
+            // LblAlergia
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 216);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(126, 37);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "Alergia:";
+            this.LblAlergia.AutoSize = true;
+            this.LblAlergia.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LblAlergia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAlergia.Location = new System.Drawing.Point(3, 332);
+            this.LblAlergia.Name = "LblAlergia";
+            this.LblAlergia.Size = new System.Drawing.Size(330, 37);
+            this.LblAlergia.TabIndex = 16;
+            this.LblAlergia.Text = "Alergia:";
             // 
             // TxtEmail
             // 
@@ -425,59 +427,50 @@ namespace Trilhar.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel1.Controls.Add(this.TxtCmbAlergia, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.TxtOutroResponsavel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.TxtPai, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.TxtMae, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.TxtDescricaoDeficienteAtipicos, 2, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label13, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.TxtDescicaoAlergia, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.TxtDescricaoRestricaoAlimentar, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label12, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.TxtEmail, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label8, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.TxtCmbRestrincaoAlimentar, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.TxtCmbDeficienteAtipicos, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.TxtTelefone, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label16, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.TxtDescicaoAlergia, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.TxtDescricaoRestricaoAlimentar, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.label13, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.TxtDescricaoDeficienteAtipicos, 2, 9);
+            this.tableLayoutPanel1.Controls.Add(this.label14, 2, 8);
+            this.tableLayoutPanel1.Controls.Add(this.LblAlergia, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.TxtCmbAlergia, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.LblRestrincaoAlimentar, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label11, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.TxtCmbRestrincaoAlimentar, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.LblDeficiente, 2, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label12, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.TxtCmbDeficienteAtipicos, 2, 7);
+            this.tableLayoutPanel1.Controls.Add(this.TxtIgrejaBatismo, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.TxtCmbBatizado, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.TxtDataBatismo, 1, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 291);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 8;
+            this.tableLayoutPanel1.RowCount = 10;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 76F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 114F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1010, 402);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1010, 616);
             this.tableLayoutPanel1.TabIndex = 22;
-            // 
-            // TxtCmbAlergia
-            // 
-            this.TxtCmbAlergia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtCmbAlergia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtCmbAlergia.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.TxtCmbAlergia.FormattingEnabled = true;
-            this.TxtCmbAlergia.Items.AddRange(new object[] {
-            "NÃO",
-            "SIM"});
-            this.TxtCmbAlergia.Location = new System.Drawing.Point(4, 261);
-            this.TxtCmbAlergia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtCmbAlergia.Name = "TxtCmbAlergia";
-            this.TxtCmbAlergia.Size = new System.Drawing.Size(328, 60);
-            this.TxtCmbAlergia.TabIndex = 11;
             // 
             // label8
             // 
@@ -491,38 +484,6 @@ namespace Trilhar.Forms
             this.label8.TabIndex = 8;
             this.label8.Text = "Endereço de email:";
             // 
-            // TxtCmbRestrincaoAlimentar
-            // 
-            this.TxtCmbRestrincaoAlimentar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtCmbRestrincaoAlimentar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtCmbRestrincaoAlimentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.TxtCmbRestrincaoAlimentar.FormattingEnabled = true;
-            this.TxtCmbRestrincaoAlimentar.Items.AddRange(new object[] {
-            "NÃO",
-            "SIM"});
-            this.TxtCmbRestrincaoAlimentar.Location = new System.Drawing.Point(340, 261);
-            this.TxtCmbRestrincaoAlimentar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtCmbRestrincaoAlimentar.Name = "TxtCmbRestrincaoAlimentar";
-            this.TxtCmbRestrincaoAlimentar.Size = new System.Drawing.Size(328, 60);
-            this.TxtCmbRestrincaoAlimentar.TabIndex = 15;
-            // 
-            // TxtCmbDeficienteAtipicos
-            // 
-            this.TxtCmbDeficienteAtipicos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtCmbDeficienteAtipicos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtCmbDeficienteAtipicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.TxtCmbDeficienteAtipicos.FormattingEnabled = true;
-            this.TxtCmbDeficienteAtipicos.Items.AddRange(new object[] {
-            "NÃO",
-            "SIM"});
-            this.TxtCmbDeficienteAtipicos.Location = new System.Drawing.Point(676, 261);
-            this.TxtCmbDeficienteAtipicos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtCmbDeficienteAtipicos.Name = "TxtCmbDeficienteAtipicos";
-            this.TxtCmbDeficienteAtipicos.Size = new System.Drawing.Size(330, 60);
-            this.TxtCmbDeficienteAtipicos.TabIndex = 19;
-            // 
             // TxtTelefone
             // 
             this.TxtTelefone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -535,6 +496,109 @@ namespace Trilhar.Forms
             this.TxtTelefone.Size = new System.Drawing.Size(330, 53);
             this.TxtTelefone.TabIndex = 7;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label10.Location = new System.Drawing.Point(3, 216);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(151, 37);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Batizado:";
+            // 
+            // TxtCmbAlergia
+            // 
+            this.TxtCmbAlergia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtCmbAlergia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtCmbAlergia.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.TxtCmbAlergia.FormattingEnabled = true;
+            this.TxtCmbAlergia.Items.AddRange(new object[] {
+            "NÃO",
+            "SIM"});
+            this.TxtCmbAlergia.Location = new System.Drawing.Point(4, 378);
+            this.TxtCmbAlergia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtCmbAlergia.Name = "TxtCmbAlergia";
+            this.TxtCmbAlergia.Size = new System.Drawing.Size(328, 60);
+            this.TxtCmbAlergia.TabIndex = 17;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label11.Location = new System.Drawing.Point(339, 216);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(216, 37);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Data batismo:";
+            // 
+            // TxtCmbRestrincaoAlimentar
+            // 
+            this.TxtCmbRestrincaoAlimentar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtCmbRestrincaoAlimentar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtCmbRestrincaoAlimentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.TxtCmbRestrincaoAlimentar.FormattingEnabled = true;
+            this.TxtCmbRestrincaoAlimentar.Items.AddRange(new object[] {
+            "NÃO",
+            "SIM"});
+            this.TxtCmbRestrincaoAlimentar.Location = new System.Drawing.Point(340, 378);
+            this.TxtCmbRestrincaoAlimentar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtCmbRestrincaoAlimentar.Name = "TxtCmbRestrincaoAlimentar";
+            this.TxtCmbRestrincaoAlimentar.Size = new System.Drawing.Size(328, 60);
+            this.TxtCmbRestrincaoAlimentar.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label12.Location = new System.Drawing.Point(675, 216);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(227, 37);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "Igreja batismo:";
+            // 
+            // TxtCmbDeficienteAtipicos
+            // 
+            this.TxtCmbDeficienteAtipicos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtCmbDeficienteAtipicos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtCmbDeficienteAtipicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.TxtCmbDeficienteAtipicos.FormattingEnabled = true;
+            this.TxtCmbDeficienteAtipicos.Items.AddRange(new object[] {
+            "NÃO",
+            "SIM"});
+            this.TxtCmbDeficienteAtipicos.Location = new System.Drawing.Point(676, 378);
+            this.TxtCmbDeficienteAtipicos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtCmbDeficienteAtipicos.Name = "TxtCmbDeficienteAtipicos";
+            this.TxtCmbDeficienteAtipicos.Size = new System.Drawing.Size(330, 60);
+            this.TxtCmbDeficienteAtipicos.TabIndex = 25;
+            // 
+            // TxtIgrejaBatismo
+            // 
+            this.TxtIgrejaBatismo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtIgrejaBatismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.TxtIgrejaBatismo.Location = new System.Drawing.Point(675, 259);
+            this.TxtIgrejaBatismo.Name = "TxtIgrejaBatismo";
+            this.TxtIgrejaBatismo.ReadOnly = true;
+            this.TxtIgrejaBatismo.Size = new System.Drawing.Size(332, 53);
+            this.TxtIgrejaBatismo.TabIndex = 15;
+            // 
+            // TxtCmbBatizado
+            // 
+            this.TxtCmbBatizado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtCmbBatizado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtCmbBatizado.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.TxtCmbBatizado.FormattingEnabled = true;
+            this.TxtCmbBatizado.Items.AddRange(new object[] {
+            "NÃO",
+            "SIM"});
+            this.TxtCmbBatizado.Location = new System.Drawing.Point(3, 259);
+            this.TxtCmbBatizado.Name = "TxtCmbBatizado";
+            this.TxtCmbBatizado.Size = new System.Drawing.Size(330, 60);
+            this.TxtCmbBatizado.TabIndex = 11;
+            // 
             // TxtMaskedDataNascimento
             // 
             this.TxtMaskedDataNascimento.CustomFormat = "";
@@ -546,7 +610,7 @@ namespace Trilhar.Forms
             this.TxtMaskedDataNascimento.Name = "TxtMaskedDataNascimento";
             this.TxtMaskedDataNascimento.Size = new System.Drawing.Size(307, 57);
             this.TxtMaskedDataNascimento.TabIndex = 16;
-            this.TxtMaskedDataNascimento.Value = new System.DateTime(2023, 2, 24, 0, 0, 0, 0);
+            this.TxtMaskedDataNascimento.Value = new System.DateTime(2023, 2, 26, 0, 0, 0, 0);
             this.TxtMaskedDataNascimento.ValueChanged += new System.EventHandler(this.TxtMaskedDataNascimento_ValueChanged);
             // 
             // statusStrip1
@@ -599,7 +663,7 @@ namespace Trilhar.Forms
             this.tableLayoutPanel2.Controls.Add(this.statusStrip1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.statusStrip2, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 695);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 910);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -760,20 +824,23 @@ namespace Trilhar.Forms
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDown1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown1_KeyDown);
             // 
-            // label16
+            // TxtDataBatismo
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(675, 148);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(60, 20);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "label16";
+            this.TxtDataBatismo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtDataBatismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.TxtDataBatismo.Location = new System.Drawing.Point(339, 259);
+            this.TxtDataBatismo.Mask = "00/00/0000";
+            this.TxtDataBatismo.Name = "TxtDataBatismo";
+            this.TxtDataBatismo.ReadOnly = true;
+            this.TxtDataBatismo.Size = new System.Drawing.Size(330, 53);
+            this.TxtDataBatismo.TabIndex = 13;
+            this.TxtDataBatismo.ValidatingType = typeof(System.DateTime);
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 749);
+            this.ClientSize = new System.Drawing.Size(1040, 964);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbTurmaAtual);
@@ -839,7 +906,7 @@ namespace Trilhar.Forms
         private System.Windows.Forms.TextBox TxtPai;
         private System.Windows.Forms.TextBox TxtMae;
         private System.Windows.Forms.TextBox TxtDescricaoDeficienteAtipicos;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label LblRestrincaoAlimentar;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -848,8 +915,8 @@ namespace Trilhar.Forms
         private System.Windows.Forms.TextBox TxtDescricaoRestricaoAlimentar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label LblDeficiente;
+        private System.Windows.Forms.Label LblAlergia;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -878,6 +945,11 @@ namespace Trilhar.Forms
         private System.Windows.Forms.DateTimePicker TxtMaskedDataNascimento;
         private System.Windows.Forms.TextBox TxtDataNascimento;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox TxtIgrejaBatismo;
+        private System.Windows.Forms.ComboBox TxtCmbBatizado;
+        private System.Windows.Forms.MaskedTextBox TxtDataBatismo;
     }
 }

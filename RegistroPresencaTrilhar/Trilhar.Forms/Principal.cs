@@ -95,6 +95,7 @@ namespace Trilhar.Forms
                     CmbTurmaAtual.SelectedIndex = -1;
                     CmbTurmaAtual.Visible = TxtMaskedDataNascimento.Visible = true;
 
+                    TxtCmbBatizado.SelectedItem = "NÃO";
                     TxtCmbAlergia.SelectedItem = "NÃO";
                     TxtCmbRestrincaoAlimentar.SelectedItem = "NÃO";
                     TxtCmbDeficienteAtipicos.SelectedItem = "NÃO";
@@ -114,15 +115,6 @@ namespace Trilhar.Forms
 
                     TxtTurmaAtual.BackColor = SystemColors.Window;
                     TxtTurmaAtual.ForeColor = SystemColors.WindowText;
-
-                    TxtCmbAlergia.BackColor = SystemColors.Window;
-                    TxtCmbAlergia.ForeColor = SystemColors.WindowText;
-
-                    TxtCmbRestrincaoAlimentar.BackColor = SystemColors.Window;
-                    TxtCmbRestrincaoAlimentar.ForeColor = SystemColors.WindowText;
-
-                    TxtCmbDeficienteAtipicos.BackColor = SystemColors.Window;
-                    TxtCmbDeficienteAtipicos.ForeColor = SystemColors.WindowText;
 
                     numericUpDown1.Enabled = false;
                     TxtNomeCrianca.Focus();
@@ -392,19 +384,41 @@ namespace Trilhar.Forms
             TxtEmail.Text = itemAtual != null && itemAtual.EnderecoEmail != null ? itemAtual.EnderecoEmail.ToLower() : "";
             #endregion
 
+            #region Batizado
+            TxtCmbBatizado.Text = itemAtual != null && itemAtual.Batizado != null ? itemAtual.Batizado : "";
+            if (TxtCmbBatizado.Text.ToUpper() == "SIM")
+            {
+                TxtCmbBatizado.SelectedItem = "SIM";
+            }
+            else
+            {
+                TxtCmbBatizado.SelectedItem = "NÃO";
+            }
+            #endregion
+
+            #region Data Batismo
+            TxtDataBatismo.Text = itemAtual != null && itemAtual.DataBatismo != null ? itemAtual.DataBatismo : "";
+            #endregion
+
+            #region Igreja Batismo
+            TxtIgrejaBatismo.Text = itemAtual != null && itemAtual.IgrejaBatizou != null ? itemAtual.IgrejaBatizou : "";
+            #endregion
+
             #region Alergia + Descricao
             TxtCmbAlergia.Text = itemAtual != null && itemAtual.Alergia != null ? itemAtual.Alergia : "";
             if (TxtCmbAlergia.Text.ToUpper() == "SIM")
             {
                 TxtCmbAlergia.SelectedItem = "SIM";
-                TxtCmbAlergia.BackColor = System.Drawing.Color.Red;
-                TxtCmbAlergia.ForeColor = System.Drawing.SystemColors.Info;
+                LblAlergia.BackColor = System.Drawing.Color.Red;
+                LblAlergia.ForeColor = System.Drawing.SystemColors.Info;
+                TxtDescicaoAlergia.ForeColor = System.Drawing.Color.Red;
             }
             else
             {
                 TxtCmbAlergia.SelectedItem = "NÃO";
-                TxtCmbAlergia.BackColor = System.Drawing.Color.Empty;
-                TxtCmbAlergia.ForeColor = System.Drawing.SystemColors.InfoText;
+                LblAlergia.BackColor = System.Drawing.SystemColors.Control;
+                LblAlergia.ForeColor = System.Drawing.SystemColors.ControlText;
+                TxtDescicaoAlergia.ForeColor = System.Drawing.SystemColors.WindowText;
             }
 
             TxtDescicaoAlergia.Text = itemAtual != null && itemAtual.SeAlergiaSimPreenchaAqui != null ? itemAtual.SeAlergiaSimPreenchaAqui : "";
@@ -415,14 +429,16 @@ namespace Trilhar.Forms
             if (TxtCmbRestrincaoAlimentar.Text.ToUpper() == "SIM")
             {
                 TxtCmbRestrincaoAlimentar.SelectedItem = "SIM";
-                TxtCmbRestrincaoAlimentar.BackColor = System.Drawing.Color.Red;
-                TxtCmbRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.Info;
+                LblRestrincaoAlimentar.BackColor = System.Drawing.Color.Red;
+                LblRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.Info;
+                TxtDescricaoRestricaoAlimentar.ForeColor = System.Drawing.Color.Red;
             }
             else
             {
                 TxtCmbRestrincaoAlimentar.SelectedItem = "NÃO";
-                TxtCmbRestrincaoAlimentar.BackColor = System.Drawing.Color.Empty;
-                TxtCmbRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.InfoText;
+                LblRestrincaoAlimentar.BackColor = System.Drawing.SystemColors.Control;
+                LblRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.ControlText;
+                TxtDescricaoRestricaoAlimentar.ForeColor = System.Drawing.SystemColors.WindowText;
             }
 
             TxtDescricaoRestricaoAlimentar.Text = itemAtual != null && itemAtual.SeRestrincaoAlimentarSimDescreva != null ? itemAtual.SeRestrincaoAlimentarSimDescreva : "";
@@ -433,14 +449,16 @@ namespace Trilhar.Forms
             if (TxtCmbDeficienteAtipicos.Text.ToUpper() == "SIM")
             {
                 TxtCmbDeficienteAtipicos.SelectedItem = "SIM";
-                TxtCmbDeficienteAtipicos.BackColor = System.Drawing.Color.Red;
-                TxtCmbDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.Info;
+                LblDeficiente.BackColor = System.Drawing.Color.Red;
+                LblDeficiente.ForeColor = System.Drawing.SystemColors.Info;
+                TxtDescricaoDeficienteAtipicos.ForeColor = System.Drawing.Color.Red;
             }
             else
             {
                 TxtCmbDeficienteAtipicos.SelectedItem = "NÃO";
-                TxtCmbDeficienteAtipicos.BackColor = System.Drawing.Color.Empty;
-                TxtCmbDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.InfoText;
+                LblDeficiente.BackColor = System.Drawing.SystemColors.Control;
+                LblDeficiente.ForeColor = System.Drawing.SystemColors.ControlText;
+                TxtDescricaoDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.WindowText;
             }
 
             TxtDescricaoDeficienteAtipicos.Text = itemAtual != null && itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes != null ? itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes : "";
@@ -479,6 +497,9 @@ namespace Trilhar.Forms
             TxtOutroResponsavel.Enabled = valor;
             TxtTelefone.Enabled = valor;
             TxtEmail.Enabled = valor;
+            TxtCmbBatizado.Enabled = valor;
+            TxtDataBatismo.Enabled = valor;
+            TxtIgrejaBatismo.Enabled = valor;
             TxtCmbAlergia.Enabled = valor;
             TxtDescicaoAlergia.Enabled = valor;
             TxtCmbRestrincaoAlimentar.Enabled = valor;
@@ -507,6 +528,9 @@ namespace Trilhar.Forms
             TxtOutroResponsavel.ReadOnly = valor;
             TxtTelefone.ReadOnly = valor;
             TxtEmail.ReadOnly = valor;
+            TxtDataBatismo.ReadOnly = valor;
+            TxtIgrejaBatismo.ReadOnly = valor;
+            TxtCmbBatizado.Enabled = !valor;
             TxtCmbAlergia.Enabled = !valor;
             TxtDescicaoAlergia.ReadOnly = valor;
             TxtCmbRestrincaoAlimentar.Enabled = !valor;
@@ -528,6 +552,10 @@ namespace Trilhar.Forms
             TxtOutroResponsavel.ResetText();
             TxtTelefone.ResetText();
             TxtEmail.ResetText();
+            TxtDataBatismo.ResetText();
+            TxtIgrejaBatismo.ResetText();
+            TxtCmbBatizado.ResetText();
+            TxtCmbBatizado.SelectedItem = "NÃO";
             TxtCmbAlergia.ResetText();
             TxtCmbAlergia.SelectedItem = "NÃO";
             TxtDescicaoAlergia.ResetText();
@@ -537,18 +565,6 @@ namespace Trilhar.Forms
             TxtCmbDeficienteAtipicos.ResetText();
             TxtCmbDeficienteAtipicos.SelectedItem = "NÃO";
             TxtDescricaoDeficienteAtipicos.ResetText();
-
-            this.CmbTurmaAtual.BackColor = System.Drawing.SystemColors.Control;
-            this.CmbTurmaAtual.ForeColor = System.Drawing.SystemColors.Window;
-
-            this.TxtCmbAlergia.BackColor = System.Drawing.SystemColors.Control;
-            this.TxtCmbAlergia.ForeColor = System.Drawing.SystemColors.Window;
-
-            this.TxtCmbRestrincaoAlimentar.BackColor = System.Drawing.SystemColors.Control;
-            this.TxtCmbRestrincaoAlimentar.ForeColor = System.Drawing.SystemColors.Window;
-
-            this.TxtCmbDeficienteAtipicos.BackColor = System.Drawing.SystemColors.Control;
-            this.TxtCmbDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.Window;
         }
 
         private string GetAgeDetails(DateTime dob)
@@ -837,9 +853,9 @@ namespace Trilhar.Forms
             novoValueDTO.SeRestrincaoAlimentarSimDescreva = TxtDescricaoRestricaoAlimentar.Text;
             novoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = TxtCmbDeficienteAtipicos.Text;
             novoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = TxtDescricaoDeficienteAtipicos.Text;
-            novoValueDTO.Batizado = "";
-            novoValueDTO.DataBatismo = "";
-            novoValueDTO.IgrejaBatizou = "";
+            novoValueDTO.Batizado = TxtCmbBatizado.Text;
+            novoValueDTO.DataBatismo = TxtDataBatismo.Text == "  /  /" ? "" : TxtDataBatismo.Text;
+            novoValueDTO.IgrejaBatizou = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtIgrejaBatismo.Text.ToLowerInvariant());
 
             Record retornoNovoRecord = await new QuintaBDTrilhar().PostAsync<ValuesDTO>(novoValueDTO);
             recordsList.Add(retornoNovoRecord);
@@ -903,9 +919,9 @@ namespace Trilhar.Forms
             alteracaoValueDTO.SeRestrincaoAlimentarSimDescreva = TxtDescricaoRestricaoAlimentar.Text;
             alteracaoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = TxtCmbDeficienteAtipicos.Text;
             alteracaoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = TxtDescricaoDeficienteAtipicos.Text;
-            alteracaoValueDTO.Batizado = "";
-            alteracaoValueDTO.DataBatismo = "";
-            alteracaoValueDTO.IgrejaBatizou = "";
+            alteracaoValueDTO.Batizado = TxtCmbBatizado.Text;
+            alteracaoValueDTO.DataBatismo = TxtDataBatismo.Text == "  /  /" ? "" : TxtDataBatismo.Text;
+            alteracaoValueDTO.IgrejaBatizou = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtIgrejaBatismo.Text.ToLowerInvariant());
 
             string CodigoCadastroAtual = numericUpDown1.Value.ToString();
             Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == CodigoCadastroAtual.Trim()).FirstOrDefault();
@@ -1033,7 +1049,7 @@ namespace Trilhar.Forms
         }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
-        {            
+        {
             if (GetAcao == Acao.Novo || GetAcao == Acao.NovoAproveitando)
             {
                 SalvarNovoRegistro();
