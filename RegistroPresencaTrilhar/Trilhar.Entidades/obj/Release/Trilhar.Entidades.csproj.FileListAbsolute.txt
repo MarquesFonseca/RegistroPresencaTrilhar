@@ -1,0 +1,8 @@
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\bin\Release\Trilhar.Entidades.dll
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\bin\Release\Trilhar.Entidades.pdb
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\bin\Release\Newtonsoft.Json.dll
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\bin\Release\Newtonsoft.Json.xml
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\obj\Release\Trilhar.Entidades.csprojAssemblyReference.cache
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\obj\Release\Trilhar.Entidades.csproj.CopyComplete
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\obj\Release\Trilhar.Entidades.dll
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Entidades\obj\Release\Trilhar.Entidades.pdb

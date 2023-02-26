@@ -1,4 +1,6 @@
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Debug\CadastroTrilhar.exe.config
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Debug\CadastroTrilhar.exe.manifest
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Debug\CadastroTrilhar.application
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Debug\CadastroTrilhar.exe
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Debug\CadastroTrilhar.pdb
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Debug\Trilhar.Forms.dll
@@ -19,10 +21,8 @@ C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPrese
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\Debug\CadastroTrilhar.csprojAssemblyReference.cache
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\Debug\CadastroTrilhar.Properties.Resources.resources
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\Debug\CadastroTrilhar.csproj.GenerateResource.cache
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\Debug\CadastroTrilhar.exe.manifest
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\Debug\CadastroTrilhar.application
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\Debug\CadastroTrilhar.csproj.CopyComplete
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\Debug\CadastroTrilhar.exe
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\Debug\CadastroTrilhar.pdb
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Debug\CadastroTrilhar.exe.manifest
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Debug\CadastroTrilhar.application
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\Debug\CadastroTrilhar.exe.manifest
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\Debug\CadastroTrilhar.application
