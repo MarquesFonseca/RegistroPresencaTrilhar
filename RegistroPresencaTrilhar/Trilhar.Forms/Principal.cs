@@ -10,11 +10,14 @@ using Mapster;
 using Trilhar.Entidades;
 using Trilhar.Integracao;
 using Trilhar.Uteis;
+using log4net;
 
 namespace Trilhar.Forms
 {
     public partial class Principal : Form, ICloneable
     {
+        private static readonly ILog logger = LogManager.GetLogger(typeof(Principal));
+
         List<Record> recordsList = new List<Record>();
         List<ValuesDTO> valuesDTOList = new List<ValuesDTO>();
         ValuesDTO valuesDTOAtual = new ValuesDTO();
@@ -40,6 +43,12 @@ namespace Trilhar.Forms
 
         private void Principal_Load(object sender, EventArgs e)
         {
+            logger.Info("Entrou no FormPrincipal....:");
+            logger.Info("Mensagem de informação.");
+            logger.Warn("Mensagem de aviso.");
+            logger.Error("Mensagem de erro.");
+
+
             clock.Start();
 
             AlterarEstadoFormulario(Acao.Inicio);
@@ -778,6 +787,10 @@ namespace Trilhar.Forms
             if (result == DialogResult.No)
             {
                 e.Cancel = true;
+            }
+            else
+            {
+                logger.Info("Clicou em Fechar... O sistema está sendo encerrado....");
             }
         }
 

@@ -157,7 +157,7 @@ namespace Trilhar.Forms
             this.BtnRegistrarPresenca.Enabled = false;
             this.BtnRegistrarPresenca.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.BtnRegistrarPresenca.Location = new System.Drawing.Point(457, 70);
-            this.BtnRegistrarPresenca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnRegistrarPresenca.Margin = new System.Windows.Forms.Padding(2);
             this.BtnRegistrarPresenca.Name = "BtnRegistrarPresenca";
             this.BtnRegistrarPresenca.Size = new System.Drawing.Size(224, 43);
             this.BtnRegistrarPresenca.TabIndex = 13;
@@ -170,7 +170,7 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtNomeCrianca.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.TxtNomeCrianca.Location = new System.Drawing.Point(150, 73);
-            this.TxtNomeCrianca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtNomeCrianca.Margin = new System.Windows.Forms.Padding(2);
             this.TxtNomeCrianca.Name = "TxtNomeCrianca";
             this.TxtNomeCrianca.ReadOnly = true;
             this.TxtNomeCrianca.Size = new System.Drawing.Size(298, 41);
@@ -203,7 +203,7 @@ namespace Trilhar.Forms
             this.TxtIdadeCrianca.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.TxtIdadeCrianca.ForeColor = System.Drawing.SystemColors.WindowText;
             this.TxtIdadeCrianca.Location = new System.Drawing.Point(221, 143);
-            this.TxtIdadeCrianca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtIdadeCrianca.Margin = new System.Windows.Forms.Padding(2);
             this.TxtIdadeCrianca.Name = "TxtIdadeCrianca";
             this.TxtIdadeCrianca.ReadOnly = true;
             this.TxtIdadeCrianca.Size = new System.Drawing.Size(387, 41);
@@ -249,7 +249,7 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtOutroResponsavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtOutroResponsavel.Location = new System.Drawing.Point(450, 27);
-            this.TxtOutroResponsavel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtOutroResponsavel.Margin = new System.Windows.Forms.Padding(2);
             this.TxtOutroResponsavel.Name = "TxtOutroResponsavel";
             this.TxtOutroResponsavel.ReadOnly = true;
             this.TxtOutroResponsavel.Size = new System.Drawing.Size(221, 38);
@@ -261,7 +261,7 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtPai.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPai.Location = new System.Drawing.Point(226, 27);
-            this.TxtPai.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtPai.Margin = new System.Windows.Forms.Padding(2);
             this.TxtPai.Name = "TxtPai";
             this.TxtPai.ReadOnly = true;
             this.TxtPai.Size = new System.Drawing.Size(220, 38);
@@ -273,7 +273,7 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtMae.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtMae.Location = new System.Drawing.Point(2, 27);
-            this.TxtMae.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtMae.Margin = new System.Windows.Forms.Padding(2);
             this.TxtMae.Name = "TxtMae";
             this.TxtMae.ReadOnly = true;
             this.TxtMae.Size = new System.Drawing.Size(220, 38);
@@ -285,7 +285,7 @@ namespace Trilhar.Forms
             this.TxtDescricaoDeficienteAtipicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDescricaoDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.WindowText;
             this.TxtDescricaoDeficienteAtipicos.Location = new System.Drawing.Point(450, 317);
-            this.TxtDescricaoDeficienteAtipicos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtDescricaoDeficienteAtipicos.Margin = new System.Windows.Forms.Padding(2);
             this.TxtDescricaoDeficienteAtipicos.Multiline = true;
             this.TxtDescricaoDeficienteAtipicos.Name = "TxtDescricaoDeficienteAtipicos";
             this.TxtDescricaoDeficienteAtipicos.ReadOnly = true;
@@ -356,7 +356,7 @@ namespace Trilhar.Forms
             this.TxtDescicaoAlergia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDescicaoAlergia.ForeColor = System.Drawing.SystemColors.WindowText;
             this.TxtDescicaoAlergia.Location = new System.Drawing.Point(2, 317);
-            this.TxtDescicaoAlergia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtDescicaoAlergia.Margin = new System.Windows.Forms.Padding(2);
             this.TxtDescicaoAlergia.Multiline = true;
             this.TxtDescicaoAlergia.Name = "TxtDescicaoAlergia";
             this.TxtDescicaoAlergia.ReadOnly = true;
@@ -369,7 +369,7 @@ namespace Trilhar.Forms
             this.TxtDescricaoRestricaoAlimentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDescricaoRestricaoAlimentar.ForeColor = System.Drawing.SystemColors.WindowText;
             this.TxtDescricaoRestricaoAlimentar.Location = new System.Drawing.Point(226, 317);
-            this.TxtDescricaoRestricaoAlimentar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtDescricaoRestricaoAlimentar.Margin = new System.Windows.Forms.Padding(2);
             this.TxtDescricaoRestricaoAlimentar.Multiline = true;
             this.TxtDescricaoRestricaoAlimentar.Name = "TxtDescricaoRestricaoAlimentar";
             this.TxtDescricaoRestricaoAlimentar.ReadOnly = true;
@@ -430,7 +430,7 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtEmail.Location = new System.Drawing.Point(226, 98);
-            this.TxtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.ReadOnly = true;
             this.TxtEmail.Size = new System.Drawing.Size(220, 38);
@@ -485,7 +485,7 @@ namespace Trilhar.Forms
             this.tableLayoutPanel1.Controls.Add(this.TxtCmbBatizado, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.TxtDataBatismo, 1, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 189);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
@@ -521,7 +521,7 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.TxtTelefone.Location = new System.Drawing.Point(2, 98);
-            this.TxtTelefone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtTelefone.Margin = new System.Windows.Forms.Padding(2);
             this.TxtTelefone.Mask = "(99) 00000-0000";
             this.TxtTelefone.Name = "TxtTelefone";
             this.TxtTelefone.ReadOnly = true;
@@ -612,7 +612,7 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtIgrejaBatismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.TxtIgrejaBatismo.Location = new System.Drawing.Point(450, 168);
-            this.TxtIgrejaBatismo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtIgrejaBatismo.Margin = new System.Windows.Forms.Padding(2);
             this.TxtIgrejaBatismo.Name = "TxtIgrejaBatismo";
             this.TxtIgrejaBatismo.ReadOnly = true;
             this.TxtIgrejaBatismo.Size = new System.Drawing.Size(221, 38);
@@ -628,7 +628,7 @@ namespace Trilhar.Forms
             "NÃO",
             "SIM"});
             this.TxtCmbBatizado.Location = new System.Drawing.Point(2, 168);
-            this.TxtCmbBatizado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtCmbBatizado.Margin = new System.Windows.Forms.Padding(2);
             this.TxtCmbBatizado.Name = "TxtCmbBatizado";
             this.TxtCmbBatizado.Size = new System.Drawing.Size(220, 41);
             this.TxtCmbBatizado.TabIndex = 11;
@@ -638,7 +638,7 @@ namespace Trilhar.Forms
             this.TxtDataBatismo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtDataBatismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.TxtDataBatismo.Location = new System.Drawing.Point(226, 168);
-            this.TxtDataBatismo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtDataBatismo.Margin = new System.Windows.Forms.Padding(2);
             this.TxtDataBatismo.Mask = "00/00/0000";
             this.TxtDataBatismo.Name = "TxtDataBatismo";
             this.TxtDataBatismo.ReadOnly = true;
@@ -697,7 +697,7 @@ namespace Trilhar.Forms
             this.tableLayoutPanel2.Controls.Add(this.statusStrip2, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 452);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -745,7 +745,7 @@ namespace Trilhar.Forms
             this.BtnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnNovo.Location = new System.Drawing.Point(231, 32);
-            this.BtnNovo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnNovo.Margin = new System.Windows.Forms.Padding(2);
             this.BtnNovo.Name = "BtnNovo";
             this.BtnNovo.Size = new System.Drawing.Size(82, 29);
             this.BtnNovo.TabIndex = 4;
@@ -758,7 +758,7 @@ namespace Trilhar.Forms
             this.BtnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnExcluir.Location = new System.Drawing.Point(415, 32);
-            this.BtnExcluir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(82, 29);
             this.BtnExcluir.TabIndex = 6;
@@ -771,7 +771,7 @@ namespace Trilhar.Forms
             this.BtnAlterar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAlterar.Location = new System.Drawing.Point(323, 32);
-            this.BtnAlterar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnAlterar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnAlterar.Name = "BtnAlterar";
             this.BtnAlterar.Size = new System.Drawing.Size(82, 29);
             this.BtnAlterar.TabIndex = 5;
@@ -784,7 +784,7 @@ namespace Trilhar.Forms
             this.BtnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancelar.Location = new System.Drawing.Point(599, 32);
-            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(82, 29);
             this.BtnCancelar.TabIndex = 8;
@@ -797,7 +797,7 @@ namespace Trilhar.Forms
             this.BtnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalvar.Location = new System.Drawing.Point(507, 32);
-            this.BtnSalvar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnSalvar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnSalvar.Name = "BtnSalvar";
             this.BtnSalvar.Size = new System.Drawing.Size(82, 29);
             this.BtnSalvar.TabIndex = 7;
@@ -832,7 +832,7 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtTurmaAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtTurmaAtual.Location = new System.Drawing.Point(613, 143);
-            this.TxtTurmaAtual.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtTurmaAtual.Margin = new System.Windows.Forms.Padding(2);
             this.TxtTurmaAtual.Name = "TxtTurmaAtual";
             this.TxtTurmaAtual.ReadOnly = true;
             this.TxtTurmaAtual.Size = new System.Drawing.Size(68, 41);
@@ -842,7 +842,7 @@ namespace Trilhar.Forms
             // 
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.numericUpDown1.Location = new System.Drawing.Point(11, 73);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -858,7 +858,7 @@ namespace Trilhar.Forms
             // 
             this.TxtDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.TxtDataNascimento.Location = new System.Drawing.Point(11, 143);
-            this.TxtDataNascimento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtDataNascimento.Margin = new System.Windows.Forms.Padding(2);
             this.TxtDataNascimento.Mask = "00/00/0000";
             this.TxtDataNascimento.Name = "TxtDataNascimento";
             this.TxtDataNascimento.ReadOnly = true;
@@ -897,7 +897,7 @@ namespace Trilhar.Forms
             this.Controls.Add(this.linkLabelAtualizarDados);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(701, 50);
             this.Name = "Principal";
             this.Text = "Cadastro de criança - Trilhar";

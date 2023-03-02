@@ -21,3 +21,5 @@ C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPrese
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.csproj.CopyComplete
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.pdb
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\x86\Release\NLog.dll
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\x86\Release\NLog.xml

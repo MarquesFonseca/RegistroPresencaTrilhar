@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bPAIGp8TdtudlWf3GyXCCry0fVcz7QoMnyn8IcsVgBM=</dsig:DigestValue>
+        <dsig:DigestValue>s1QxuW112f+a767H2Ud0I2CTqgfcskjMjaK3/G1MxMM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -91,6 +91,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NLog.dll" size="869888">
+      <assemblyIdentity name="NLog" version="4.0.0.0" publicKeyToken="5120E14C03D0593C" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>P+BG82CAGw4Zz4hwpgZGaDGX0JZnGvWCAQAGCfWi4AI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Entidades.dll" size="18944">
       <assemblyIdentity name="Trilhar.Entidades" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
@@ -103,14 +115,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.dll" size="512000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.dll" size="513024">
       <assemblyIdentity name="Trilhar.Forms" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>H6WY+DGW0/8fKeFmGhmmYVgD0LB/AzMOn+/6hDN8I9c=</dsig:DigestValue>
+        <dsig:DigestValue>pYaFPRtpzxN0ETe8r5qqx4pgNAJdi4ghz6a7AfbdsYE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -122,7 +134,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yIw1Tw6xfshjF6+pyFmo6yWJvSdY//Vje6cGqfzalpk=</dsig:DigestValue>
+        <dsig:DigestValue>lDGYUtt03KL2OKsAeWnufpTBZlx6xX6jz3OSLp1sWts=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
