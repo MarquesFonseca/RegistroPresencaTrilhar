@@ -26,6 +26,7 @@ namespace Trilhar.Integracao
             foreach (Record record in recordsList)
             {
                 ValuesDTO valuesDTO = record.values.Adapt<ValuesDTO>();
+
                 valuesDTO.SelecioneATurma = RetornaDescricaoCmbTurmaAtual(valuesDTO.SelecioneATurma);
                 valuesDTOList.Add(valuesDTO);
             }

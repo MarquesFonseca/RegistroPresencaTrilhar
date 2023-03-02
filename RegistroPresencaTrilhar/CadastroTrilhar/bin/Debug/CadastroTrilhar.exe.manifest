@@ -103,14 +103,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.dll" size="516096">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.dll" size="520704">
       <assemblyIdentity name="Trilhar.Forms" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QLyDB5IIBbmN+d9SFafz/Jbg8uHzCi9AHMKOxkX7zK8=</dsig:DigestValue>
+        <dsig:DigestValue>VPep5C35eOP/2g3uJMlgMbwDmsoC8rVN16aDzPkth1E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
