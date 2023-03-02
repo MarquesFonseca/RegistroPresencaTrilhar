@@ -1,0 +1,9 @@
+
+*.cache
+RegistroPresencaTrilhar/CadastroTrilhar/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+RegistroPresencaTrilhar/Trilhar.Controle/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+RegistroPresencaTrilhar/Trilhar.Entidades/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+RegistroPresencaTrilhar/Trilhar.Forms/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+RegistroPresencaTrilhar/Trilhar.Integracao/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+RegistroPresencaTrilhar/Trilhar.Mapeamento/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+RegistroPresencaTrilhar/Trilhar.Uteis/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
