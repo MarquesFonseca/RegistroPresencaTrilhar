@@ -14,44 +14,13 @@ namespace Trilhar.Integracao
 {
     public class QuintaBDTrilhar : IQuintaBDTrilhar
     {
-        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
-
         public QuintaBDTrilhar()
         {
-            Logger.Info("Entrou na integração....:");
-
             Trilhar.Mapeamento.ValuesMapeamento.ValuesToValuesDTOMapeamento();
             Trilhar.Mapeamento.ValuesMapeamento.ValuesDTOToValuesMapeamento();
         }
 
-        public List<ValuesDTO> GetListValues(List<Record> recordsList)
-        {
-            List<ValuesDTO> valuesDTOList = new List<ValuesDTO>();
-            foreach (Record record in recordsList)
-            {
-                ValuesDTO valuesDTO = record.values.Adapt<ValuesDTO>();
-
-                valuesDTO.SelecioneATurma = RetornaDescricaoCmbTurmaAtual(valuesDTO.SelecioneATurma);
-                valuesDTOList.Add(valuesDTO);
-            }
-            return valuesDTOList;
-        }
-
-        private string RetornaDescricaoCmbTurmaAtual(string Valor)
-        {
-            if (Valor == "BRANCO/ROSA (0 A 11 M)") { return "BRANCO/ROSA (0 A 11 M)"; }
-            if (Valor == "LILÁS (1 ANO)") { return "LILÁS (1 ANO)"; }
-            if (Valor == "LILÁS (2 ANOS)") { return "LILÁS (2 ANOS)"; }
-            if (Valor == "LARANJA") { return "LARANJA 3-4 ANOS"; }
-            if (Valor == "VERMELHO") { return "VERMELHO 5-6 ANOS"; }
-            if (Valor == "VERDE") { return "VERDE 7-8 ANOS"; }
-            if (Valor == "AZUL (9-10 ANOS)") { return "AZUL 9-10 ANOS"; }
-            if (Valor == "AZUL ROYAL (11-12 ANOS)") { return "AZUL ROYAL 11-12 ANOS"; }
-
-            return "";
-        }
-
-        public async Task<List<Record>> GetListAsync()
+        public async Task<List<Record>> RetornarListaAsync()
         {
             List<Record> RetornoRecordList = new List<Record>();
 
@@ -107,7 +76,7 @@ namespace Trilhar.Integracao
             }
         }
 
-        public async Task<Record> PostAsync<T>(ValuesDTO data)
+        public async Task<Record> InserirAsync<T>(ValuesDTO data)
         {
             Record Retono = new Record();
             string url = "https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE";
@@ -136,7 +105,7 @@ namespace Trilhar.Integracao
             return Retono;
         }
 
-        public async Task<Record> PutAsync<T>(string id, ValuesDTO data)
+        public async Task<Record> AlterarAsync<T>(string id, ValuesDTO data)
         {
             Record Retono = new Record();
             string url = string.Format("https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/{0}.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE", id);
@@ -165,7 +134,7 @@ namespace Trilhar.Integracao
             return Retono;
         }
 
-        public async Task<bool> DeleteAsync(string id)
+        public async Task<bool> DeletarAsync(string id)
         {
             string url = string.Format("https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/{0}.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE", id);
 

@@ -1,5 +1,4 @@
 ﻿using Mapster;
-using System;
 using Trilhar.Entidades;
 
 namespace Trilhar.Mapeamento

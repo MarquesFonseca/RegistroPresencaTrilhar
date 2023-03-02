@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CadastroTrilhar.exe" size="152096">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CadastroTrilhar.exe" size="153120">
       <assemblyIdentity name="CadastroTrilhar" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>s1QxuW112f+a767H2Ud0I2CTqgfcskjMjaK3/G1MxMM=</dsig:DigestValue>
+        <dsig:DigestValue>N4u7JKWc2jXggkDTpu0czUtp5AEBq1tl1XF/V9pkD+A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -91,14 +91,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NLog.dll" size="869888">
-      <assemblyIdentity name="NLog" version="4.0.0.0" publicKeyToken="5120E14C03D0593C" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Serilog.dll" size="136704">
+      <assemblyIdentity name="Serilog" version="2.0.0.0" publicKeyToken="24C2F752A8E58A10" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>P+BG82CAGw4Zz4hwpgZGaDGX0JZnGvWCAQAGCfWi4AI=</dsig:DigestValue>
+        <dsig:DigestValue>XC80QSUC9sWlqpImtx9ICapzv5D0bHn665cXKVUXiyY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Serilog.Sinks.File.dll" size="33280">
+      <assemblyIdentity name="Serilog.Sinks.File" version="5.0.0.0" publicKeyToken="24C2F752A8E58A10" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>W3DcLuzrGWP5w2kMHMj/p5OygOkD+poxeA5qe7C9/Pk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Controle.dll" size="5632">
+      <assemblyIdentity name="Trilhar.Controle" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>L1GN9GBm/5lmT15nKzNhqztCH/G/PABlwulwpp3s2cg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -115,26 +139,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.dll" size="513024">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.dll" size="504320">
       <assemblyIdentity name="Trilhar.Forms" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>pYaFPRtpzxN0ETe8r5qqx4pgNAJdi4ghz6a7AfbdsYE=</dsig:DigestValue>
+        <dsig:DigestValue>QGfS5bBBC924S4XmUdLOt3f3hBiB38dZinJou+8hAvI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Integracao.dll" size="13824">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Integracao.dll" size="12800">
       <assemblyIdentity name="Trilhar.Integracao" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lDGYUtt03KL2OKsAeWnufpTBZlx6xX6jz3OSLp1sWts=</dsig:DigestValue>
+        <dsig:DigestValue>N+9q8glI1Jn29nKIlNZ0qV6jiAe1GJ+YJAHWpSBVOSk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -146,29 +170,29 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3zebEubTtiFCP8d/b8e6Ag+iy3Ro0mXWJWN7dL66+04=</dsig:DigestValue>
+        <dsig:DigestValue>ZcoqLT5MLoV7pLYNVWnVldO0XQsmP4a4eQR2nY0V2Ac=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Uteis.dll" size="4608">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Uteis.dll" size="5120">
       <assemblyIdentity name="Trilhar.Uteis" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LDwylvPNkgswTpzkWUivSW3aM7XR2H3mpGFCRYh6VvE=</dsig:DigestValue>
+        <dsig:DigestValue>4DHTm9/cpguNz5q81+jTOK6NUEfutNyW+V5qYuRNrKA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CadastroTrilhar.exe.config" size="189">
+  <file name="CadastroTrilhar.exe.config" size="180">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
+      <dsig:DigestValue>XO5gGmqXCRJFNrxMxIWn7cfqVYnOw8AZ1m9rYHnEUS0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="IcoTrilhar.ico" size="144734">

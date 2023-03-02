@@ -6,14 +6,12 @@ namespace Trilhar.Integracao
 {
     internal interface IQuintaBDTrilhar
     {
-        List<ValuesDTO> GetListValues(List<Record> recordsList);
+        Task<List<Record>> RetornarListaAsync();
 
-        Task<List<Record>> GetListAsync();
+        Task<Record> InserirAsync<T>(ValuesDTO data);
 
-        Task<Record> PostAsync<T>(ValuesDTO data);
-
-        Task<Record> PutAsync<T>(string id, ValuesDTO data);
+        Task<Record> AlterarAsync<T>(string id, ValuesDTO data);
             
-        Task<bool> DeleteAsync(string id);
+        Task<bool> DeletarAsync(string id);
     }
 }
