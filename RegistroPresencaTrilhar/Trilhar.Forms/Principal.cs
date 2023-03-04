@@ -15,7 +15,7 @@ using Trilhar.Controle;
 
 namespace Trilhar.Forms
 {
-    public partial class Principal : Form, ICloneable
+    public partial class Principal : Form
     {
         private static readonly ILogger logger = Log.Logger;
 
@@ -24,8 +24,6 @@ namespace Trilhar.Forms
         ValuesDTO valuesDTOAtual = new ValuesDTO();
 
         public Uteis.EstadoFormularioCadastro estadoFormularioCadastro;
-
-        
 
         public Principal()
         {
@@ -338,7 +336,7 @@ namespace Trilhar.Forms
             }
 
             TxtDataNascimento.Text = itemAtual != null && itemAtual.DataNascimento != null ? itemAtual.DataNascimento : "";
-            TxtIdadeCrianca.Text = PreencheIdadeFormatada(TxtDataNascimento.Text);
+            TxtIdadeCrianca.Text = DataUteis.PreencheIdadeFormatada(TxtDataNascimento.Text);
             #endregion
 
             #region Mae
@@ -459,23 +457,7 @@ namespace Trilhar.Forms
             #endregion
         }
 
-        private string PreencheIdadeFormatada(string dataNascimento)
-        {
-            if (dataNascimento == DateTime.Now.ToShortDateString()) return "";
-
-            string idadeFormatada = "";
-            DateTime dataConvertida;
-
-            if (DateTime.TryParse(dataNascimento, out dataConvertida))
-            {
-                idadeFormatada = GetAgeDetails(new DateTime(Convert.ToDateTime(dataNascimento).Year, Convert.ToDateTime(dataNascimento).Month, Convert.ToDateTime(dataNascimento).Day));
-                return idadeFormatada;
-            }
-            else
-            {
-                return "";
-            }
-        }
+        
 
         public void HabilitaDesabilitaCampos(bool valor)
         {
@@ -558,28 +540,6 @@ namespace Trilhar.Forms
             TxtDescricaoDeficienteAtipicos.ResetText();
         }
 
-        private string GetAgeDetails(DateTime dob)
-        {
-            DateTime today = DateTime.Now;
-            int age = today.Year - dob.Year;
-            int month = today.Month - dob.Month;
-            int day = today.Day - dob.Day;
-
-            if (month < 0)
-            {
-                age--;
-                month = 12 + month;
-            }
-
-            if (day < 0)
-            {
-                month--;
-                day = DateTime.DaysInMonth(today.Year, today.Month - 1) + day;
-            }
-
-            return string.Format("{0} anos, {1} meses e {2} dias", age, month, day);
-        }
-
         private void numericUpDown1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -588,10 +548,13 @@ namespace Trilhar.Forms
                 e.SuppressKeyPress = true;
                 numericUpDown1.Enabled = false;
 
+
+                string valorAtualTextBox = numericUpDown1.Text;
                 var itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == numericUpDown1.Text).FirstOrDefault();
                 CarregaCampos(itemAtual);
                 AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
-
+                if (itemAtual == null)
+                    numericUpDown1.Text = valorAtualTextBox;
                 if (itemAtual != null)
                     numericUpDown1.Value = Convert.ToDecimal(itemAtual.CodigoCadastro);
 
@@ -618,9 +581,8 @@ namespace Trilhar.Forms
         public async void AtualizaDados()
         {
             //TODO: AtualizaDados()
-            QuintaBDTrilhar integracaoQuintaBD = new QuintaBDTrilhar();
-            recordsList = await integracaoQuintaBD.RetornarListaAsync();
-            valuesDTOList = Controle.CadastroTrilharControle.GetListValues(recordsList);
+            recordsList = await new IntegracaoQuintaDBTrilharControle().RetornarListaAsync();
+            valuesDTOList = CadastroTrilharAuxiliaresControle.GetListValues(recordsList);
 
             if (valuesDTOList == null || valuesDTOList.Count == 0)
             {
@@ -649,57 +611,22 @@ namespace Trilhar.Forms
 
         private void linkLabelBuscarPeloNome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormBuscar frm = new FormBuscar(valuesDTOList, FormBuscar.TipoBusca.BuscarPeloNome);
-            frm.ShowDialog();
-            if (frm.Cancelado)
-            {
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                return;
-            }
-            ValuesDTO itemAtual = new ValuesDTO();
-            itemAtual = (ValuesDTO)frm.ItemSelecionado;
-            if (itemAtual == null)
-            {
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                return;
-            }
-            itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == itemAtual.CodigoCadastro).FirstOrDefault();
-            CarregaCampos(itemAtual);
-
-            numericUpDown1.Focus();
-            numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+            RetornaFormBuscar(valuesDTOList.OrderByDescending(m => m.CodigoCadastro).ToList(), FormBuscar.TipoBusca.BuscarPeloNome);
         }
 
         private void linkLabelBuscarPelaMae_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormBuscar frm = new FormBuscar(valuesDTOList, FormBuscar.TipoBusca.BuscarPelaMae);
-            frm.ShowDialog();
-            if (frm.Cancelado)
-            {
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                return;
-            }
-            ValuesDTO itemAtual = new ValuesDTO();
-            itemAtual = (ValuesDTO)frm.ItemSelecionado;
-            if (itemAtual == null)
-            {
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                return;
-            }
-            itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == itemAtual.CodigoCadastro).FirstOrDefault();
-            CarregaCampos(itemAtual);
-
-            numericUpDown1.Focus();
-            numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+            RetornaFormBuscar(valuesDTOList.OrderByDescending(m => m.CodigoCadastro).ToList(), FormBuscar.TipoBusca.BuscarPelaMae);
         }
 
         private void linkLabelBuscarPeloPai_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormBuscar frm = new FormBuscar(valuesDTOList, FormBuscar.TipoBusca.BuscarPeloPai);
+            RetornaFormBuscar(valuesDTOList.OrderByDescending(m => m.CodigoCadastro).ToList(), FormBuscar.TipoBusca.BuscarPeloPai);
+        }
+
+        private void RetornaFormBuscar(List<ValuesDTO> listaValuesDTO, FormBuscar.TipoBusca tipoBusca)
+        {
+            FormBuscar frm = new FormBuscar(listaValuesDTO, tipoBusca);
             frm.ShowDialog();
             if (frm.Cancelado)
             {
@@ -726,23 +653,19 @@ namespace Trilhar.Forms
         {
             if (e.KeyData == Keys.F1)
             {
-                if (linkLabelBuscarPeloNome.Enabled)
-                    linkLabelBuscarPeloNome_LinkClicked(null, null);
+                if (linkLabelBuscarPeloNome.Enabled) linkLabelBuscarPeloNome_LinkClicked(null, null);
             }
             if (e.KeyData == Keys.F2)
             {
-                if (linkLabelBuscarPelaMae.Enabled)
-                    linkLabelBuscarPelaMae_LinkClicked(null, null);
+                if (linkLabelBuscarPelaMae.Enabled) linkLabelBuscarPelaMae_LinkClicked(null, null);
             }
             if (e.KeyData == Keys.F3)
             {
-                if (linkLabelBuscarPeloPai.Enabled)
-                    linkLabelBuscarPeloPai_LinkClicked(null, null);
+                if (linkLabelBuscarPeloPai.Enabled) linkLabelBuscarPeloPai_LinkClicked(null, null);
             }
             if (e.KeyData == Keys.F5)
             {
-                if (linkLabelAtualizarDados.Enabled)
-                    linkLabelAtualizarDados_LinkClicked(null, null);
+                if (linkLabelAtualizarDados.Enabled) linkLabelAtualizarDados_LinkClicked(null, null);
             }
             if (e.KeyData == Keys.Escape)
             {
@@ -760,13 +683,8 @@ namespace Trilhar.Forms
             }
             else
             {
-                logger.Information("Fechando o principal");
+                logger.Information("Fechando o principal.");
             }
-        }
-
-        public object Clone()
-        {
-            throw new NotImplementedException();
         }
 
         private void BtnNovo_Click(object sender, EventArgs e)
@@ -783,6 +701,97 @@ namespace Trilhar.Forms
             AlterarEstadoFormulario(EstadoFormularioCadastro.Novo);
         }
 
+        private void BtnAlterar_Click(object sender, EventArgs e)
+        {
+            AlterarEstadoFormulario(EstadoFormularioCadastro.Alterar);
+        }        
+
+        private async void BtnExcluir_Click(object sender, EventArgs e)
+        {
+            //TODO: ExcluirRegistro()
+            string CodigoCadastroAtual = numericUpDown1.Value.ToString();
+
+            if (string.IsNullOrEmpty(CodigoCadastroAtual))
+            {
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                return;
+            }
+            if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
+            {
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show(string.Format("Deseja realmente remover o registro '{0} - {1}' ?", numericUpDown1.Value.ToString(), TxtNomeCrianca.Text), "Remover registro", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                return;
+            }
+
+            HabilitaDesabilitaCampos(false);
+
+            Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()).FirstOrDefault();
+            ValuesDTO valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
+
+            bool retorno = await new IntegracaoQuintaDBTrilharControle().DeletarAsync(itemAtual.id);
+
+            if (retorno == true)
+            {
+                recordsList.Remove(itemAtual);
+                valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()));
+
+                LimparCampos();
+                MessageBox.Show(string.Format("O Código '{0}' foi removido com sucesso!", CodigoCadastroAtual), "Resultado");
+
+                //diminui -1 no código
+                numericUpDown1.Value = (Convert.ToInt32(CodigoCadastroAtual) - 1);
+                while (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()) == false)
+                {
+                    //enquanto não existir... 
+                    //diminui um valor no código.
+                    //se existir, sai...
+                    numericUpDown1.Value = (Convert.ToInt32(numericUpDown1.Value) - 1);
+                    if (Convert.ToInt32(numericUpDown1.Value) <= 999)
+                    {
+                        numericUpDown1.Value = 0000;
+                        break;
+                    }
+                }
+
+                if (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()) == true)
+                {
+                    itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()).FirstOrDefault();
+                    valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
+                    CarregaCampos(valuesDTO);
+                    numericUpDown1.Focus();
+                    numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                }
+            }
+            else
+            {
+                HabilitaDesabilitaCampos(true);
+                MessageBox.Show(string.Format("Algo ocorreu de errado com a exclusão do registro. Tente novamente!"), "Resultado");
+
+            }
+            AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
+        }
+
+        private void BtnSalvar_Click(object sender, EventArgs e)
+        {
+            if (estadoFormularioCadastro == EstadoFormularioCadastro.Novo || estadoFormularioCadastro == EstadoFormularioCadastro.NovoAproveitando)
+            {
+                SalvarNovoRegistro();
+            }
+            if (estadoFormularioCadastro == EstadoFormularioCadastro.Alterar)
+            {
+                SalvarAlteracaoRegistro();
+            }
+        }
+
         private async void SalvarNovoRegistro()
         {
             // TODO: SalvarNovoRegistro()
@@ -797,7 +806,7 @@ namespace Trilhar.Forms
             novoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text.ToLowerInvariant());
             novoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text.ToLowerInvariant());
             novoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text.ToLowerInvariant());
-            novoValueDTO.SelecioneATurma = RetornaValorCmbTurmaAtual(CmbTurmaAtual.Text);
+            novoValueDTO.SelecioneATurma = CadastroTrilharAuxiliaresControle.RetornaValorPelaDescricaoTurmaAtual(CmbTurmaAtual.Text);
             novoValueDTO.Telefone = TxtTelefone.Text == "(  )      -" ? "" : TxtTelefone.Text;
             novoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
             novoValueDTO.Alergia = TxtCmbAlergia.Text;
@@ -810,13 +819,65 @@ namespace Trilhar.Forms
             novoValueDTO.DataBatismo = TxtDataBatismo.Text == "  /  /" ? "" : TxtDataBatismo.Text;
             novoValueDTO.IgrejaBatizou = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtIgrejaBatismo.Text.ToLowerInvariant());
 
-            Record retornoNovoRecord = await new QuintaBDTrilhar().InserirAsync<ValuesDTO>(novoValueDTO);
+            Record retornoNovoRecord = await new IntegracaoQuintaDBTrilharControle().InserirAsync<ValuesDTO>(novoValueDTO);
             recordsList.Add(retornoNovoRecord);
 
             ValuesDTO valuesDTO = retornoNovoRecord.values.Adapt<Values, ValuesDTO>();
-            valuesDTO.SelecioneATurma = RetornaDescricaoCmbTurmaAtual(valuesDTO.SelecioneATurma);
+            valuesDTO.SelecioneATurma = CadastroTrilharAuxiliaresControle.RetornaDescricaoPeloValorTurmaAtual(valuesDTO.SelecioneATurma);
             valuesDTOList.Add(valuesDTO);
             valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
+            CarregaCampos(valuesDTO);
+            AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
+        }
+
+        private async void SalvarAlteracaoRegistro()
+        {
+            // TODO: SalvarAlteracaoRegistro()
+            this.BtnSalvar.Enabled = false;
+
+            if (!VerificaCamposCadastroNovoAlterar()) return;
+
+            ValuesDTO alteracaoValueDTO = new ValuesDTO();
+            alteracaoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
+            alteracaoValueDTO.NomeCrianca = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text.ToLowerInvariant());
+            alteracaoValueDTO.DataNascimento = TxtDataNascimento.Text == "  /  /" ? "" : TxtDataNascimento.Text;
+            alteracaoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text.ToLowerInvariant());
+            alteracaoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text.ToLowerInvariant());
+            alteracaoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text.ToLowerInvariant());
+            alteracaoValueDTO.SelecioneATurma = CadastroTrilharAuxiliaresControle.RetornaValorPelaDescricaoTurmaAtual(CmbTurmaAtual.Text);
+            alteracaoValueDTO.Telefone = TxtTelefone.Text == "(  )      -" ? "" : TxtTelefone.Text;
+            alteracaoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
+            alteracaoValueDTO.Alergia = TxtCmbAlergia.Text;
+            alteracaoValueDTO.SeAlergiaSimPreenchaAqui = TxtDescicaoAlergia.Text;
+            alteracaoValueDTO.RestrincaoAlimentar = TxtCmbRestrincaoAlimentar.Text;
+            alteracaoValueDTO.SeRestrincaoAlimentarSimDescreva = TxtDescricaoRestricaoAlimentar.Text;
+            alteracaoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = TxtCmbDeficienteAtipicos.Text;
+            alteracaoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = TxtDescricaoDeficienteAtipicos.Text;
+            alteracaoValueDTO.Batizado = TxtCmbBatizado.Text;
+            alteracaoValueDTO.DataBatismo = TxtDataBatismo.Text == "  /  /" ? "" : TxtDataBatismo.Text;
+            alteracaoValueDTO.IgrejaBatizou = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtIgrejaBatismo.Text.ToLowerInvariant());
+
+            string CodigoCadastroAtual = numericUpDown1.Value.ToString();
+            Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == CodigoCadastroAtual.Trim()).FirstOrDefault();
+
+            Record retornoAlteracaoRecord = await new IntegracaoQuintaDBTrilharControle().AlterarAsync<ValuesDTO>(itemAtual.id, alteracaoValueDTO);
+            if (retornoAlteracaoRecord.id == null)
+            {
+                MessageBox.Show("O item de alteração não está disponível na sincronização. Faça a sincronização dos dados e tente novamente.", "Resultado");
+
+                AlterarEstadoFormulario(EstadoFormularioCadastro.Inicio);
+                return;
+            }
+
+            recordsList.Remove(itemAtual);
+            recordsList.Add(retornoAlteracaoRecord);
+
+            valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()));
+            ValuesDTO valuesDTO = retornoAlteracaoRecord.values.Adapt<Values, ValuesDTO>();
+            valuesDTO.SelecioneATurma = CadastroTrilharAuxiliaresControle.RetornaDescricaoPeloValorTurmaAtual(valuesDTO.SelecioneATurma);
+            valuesDTOList.Add(valuesDTO);
+            valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
+
             CarregaCampos(valuesDTO);
             AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
         }
@@ -872,251 +933,12 @@ namespace Trilhar.Forms
             return true;
         }
 
-        private void BtnAlterar_Click(object sender, EventArgs e)
-        {
-            AlterarEstadoFormulario(EstadoFormularioCadastro.Alterar);
-        }
-
-        private async void SalvarAlteracaoRegistro()
-        {
-            // TODO: SalvarAlteracaoRegistro()
-            this.BtnSalvar.Enabled = false;
-
-            if (!VerificaCamposCadastroNovoAlterar()) return;
-
-            ValuesDTO alteracaoValueDTO = new ValuesDTO();
-            alteracaoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
-            alteracaoValueDTO.NomeCrianca = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text.ToLowerInvariant());
-            alteracaoValueDTO.DataNascimento = TxtDataNascimento.Text == "  /  /" ? "" : TxtDataNascimento.Text;
-            alteracaoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text.ToLowerInvariant());
-            alteracaoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text.ToLowerInvariant());
-            alteracaoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text.ToLowerInvariant());
-            alteracaoValueDTO.SelecioneATurma = RetornaValorCmbTurmaAtual(CmbTurmaAtual.Text);
-            alteracaoValueDTO.Telefone = TxtTelefone.Text == "(  )      -" ? "" : TxtTelefone.Text;
-            alteracaoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
-            alteracaoValueDTO.Alergia = TxtCmbAlergia.Text;
-            alteracaoValueDTO.SeAlergiaSimPreenchaAqui = TxtDescicaoAlergia.Text;
-            alteracaoValueDTO.RestrincaoAlimentar = TxtCmbRestrincaoAlimentar.Text;
-            alteracaoValueDTO.SeRestrincaoAlimentarSimDescreva = TxtDescricaoRestricaoAlimentar.Text;
-            alteracaoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = TxtCmbDeficienteAtipicos.Text;
-            alteracaoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = TxtDescricaoDeficienteAtipicos.Text;
-            alteracaoValueDTO.Batizado = TxtCmbBatizado.Text;
-            alteracaoValueDTO.DataBatismo = TxtDataBatismo.Text == "  /  /" ? "" : TxtDataBatismo.Text;
-            alteracaoValueDTO.IgrejaBatizou = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtIgrejaBatismo.Text.ToLowerInvariant());
-
-            string CodigoCadastroAtual = numericUpDown1.Value.ToString();
-            Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == CodigoCadastroAtual.Trim()).FirstOrDefault();
-
-            Record retornoAlteracaoRecord = await new QuintaBDTrilhar().AlterarAsync<ValuesDTO>(itemAtual.id, alteracaoValueDTO);
-            if (retornoAlteracaoRecord.id == null)
-            {
-                MessageBox.Show("O item de alteração não está disponível na sincronização. Faça a sincronização dos dados e tente novamente.", "Resultado");
-
-                AlterarEstadoFormulario(EstadoFormularioCadastro.Inicio);
-                return;
-            }
-
-            recordsList.Remove(itemAtual);
-            recordsList.Add(retornoAlteracaoRecord);
-
-            valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()));
-            ValuesDTO valuesDTO = retornoAlteracaoRecord.values.Adapt<Values, ValuesDTO>();
-            valuesDTO.SelecioneATurma = RetornaDescricaoCmbTurmaAtual(valuesDTO.SelecioneATurma);
-            valuesDTOList.Add(valuesDTO);
-            valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
-
-            CarregaCampos(valuesDTO);
-            AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
-        }
-
-        private string RetornaValorCmbTurmaAtual(string text)
-        {
-            if (text == "BRANCO/ROSA (0 A 11 M)") { return "BRANCO/ROSA (0 A 11 M)"; }
-            if (text == "LILÁS (1 ANO)") { return "LILÁS (1 ANO)"; }
-            if (text == "LILÁS (2 ANOS)") { return "LILÁS (2 ANOS)"; }
-            if (text == "LARANJA 3-4 ANOS") { return "LARANJA"; }
-            if (text == "VERMELHO 5-6 ANOS") { return "VERMELHO"; }
-            if (text == "VERDE 7-8 ANOS") { return "VERDE"; }
-            if (text == "AZUL 9-10 ANOS") { return "AZUL (9-10 ANOS)"; }
-            if (text == "AZUL ROYAL 11-12 ANOS") { return "AZUL ROYAL (11-12 ANOS)"; }
-
-            return "";
-        }
-
-        private string RetornaDescricaoCmbTurmaAtual(string Valor)
-        {
-            if (Valor == "BRANCO/ROSA (0 A 11 M)") { return "BRANCO/ROSA (0 A 11 M)"; }
-            if (Valor == "LILÁS (1 ANO)") { return "LILÁS (1 ANO)"; }
-            if (Valor == "LILÁS (2 ANOS)") { return "LILÁS (2 ANOS)"; }
-            if (Valor == "LARANJA") { return "LARANJA 3-4 ANOS"; }
-            if (Valor == "VERMELHO") { return "VERMELHO 5-6 ANOS"; }
-            if (Valor == "VERDE") { return "VERDE 7-8 ANOS"; }
-            if (Valor == "AZUL (9-10 ANOS)") { return "AZUL 9-10 ANOS"; }
-            if (Valor == "AZUL ROYAL (11-12 ANOS)") { return "AZUL ROYAL 11-12 ANOS"; }
-
-            return "";
-        }
-
-        private async void BtnExcluir_Click(object sender, EventArgs e)
-        {
-            //TODO: ExcluirRegistro()
-            string CodigoCadastroAtual = numericUpDown1.Value.ToString();
-
-            if (string.IsNullOrEmpty(CodigoCadastroAtual))
-            {
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                return;
-            }
-            if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
-            {
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                return;
-            }
-
-            DialogResult result = MessageBox.Show(string.Format("Deseja realmente remover o registro '{0} - {1}' ?", numericUpDown1.Value.ToString(), TxtNomeCrianca.Text), "Remover registro", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
-            {
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                return;
-            }
-
-            HabilitaDesabilitaCampos(false);
-
-            Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()).FirstOrDefault();
-            ValuesDTO valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
-            bool retorno = await new QuintaBDTrilhar().DeletarAsync(itemAtual.id);
-            if (retorno == true)
-            {
-                recordsList.Remove(itemAtual);
-                valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()));
-
-                LimparCampos();
-                MessageBox.Show(string.Format("O Código '{0}' foi removido com sucesso!", CodigoCadastroAtual), "Resultado");
-
-                //diminui -1 no código
-                numericUpDown1.Value = (Convert.ToInt32(CodigoCadastroAtual) - 1);
-                while (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()) == false)
-                {
-                    //enquanto não existir... 
-                    //diminui um valor no código.
-                    //se existir, sai...
-                    numericUpDown1.Value = (Convert.ToInt32(numericUpDown1.Value) - 1);
-                    if (Convert.ToInt32(numericUpDown1.Value) <= 999)
-                    {
-                        numericUpDown1.Value = 0000;
-                        break;
-                    }
-                }
-
-                if (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()) == true)
-                {
-                    itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()).FirstOrDefault();
-                    valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
-                    CarregaCampos(valuesDTO);
-                    numericUpDown1.Focus();
-                    numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                }
-            }
-            else
-            {
-                HabilitaDesabilitaCampos(true);
-                MessageBox.Show(string.Format("Algo ocorreu de errado com a exclusão do registro. Tente novamente!"), "Resultado");
-
-            }
-            AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
-        }
-
-        private void BtnSalvar_Click(object sender, EventArgs e)
-        {
-            if (estadoFormularioCadastro == EstadoFormularioCadastro.Novo || estadoFormularioCadastro == EstadoFormularioCadastro.NovoAproveitando)
-            {
-                SalvarNovoRegistro();
-            }
-            if (estadoFormularioCadastro == EstadoFormularioCadastro.Alterar)
-            {
-                SalvarAlteracaoRegistro();
-            }
-        }
-
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             AlterarEstadoFormulario(EstadoFormularioCadastro.Cancelar);
         }
 
-        private string RetonaSugestaoTurma(string dataNascimento)
-        {
-            #region verifica BRANCO/ROSA (0 A 11 M)
-            if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2022", limiteSuperior: DateTime.Now.Date.ToShortDateString()))
-                return "BRANCO/ROSA (0 A 11 M)";
-            #endregion
-
-            #region LILÁS (1 ANO)
-            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2021", limiteSuperior: "28/02/2022"))
-                return "LILÁS (1 ANO)";
-            #endregion
-
-            #region LILÁS (2 ANOS)
-            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2020", limiteSuperior: "28/02/2021"))
-                return "LILÁS (2 ANOS)";
-            #endregion
-
-            #region LARANJA 3-4 ANOS
-            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2018", limiteSuperior: "29/02/2020"))
-                return "LARANJA 3-4 ANOS";
-            #endregion
-
-            #region VERMELHO 5-6 ANOS
-            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2016", limiteSuperior: "28/02/2018"))
-                return "VERMELHO 5-6 ANOS";
-            #endregion
-
-            #region VERDE 7-8 ANOS
-            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2014", limiteSuperior: "29/02/2016"))
-                return "VERDE 7-8 ANOS";
-            #endregion
-
-            #region AZUL 9-10 ANOS
-            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2012", limiteSuperior: "28/02/2014"))
-                return "AZUL 9-10 ANOS";
-            #endregion
-
-            #region AZUL ROYAL 11-12 ANOS
-            else if (VerificaPeriodoTurma(data: dataNascimento, limiteInferior: "01/03/2010", limiteSuperior: "29/02/2012"))
-                return "AZUL ROYAL 11-12 ANOS";
-            #endregion
-
-            #region nenhuma das opções
-            else
-                return "";
-            #endregion
-        }
-
-        private bool VerificaPeriodoTurma(string data, string limiteInferior, string limiteSuperior)
-        {
-            try
-            {
-                DateTime dataObj = DateTime.ParseExact(data, "dd/MM/yyyy", new CultureInfo("pt-BR"));
-                DateTime limiteInfObj = DateTime.ParseExact(limiteInferior, "dd/MM/yyyy", new CultureInfo("pt-BR"));
-                DateTime limiteSupObj = DateTime.ParseExact(limiteSuperior, "dd/MM/yyyy", new CultureInfo("pt-BR"));
-
-                if (dataObj >= limiteInfObj && dataObj <= limiteSupObj)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-        }
+        
 
         private void TxtDataNascimento_TextChanged(object sender, EventArgs e)
         {
@@ -1134,10 +956,12 @@ namespace Trilhar.Forms
                     return;
                 }
 
-                if (estadoFormularioCadastro == EstadoFormularioCadastro.Novo || estadoFormularioCadastro == EstadoFormularioCadastro.Alterar)
+                if (estadoFormularioCadastro == EstadoFormularioCadastro.Novo ||
+                    estadoFormularioCadastro == EstadoFormularioCadastro.NovoAproveitando ||
+                    estadoFormularioCadastro == EstadoFormularioCadastro.Alterar)
                 {
-                    TxtIdadeCrianca.Text = PreencheIdadeFormatada(TxtDataNascimento.Text);
-                    TxtTurmaAtual.Text = TxtDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : RetonaSugestaoTurma(TxtDataNascimento.Text);
+                    TxtIdadeCrianca.Text = DataUteis.PreencheIdadeFormatada(TxtDataNascimento.Text);
+                    TxtTurmaAtual.Text = TxtDataNascimento.Text == DateTime.Now.ToShortDateString() ? "" : CadastroTrilharAuxiliaresControle.RetonaSugestaoTurma(TxtDataNascimento.Text);
                     if (TxtTurmaAtual.Text == "")
                     {
                         DialogResult result = MessageBox.Show(string.Format("Atenção!\nNão encontramos uma Turma para a idade de: '{0}'.\nDeseja prosseguir? Clique em Sim para escolher uma Turma que melhor se encaixa, ou, Não para trocar a data de nascimento.", TxtIdadeCrianca.Text), "Pergunta", MessageBoxButtons.YesNo);

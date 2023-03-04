@@ -12,9 +12,9 @@ using Trilhar.Entidades;
 
 namespace Trilhar.Integracao
 {
-    public class QuintaBDTrilhar : IQuintaBDTrilhar
+    public class QuintaBDTrilharService : IQuintaBDTrilharService
     {
-        public QuintaBDTrilhar()
+        public QuintaBDTrilharService()
         {
             Trilhar.Mapeamento.ValuesMapeamento.ValuesToValuesDTOMapeamento();
             Trilhar.Mapeamento.ValuesMapeamento.ValuesDTOToValuesMapeamento();
@@ -30,7 +30,7 @@ namespace Trilhar.Integracao
             int i = 0;
             while (true)
             {
-                if (!Internet.CheckForInternetConnection())
+                if (!InternetUteis.CheckForInternetConnection())
                 {
                     MessageBox.Show("Sem conexão com internet no momento!");
                     break;

@@ -68,7 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CadastroTrilharControle.cs" />
+    <Compile Include="CadastroTrilharAuxiliaresControle.cs" />
+    <Compile Include="IntegracaoQuintaDBTrilharControle.cs" />
+    <Compile Include="Interface\IIntegracaoQuintaDBTrilharService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,5 +94,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

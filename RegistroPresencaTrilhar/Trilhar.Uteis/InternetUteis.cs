@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace Trilhar.Uteis
 {
-    public static class Internet
+    public static class InternetUteis
     {
         [DllImport("wininet.dll")]
         private extern static bool InternetGetConnectedState(out int description, int reservedValue);

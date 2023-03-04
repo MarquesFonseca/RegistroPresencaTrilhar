@@ -61,10 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EstadosFormularioCadastro.cs" />
+    <Compile Include="EstadosFormularioCadastroUteis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Internet.cs" />
-    <Compile Include="VerificacaoData.cs" />
+    <Compile Include="InternetUteis.cs" />
+    <Compile Include="DataUteis.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

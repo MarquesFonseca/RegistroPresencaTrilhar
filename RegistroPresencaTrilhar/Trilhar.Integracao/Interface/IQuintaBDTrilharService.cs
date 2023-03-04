@@ -4,7 +4,7 @@ using Trilhar.Entidades;
 
 namespace Trilhar.Integracao
 {
-    internal interface IQuintaBDTrilhar
+    public interface IQuintaBDTrilharService
     {
         Task<List<Record>> RetornarListaAsync();
 

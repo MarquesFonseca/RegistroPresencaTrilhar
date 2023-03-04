@@ -71,6 +71,8 @@ namespace Trilhar.Forms
             this.chamadaVerde78AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chamadaVermelho56AnosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valuesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -113,7 +115,9 @@ namespace Trilhar.Forms
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.TxtCampoPesquisa);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
@@ -482,6 +486,29 @@ namespace Trilhar.Forms
             // 
             this.valuesDTOBindingSource.DataSource = typeof(Trilhar.Entidades.ValuesDTO);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(584, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(546, 37);
+            this.comboBox1.TabIndex = 2;
+            this.comboBox1.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Location = new System.Drawing.Point(579, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Selecione a turma:";
+            this.label1.Visible = false;
+            // 
             // FormBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -548,5 +575,7 @@ namespace Trilhar.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadaLilas2AnosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadaVerde78AnosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadaVermelho56AnosDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -5,10 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trilhar.Controle;
 using Trilhar.Entidades;
 
 namespace Trilhar.Forms
@@ -25,46 +27,43 @@ namespace Trilhar.Forms
         {
             BuscarPeloNome,
             BuscarPelaMae,
-            BuscarPeloPai
+            BuscarPeloPai,
+            BuscarPelaTurma
         }
 
         public FormBuscar(List<ValuesDTO> valuesDTOList, TipoBusca tipoBusca)
         {
-            this.valuesDTOList = RemoveCamposVazio(valuesDTOList);
+            this.valuesDTOList = CadastroTrilharAuxiliaresControle.RemoveCamposVazio(valuesDTOList);
             this.ItemSelecionado = new ValuesDTO();
             this.tipoBusca = tipoBusca;
 
             InitializeComponent();
+            
+        }        
+
+        private void FormBuscar_Load(object sender, EventArgs e)
+        {
             if (this.tipoBusca == TipoBusca.BuscarPeloNome)
             {
+                //this.TxtCampoPesquisa.Size = new Size(1118, 35);
                 this.Text = "Buscando criança pelo nome";
             }
             if (this.tipoBusca == TipoBusca.BuscarPelaMae)
             {
+               // this.TxtCampoPesquisa.Size = new Size(1118, 35);
                 this.Text = "Buscando criança pela mãe";
             }
             if (this.tipoBusca == TipoBusca.BuscarPeloPai)
             {
+                //this.TxtCampoPesquisa.Size = new Size(1118, 35);
                 this.Text = "Buscando criança pelo pai";
             }
-        }
-
-        private List<ValuesDTO> RemoveCamposVazio(List<ValuesDTO> valuesDTOList)
-        {
-            foreach (var obj in valuesDTOList)
+            if (this.tipoBusca == TipoBusca.BuscarPelaTurma)
             {
-                obj.NomeCrianca = obj.NomeCrianca ?? string.Empty;
-                obj.Mae = obj.Mae ?? string.Empty;
-                obj.Pai = obj.Pai ?? string.Empty;
+                this.TxtCampoPesquisa.Size = new Size(566, 35);
+                this.Text = "Buscando criança pela turma";
             }
 
-            return valuesDTOList;
-        }
-
-        private void FormBuscar_Load(object sender, EventArgs e)
-        {
-            //dataGridView1.DataSource = null;
-            //dataGridView1.DataSource = this.valuesDTOList;
             valuesDTOBindingSource.DataSource = this.valuesDTOList;
 
             TxtCampoPesquisa.Focus();
