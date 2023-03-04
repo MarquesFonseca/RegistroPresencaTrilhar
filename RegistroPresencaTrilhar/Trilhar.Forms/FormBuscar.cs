@@ -37,8 +37,7 @@ namespace Trilhar.Forms
             this.ItemSelecionado = new ValuesDTO();
             this.tipoBusca = tipoBusca;
 
-            InitializeComponent();
-            
+            InitializeComponent();            
         }        
 
         private void FormBuscar_Load(object sender, EventArgs e)
@@ -60,11 +59,14 @@ namespace Trilhar.Forms
             }
             if (this.tipoBusca == TipoBusca.BuscarPelaTurma)
             {
-                this.TxtCampoPesquisa.Size = new Size(566, 35);
+                this.TxtCampoPesquisa.Size = new Size(560, 35);
+                this.CmbSelecioneATurma.Visible = true;
+                this.CmbSelecioneATurma.SelectedIndex = 0;
                 this.Text = "Buscando criança pela turma";
             }
 
-            valuesDTOBindingSource.DataSource = this.valuesDTOList;
+            PesquisarAtual();
+            //valuesDTOBindingSource.DataSource = this.valuesDTOList;
 
             TxtCampoPesquisa.Focus();
             TxtCampoPesquisa.SelectAll();
@@ -72,7 +74,11 @@ namespace Trilhar.Forms
 
         private void TxtCampoPesquisa_TextChanged(object sender, EventArgs e)
         {
-            //if (TxtCampoPesquisa.Text.Length <= 3) return;
+            PesquisarAtual();
+        }
+
+        private void PesquisarAtual()
+        {
             string TextoDigitado = RemoveSpecialCharactersAndAccents(TxtCampoPesquisa.Text.ToUpper());
             if (this.tipoBusca == TipoBusca.BuscarPeloNome)
             {
@@ -89,9 +95,24 @@ namespace Trilhar.Forms
                 valuesDTOBindingSource.DataSource = this.valuesDTOList.Where(num => !string.IsNullOrEmpty(num.Pai) && RemoveSpecialCharactersAndAccents(num.Pai.ToUpper()).Contains(TextoDigitado));
                 valuesDTOBindingSource.ResetBindings(false);
             }
+            if (this.tipoBusca == TipoBusca.BuscarPelaTurma)
+            {
+                valuesDTOBindingSource.DataSource = from P in valuesDTOList
+                                                    where !string.IsNullOrEmpty(P.NomeCrianca) &&
+                                                    P.SelecioneATurma == CadastroTrilharAuxiliaresControle.RetornaDescricaoPeloValorTurmaAtual(CmbSelecioneATurma.Text) &&
+                                                    RemoveSpecialCharactersAndAccents(P.NomeCrianca.ToUpper()).Contains(TextoDigitado)
+                                                    select P;
+                //valuesDTOBindingSource.DataSource = this.valuesDTOList.Where(num => !string.IsNullOrEmpty(num.NomeCrianca) && RemoveSpecialCharactersAndAccents(num.NomeCrianca.ToUpper()).Contains(TextoDigitado));
+                valuesDTOBindingSource.ResetBindings(false);
+            }
 
             int quantidadeRegistros = valuesDTOBindingSource.Count == 1 && valuesDTOBindingSource.Position == 0 ? 0 : valuesDTOBindingSource.Count;
             groupBox1.Text = string.Format("Resultado da pesquisa: {0} encontrado(s)!", quantidadeRegistros);
+        }
+
+        private void CmbSelecioneATurma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PesquisarAtual();
         }
 
         public static string RemoveSpecialCharactersAndAccents(string text)
@@ -195,5 +216,6 @@ namespace Trilhar.Forms
                 e.SuppressKeyPress = true;
             }
         }
+
     }
 }

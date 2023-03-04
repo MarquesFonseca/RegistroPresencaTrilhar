@@ -20,6 +20,10 @@ namespace Trilhar.Integracao
             Trilhar.Mapeamento.ValuesMapeamento.ValuesDTOToValuesMapeamento();
         }
 
+        /// <summary>
+        /// Retorna todos os registros da integração QuintaDB.
+        /// </summary>
+        /// <returns>Lista de Records</returns>
         public async Task<List<Record>> RetornarListaAsync()
         {
             List<Record> RetornoRecordList = new List<Record>();
@@ -76,6 +80,12 @@ namespace Trilhar.Integracao
             }
         }
 
+        /// <summary>
+        /// Inserir novo Registro na integração QuintaDB
+        /// </summary>
+        /// <typeparam name="T">Insira a Entidade ValueDTO.</typeparam>
+        /// <param name="data">Insira a entidade ValueDTO preenchida.</param>
+        /// <returns>Retona o Records.</returns>
         public async Task<Record> InserirAsync<T>(ValuesDTO data)
         {
             Record Retono = new Record();
@@ -105,6 +115,13 @@ namespace Trilhar.Integracao
             return Retono;
         }
 
+        /// <summary>
+        /// Altera o registro na integração QuintaDB.
+        /// </summary>
+        /// <typeparam name="T">Insira a Entidade ValueDTO.</typeparam>
+        /// <param name="id">Informe o valor do campo id do regigisto.</param>
+        /// <param name="data">Insira a entidade ValueDTO preenchida.</param>
+        /// <returns>Retona o Records.</returns>
         public async Task<Record> AlterarAsync<T>(string id, ValuesDTO data)
         {
             Record Retono = new Record();
@@ -134,6 +151,11 @@ namespace Trilhar.Integracao
             return Retono;
         }
 
+        /// <summary>
+        /// Remove o registro na integração QuintaDB.
+        /// </summary>
+        /// <param name="id">Informe o valor do campo id do regigisto.</param>
+        /// <returns>Retorna o True para sucesso!, False para erro.</returns>
         public async Task<bool> DeletarAsync(string id)
         {
             string url = string.Format("https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/{0}.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE", id);

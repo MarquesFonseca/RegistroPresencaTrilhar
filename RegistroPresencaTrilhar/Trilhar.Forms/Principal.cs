@@ -623,6 +623,11 @@ namespace Trilhar.Forms
         {
             RetornaFormBuscar(valuesDTOList.OrderByDescending(m => m.CodigoCadastro).ToList(), FormBuscar.TipoBusca.BuscarPeloPai);
         }
+        
+        private void linkLabelBuscarPelaTurma_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RetornaFormBuscar(valuesDTOList.OrderByDescending(m => m.CodigoCadastro).ToList(), FormBuscar.TipoBusca.BuscarPelaTurma);
+        }
 
         private void RetornaFormBuscar(List<ValuesDTO> listaValuesDTO, FormBuscar.TipoBusca tipoBusca)
         {

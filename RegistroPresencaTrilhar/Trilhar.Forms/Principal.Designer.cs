@@ -91,6 +91,7 @@ namespace Trilhar.Forms
             this.TxtTurmaAtual = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.TxtDataNascimento = new System.Windows.Forms.MaskedTextBox();
+            this.linkLabelBuscarPelaTurma = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -824,6 +825,18 @@ namespace Trilhar.Forms
             this.TxtDataNascimento.ValidatingType = typeof(System.DateTime);
             this.TxtDataNascimento.TextChanged += new System.EventHandler(this.TxtDataNascimento_TextChanged);
             // 
+            // linkLabelBuscarPelaTurma
+            // 
+            this.linkLabelBuscarPelaTurma.AutoSize = true;
+            this.linkLabelBuscarPelaTurma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelBuscarPelaTurma.Location = new System.Drawing.Point(17, 43);
+            this.linkLabelBuscarPelaTurma.Name = "linkLabelBuscarPelaTurma";
+            this.linkLabelBuscarPelaTurma.Size = new System.Drawing.Size(268, 29);
+            this.linkLabelBuscarPelaTurma.TabIndex = 0;
+            this.linkLabelBuscarPelaTurma.TabStop = true;
+            this.linkLabelBuscarPelaTurma.Text = "[F4] - Buscar pela turma";
+            this.linkLabelBuscarPelaTurma.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBuscarPelaTurma_LinkClicked);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -848,6 +861,7 @@ namespace Trilhar.Forms
             this.Controls.Add(this.BtnRegistrarPresenca);
             this.Controls.Add(this.TxtNomeCrianca);
             this.Controls.Add(this.label15);
+            this.Controls.Add(this.linkLabelBuscarPelaTurma);
             this.Controls.Add(this.linkLabelBuscarPeloNome);
             this.Controls.Add(this.linkLabelBuscarPeloPai);
             this.Controls.Add(this.linkLabelBuscarPelaMae);
@@ -937,5 +951,6 @@ namespace Trilhar.Forms
         private System.Windows.Forms.ComboBox TxtCmbBatizado;
         private System.Windows.Forms.MaskedTextBox TxtDataBatismo;
         private System.Windows.Forms.MaskedTextBox TxtDataNascimento;
+        private System.Windows.Forms.LinkLabel linkLabelBuscarPelaTurma;
     }
 }
