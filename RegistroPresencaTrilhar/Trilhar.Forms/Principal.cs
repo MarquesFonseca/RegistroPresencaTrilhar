@@ -9,7 +9,6 @@ using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using Trilhar.Entidades;
-using Trilhar.Integracao;
 using Trilhar.Uteis;
 using Trilhar.Controle;
 
@@ -23,7 +22,7 @@ namespace Trilhar.Forms
         List<ValuesDTO> valuesDTOList = new List<ValuesDTO>();
         ValuesDTO valuesDTOAtual = new ValuesDTO();
 
-        public Uteis.EstadoFormularioCadastro estadoFormularioCadastro;
+        public EstadoFormularioCadastro estadoFormularioCadastro;
 
         public Principal()
         {
@@ -455,9 +454,7 @@ namespace Trilhar.Forms
 
             TxtDescricaoDeficienteAtipicos.Text = itemAtual != null && itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes != null ? itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes : "";
             #endregion
-        }
-
-        
+        }        
 
         public void HabilitaDesabilitaCampos(bool valor)
         {

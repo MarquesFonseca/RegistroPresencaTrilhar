@@ -70,7 +70,7 @@
   <PropertyGroup />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
@@ -192,25 +192,25 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Trilhar.Controle\Trilhar.Controle.csproj">
-      <Project>{6ac687a8-b85b-47a0-bd48-5a21e7e0e0aa}</Project>
+      <Project>{6AC687A8-B85B-47A0-BD48-5A21E7E0E0AA}</Project>
       <Name>Trilhar.Controle</Name>
     </ProjectReference>
     <ProjectReference Include="..\Trilhar.Entidades\Trilhar.Entidades.csproj">
-      <Project>{06f489ab-f29f-4c74-8010-00a31f656653}</Project>
+      <Project>{06F489AB-F29F-4C74-8010-00A31F656653}</Project>
       <Name>Trilhar.Entidades</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Trilhar.Integracao\Trilhar.Integracao.csproj">
-      <Project>{40dcf121-f235-41de-8d97-7e3c5a31ca42}</Project>
-      <Name>Trilhar.Integracao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Trilhar.Mapeamento\Trilhar.Mapeamento.csproj">
-      <Project>{2e285d22-cb69-4a7c-917d-273bbc0e53be}</Project>
-      <Name>Trilhar.Mapeamento</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Trilhar.Uteis\Trilhar.Uteis.csproj">
-      <Project>{3213bbe6-65d9-4fe3-874c-523c9e29b84b}</Project>
+      <Project>{3213BBE6-65D9-4FE3-874C-523C9E29B84B}</Project>
       <Name>Trilhar.Uteis</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>

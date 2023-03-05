@@ -1,4 +1,7 @@
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Uteis\bin\x86\Debug\Trilhar.Uteis.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Uteis\bin\x86\Debug\Trilhar.Uteis.pdb
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Uteis\bin\Debug\Trilhar.Uteis.dll
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Uteis\bin\Debug\Trilhar.Uteis.pdb
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Uteis\obj\x86\Debug\Trilhar.Uteis.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Uteis\obj\x86\Debug\Trilhar.Uteis.pdb
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Uteis\obj\x86\Debug\Trilhar.Uteis.csprojAssemblyReference.cache

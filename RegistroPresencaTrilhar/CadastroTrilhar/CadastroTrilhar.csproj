@@ -141,12 +141,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Trilhar.Forms\Trilhar.Forms.csproj">
-      <Project>{1a381ab4-7b94-4f7d-ab39-f697be344286}</Project>
-      <Name>Trilhar.Forms</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
@@ -161,5 +155,56 @@
   <ItemGroup>
     <Content Include="IcoTrilhar.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Trilhar.Forms\Trilhar.Forms.csproj">
+      <Project>{1a381ab4-7b94-4f7d-ab39-f697be344286}</Project>
+      <Name>Trilhar.Forms</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if "Debug" == "$(ConfigurationName)" ( goto :AcoesDebug )
+if "Release" == "$(ConfigurationName)" ( goto :AcoesRelease )
+
+:AcoesRelease
+echo "Copiando arquivos Release....."
+xcopy /Y "$(TargetDir)Trilhar.Entidades.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "$(TargetDir)Trilhar.Uteis.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "$(TargetDir)Trilhar.Mapeamento.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "$(TargetDir)Trilhar.Integracao.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "$(TargetDir)Trilhar.Controle.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "$(TargetDir)Trilhar.Forms.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Microsoft.CSharp.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\packages\Serilog.2.12.0\lib\net47\Serilog.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\packages\Serilog.Sinks.File.5.0.0\lib\net45\Serilog.Sinks.File.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Configuration.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Core.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.DataSetExtensions.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Deployment.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Drawing.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.IO.Compression.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Net.Http.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Runtime.Serialization.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.ServiceModel.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Transactions.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Web.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Windows.Forms.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.Linq.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\packages\Mapster.7.3.0\lib\netstandard2.0\Mapster.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\packages\Mapster.Core.1.2.0\lib\net45\Mapster.Core.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+goto :exit
+
+:AcoesDebug
+echo "Copiando arquivos Debug....."
+
+goto :exit
+
+:exit
+echo "Fim..."</PostBuildEvent>
+  </PropertyGroup>
 </Project>

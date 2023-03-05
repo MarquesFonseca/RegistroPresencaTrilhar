@@ -8,10 +8,10 @@ C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPrese
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Forms.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Entidades.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Uteis.dll
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Mapster.dll
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Integracao.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Controle.dll
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Mapster.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Newtonsoft.Json.dll
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Integracao.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Mapster.Core.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Mapeamento.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Forms.pdb
@@ -21,9 +21,9 @@ C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPrese
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Serilog.Sinks.File.xml
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Entidades.pdb
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Uteis.pdb
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Integracao.pdb
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Controle.pdb
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Newtonsoft.Json.xml
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Integracao.pdb
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Release\Trilhar.Mapeamento.pdb
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\x86\Release\CadastroTrilhar.csprojAssemblyReference.cache
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\x86\Release\CadastroTrilhar.Properties.Resources.resources
