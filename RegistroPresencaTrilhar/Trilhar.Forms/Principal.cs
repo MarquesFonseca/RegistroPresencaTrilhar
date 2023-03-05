@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Trilhar.Entidades;
 using Trilhar.Uteis;
 using Trilhar.Controle;
+using System.Reflection;
 
 namespace Trilhar.Forms
 {
@@ -31,8 +32,9 @@ namespace Trilhar.Forms
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            //Log.Error(ex, "Ocorreu um erro durante a execução do aplicativo: {Contexto}", new { Usuario = "João", IP = "192.168.1.1" });
-            logger.Information("Mensagem de informação. Iniciou o principal");
+            //Log.Error(ex, "Ocorreu um erro durante a execução do aplicativo: {Contexto}", new { Usuario = "João", IP = "192.168.1.1" });            
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            //logger.Information("\t\tParametro entrada: {@Valor1}", "");
 
             clock.Start();
 
@@ -49,6 +51,8 @@ namespace Trilhar.Forms
 
         private void AlterarEstadoFormulario(EstadoFormularioCadastro EstadoAtual)
         {
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            logger.Information("\t\tParametro entrada: {@Valor1}", new { EstadoAtual });
             this.estadoFormularioCadastro = EstadoAtual;
             switch (EstadoAtual)
             {
@@ -234,6 +238,9 @@ namespace Trilhar.Forms
 
         private void HabilitaDesabilitaBotoes(bool valor)
         {
+            //logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            //logger.Information("\t\tParametro entrada: {@Valor1}", new { valor });
+
             BtnNovo.Enabled = valor;
             BtnAlterar.Enabled = valor;
             BtnExcluir.Enabled = valor;
@@ -243,6 +250,9 @@ namespace Trilhar.Forms
 
         private void CarregaCampos(ValuesDTO itemAtual)
         {
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            logger.Information("\t\tParametro entrada: {@Valor1}", new { itemAtual });
+
             //TODO: CarregaCampos()
             valuesDTOAtual = itemAtual;
 
@@ -454,10 +464,13 @@ namespace Trilhar.Forms
 
             TxtDescricaoDeficienteAtipicos.Text = itemAtual != null && itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes != null ? itemAtual.SeAlgumaDeficienciaDescrevaOsDetalhes : "";
             #endregion
-        }        
+        }
 
         public void HabilitaDesabilitaCampos(bool valor)
         {
+            //logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            //logger.Information("\t\tParametro entrada: {@Valor1}", new { valor });
+
             numericUpDown1.Enabled = valor;
             TxtNomeCrianca.Enabled = valor;
             TxtTurmaAtual.Enabled = valor;
@@ -482,6 +495,9 @@ namespace Trilhar.Forms
 
         public void HabilitaDesabilitaLinkButon(bool valor)
         {
+            //logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            //logger.Information("\t\tParametro entrada: {@Valor1}", new { valor });
+
             linkLabelBuscarPeloNome.Enabled = valor;
             linkLabelBuscarPelaMae.Enabled = valor;
             linkLabelBuscarPeloPai.Enabled = valor;
@@ -491,6 +507,9 @@ namespace Trilhar.Forms
 
         public void ReadOnlyCampos(bool valor)
         {
+            //logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            //logger.Information("\t\tParametro entrada: {@Valor1}", new { valor });
+
             TxtNomeCrianca.ReadOnly = valor;
             TxtTurmaAtual.ReadOnly = valor;
             TxtDataNascimento.ReadOnly = valor;
@@ -513,6 +532,9 @@ namespace Trilhar.Forms
 
         public void LimparCampos()
         {
+            //logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            //logger.Information("\t\tParametro entrada: {@Valor1}", "");
+
             numericUpDown1.Value = 0;
             TxtNomeCrianca.ResetText();
             TxtTurmaAtual.ResetText();
@@ -542,10 +564,12 @@ namespace Trilhar.Forms
         {
             if (e.KeyCode == Keys.Enter)
             {
+                //logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+                //logger.Information("\t\tParametro entrada: {@Valor1}", "Keys.Enter");
+
                 e.Handled = true;
                 e.SuppressKeyPress = true;
                 numericUpDown1.Enabled = false;
-
 
                 string valorAtualTextBox = numericUpDown1.Text;
                 var itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == numericUpDown1.Text).FirstOrDefault();
@@ -561,6 +585,9 @@ namespace Trilhar.Forms
             }
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
             {
+                //logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+                //logger.Information("\t\tParametro entrada: {@Valor1}", e.KeyCode);
+
                 e.Handled = true;
                 e.SuppressKeyPress = true;
 
@@ -571,6 +598,9 @@ namespace Trilhar.Forms
 
         private void linkLabelAtualizarDados_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            //logger.Information("\t\tParametro entrada: {@Valor1}", "");
+
             AlterarEstadoFormulario(EstadoFormularioCadastro.Sincronizando);
 
             AtualizaDados();
@@ -578,78 +608,116 @@ namespace Trilhar.Forms
 
         public async void AtualizaDados()
         {
-            //TODO: AtualizaDados()
-            recordsList = await new IntegracaoQuintaDBTrilharControle().RetornarListaAsync();
-            valuesDTOList = CadastroTrilharAuxiliaresControle.GetListValues(recordsList);
-
-            if (valuesDTOList == null || valuesDTOList.Count == 0)
+            try
             {
-                //HabilitaDesabilitaCampos(false);
-                linkLabelAtualizarDados.Enabled = true;
-                BtnNovo.Enabled = true;
-                BtnAlterar.Enabled = false;
-                BtnExcluir.Enabled = false;
+                logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+                //logger.Information("\t\tParametro entrada: {@Valor1}", new { });
 
-                toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
-                toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", 0);
+                //TODO: AtualizaDados()
+                recordsList = await new IntegracaoQuintaDBTrilharControle().RetornarListaAsync();
+                valuesDTOList = CadastroTrilharAuxiliaresControle.GetListValues(recordsList);
 
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                if (valuesDTOList == null || valuesDTOList.Count == 0)
+                {
+                    //HabilitaDesabilitaCampos(false);
+                    linkLabelAtualizarDados.Enabled = true;
+                    BtnNovo.Enabled = true;
+                    BtnAlterar.Enabled = false;
+                    BtnExcluir.Enabled = false;
+
+                    toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
+                    toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", 0);
+
+                    numericUpDown1.Focus();
+                    numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                }
+                else
+                {
+                    ValuesDTO lastRecord = valuesDTOList.OrderBy(r => r.CodigoCadastro).Last();
+                    CarregaCampos(lastRecord);
+                    AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
+
+                    toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
+                    toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ValuesDTO lastRecord = valuesDTOList.OrderBy(r => r.CodigoCadastro).Last();
-                CarregaCampos(lastRecord);
-                AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
-
-                toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
-                toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
+                var st = new System.Diagnostics.StackTrace(ex, true);
+                var frame = st.GetFrame(0);
+                logger.Error(ex, "Ocorreu um erro na linha {Line}", frame.GetFileLineNumber());
             }
         }
 
         private void linkLabelBuscarPeloNome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            //logger.Information("\t\tParametro entrada: {@Valor1}", "");
+
             RetornaFormBuscar(valuesDTOList.OrderByDescending(m => m.CodigoCadastro).ToList(), FormBuscar.TipoBusca.BuscarPeloNome);
         }
 
         private void linkLabelBuscarPelaMae_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            //logger.Information("\t\tParametro entrada: {@Valor1}", "");
+
             RetornaFormBuscar(valuesDTOList.OrderByDescending(m => m.CodigoCadastro).ToList(), FormBuscar.TipoBusca.BuscarPelaMae);
         }
 
         private void linkLabelBuscarPeloPai_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            //logger.Information("\t\tParametro entrada: {@Valor1}", "");
+
             RetornaFormBuscar(valuesDTOList.OrderByDescending(m => m.CodigoCadastro).ToList(), FormBuscar.TipoBusca.BuscarPeloPai);
         }
-        
+
         private void linkLabelBuscarPelaTurma_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+            //logger.Information("\t\tParametro entrada: {@Valor1}", "");
+
             RetornaFormBuscar(valuesDTOList.OrderByDescending(m => m.CodigoCadastro).ToList(), FormBuscar.TipoBusca.BuscarPelaTurma);
         }
 
         private void RetornaFormBuscar(List<ValuesDTO> listaValuesDTO, FormBuscar.TipoBusca tipoBusca)
         {
-            FormBuscar frm = new FormBuscar(listaValuesDTO, tipoBusca);
-            frm.ShowDialog();
-            if (frm.Cancelado)
+            try
             {
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                return;
-            }
-            ValuesDTO itemAtual = new ValuesDTO();
-            itemAtual = (ValuesDTO)frm.ItemSelecionado;
-            if (itemAtual == null)
-            {
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                return;
-            }
-            itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == itemAtual.CodigoCadastro).FirstOrDefault();
-            CarregaCampos(itemAtual);
+                logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+                logger.Information("\t\tParametro entrada: {@Valor1} | {@Valor2}", "listaValuesDTO", new { tipoBusca });
 
-            numericUpDown1.Focus();
-            numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                FormBuscar frm = new FormBuscar(listaValuesDTO, tipoBusca);
+                frm.ShowDialog();
+                if (frm.Cancelado)
+                {
+                    logger.Information("\t\tAção: {@Valor1}", new { frm.Cancelado });
+                    numericUpDown1.Focus();
+                    numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                    return;
+                }
+                ValuesDTO itemAtual = new ValuesDTO();
+                itemAtual = (ValuesDTO)frm.ItemSelecionado;
+                logger.Information("\t\tRetorno: {@Valor1}", new { itemAtual });
+                if (itemAtual == null)
+                {
+                    numericUpDown1.Focus();
+                    numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                    return;
+                }
+                itemAtual = valuesDTOList.Where(num => num.CodigoCadastro == itemAtual.CodigoCadastro).FirstOrDefault();
+                CarregaCampos(itemAtual);
+
+                numericUpDown1.Focus();
+                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+            }
+            catch (Exception ex)
+            {
+                var st = new System.Diagnostics.StackTrace(ex, true);
+                var frame = st.GetFrame(0);
+                logger.Error(ex, "Ocorreu um erro na linha {Line}", frame.GetFileLineNumber());
+            }
         }
 
         private void Principal_KeyDown(object sender, KeyEventArgs e)
@@ -696,6 +764,8 @@ namespace Trilhar.Forms
 
         private void BtnNovo_Click(object sender, EventArgs e)
         {
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+
             if (estadoFormularioCadastro == EstadoFormularioCadastro.Preenchido && valuesDTOAtual != null && valuesDTOAtual.NomeCrianca != null)
             {
                 DialogResult result = MessageBox.Show(String.Format("Deseja aproveitar o cadastro atual de:\nMãe: {0}\nPai: {1}?\n\nClique em SIM para aproveitar, ou NÃO para iniciar novo cadastro.", valuesDTOAtual.Mae, valuesDTOAtual.Pai), "Pergunta", MessageBoxButtons.YesNo);
@@ -710,85 +780,100 @@ namespace Trilhar.Forms
 
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+
             AlterarEstadoFormulario(EstadoFormularioCadastro.Alterar);
-        }        
+        }
 
         private async void BtnExcluir_Click(object sender, EventArgs e)
         {
             //TODO: ExcluirRegistro()
-            string CodigoCadastroAtual = numericUpDown1.Value.ToString();
-
-            if (string.IsNullOrEmpty(CodigoCadastroAtual))
+            try
             {
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                return;
-            }
-            if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
-            {
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                return;
-            }
+                logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
 
-            DialogResult result = MessageBox.Show(string.Format("Deseja realmente remover o registro '{0} - {1}' ?", numericUpDown1.Value.ToString(), TxtNomeCrianca.Text), "Remover registro", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
-            {
-                numericUpDown1.Focus();
-                numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
-                return;
-            }
+                string CodigoCadastroAtual = numericUpDown1.Value.ToString();
 
-            HabilitaDesabilitaCampos(false);
-
-            Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()).FirstOrDefault();
-            ValuesDTO valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
-
-            bool retorno = await new IntegracaoQuintaDBTrilharControle().DeletarAsync(itemAtual.id);
-
-            if (retorno == true)
-            {
-                recordsList.Remove(itemAtual);
-                valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()));
-
-                LimparCampos();
-                MessageBox.Show(string.Format("O Código '{0}' foi removido com sucesso!", CodigoCadastroAtual), "Resultado");
-
-                //diminui -1 no código
-                numericUpDown1.Value = (Convert.ToInt32(CodigoCadastroAtual) - 1);
-                while (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()) == false)
+                if (string.IsNullOrEmpty(CodigoCadastroAtual))
                 {
-                    //enquanto não existir... 
-                    //diminui um valor no código.
-                    //se existir, sai...
-                    numericUpDown1.Value = (Convert.ToInt32(numericUpDown1.Value) - 1);
-                    if (Convert.ToInt32(numericUpDown1.Value) <= 999)
-                    {
-                        numericUpDown1.Value = 0000;
-                        break;
-                    }
-                }
-
-                if (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()) == true)
-                {
-                    itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()).FirstOrDefault();
-                    valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
-                    CarregaCampos(valuesDTO);
                     numericUpDown1.Focus();
                     numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                    return;
                 }
-            }
-            else
-            {
-                HabilitaDesabilitaCampos(true);
-                MessageBox.Show(string.Format("Algo ocorreu de errado com a exclusão do registro. Tente novamente!"), "Resultado");
+                if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
+                {
+                    numericUpDown1.Focus();
+                    numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                    return;
+                }
 
+                DialogResult result = MessageBox.Show(string.Format("Deseja realmente remover o registro '{0} - {1}' ?", numericUpDown1.Value.ToString(), TxtNomeCrianca.Text), "Remover registro", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    numericUpDown1.Focus();
+                    numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                    return;
+                }
+
+                HabilitaDesabilitaCampos(false);
+
+                Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()).FirstOrDefault();
+                ValuesDTO valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
+
+                bool retorno = await new IntegracaoQuintaDBTrilharControle().DeletarAsync(itemAtual.id);
+
+                if (retorno == true)
+                {
+                    recordsList.Remove(itemAtual);
+                    valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()));
+
+                    LimparCampos();
+                    MessageBox.Show(string.Format("O Código '{0}' foi removido com sucesso!", CodigoCadastroAtual), "Resultado");
+
+                    //diminui -1 no código
+                    numericUpDown1.Value = (Convert.ToInt32(CodigoCadastroAtual) - 1);
+                    while (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()) == false)
+                    {
+                        //enquanto não existir... 
+                        //diminui um valor no código.
+                        //se existir, sai...
+                        numericUpDown1.Value = (Convert.ToInt32(numericUpDown1.Value) - 1);
+                        if (Convert.ToInt32(numericUpDown1.Value) <= 999)
+                        {
+                            numericUpDown1.Value = 0000;
+                            break;
+                        }
+                    }
+
+                    if (recordsList.Exists(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()) == true)
+                    {
+                        itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()).FirstOrDefault();
+                        valuesDTO = itemAtual.values.Adapt<Values, ValuesDTO>();
+                        CarregaCampos(valuesDTO);
+                        numericUpDown1.Focus();
+                        numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
+                    }
+                }
+                else
+                {
+                    HabilitaDesabilitaCampos(true);
+                    MessageBox.Show(string.Format("Algo ocorreu de errado com a exclusão do registro. Tente novamente!"), "Resultado");
+
+                }
+                AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
             }
-            AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
+            catch (Exception ex)
+            {
+                var st = new System.Diagnostics.StackTrace(ex, true);
+                var frame = st.GetFrame(0);
+                logger.Error(ex, "Ocorreu um erro na linha {Line}", frame.GetFileLineNumber());
+            }
         }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+
             if (estadoFormularioCadastro == EstadoFormularioCadastro.Novo || estadoFormularioCadastro == EstadoFormularioCadastro.NovoAproveitando)
             {
                 SalvarNovoRegistro();
@@ -801,100 +886,141 @@ namespace Trilhar.Forms
 
         private async void SalvarNovoRegistro()
         {
-            // TODO: SalvarNovoRegistro()
-            this.BtnSalvar.Enabled = false;
+            try
+            {
+                logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
 
-            if (!VerificaCamposCadastroNovoAlterar()) return;
+                // TODO: SalvarNovoRegistro()
+                this.BtnSalvar.Enabled = false;
 
-            ValuesDTO novoValueDTO = new ValuesDTO();
-            novoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
-            novoValueDTO.NomeCrianca = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text.ToLowerInvariant());
-            novoValueDTO.DataNascimento = TxtDataNascimento.Text == "  /  /" ? "" : TxtDataNascimento.Text;
-            novoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text.ToLowerInvariant());
-            novoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text.ToLowerInvariant());
-            novoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text.ToLowerInvariant());
-            novoValueDTO.SelecioneATurma = CadastroTrilharAuxiliaresControle.RetornaValorPelaDescricaoTurmaAtual(CmbTurmaAtual.Text);
-            novoValueDTO.Telefone = TxtTelefone.Text == "(  )      -" ? "" : TxtTelefone.Text;
-            novoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
-            novoValueDTO.Alergia = TxtCmbAlergia.Text;
-            novoValueDTO.SeAlergiaSimPreenchaAqui = TxtDescicaoAlergia.Text;
-            novoValueDTO.RestrincaoAlimentar = TxtCmbRestrincaoAlimentar.Text;
-            novoValueDTO.SeRestrincaoAlimentarSimDescreva = TxtDescricaoRestricaoAlimentar.Text;
-            novoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = TxtCmbDeficienteAtipicos.Text;
-            novoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = TxtDescricaoDeficienteAtipicos.Text;
-            novoValueDTO.Batizado = TxtCmbBatizado.Text;
-            novoValueDTO.DataBatismo = TxtDataBatismo.Text == "  /  /" ? "" : TxtDataBatismo.Text;
-            novoValueDTO.IgrejaBatizou = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtIgrejaBatismo.Text.ToLowerInvariant());
+                if (!VerificaCamposCadastroNovoAlterar()) return;
 
-            Record retornoNovoRecord = await new IntegracaoQuintaDBTrilharControle().InserirAsync<ValuesDTO>(novoValueDTO);
-            recordsList.Add(retornoNovoRecord);
+                ValuesDTO novoValueDTO = new ValuesDTO();
+                novoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
+                novoValueDTO.NomeCrianca = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text.ToLowerInvariant());
+                novoValueDTO.DataNascimento = TxtDataNascimento.Text == "  /  /" ? "" : TxtDataNascimento.Text;
+                novoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text.ToLowerInvariant());
+                novoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text.ToLowerInvariant());
+                novoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text.ToLowerInvariant());
+                novoValueDTO.SelecioneATurma = CadastroTrilharAuxiliaresControle.RetornaValorPelaDescricaoTurmaAtual(CmbTurmaAtual.Text);
+                novoValueDTO.Telefone = TxtTelefone.Text == "(  )      -" ? "" : TxtTelefone.Text;
+                novoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
+                novoValueDTO.Alergia = TxtCmbAlergia.Text;
+                novoValueDTO.SeAlergiaSimPreenchaAqui = TxtDescicaoAlergia.Text;
+                novoValueDTO.RestrincaoAlimentar = TxtCmbRestrincaoAlimentar.Text;
+                novoValueDTO.SeRestrincaoAlimentarSimDescreva = TxtDescricaoRestricaoAlimentar.Text;
+                novoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = TxtCmbDeficienteAtipicos.Text;
+                novoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = TxtDescricaoDeficienteAtipicos.Text;
+                novoValueDTO.Batizado = TxtCmbBatizado.Text;
+                novoValueDTO.DataBatismo = TxtDataBatismo.Text == "  /  /" ? "" : TxtDataBatismo.Text;
+                novoValueDTO.IgrejaBatizou = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtIgrejaBatismo.Text.ToLowerInvariant());
 
-            ValuesDTO valuesDTO = retornoNovoRecord.values.Adapt<Values, ValuesDTO>();
-            valuesDTO.SelecioneATurma = CadastroTrilharAuxiliaresControle.RetornaDescricaoPeloValorTurmaAtual(valuesDTO.SelecioneATurma);
-            valuesDTOList.Add(valuesDTO);
-            valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
-            CarregaCampos(valuesDTO);
-            AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
+                logger.Information("Campos formulário: {@Valor1}", new { novoValueDTO });
+
+                Record retornoNovoRecord = await new IntegracaoQuintaDBTrilharControle().InserirAsync<ValuesDTO>(novoValueDTO);
+                logger.Information("Retorno: {@Valor1}", new { retornoNovoRecord });
+                recordsList.Add(retornoNovoRecord);
+                logger.Information("Adicionado a lista: {@Valor1}", new { retornoNovoRecord });
+
+                ValuesDTO valuesDTO = retornoNovoRecord.values.Adapt<Values, ValuesDTO>();
+                logger.Information("Retorno: {@Valor1}", new { valuesDTO });
+                valuesDTO.SelecioneATurma = CadastroTrilharAuxiliaresControle.RetornaDescricaoPeloValorTurmaAtual(valuesDTO.SelecioneATurma);
+                valuesDTOList.Add(valuesDTO);
+                logger.Information("Adicionado a lista: {@Valor1}", new { valuesDTO });
+                valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
+                CarregaCampos(valuesDTO);
+                AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
+            }
+            catch (Exception ex)
+            {
+                var st = new System.Diagnostics.StackTrace(ex, true);
+                var frame = st.GetFrame(0);
+                logger.Error(ex, "Ocorreu um erro na linha {Line}", frame.GetFileLineNumber());
+            }
+
         }
 
         private async void SalvarAlteracaoRegistro()
         {
-            // TODO: SalvarAlteracaoRegistro()
-            this.BtnSalvar.Enabled = false;
-
-            if (!VerificaCamposCadastroNovoAlterar()) return;
-
-            ValuesDTO alteracaoValueDTO = new ValuesDTO();
-            alteracaoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
-            alteracaoValueDTO.NomeCrianca = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text.ToLowerInvariant());
-            alteracaoValueDTO.DataNascimento = TxtDataNascimento.Text == "  /  /" ? "" : TxtDataNascimento.Text;
-            alteracaoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text.ToLowerInvariant());
-            alteracaoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text.ToLowerInvariant());
-            alteracaoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text.ToLowerInvariant());
-            alteracaoValueDTO.SelecioneATurma = CadastroTrilharAuxiliaresControle.RetornaValorPelaDescricaoTurmaAtual(CmbTurmaAtual.Text);
-            alteracaoValueDTO.Telefone = TxtTelefone.Text == "(  )      -" ? "" : TxtTelefone.Text;
-            alteracaoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
-            alteracaoValueDTO.Alergia = TxtCmbAlergia.Text;
-            alteracaoValueDTO.SeAlergiaSimPreenchaAqui = TxtDescicaoAlergia.Text;
-            alteracaoValueDTO.RestrincaoAlimentar = TxtCmbRestrincaoAlimentar.Text;
-            alteracaoValueDTO.SeRestrincaoAlimentarSimDescreva = TxtDescricaoRestricaoAlimentar.Text;
-            alteracaoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = TxtCmbDeficienteAtipicos.Text;
-            alteracaoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = TxtDescricaoDeficienteAtipicos.Text;
-            alteracaoValueDTO.Batizado = TxtCmbBatizado.Text;
-            alteracaoValueDTO.DataBatismo = TxtDataBatismo.Text == "  /  /" ? "" : TxtDataBatismo.Text;
-            alteracaoValueDTO.IgrejaBatizou = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtIgrejaBatismo.Text.ToLowerInvariant());
-
-            string CodigoCadastroAtual = numericUpDown1.Value.ToString();
-            Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == CodigoCadastroAtual.Trim()).FirstOrDefault();
-
-            Record retornoAlteracaoRecord = await new IntegracaoQuintaDBTrilharControle().AlterarAsync<ValuesDTO>(itemAtual.id, alteracaoValueDTO);
-            if (retornoAlteracaoRecord.id == null)
+            try
             {
-                MessageBox.Show("O item de alteração não está disponível na sincronização. Faça a sincronização dos dados e tente novamente.", "Resultado");
+                // TODO: SalvarAlteracaoRegistro()
+                logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
 
-                AlterarEstadoFormulario(EstadoFormularioCadastro.Inicio);
-                return;
+                this.BtnSalvar.Enabled = false;
+
+                if (!VerificaCamposCadastroNovoAlterar()) return;
+
+                ValuesDTO alteracaoValueDTO = new ValuesDTO();
+                alteracaoValueDTO.Entity_id = "cupCkNWP1eqyoXWPtcMmoM";
+                alteracaoValueDTO.NomeCrianca = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtNomeCrianca.Text.ToLowerInvariant());
+                alteracaoValueDTO.DataNascimento = TxtDataNascimento.Text == "  /  /" ? "" : TxtDataNascimento.Text;
+                alteracaoValueDTO.Mae = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtMae.Text.ToLowerInvariant());
+                alteracaoValueDTO.Pai = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtPai.Text.ToLowerInvariant());
+                alteracaoValueDTO.OutroResponsavel = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtOutroResponsavel.Text.ToLowerInvariant());
+                alteracaoValueDTO.SelecioneATurma = CadastroTrilharAuxiliaresControle.RetornaValorPelaDescricaoTurmaAtual(CmbTurmaAtual.Text);
+                alteracaoValueDTO.Telefone = TxtTelefone.Text == "(  )      -" ? "" : TxtTelefone.Text;
+                alteracaoValueDTO.EnderecoEmail = TxtEmail.Text.ToLower();
+                alteracaoValueDTO.Alergia = TxtCmbAlergia.Text;
+                alteracaoValueDTO.SeAlergiaSimPreenchaAqui = TxtDescicaoAlergia.Text;
+                alteracaoValueDTO.RestrincaoAlimentar = TxtCmbRestrincaoAlimentar.Text;
+                alteracaoValueDTO.SeRestrincaoAlimentarSimDescreva = TxtDescricaoRestricaoAlimentar.Text;
+                alteracaoValueDTO.AlgumaDeficienciaOuSituacaoAtipica = TxtCmbDeficienteAtipicos.Text;
+                alteracaoValueDTO.SeAlgumaDeficienciaDescrevaOsDetalhes = TxtDescricaoDeficienteAtipicos.Text;
+                alteracaoValueDTO.Batizado = TxtCmbBatizado.Text;
+                alteracaoValueDTO.DataBatismo = TxtDataBatismo.Text == "  /  /" ? "" : TxtDataBatismo.Text;
+                alteracaoValueDTO.IgrejaBatizou = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TxtIgrejaBatismo.Text.ToLowerInvariant());
+
+                logger.Information("Campos formulário: {@Valor1}", new { alteracaoValueDTO });
+
+                string CodigoCadastroAtual = numericUpDown1.Value.ToString();
+                Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == CodigoCadastroAtual.Trim()).FirstOrDefault();
+
+                Record retornoAlteracaoRecord = await new IntegracaoQuintaDBTrilharControle().AlterarAsync<ValuesDTO>(itemAtual.id, alteracaoValueDTO);
+                logger.Information("Retorno: {@Valor1}", new { retornoAlteracaoRecord });
+                if (retornoAlteracaoRecord.id == null)
+                {
+                    logger.Error("O item de alteração não está disponível na sincronização. Faça a sincronização dos dados e tente novamente.");
+                    MessageBox.Show("O item de alteração não está disponível na sincronização. Faça a sincronização dos dados e tente novamente.", "Resultado");
+
+                    AlterarEstadoFormulario(EstadoFormularioCadastro.Inicio);
+                    return;
+                }
+
+
+                recordsList.Remove(itemAtual);
+                logger.Information("Removendo da lista: {@Valor1}", new { itemAtual });
+                recordsList.Add(retornoAlteracaoRecord);
+                logger.Information("Adicionado a lista: {@Valor1}", new { retornoAlteracaoRecord });
+
+                valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()));
+                logger.Information("Removendo da lista: {@Valor1}", new { alteracaoValueDTO });
+
+                ValuesDTO valuesDTO = retornoAlteracaoRecord.values.Adapt<Values, ValuesDTO>();
+                valuesDTO.SelecioneATurma = CadastroTrilharAuxiliaresControle.RetornaDescricaoPeloValorTurmaAtual(valuesDTO.SelecioneATurma);
+                valuesDTOList.Add(valuesDTO);
+                logger.Information("Adicionado a lista: {@Valor1}", new { valuesDTO });
+                valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
+
+                CarregaCampos(valuesDTO);
+                AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
             }
-
-            recordsList.Remove(itemAtual);
-            recordsList.Add(retornoAlteracaoRecord);
-
-            valuesDTOList.RemoveAt(valuesDTOList.FindIndex(obj => obj.CodigoCadastro.Trim() == numericUpDown1.Value.ToString().Trim()));
-            ValuesDTO valuesDTO = retornoAlteracaoRecord.values.Adapt<Values, ValuesDTO>();
-            valuesDTO.SelecioneATurma = CadastroTrilharAuxiliaresControle.RetornaDescricaoPeloValorTurmaAtual(valuesDTO.SelecioneATurma);
-            valuesDTOList.Add(valuesDTO);
-            valuesDTOList = valuesDTOList.OrderByDescending(obj => obj.CodigoCadastro).ToList();
-
-            CarregaCampos(valuesDTO);
-            AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
+            catch (Exception ex)
+            {
+                var st = new System.Diagnostics.StackTrace(ex, true);
+                var frame = st.GetFrame(0);
+                logger.Error(ex, "Ocorreu um erro na linha {Line}", frame.GetFileLineNumber());
+            }
         }
 
         private bool VerificaCamposCadastroNovoAlterar()
         {
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
             if (string.IsNullOrEmpty(TxtNomeCrianca.Text))
             {
                 this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Nome da criança' não pode ser vazio!", "Resultado");
+                logger.Error("\t\tRetorno: O campo 'Nome da criança' não pode ser vazio!");
                 TxtNomeCrianca.Focus();
                 return false;
             }
@@ -902,6 +1028,7 @@ namespace Trilhar.Forms
             {
                 this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Data de nascimento' não pode ser vazio.", "Resultado");
+                logger.Error("\t\tRetorno: O campo 'Data de nascimento' não pode ser vazio.");
                 TxtDataNascimento.Focus();
                 TxtDataNascimento.Select(0, TxtDataNascimento.Text.Length);
                 return false;
@@ -910,6 +1037,7 @@ namespace Trilhar.Forms
             {
                 this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Data de nascimento' não está com o seu formato correto.", "Resultado");
+                logger.Error("\t\tRetorno: O campo 'Data de nascimento' não está com o seu formato correto.");
                 TxtDataNascimento.Focus();
                 TxtDataNascimento.Select(0, TxtDataNascimento.Text.Length);
                 return false;
@@ -918,6 +1046,7 @@ namespace Trilhar.Forms
             {
                 this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Data de nascimento' não pode ser maior que hoje.", "Resultado");
+                logger.Error("\t\tRetorno: O campo 'Data de nascimento' não pode ser maior que hoje.");
                 TxtDataNascimento.Focus();
                 TxtDataNascimento.Select(0, TxtDataNascimento.Text.Length);
                 return false;
@@ -926,6 +1055,7 @@ namespace Trilhar.Forms
             {
                 this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Data de nascimento' não deve ser igual a hoje.", "Resultado");
+                logger.Error("\t\tRetorno: O campo 'Data de nascimento' não deve ser igual a hoje.");
                 TxtDataNascimento.Focus();
                 TxtDataNascimento.Select(0, TxtDataNascimento.Text.Length);
                 return false;
@@ -934,27 +1064,32 @@ namespace Trilhar.Forms
             {
                 this.BtnSalvar.Enabled = true;
                 MessageBox.Show("O campo 'Turma atual' deve ser preenchida.", "Resultado");
+                logger.Error("\t\tRetorno: O campo 'Turma atual' deve ser preenchida.");
                 CmbTurmaAtual.Focus();
                 return false;
             }
+            logger.Error("\t\tRetorno: Campos aprovados!");
             return true;
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
+            logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+
             AlterarEstadoFormulario(EstadoFormularioCadastro.Cancelar);
         }
-
-        
 
         private void TxtDataNascimento_TextChanged(object sender, EventArgs e)
         {
             if (TxtDataNascimento.MaskCompleted)
             {
+                logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
+
                 if ((TxtDataNascimento.Text.VerificaSeDataValida() == false) ||
                     Convert.ToDateTime(TxtDataNascimento.Text).Date >= DateTime.Now.Date)
                 {
                     MessageBox.Show(string.Format("A data '{0}' não é considerada uma data válida!", TxtDataNascimento.Text), "Resultado");
+                    logger.Error("\t\tRetorno: " + string.Format("A data '{0}' não é considerada uma data válida!", TxtDataNascimento.Text));
                     //TxtDataNascimento.Text = "";
                     TxtIdadeCrianca.Text = "";
                     TxtTurmaAtual.Text = "";
@@ -972,8 +1107,10 @@ namespace Trilhar.Forms
                     if (TxtTurmaAtual.Text == "")
                     {
                         DialogResult result = MessageBox.Show(string.Format("Atenção!\nNão encontramos uma Turma para a idade de: '{0}'.\nDeseja prosseguir? Clique em Sim para escolher uma Turma que melhor se encaixa, ou, Não para trocar a data de nascimento.", TxtIdadeCrianca.Text), "Pergunta", MessageBoxButtons.YesNo);
+                        logger.Error("\t\tRetorno: " + string.Format("Atenção!\nNão encontramos uma Turma para a idade de: '{0}'.\nDeseja prosseguir? Clique em Sim para escolher uma Turma que melhor se encaixa, ou, Não para trocar a data de nascimento.", TxtIdadeCrianca.Text));
                         if (result == DialogResult.No)
                         {
+                            logger.Information("\t\tClicou em:: {@Valor1}()", "No");
                             //TxtDataNascimento.Text = "";
                             TxtIdadeCrianca.Text = "";
                             TxtTurmaAtual.Text = "";
@@ -983,12 +1120,14 @@ namespace Trilhar.Forms
                         }
                         if (result == DialogResult.Yes)
                         {
+                            logger.Information("\t\tClicou em:: {@Valor1}()", "Yes");
                             CmbTurmaAtual.SelectedIndex = -1;
                             CmbTurmaAtual.Focus();
                         }
                     }
                     else
                     {
+                        logger.Information("\t\tClicou em:: {@Valor1}()", "No");
                         CmbTurmaAtual.SelectedItem = TxtTurmaAtual.Text;
                     }
                 }

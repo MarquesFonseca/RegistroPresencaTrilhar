@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>t0eoW8esOcnV4MJn92lGMgvaoaXAqwDlArBbKZb/m7g=</dsig:DigestValue>
+        <dsig:DigestValue>e4R9m833g3g80lCEkApmJZCUXuFGi3jG/rTpS1N1Pdg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -139,14 +139,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.dll" size="506368">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.dll" size="515584">
       <assemblyIdentity name="Trilhar.Forms" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>MbyNqrX1a20oelC02wiYHZ0fQ70tBLbxpXGx/mrTaN4=</dsig:DigestValue>
+        <dsig:DigestValue>mzrHXW9ha9Gxyg/ihEA8ZGhPrtRyy58JELEubUjZKxE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

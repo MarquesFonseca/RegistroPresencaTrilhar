@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Serilog;
+using Serilog.Formatting.Json;
 
 namespace CadastroTrilhar
 {
@@ -12,7 +13,10 @@ namespace CadastroTrilhar
         [STAThread]
         static void Main()
         {
-            Log.Logger = new LoggerConfiguration().WriteTo.File("Log/CadastroTrilhar_.log", rollingInterval: RollingInterval.Day).CreateLogger();
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.File("Log/CadastroTrilhar_.log", rollingInterval: RollingInterval.Day)
+                //.Destructure.With<Serilog.Expressions>()
+                .CreateLogger();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

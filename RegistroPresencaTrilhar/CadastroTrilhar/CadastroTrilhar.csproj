@@ -178,6 +178,7 @@ xcopy /Y "$(TargetPath)" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
 
 xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Microsoft.CSharp.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
 xcopy /Y "C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\packages\Serilog.2.12.0\lib\net47\Serilog.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
+xcopy /Y "C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\packages\Serilog.Expressions.3.4.1\lib\netstandard2.0\Serilog.Expressions.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
 xcopy /Y "C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\packages\Serilog.Sinks.File.5.0.0\lib\net45\Serilog.Sinks.File.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
 xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
 xcopy /Y "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Configuration.dll" "$(SolutionDir)Projeto instalador\ArquivosInstalador\"
