@@ -485,6 +485,7 @@ namespace Trilhar.Forms
             linkLabelBuscarPeloNome.Enabled = valor;
             linkLabelBuscarPelaMae.Enabled = valor;
             linkLabelBuscarPeloPai.Enabled = valor;
+            linkLabelBuscarPelaTurma.Enabled = valor;
             linkLabelAtualizarDados.Enabled = valor;
         }
 
@@ -664,6 +665,10 @@ namespace Trilhar.Forms
             if (e.KeyData == Keys.F3)
             {
                 if (linkLabelBuscarPeloPai.Enabled) linkLabelBuscarPeloPai_LinkClicked(null, null);
+            }
+            if (e.KeyData == Keys.F4)
+            {
+                if (linkLabelBuscarPelaTurma.Enabled) linkLabelBuscarPelaTurma_LinkClicked(null, null);
             }
             if (e.KeyData == Keys.F5)
             {

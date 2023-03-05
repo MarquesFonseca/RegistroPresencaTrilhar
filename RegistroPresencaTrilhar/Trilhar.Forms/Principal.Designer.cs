@@ -140,7 +140,7 @@ namespace Trilhar.Forms
             this.linkLabelAtualizarDados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelAtualizarDados.AutoSize = true;
             this.linkLabelAtualizarDados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelAtualizarDados.Location = new System.Drawing.Point(758, 9);
+            this.linkLabelAtualizarDados.Location = new System.Drawing.Point(736, 9);
             this.linkLabelAtualizarDados.Name = "linkLabelAtualizarDados";
             this.linkLabelAtualizarDados.Size = new System.Drawing.Size(268, 29);
             this.linkLabelAtualizarDados.TabIndex = 3;
@@ -153,7 +153,7 @@ namespace Trilhar.Forms
             this.BtnRegistrarPresenca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnRegistrarPresenca.Enabled = false;
             this.BtnRegistrarPresenca.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.BtnRegistrarPresenca.Location = new System.Drawing.Point(686, 108);
+            this.BtnRegistrarPresenca.Location = new System.Drawing.Point(664, 108);
             this.BtnRegistrarPresenca.Name = "BtnRegistrarPresenca";
             this.BtnRegistrarPresenca.Size = new System.Drawing.Size(336, 66);
             this.BtnRegistrarPresenca.TabIndex = 13;
@@ -168,7 +168,7 @@ namespace Trilhar.Forms
             this.TxtNomeCrianca.Location = new System.Drawing.Point(225, 112);
             this.TxtNomeCrianca.Name = "TxtNomeCrianca";
             this.TxtNomeCrianca.ReadOnly = true;
-            this.TxtNomeCrianca.Size = new System.Drawing.Size(445, 57);
+            this.TxtNomeCrianca.Size = new System.Drawing.Size(423, 57);
             this.TxtNomeCrianca.TabIndex = 12;
             // 
             // LblNomeCrianca
@@ -237,10 +237,10 @@ namespace Trilhar.Forms
             this.TxtOutroResponsavel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtOutroResponsavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtOutroResponsavel.Location = new System.Drawing.Point(675, 41);
+            this.TxtOutroResponsavel.Location = new System.Drawing.Point(661, 41);
             this.TxtOutroResponsavel.Name = "TxtOutroResponsavel";
             this.TxtOutroResponsavel.ReadOnly = true;
-            this.TxtOutroResponsavel.Size = new System.Drawing.Size(332, 53);
+            this.TxtOutroResponsavel.Size = new System.Drawing.Size(324, 53);
             this.TxtOutroResponsavel.TabIndex = 5;
             // 
             // TxtPai
@@ -248,10 +248,10 @@ namespace Trilhar.Forms
             this.TxtPai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtPai.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPai.Location = new System.Drawing.Point(339, 41);
+            this.TxtPai.Location = new System.Drawing.Point(332, 41);
             this.TxtPai.Name = "TxtPai";
             this.TxtPai.ReadOnly = true;
-            this.TxtPai.Size = new System.Drawing.Size(330, 53);
+            this.TxtPai.Size = new System.Drawing.Size(323, 53);
             this.TxtPai.TabIndex = 3;
             // 
             // TxtMae
@@ -262,7 +262,7 @@ namespace Trilhar.Forms
             this.TxtMae.Location = new System.Drawing.Point(3, 41);
             this.TxtMae.Name = "TxtMae";
             this.TxtMae.ReadOnly = true;
-            this.TxtMae.Size = new System.Drawing.Size(330, 53);
+            this.TxtMae.Size = new System.Drawing.Size(323, 53);
             this.TxtMae.TabIndex = 1;
             // 
             // TxtDescricaoDeficienteAtipicos
@@ -270,11 +270,11 @@ namespace Trilhar.Forms
             this.TxtDescricaoDeficienteAtipicos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtDescricaoDeficienteAtipicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDescricaoDeficienteAtipicos.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.TxtDescricaoDeficienteAtipicos.Location = new System.Drawing.Point(675, 489);
+            this.TxtDescricaoDeficienteAtipicos.Location = new System.Drawing.Point(661, 489);
             this.TxtDescricaoDeficienteAtipicos.Multiline = true;
             this.TxtDescricaoDeficienteAtipicos.Name = "TxtDescricaoDeficienteAtipicos";
             this.TxtDescricaoDeficienteAtipicos.ReadOnly = true;
-            this.TxtDescricaoDeficienteAtipicos.Size = new System.Drawing.Size(332, 123);
+            this.TxtDescricaoDeficienteAtipicos.Size = new System.Drawing.Size(324, 123);
             this.TxtDescricaoDeficienteAtipicos.TabIndex = 27;
             // 
             // LblRestrincaoAlimentar
@@ -282,9 +282,9 @@ namespace Trilhar.Forms
             this.LblRestrincaoAlimentar.AutoSize = true;
             this.LblRestrincaoAlimentar.Dock = System.Windows.Forms.DockStyle.Top;
             this.LblRestrincaoAlimentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblRestrincaoAlimentar.Location = new System.Drawing.Point(339, 331);
+            this.LblRestrincaoAlimentar.Location = new System.Drawing.Point(332, 331);
             this.LblRestrincaoAlimentar.Name = "LblRestrincaoAlimentar";
-            this.LblRestrincaoAlimentar.Size = new System.Drawing.Size(330, 37);
+            this.LblRestrincaoAlimentar.Size = new System.Drawing.Size(323, 37);
             this.LblRestrincaoAlimentar.TabIndex = 20;
             this.LblRestrincaoAlimentar.Text = "Restrição alimentar:";
             // 
@@ -294,9 +294,9 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(339, 441);
+            this.label13.Location = new System.Drawing.Point(332, 441);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(330, 37);
+            this.label13.Size = new System.Drawing.Size(323, 37);
             this.label13.TabIndex = 22;
             this.label13.Text = "Descrição alimentar:";
             // 
@@ -304,7 +304,7 @@ namespace Trilhar.Forms
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(675, 0);
+            this.label6.Location = new System.Drawing.Point(661, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(287, 37);
             this.label6.TabIndex = 4;
@@ -314,7 +314,7 @@ namespace Trilhar.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(339, 0);
+            this.label5.Location = new System.Drawing.Point(332, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(209, 37);
             this.label5.TabIndex = 2;
@@ -339,7 +339,7 @@ namespace Trilhar.Forms
             this.TxtDescicaoAlergia.Multiline = true;
             this.TxtDescicaoAlergia.Name = "TxtDescicaoAlergia";
             this.TxtDescicaoAlergia.ReadOnly = true;
-            this.TxtDescicaoAlergia.Size = new System.Drawing.Size(330, 123);
+            this.TxtDescicaoAlergia.Size = new System.Drawing.Size(323, 123);
             this.TxtDescicaoAlergia.TabIndex = 19;
             // 
             // TxtDescricaoRestricaoAlimentar
@@ -347,11 +347,11 @@ namespace Trilhar.Forms
             this.TxtDescricaoRestricaoAlimentar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtDescricaoRestricaoAlimentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDescricaoRestricaoAlimentar.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.TxtDescricaoRestricaoAlimentar.Location = new System.Drawing.Point(339, 489);
+            this.TxtDescricaoRestricaoAlimentar.Location = new System.Drawing.Point(332, 489);
             this.TxtDescricaoRestricaoAlimentar.Multiline = true;
             this.TxtDescricaoRestricaoAlimentar.Name = "TxtDescricaoRestricaoAlimentar";
             this.TxtDescricaoRestricaoAlimentar.ReadOnly = true;
-            this.TxtDescricaoRestricaoAlimentar.Size = new System.Drawing.Size(330, 123);
+            this.TxtDescricaoRestricaoAlimentar.Size = new System.Drawing.Size(323, 123);
             this.TxtDescricaoRestricaoAlimentar.TabIndex = 23;
             // 
             // label9
@@ -370,9 +370,9 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(675, 441);
+            this.label14.Location = new System.Drawing.Point(661, 441);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(332, 37);
+            this.label14.Size = new System.Drawing.Size(324, 37);
             this.label14.TabIndex = 26;
             this.label14.Text = "Descrições atípicas:";
             // 
@@ -381,9 +381,9 @@ namespace Trilhar.Forms
             this.LblDeficiente.AutoSize = true;
             this.LblDeficiente.Dock = System.Windows.Forms.DockStyle.Top;
             this.LblDeficiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDeficiente.Location = new System.Drawing.Point(675, 331);
+            this.LblDeficiente.Location = new System.Drawing.Point(661, 331);
             this.LblDeficiente.Name = "LblDeficiente";
-            this.LblDeficiente.Size = new System.Drawing.Size(332, 37);
+            this.LblDeficiente.Size = new System.Drawing.Size(324, 37);
             this.LblDeficiente.TabIndex = 24;
             this.LblDeficiente.Text = "Deficiente / Atípicos:";
             // 
@@ -394,7 +394,7 @@ namespace Trilhar.Forms
             this.LblAlergia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblAlergia.Location = new System.Drawing.Point(3, 331);
             this.LblAlergia.Name = "LblAlergia";
-            this.LblAlergia.Size = new System.Drawing.Size(330, 37);
+            this.LblAlergia.Size = new System.Drawing.Size(323, 37);
             this.LblAlergia.TabIndex = 16;
             this.LblAlergia.Text = "Alergia:";
             // 
@@ -403,10 +403,10 @@ namespace Trilhar.Forms
             this.TxtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtEmail.Location = new System.Drawing.Point(339, 151);
+            this.TxtEmail.Location = new System.Drawing.Point(332, 151);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.ReadOnly = true;
-            this.TxtEmail.Size = new System.Drawing.Size(330, 53);
+            this.TxtEmail.Size = new System.Drawing.Size(323, 53);
             this.TxtEmail.TabIndex = 9;
             // 
             // label7
@@ -415,7 +415,7 @@ namespace Trilhar.Forms
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 106);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(329, 37);
+            this.label7.Size = new System.Drawing.Size(197, 42);
             this.label7.TabIndex = 6;
             this.label7.Text = "Telefone responsável:";
             // 
@@ -470,7 +470,7 @@ namespace Trilhar.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 114F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1010, 615);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(988, 615);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
             // label8
@@ -479,9 +479,9 @@ namespace Trilhar.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(339, 106);
+            this.label8.Location = new System.Drawing.Point(332, 106);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(330, 37);
+            this.label8.Size = new System.Drawing.Size(323, 37);
             this.label8.TabIndex = 8;
             this.label8.Text = "Endereço de email:";
             // 
@@ -494,7 +494,7 @@ namespace Trilhar.Forms
             this.TxtTelefone.Mask = "(99) 00000-0000";
             this.TxtTelefone.Name = "TxtTelefone";
             this.TxtTelefone.ReadOnly = true;
-            this.TxtTelefone.Size = new System.Drawing.Size(330, 53);
+            this.TxtTelefone.Size = new System.Drawing.Size(323, 53);
             this.TxtTelefone.TabIndex = 7;
             // 
             // label10
@@ -520,14 +520,14 @@ namespace Trilhar.Forms
             this.TxtCmbAlergia.Location = new System.Drawing.Point(4, 378);
             this.TxtCmbAlergia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtCmbAlergia.Name = "TxtCmbAlergia";
-            this.TxtCmbAlergia.Size = new System.Drawing.Size(328, 60);
+            this.TxtCmbAlergia.Size = new System.Drawing.Size(321, 60);
             this.TxtCmbAlergia.TabIndex = 17;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label11.Location = new System.Drawing.Point(339, 216);
+            this.label11.Location = new System.Drawing.Point(332, 216);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(216, 37);
             this.label11.TabIndex = 12;
@@ -543,17 +543,17 @@ namespace Trilhar.Forms
             this.TxtCmbRestrincaoAlimentar.Items.AddRange(new object[] {
             "NÃO",
             "SIM"});
-            this.TxtCmbRestrincaoAlimentar.Location = new System.Drawing.Point(340, 378);
+            this.TxtCmbRestrincaoAlimentar.Location = new System.Drawing.Point(333, 378);
             this.TxtCmbRestrincaoAlimentar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtCmbRestrincaoAlimentar.Name = "TxtCmbRestrincaoAlimentar";
-            this.TxtCmbRestrincaoAlimentar.Size = new System.Drawing.Size(328, 60);
+            this.TxtCmbRestrincaoAlimentar.Size = new System.Drawing.Size(321, 60);
             this.TxtCmbRestrincaoAlimentar.TabIndex = 21;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label12.Location = new System.Drawing.Point(675, 216);
+            this.label12.Location = new System.Drawing.Point(661, 216);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(227, 37);
             this.label12.TabIndex = 14;
@@ -569,10 +569,10 @@ namespace Trilhar.Forms
             this.TxtCmbDeficienteAtipicos.Items.AddRange(new object[] {
             "NÃO",
             "SIM"});
-            this.TxtCmbDeficienteAtipicos.Location = new System.Drawing.Point(676, 378);
+            this.TxtCmbDeficienteAtipicos.Location = new System.Drawing.Point(662, 378);
             this.TxtCmbDeficienteAtipicos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtCmbDeficienteAtipicos.Name = "TxtCmbDeficienteAtipicos";
-            this.TxtCmbDeficienteAtipicos.Size = new System.Drawing.Size(330, 60);
+            this.TxtCmbDeficienteAtipicos.Size = new System.Drawing.Size(322, 60);
             this.TxtCmbDeficienteAtipicos.TabIndex = 25;
             // 
             // TxtIgrejaBatismo
@@ -580,10 +580,10 @@ namespace Trilhar.Forms
             this.TxtIgrejaBatismo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtIgrejaBatismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.TxtIgrejaBatismo.Location = new System.Drawing.Point(675, 259);
+            this.TxtIgrejaBatismo.Location = new System.Drawing.Point(661, 259);
             this.TxtIgrejaBatismo.Name = "TxtIgrejaBatismo";
             this.TxtIgrejaBatismo.ReadOnly = true;
-            this.TxtIgrejaBatismo.Size = new System.Drawing.Size(332, 53);
+            this.TxtIgrejaBatismo.Size = new System.Drawing.Size(324, 53);
             this.TxtIgrejaBatismo.TabIndex = 15;
             // 
             // TxtCmbBatizado
@@ -597,18 +597,18 @@ namespace Trilhar.Forms
             "SIM"});
             this.TxtCmbBatizado.Location = new System.Drawing.Point(3, 259);
             this.TxtCmbBatizado.Name = "TxtCmbBatizado";
-            this.TxtCmbBatizado.Size = new System.Drawing.Size(330, 60);
+            this.TxtCmbBatizado.Size = new System.Drawing.Size(323, 60);
             this.TxtCmbBatizado.TabIndex = 11;
             // 
             // TxtDataBatismo
             // 
             this.TxtDataBatismo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtDataBatismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.TxtDataBatismo.Location = new System.Drawing.Point(339, 259);
+            this.TxtDataBatismo.Location = new System.Drawing.Point(332, 259);
             this.TxtDataBatismo.Mask = "00/00/0000";
             this.TxtDataBatismo.Name = "TxtDataBatismo";
             this.TxtDataBatismo.ReadOnly = true;
-            this.TxtDataBatismo.Size = new System.Drawing.Size(330, 53);
+            this.TxtDataBatismo.Size = new System.Drawing.Size(323, 53);
             this.TxtDataBatismo.TabIndex = 13;
             this.TxtDataBatismo.ValidatingType = typeof(System.DateTime);
             // 
@@ -666,7 +666,7 @@ namespace Trilhar.Forms
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1040, 54);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1018, 54);
             this.tableLayoutPanel2.TabIndex = 35;
             // 
             // statusStrip2
@@ -709,7 +709,7 @@ namespace Trilhar.Forms
             // 
             this.BtnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNovo.Location = new System.Drawing.Point(346, 49);
+            this.BtnNovo.Location = new System.Drawing.Point(324, 49);
             this.BtnNovo.Name = "BtnNovo";
             this.BtnNovo.Size = new System.Drawing.Size(123, 45);
             this.BtnNovo.TabIndex = 4;
@@ -721,7 +721,7 @@ namespace Trilhar.Forms
             // 
             this.BtnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnExcluir.Location = new System.Drawing.Point(622, 49);
+            this.BtnExcluir.Location = new System.Drawing.Point(600, 49);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(123, 45);
             this.BtnExcluir.TabIndex = 6;
@@ -733,7 +733,7 @@ namespace Trilhar.Forms
             // 
             this.BtnAlterar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAlterar.Location = new System.Drawing.Point(484, 49);
+            this.BtnAlterar.Location = new System.Drawing.Point(462, 49);
             this.BtnAlterar.Name = "BtnAlterar";
             this.BtnAlterar.Size = new System.Drawing.Size(123, 45);
             this.BtnAlterar.TabIndex = 5;
@@ -745,7 +745,7 @@ namespace Trilhar.Forms
             // 
             this.BtnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.Location = new System.Drawing.Point(898, 49);
+            this.BtnCancelar.Location = new System.Drawing.Point(876, 49);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(123, 45);
             this.BtnCancelar.TabIndex = 8;
@@ -757,7 +757,7 @@ namespace Trilhar.Forms
             // 
             this.BtnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSalvar.Location = new System.Drawing.Point(760, 49);
+            this.BtnSalvar.Location = new System.Drawing.Point(738, 49);
             this.BtnSalvar.Name = "BtnSalvar";
             this.BtnSalvar.Size = new System.Drawing.Size(123, 45);
             this.BtnSalvar.TabIndex = 7;
@@ -784,7 +784,7 @@ namespace Trilhar.Forms
             this.CmbTurmaAtual.Location = new System.Drawing.Point(920, 220);
             this.CmbTurmaAtual.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CmbTurmaAtual.Name = "CmbTurmaAtual";
-            this.CmbTurmaAtual.Size = new System.Drawing.Size(100, 60);
+            this.CmbTurmaAtual.Size = new System.Drawing.Size(78, 60);
             this.CmbTurmaAtual.TabIndex = 20;
             // 
             // TxtTurmaAtual
@@ -795,7 +795,7 @@ namespace Trilhar.Forms
             this.TxtTurmaAtual.Location = new System.Drawing.Point(920, 220);
             this.TxtTurmaAtual.Name = "TxtTurmaAtual";
             this.TxtTurmaAtual.ReadOnly = true;
-            this.TxtTurmaAtual.Size = new System.Drawing.Size(100, 57);
+            this.TxtTurmaAtual.Size = new System.Drawing.Size(78, 57);
             this.TxtTurmaAtual.TabIndex = 19;
             // 
             // numericUpDown1
@@ -829,7 +829,7 @@ namespace Trilhar.Forms
             // 
             this.linkLabelBuscarPelaTurma.AutoSize = true;
             this.linkLabelBuscarPelaTurma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelBuscarPelaTurma.Location = new System.Drawing.Point(17, 43);
+            this.linkLabelBuscarPelaTurma.Location = new System.Drawing.Point(823, 9);
             this.linkLabelBuscarPelaTurma.Name = "linkLabelBuscarPelaTurma";
             this.linkLabelBuscarPelaTurma.Size = new System.Drawing.Size(268, 29);
             this.linkLabelBuscarPelaTurma.TabIndex = 0;
@@ -841,7 +841,7 @@ namespace Trilhar.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 749);
+            this.ClientSize = new System.Drawing.Size(1018, 749);
             this.Controls.Add(this.BtnAlterar);
             this.Controls.Add(this.TxtDataNascimento);
             this.Controls.Add(this.numericUpDown1);
