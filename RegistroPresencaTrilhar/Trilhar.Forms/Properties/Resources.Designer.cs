@@ -59,5 +59,15 @@ namespace Trilhar.Forms.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _306851391_184419230793042_1722116933377978026_n_9shD53QGo_transformed {
+            get {
+                object obj = ResourceManager.GetObject("306851391_184419230793042_1722116933377978026_n-9shD53QGo-transformed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

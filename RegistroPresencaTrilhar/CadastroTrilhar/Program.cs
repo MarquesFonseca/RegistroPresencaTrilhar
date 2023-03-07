@@ -20,7 +20,7 @@ namespace CadastroTrilhar
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Trilhar.Forms.Principal());
+            Application.Run(new Trilhar.Forms.FormPrincipal());
             
             Log.CloseAndFlush();
         }

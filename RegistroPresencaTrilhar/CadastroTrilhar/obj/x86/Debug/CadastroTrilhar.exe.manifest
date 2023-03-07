@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>e4R9m833g3g80lCEkApmJZCUXuFGi3jG/rTpS1N1Pdg=</dsig:DigestValue>
+        <dsig:DigestValue>i1ihk8OrgWOCAKRw+2pe9LKYUr4/oc13OY3UjxRyu+8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -139,14 +139,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.dll" size="515584">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Trilhar.Forms.dll" size="827392">
       <assemblyIdentity name="Trilhar.Forms" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mzrHXW9ha9Gxyg/ihEA8ZGhPrtRyy58JELEubUjZKxE=</dsig:DigestValue>
+        <dsig:DigestValue>hMP1Gj3cbT/8Wa8ZfxZXByqLisKyu/C/m07Zsm1bDvQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="pt-BR\Trilhar.Forms.resources.dll" size="152064">
+      <assemblyIdentity name="Trilhar.Forms.resources" version="1.0.0.0" language="pt-BR" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>/IofZXpNoG3OwQEkI0lP8YpFqZM+Kfpdhb1SNLkHZSI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

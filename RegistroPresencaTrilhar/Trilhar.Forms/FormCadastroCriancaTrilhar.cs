@@ -15,7 +15,7 @@ using System.Reflection;
 
 namespace Trilhar.Forms
 {
-    public partial class Principal : Form
+    public partial class FormCadastroCriancaTrilhar : Form
     {
         private static readonly ILogger logger = Log.Logger;
 
@@ -25,9 +25,13 @@ namespace Trilhar.Forms
 
         public EstadoFormularioCadastro estadoFormularioCadastro;
 
-        public Principal()
+        public FormCadastroCriancaTrilhar()
         {
             InitializeComponent();
+
+#if (DEBUG)
+            TxtId.Visible = true;
+#endif
         }
 
         private void Principal_Load(object sender, EventArgs e)
@@ -36,17 +40,9 @@ namespace Trilhar.Forms
             logger.Information("Entrou no método: {@Valor1}()", MethodBase.GetCurrentMethod().Name);
             //logger.Information("\t\tParametro entrada: {@Valor1}", "");
 
-            clock.Start();
-
             AlterarEstadoFormulario(EstadoFormularioCadastro.Inicio);
-
+            
             //AtualizaDados();           
-        }
-
-        private void clock_Tick(object sender, EventArgs e)
-        {
-            toolStripStatusLabelDiaSemana.Text = DateTime.Now.ToLongDateString().ToString();
-            toolStripStatusLabelDataHora.Text = DateTime.Now.ToLongTimeString().ToString();
         }
 
         private void AlterarEstadoFormulario(EstadoFormularioCadastro EstadoAtual)
@@ -59,11 +55,6 @@ namespace Trilhar.Forms
                 #region Acao.Inicio
                 case EstadoFormularioCadastro.Inicio:
                     // TODO: Acao.Inicio:
-                    toolStripStatusLabelDiaSemana.Text = "";
-                    toolStripStatusLabelDataHora.Text = "";
-                    toolStripStatusLabelUltimaAtualizacao.Text = "";
-                    toolStripStatusLabelTotalRegistros.Text = "";
-
                     TxtTurmaAtual.Visible = TxtDataNascimento.Visible = true;
                     CmbTurmaAtual.Visible = false;
 
@@ -254,13 +245,18 @@ namespace Trilhar.Forms
             logger.Information("\t\tParametro entrada: {@Valor1}", new { itemAtual });
 
             //TODO: CarregaCampos()
-            valuesDTOAtual = itemAtual;
+            valuesDTOAtual = itemAtual;            
 
             #region CodigoCadastro
             numericUpDown1.Value = itemAtual != null && itemAtual.CodigoCadastro != null
                     ? Convert.ToDecimal(itemAtual.CodigoCadastro)
                     : 0000;
 
+            #endregion
+
+            #region id
+            var record = recordsList.Where(M => M.values.Adapt<Values, ValuesDTO>().CodigoCadastro == itemAtual.CodigoCadastro).FirstOrDefault();
+            TxtId.Text = record.id;
             #endregion
 
             #region NomeCrianca
@@ -625,9 +621,6 @@ namespace Trilhar.Forms
                     BtnAlterar.Enabled = false;
                     BtnExcluir.Enabled = false;
 
-                    toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
-                    toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", 0);
-
                     numericUpDown1.Focus();
                     numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
                 }
@@ -636,9 +629,6 @@ namespace Trilhar.Forms
                     ValuesDTO lastRecord = valuesDTOList.OrderBy(r => r.CodigoCadastro).Last();
                     CarregaCampos(lastRecord);
                     AlterarEstadoFormulario(EstadoFormularioCadastro.Preenchido);
-
-                    toolStripStatusLabelUltimaAtualizacao.Text = string.Format("Atualizado às {0}", DateTime.Now.ToLongTimeString());
-                    toolStripStatusLabelTotalRegistros.Text = string.Format("Total de registros: {0}", valuesDTOList.Count);
                 }
             }
             catch (Exception ex)
@@ -751,15 +741,7 @@ namespace Trilhar.Forms
 
         private void Principal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Deseja realmente fechar a aplicação?", "Fechar Aplicação", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-            else
-            {
-                logger.Information("Fechando o principal.");
-            }
+
         }
 
         private void BtnNovo_Click(object sender, EventArgs e)
@@ -918,6 +900,11 @@ namespace Trilhar.Forms
                 logger.Information("Campos formulário: {@Valor1}", new { novoValueDTO });
 
                 Record retornoNovoRecord = await new IntegracaoQuintaDBTrilharControle().InserirAsync<ValuesDTO>(novoValueDTO);
+
+#if (DEBUG)
+                Clipboard.SetText(retornoNovoRecord.id);
+#endif
+
                 logger.Information("Retorno: {@Valor1}", new { retornoNovoRecord });
                 recordsList.Add(retornoNovoRecord);
                 logger.Information("Adicionado a lista: {@Valor1}", new { retornoNovoRecord });
@@ -977,6 +964,9 @@ namespace Trilhar.Forms
                 Record itemAtual = recordsList.Where(obj => obj.values.Adapt<Values, ValuesDTO>().CodigoCadastro.Trim() == CodigoCadastroAtual.Trim()).FirstOrDefault();
 
                 Record retornoAlteracaoRecord = await new IntegracaoQuintaDBTrilharControle().AlterarAsync<ValuesDTO>(itemAtual.id, alteracaoValueDTO);
+#if (DEBUG)
+                Clipboard.SetText(retornoAlteracaoRecord.id);
+#endif
                 logger.Information("Retorno: {@Valor1}", new { retornoAlteracaoRecord });
                 if (retornoAlteracaoRecord.id == null)
                 {

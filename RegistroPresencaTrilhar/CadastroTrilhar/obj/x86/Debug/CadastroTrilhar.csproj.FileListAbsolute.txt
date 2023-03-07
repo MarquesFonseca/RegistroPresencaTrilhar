@@ -33,3 +33,4 @@ C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPrese
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\x86\Debug\CadastroTrilhar.csproj.CopyComplete
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\x86\Debug\CadastroTrilhar.exe
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\obj\x86\Debug\CadastroTrilhar.pdb
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\CadastroTrilhar\bin\Debug\pt-BR\Trilhar.Forms.resources.dll

@@ -1,0 +1,56 @@
+curl -H 'Content-Type: application/json' -X GET -d '{}' 'https://quintadb.com/entities/cupCkNWP1eqyoXWPtcMmoM/get_rel_id/c-xfGFlCnhzyk1W6pdKmow.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+
+Aluno
+cRW69KWOrdR4oaWO_dS8k-
+
+cyW4r8W7DhW6ZcS8kjW6fy
+Chamada Branco
+
+-------------------------------------
+id	"ddSmkgWRDkW5tcNbj7WOql"
+entity_id	"ddNhNdOmndEPZdSNLeAr43"
+name	"DATA PRESENÇA"
+-----------------------------------
+
+-----------------------------------
+id	"ddRMpdJ8jgWPGCWQhcMmoS"
+entity_id	"ddNhNdOmndEPZdSNLeAr43"
+name	"Relacionamento"
+-----------------------------------
+                                                                                                         Aluno                                 "DATA PRESENÇA"
+curl -H 'Content-Type: application/json' -X PUT -d '{"val": ""}' 'https://quintadb.com/cell_values/cRW69KWOrdR4oaWO_dS8k-/update_cell_value/ddSmkgWRDkW5tcNbj7WOql.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+curl -H 'Content-Type: application/json' -X PUT -d '{"val": ""}' 'https://quintadb.com/cell_values/cRW69KWOrdR4oaWO_dS8k-/update_cell_value/ddSmkgWRDkW5tcNbj7WOql.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE'
+
+
+Aluno
+cRW69KWOrdR4oaWO_dS8k-
+
+https://quintadb.com/apps/aGgLbrWO9cPP88W4WXkf55/dtypes/cRW69KWOrdR4oaWO_dS8k-.json?rest_api_key=blwCkVWPnbdiJcSh44d8oE
+
+{
+    "rel": {
+        "rel_id": ["cRW69KWOrdR4oaWO_dS8k-"]
+    }
+}
+
+resuldado
+{
+    "record": {
+        "id": "cRW69KWOrdR4oaWO_dS8k-",
+        "app_id": "aGgLbrWO9cPP88W4WXkf55",
+        "entity_id": "cupCkNWP1eqyoXWPtcMmoM",
+        "values": {
+            "axdSotECjbuzdcLGtdHfTI": "10/10/2022",
+            "bNF2CMbHPldQ9zWQRdJx1w": "NÃO",
+            "bsWOS1bwPegikrWQ3cGSob": "NÃO",
+            "bWWQqIfuLpW43dMtRcG8oN": "NÃO",
+            "cdo8kfWODhW4GCW6LwjmoG": "NÃO",
+            "cluCkFshndGzatxtRcKSoa": "Aaaaaaaaaaa",
+            "cRWPtcLSjijORdRCo5WRnR": "BRANCO/ROSA (0 A 11 M)",
+            "dcPfSQWPrdP4o2ccRdLNKz": "1618"
+        },
+        "approved": false,
+        "created_at": "2023-03-06T17:29:18.000-06:00",
+        "updated_at": "2023-03-06T18:21:07.000-06:00"
+    }
+}

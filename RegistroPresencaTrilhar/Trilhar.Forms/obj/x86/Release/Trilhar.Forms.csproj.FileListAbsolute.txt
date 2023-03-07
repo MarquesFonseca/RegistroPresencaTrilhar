@@ -22,9 +22,14 @@ C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPrese
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\x86\Release\Trilhar.Mapeamento.pdb
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.csprojAssemblyReference.cache
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.FormBuscar.resources
-C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.Principal.resources
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.Properties.Resources.resources
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.csproj.GenerateResource.cache
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.csproj.CopyComplete
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.dll
 C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.pdb
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\bin\x86\Release\pt-BR\Trilhar.Forms.resources.dll
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.FormInicial.resources
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.FormPrincipal.resources
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.FormCadastroCriancaTrilhar.resources
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\Trilhar.Forms.FormPrincipal.pt-BR.resources
+C:\Users\MarquesLenovo-PC\Documents\GitHub\RegistroPresencaTrilhar\RegistroPresencaTrilhar\Trilhar.Forms\obj\x86\Release\pt-BR\Trilhar.Forms.resources.dll
