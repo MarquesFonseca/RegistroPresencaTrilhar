@@ -1,7 +1,15 @@
 Para criar um repositório
 criar a pasta no windows normalmente.
 clicar com o botão direito dentro da pasta e "Git Bash Here".
-[git init] (vai criar um arquivo oculto .git)
+[git init]	(vai criar um arquivo oculto .git)
 criar um txt teste
-[git status] (Verifica quais arquivos não foram adicionados ou modificados)
-[git add .] (adiciona todos os arquivos pendentes para o controle de versão.)
+[git status]	(Verifica quais arquivos não foram adicionados ou modificados)
+[git add .]	(adiciona todos os arquivos pendentes para o controle de versão.)
+[git commit -m "mensagem inicial"]	(marca os enviados)
+caso github já esteja configurado basta usar o [git push] (assim subirá para o site do github)
+caso não tenha o github configurado, deve seguir os passos abaixo...
+[git push <name> | ex: git push] (Você terá que informar para qual reposirio deseja enviar)
+exemplo: git remote add origin https://github.com/MarquesFonseca/RegistroPresencaTrilhar
+apos ter feito isso deve informar a branch a ser enviada
+[git push --set-upstream origin master] (Enviando para branch master) 
+(vai pedir a tela de login)
