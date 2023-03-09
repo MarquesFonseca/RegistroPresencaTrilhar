@@ -1,1 +1,7 @@
-1111111
+Para criar um repositório
+criar a pasta no windows normalmente.
+clicar com o botão direito dentro da pasta e "Git Bash Here".
+[git init] (vai criar um arquivo oculto .git)
+criar um txt teste
+[git status] (Verifica quais arquivos não foram adicionados ou modificados)
+[git add .] (adiciona todos os arquivos pendentes para o controle de versão.)
