@@ -13,3 +13,4 @@ exemplo: git remote add origin https://github.com/MarquesFonseca/RegistroPresenc
 apos ter feito isso deve informar a branch a ser enviada
 [git push --set-upstream origin master] (Enviando para branch master) 
 (vai pedir a tela de login)
+[git reglog] (ver o historico)
